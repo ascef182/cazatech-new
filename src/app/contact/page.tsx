@@ -8,26 +8,6 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import emailjs from "@emailjs/browser";
 
-const emailjsConfig = {
-  serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-  templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-  publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
-};
-
-if (
-  !emailjsConfig.serviceId ||
-  !emailjsConfig.templateId ||
-  !emailjsConfig.publicKey
-) {
-  throw new Error("Configuração do EmailJS incompleta");
-}
-
-const { serviceId, templateId, publicKey } = emailjsConfig as {
-  serviceId: string;
-  templateId: string;
-  publicKey: string;
-};
-
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
@@ -35,11 +15,20 @@ export default function ContactPage() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isConfigured, setIsConfigured] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    if (!formRef.current) {
-      console.error("Formulário não encontrado");
+    // Verificação assíncrona das variáveis de ambiente
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("Configuração do EmailJS incompleta");
+      toast.error("O formulário de contato não está disponível no momento");
+    } else {
+      setIsConfigured(true);
     }
   }, []);
 
@@ -52,6 +41,12 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!isConfigured) {
+      toast.error("O serviço de email não está configurado corretamente");
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -68,31 +63,28 @@ export default function ContactPage() {
 
       // Inicialização do EmailJS
       try {
-        await emailjs.init(publicKey);
+        await emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!);
       } catch (initError: unknown) {
         const message =
           initError instanceof Error ? initError.message : "Erro desconhecido";
         throw new Error(`Falha ao inicializar: ${message}`);
       }
 
-      // Parâmetros que correspondem EXATAMENTE ao template
+      // Parâmetros do template
       const templateParams = {
-        from_name: formData.name, // Corresponde ao {{from_name}} no template
-        from_email: formData.email, // Corresponde ao {{from_email}} no template
-        message: formData.message, // Adicione se seu template usar {{message}}
-        reply_to: formData.email, // Corresponde ao {{reply_to}} no template
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        reply_to: formData.email,
       };
 
       // Envio do email
-      const result = await emailjs
-        .send(serviceId, templateId, templateParams, publicKey)
-        .catch((err: { status?: number; text?: string }) => {
-          console.error("Erro no envio:", {
-            status: err.status,
-            message: err.text,
-          });
-          throw new Error(err.text || "Falha ao enviar mensagem");
-        });
+      const result = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
 
       if (result.status !== 200) {
         throw new Error(`Status inesperado: ${result.status}`);
@@ -113,6 +105,22 @@ export default function ContactPage() {
     }
   };
 
+  if (!isConfigured) {
+    return (
+      <section className="py-24">
+        <div className="container max-w-4xl text-center">
+          <h1 className="text-4xl md:text-6xl font-medium mb-6">
+            Formulário de Contato
+          </h1>
+          <p className="text-xl text-red-600">
+            O formulário não está disponível no momento devido a problemas de
+            configuração.
+          </p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="py-24">
       <div className="container max-w-4xl">
@@ -129,7 +137,6 @@ export default function ContactPage() {
           </h1>
         </div>
 
-        {/* Correção final do aria-busy */}
         <form
           onSubmit={handleSubmit}
           ref={formRef}

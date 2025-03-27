@@ -81,8 +81,8 @@ export default function Footer() {
   const contactInfo = [
     {
       icon: <FiPhone className="mr-2" />,
-      text: "+55 11 5199-8147",
-      href: "tel:+551151998147",
+      text: "+55 11 934154811",
+      href: "tel:+55934154811",
     },
     {
       icon: <FiMail className="mr-2" />,
