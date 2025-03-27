@@ -22,7 +22,7 @@ interface BlogPost {
   content: string;
 }
 
-const getPost = async (slug: string): Promise<BlogPost | undefined> => {
+const getPost = async (slug: string): Promise<BlogPost | null> => {
   // Simulação de banco de dados
   await new Promise((resolve) => setTimeout(resolve, 100));
 
@@ -43,7 +43,7 @@ const getPost = async (slug: string): Promise<BlogPost | undefined> => {
         avatar: "https://randomuser.me/api/portraits/women/44.jpg",
       },
       tags: ["LinkedIn", "Marketing B2B", "Conteúdo Educativo"],
-      content: `<article>...</article>`,
+      content: "<article>...</article>",
     },
     {
       id: "ferramentas-marketing-2024",
@@ -61,7 +61,7 @@ const getPost = async (slug: string): Promise<BlogPost | undefined> => {
         avatar: "https://randomuser.me/api/portraits/men/32.jpg",
       },
       tags: ["Ferramentas", "Automação", "SEO"],
-      content: `<article>...</article>`,
+      content: "<article>...</article>",
     },
     {
       id: "case-vendas-alimenticio",
@@ -79,17 +79,16 @@ const getPost = async (slug: string): Promise<BlogPost | undefined> => {
         avatar: "https://randomuser.me/api/portraits/women/68.jpg",
       },
       tags: ["Case", "Vendas", "Resultados", "Setor Alimentício"],
-      content: `<article>...</article>`,
+      content: "<article>...</article>",
     },
   ];
 
-  return posts.find((post) => post.id === slug);
+  return posts.find((post) => post.id === slug) || null;
 };
 
 interface PageProps {
-  params: {
-    slug: string;
-  };
+  params: { slug: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
