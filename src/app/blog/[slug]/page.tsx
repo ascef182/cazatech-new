@@ -9,11 +9,17 @@ import { getPostBySlug } from "@/lib/posts";
 
 interface PageProps {
   params: { slug: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-export default async function BlogPostPage({ params }: PageProps) {
-  const { slug } = params;
-  const post = getPostBySlug(slug);
+export default async function BlogPostPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  // Corrigido: Aguardando a resolução dos params
+  const { slug } = await Promise.resolve(params);
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     return notFound();
