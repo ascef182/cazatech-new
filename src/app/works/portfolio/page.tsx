@@ -1,308 +1,354 @@
 import React from "react";
 import { Metadata } from "next";
 import Image from "next/image";
-import {
-  FaPalette,
-  FaCalendarAlt,
-  FaQuoteLeft,
-  FaHandSparkles,
-} from "react-icons/fa";
-import { SiBootstrap } from "react-icons/si";
+import { FaPalette } from "react-icons/fa";
+import { FiCalendar } from "react-icons/fi";
+import { FiMessageSquare } from "react-icons/fi";
+import { FiLayers } from "react-icons/fi";
 
 export const metadata: Metadata = {
-  title: "Portfólio Miguel Cigano | CazaTech",
+  title: "Estudo de Caso | Portfólio Artístico - CazaTech",
   description:
-    "Website impactante para apresentação do trabalho artístico do tatuador Miguel Cigano.",
+    "Website para apresentação de portfólio artístico com design minimalista e alta performance.",
 };
 
 const PortfolioPage = () => {
   const projectData = {
-    id: "portfolio",
-    title: "Portfólio Website",
-    category: "Portfólio",
+    title: "Portfólio Digital para Artista",
+    category: "Estudo de Caso",
     description:
-      "Miguel é um tatuador de Belo Horizonte e necessitava apresentar seu trabalho artístico de forma impactante.",
+      "Solução digital elegante para artistas visuais apresentarem seu trabalho de forma profissional e impactante.",
     image: "/images/portfolio5.png",
-    client: "Miguel Cigano",
-    services: ["Design", "Desenvolvimento", "Estratégia"],
-    year: "2023",
-    design: {
-      colors:
-        "Tons sóbrios (preto, cinza, branco) com detalhes em vermelho vibrante",
-      typography: "Raleway (títulos) + Montserrat (corpo)",
-      layoutFeatures: [
-        "Hierarquia visual clara com seções dedicadas",
-        "Grid responsivo interativo",
-        "Parallax scrolling narrativo",
+    overview: {
+      client: "Miguel ",
+      role: "Tatuador ",
+      location: "Belo Horizonte, MG",
+      services: [
+        "Design de Interface",
+        "Desenvolvimento Web",
+        "Otimização SEO",
       ],
-      uxFeatures: [
-        "Navegação inteligente com menu fixo",
-        "CTAs animados com efeitos hover",
-        "Design mobile-first",
-      ],
+      year: "2023",
+    },
+    designSystem: {
+      colors: ["#000000", "#1A1A1A", "#FFFFFF", "#F5F5F5"],
+      typography: {
+        primary: "Inter (Sans-serif)",
+        secondary: "DM Sans (Headings)",
+      },
+      principles: ["Minimalismo", "Foco no conteúdo", "Hierarquia visual"],
     },
     features: [
-      "Galeria filtrada por estilos de tatuagem",
-      "Sistema de agendamento integrado",
-      "Seção de depoimentos interativa",
+      {
+        icon: <FaPalette />,
+        title: "Galeria Organizada",
+        description: "Apresentação de trabalhos por categorias e estilos",
+      },
+      {
+        icon: <FiCalendar />,
+        title: "Agendamento Integrado",
+        description: "Sistema de marcações direto pelo website",
+      },
+      {
+        icon: <FiMessageSquare />,
+        title: "Seção de Depoimentos",
+        description: "Avaliações verificadas de clientes",
+      },
+      {
+        icon: <FiLayers />,
+        title: "Design Responsivo",
+        description: "Experiência perfeita em todos os dispositivos",
+      },
     ],
-    technologies: {
-      frontend: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5"],
-      plugins: ["Chocolat.js", "Slick Slider", "Animate.css"],
-    },
+    gallery: [
+      { src: "/images/gallery-view.jpg", alt: "Visualização da galeria" },
+      { src: "/images/booking-view.jpg", alt: "Sistema de agendamento" },
+      { src: "/images/mobile-view.jpg", alt: "Versão mobile" },
+    ],
     demoUrl: "https://ascef182.github.io/Miguel-tattoo/",
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 bg-white">
-      {/* Cabeçalho */}
-      <header className="mb-12 text-center">
-        <span className="text-red-600 font-medium bg-gray-100 px-4 py-1 rounded-full inline-block">
-          {projectData.category}
-        </span>
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-4 font-raleway">
-          {projectData.title}
-        </h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto font-montserrat">
-          {projectData.description}
-        </p>
-      </header>
-
-      {/* Imagem principal */}
-      <div className="rounded-xl overflow-hidden shadow-lg mb-12 max-w-5xl mx-auto bg-gray-100 p-1">
-        <div className="relative aspect-video w-full">
-          <Image
-            src={projectData.image}
-            alt={`Captura de tela do ${projectData.title}`}
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-      </div>
-
-      {/* Detalhes do projeto */}
-      <div className="grid md:grid-cols-3 gap-12 mb-16">
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 font-raleway">
-            Informações
-          </h2>
-          <ul className="space-y-3 font-montserrat">
-            <li>
-              <span className="font-medium">Cliente:</span> {projectData.client}
-            </li>
-            <li>
-              <span className="font-medium">Serviços:</span>{" "}
-              {projectData.services.join(", ")}
-            </li>
-            <li>
-              <span className="font-medium">Ano:</span> {projectData.year}
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 font-raleway">
-            Design
-          </h2>
-          <ul className="space-y-3 font-montserrat">
-            <li>
-              <span className="font-medium">Cores:</span>
-              <div className="flex gap-2 mt-2">
-                <div
-                  className="w-6 h-6 rounded-full bg-black"
-                  title="Preto"
-                ></div>
-                <div
-                  className="w-6 h-6 rounded-full bg-gray-500"
-                  title="Cinza"
-                ></div>
-                <div
-                  className="w-6 h-6 rounded-full bg-white border border-gray-300"
-                  title="Branco"
-                ></div>
-                <div
-                  className="w-6 h-6 rounded-full bg-red-600"
-                  title="Vermelho vibrante"
-                ></div>
-              </div>
-            </li>
-            <li className="mt-3">
-              <span className="font-medium">Tipografia:</span>{" "}
-              {projectData.design.typography}
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 font-raleway">
-            Tecnologias
-          </h2>
-          <div className="mb-4">
-            <h3 className="font-medium font-montserrat">Frontend:</h3>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {projectData.technologies.frontend.map((tech) => (
-                <span
-                  key={tech}
-                  className="bg-gray-100 px-3 py-1 rounded-full text-sm flex items-center font-montserrat"
-                >
-                  {tech === "Bootstrap 5" && (
-                    <SiBootstrap className="mr-1 text-purple-500" />
-                  )}
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h3 className="font-medium font-montserrat">Plugins:</h3>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {projectData.technologies.plugins.map((plugin) => (
-                <span
-                  key={plugin}
-                  className="bg-gray-100 px-3 py-1 rounded-full text-sm font-montserrat"
-                >
-                  {plugin}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Recursos do design */}
-      <section className="mb-16 bg-gray-50 p-8 rounded-xl">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6 font-raleway">
-          Abordagem Criativa
-        </h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-4 font-raleway">
-              Layout
-            </h3>
-            <ul className="space-y-3 font-montserrat">
-              {projectData.design.layoutFeatures.map((feature, index) => (
-                <li key={index} className="flex items-start">
-                  <span className="text-red-600 mr-2 mt-1">•</span>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-4 font-raleway">
-              Experiência do Usuário
-            </h3>
-            <ul className="space-y-3 font-montserrat">
-              {projectData.design.uxFeatures.map((feature, index) => (
-                <li key={index} className="flex items-start">
-                  <span className="text-red-600 mr-2 mt-1">•</span>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Destaques */}
-      <section className="mb-16">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6 font-raleway">
-          Funcionalidades Principais
-        </h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all hover:border-red-100">
-            <div className="text-red-600 text-2xl mb-3">
-              <FaPalette />
-            </div>
-            <h3 className="font-semibold text-lg mb-2 font-raleway">
-              Galeria de Trabalhos
-            </h3>
-            <p className="text-gray-600 font-montserrat">
-              Apresentação filtrada por diferentes estilos de tatuagem.
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all hover:border-red-100">
-            <div className="text-red-600 text-2xl mb-3">
-              <FaCalendarAlt />
-            </div>
-            <h3 className="font-semibold text-lg mb-2 font-raleway">
-              Agendamento
-            </h3>
-            <p className="text-gray-600 font-montserrat">
-              Sistema integrado para marcação de sessões.
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all hover:border-red-100">
-            <div className="text-red-600 text-2xl mb-3">
-              <FaQuoteLeft />
-            </div>
-            <h3 className="font-semibold text-lg mb-2 font-raleway">
-              Depoimentos
-            </h3>
-            <p className="text-gray-600 font-montserrat">
-              Seção interativa com avaliações de clientes.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Galeria de Screenshots */}
-      <section className="mb-16">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6 font-raleway">
-          Visualização do Website
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-gray-100 p-4 rounded-lg">
-            <div className="relative aspect-video w-full bg-white">
-              <Image
-                src="/images/miguel-gallery.png" // Substitua pela imagem real
-                alt="Galeria de trabalhos"
-                fill
-                className="object-contain"
-              />
-            </div>
-            <p className="mt-3 text-center text-gray-600 font-montserrat">
-              Galeria de Tatuagens
-            </p>
-          </div>
-          <div className="bg-gray-100 p-4 rounded-lg">
-            <div className="relative aspect-video w-full bg-white">
-              <Image
-                src="/images/miguel-booking.png" // Substitua pela imagem real
-                alt="Sistema de agendamento"
-                fill
-                className="object-contain"
-              />
-            </div>
-            <p className="mt-3 text-center text-gray-600 font-montserrat">
-              Agendamento Online
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="text-center py-12 bg-black rounded-xl text-white">
-        <div className="max-w-2xl mx-auto">
-          <FaHandSparkles className="text-red-600 text-4xl mx-auto mb-4" />
-          <h2 className="text-2xl font-bold mb-4 font-raleway">
-            Explore o Portfólio Completo
-          </h2>
-          <p className="text-gray-300 mb-6 font-montserrat">
-            Visite o website ao vivo e veja como criamos uma experiência
-            imersiva para mostrar o trabalho artístico do Miguel.
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="relative bg-gray-900 text-white py-20">
+        <div className="absolute inset-0 bg-black/50 z-10" />
+        <Image
+          src="https://www.lummi.ai/api/render/image/94e77aa2-982a-4fa0-95c9-c8d6028fc4f0?token=eyJhbGciOiJIUzI1NiJ9.eyJpZCI6Ijk0ZTc3YWEyLTk4MmEtNGZhMC05NWM5LWM4ZDYwMjhmYzRmMCIsImRvd25sb2FkU2l6ZSI6Im1lZGl1bSIsInJlbmRlclNwZWNzIjp7ImVmZmVjdHMiOnsicmVmcmFtZSI6e319fSwic2hvdWxkQXV0b0Rvd25sb2FkIjpmYWxzZSwianRpIjoiMmtKUHJ0RDZUaWg5b2JCb2QxU0VXIiwiaWF0IjoxNzQzMTE1NTcwLCJleHAiOjE3NDMxMTU2MzB9.L11Afb5MPJAveALUx-i873-xAWBZU7m6xMu9ARx0Urk"
+          alt="Estúdio de tatuagem"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="container mx-auto px-6 relative z-20">
+          <span className="inline-block bg-white/10 backdrop-blur-sm text-white px-4 py-1 rounded-full text-sm mb-4">
+            {projectData.category}
+          </span>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 max-w-2xl">
+            {projectData.title}
+          </h1>
+          <p className="text-xl text-gray-300 max-w-2xl mb-8">
+            {projectData.description}
           </p>
           <a
             href={projectData.demoUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-8 rounded-lg transition-colors font-montserrat"
+            className="inline-flex items-center bg-white text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
           >
-            Ver Portfólio
+            Ver Projeto Online
+            <svg
+              className="ml-2 w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
           </a>
+        </div>
+      </section>
+
+      {/* Project Overview */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <div className="relative aspect-video w-full">
+              <Image
+                src={projectData.image}
+                alt="Visualização do projeto"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-3xl font-bold mb-8">Visão Geral do Projeto</h2>
+
+            <div className="grid grid-cols-2 gap-6 mb-8">
+              <div>
+                <h3 className="text-sm font-semibold text-gray-500 mb-1">
+                  Cliente
+                </h3>
+                <p className="text-lg">{projectData.overview.client}</p>
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-gray-500 mb-1">
+                  Atuação
+                </h3>
+                <p className="text-lg">{projectData.overview.role}</p>
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-gray-500 mb-1">
+                  Localização
+                </h3>
+                <p className="text-lg">{projectData.overview.location}</p>
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-gray-500 mb-1">
+                  Ano
+                </h3>
+                <p className="text-lg">{projectData.overview.year}</p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold text-gray-500 mb-2">
+                Serviços Prestados
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {projectData.overview.services.map((service, index) => (
+                  <span
+                    key={index}
+                    className="bg-gray-100 px-3 py-1 rounded-full text-sm"
+                  >
+                    {service}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Design System */}
+      <section className="py-16 bg-gray-100">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold mb-12 text-center">
+            Sistema de Design
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Paleta de Cores</h3>
+              <div className="flex gap-3">
+                {projectData.designSystem.colors.map((color, index) => (
+                  <div
+                    key={index}
+                    className="w-12 h-12 rounded-lg shadow-sm"
+                    style={{ backgroundColor: color }}
+                    title={color}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Tipografia</h3>
+              <div className="space-y-2">
+                <p
+                  className="text-2xl font-bold"
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {projectData.designSystem.typography.secondary}
+                </p>
+                <p
+                  className="text-lg"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                >
+                  {projectData.designSystem.typography.primary}
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Princípios</h3>
+              <ul className="space-y-2">
+                {projectData.designSystem.principles.map((principle, index) => (
+                  <li key={index} className="flex items-center">
+                    <svg
+                      className="w-4 h-4 mr-2 text-gray-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    {principle}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold mb-12 text-center">
+            Funcionalidades Principais
+          </h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {projectData.features.map((feature, index) => (
+              <div
+                key={index}
+                className="bg-gray-50 p-6 rounded-xl hover:shadow-md transition-all"
+              >
+                <div className="text-3xl mb-4 text-gray-800">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                <p className="text-gray-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Modernizado */}
+      {/* CTA Compacto e Elegante */}
+      <section className="relative py-16 bg-gray-800 text-white">
+        <div className="absolute inset-0 z-0 opacity-10">
+          <div className="absolute top-1/4 -left-20 w-48 h-48 bg-blue-500 rounded-full mix-blend-overlay filter blur-xl"></div>
+          <div className="absolute bottom-1/4 -right-20 w-48 h-48 bg-purple-500 rounded-full mix-blend-overlay filter blur-xl"></div>
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-snug">
+              Pronto para elevar seu negócio digital?
+            </h2>
+
+            <p className="text-lg text-gray-300 mb-8 max-w-xl mx-auto">
+              Este projeto é um exemplo do que podemos criar para destacar sua
+              marca online.
+            </p>
+
+            <div className="flex flex-col sm:flex-row justify-center gap-3">
+              <a
+                href="https://api.whatsapp.com/send/?phone=551151998147&text&type=phone_number&app_absent=0"
+                className="inline-flex items-center justify-center bg-white text-gray-900 hover:bg-gray-100 px-6 py-3 rounded-lg font-medium transition-colors"
+              >
+                Fale com nossos especialistas
+                <svg
+                  className="ml-2 w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              </a>
+
+              <a
+                href={projectData.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center border border-white text-white hover:bg-white/10 px-6 py-3 rounded-lg font-medium transition-colors"
+              >
+                Ver projeto ao vivo
+              </a>
+            </div>
+
+            <div className="mt-8 flex justify-center gap-4 text-gray-400 text-sm">
+              <span className="flex items-center">
+                <svg
+                  className="w-4 h-4 mr-1 text-green-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                Design exclusivo
+              </span>
+              <span className="flex items-center">
+                <svg
+                  className="w-4 h-4 mr-1 text-green-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                Tecnologia moderna
+              </span>
+            </div>
+          </div>
         </div>
       </section>
     </div>
