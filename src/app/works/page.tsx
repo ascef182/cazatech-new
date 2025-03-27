@@ -2,11 +2,47 @@ import Image from "next/image";
 import Link from "next/link";
 import { FiArrowLeft } from "react-icons/fi";
 
-export default function PortfolioPage() {
+// Dados dos projetos
+const projects = [
+  {
+    id: "portfolio",
+    title: "Portifólio",
+    description:
+      "Transformamos sua trajetória em um portfólio digital impactante...",
+    image: "/images/portfolio5.png",
+    category: "Portifólio",
+  },
+  {
+    id: "bank",
+    title: "Bancos",
+    description:
+      "Landing page apresenta um conceito moderno de solução de pagamentos...",
+    image: "/images/Payment.png",
+    category: "Bank",
+  },
+  {
+    id: "organicos",
+    title: "Orgânicos ecommerce",
+    description:
+      "FoodFarm é um template construído para comercialização de produtos orgânicos...",
+    image:
+      "https://templatesjungle.com/wp-content/uploads/edd/2024/04/foodfarm-grocery-store-cover-1400x1050.jpg",
+    category: "E-commerce",
+  },
+  {
+    id: "art-not-evidence",
+    title: "Área da saúde",
+    description: "Exemplos de site para profissionais da área da saúde...",
+    image: "/images/eduardo.png",
+    category: "Saúde",
+  },
+];
+
+export default function WorksPage() {
   return (
     <div className="py-24">
       <div className="container relative">
-        {/* Botão de Voltar - Agora dentro do container e alinhado com o conteúdo */}
+        {/* Botão de Voltar */}
         <div className="absolute right-4 top-0 z-50 md:right-0">
           <Link
             href="/"
@@ -28,33 +64,16 @@ export default function PortfolioPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <PortfolioCard
-            image="/images/portfolio5.png"
-            title="Portifólio"
-            description="Transformamos sua trajetória em um portfólio digital impactante. Destaque projetos, competências e conquistas com um design estratégico e profissional."
-            href="/works/portfolio"
-          />
-
-          <PortfolioCard
-            image="/images/Payment.png"
-            title="Bancos"
-            description="Landing page apresenta um conceito moderno de solução de pagamentos, com foco em transmitir confiança e inovação para o banco."
-            href="/works/bank"
-          />
-
-          <PortfolioCard
-            image="https://templatesjungle.com/wp-content/uploads/edd/2024/04/foodfarm-grocery-store-cover-1400x1050.jpg"
-            title="Orgânicos ecommerce"
-            description="FoodFarm é um template construído para comercialização de produtos orgânicos."
-            href="/works/organicos"
-          />
-
-          <PortfolioCard
-            image="/images/eduardo.png"
-            title="Área da saúde"
-            description="Exemplos de site para profissionais da área da saúde."
-            href="/works/art-not-evidence"
-          />
+          {projects.map((project) => (
+            <PortfolioCard
+              key={project.id}
+              image={project.image}
+              title={project.title}
+              description={project.description}
+              href={`/works/${project.id}`}
+              category={project.category}
+            />
+          ))}
         </div>
       </div>
     </div>
@@ -66,11 +85,13 @@ function PortfolioCard({
   title,
   description,
   href,
+  category,
 }: {
   image: string;
   title: string;
   description: string;
   href: string;
+  category: string;
 }) {
   return (
     <Link href={href} className="group block h-full">
@@ -83,14 +104,15 @@ function PortfolioCard({
             className="object-cover transition-transform group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-            <span className="bg-purple-300/70 text-black px-6 py-6 rounded-full text-base font-medium backdrop-blur-md">
+          <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center">
+            <span className="bg-white/80 text-black px-4 py-2 rounded-full text-sm font-medium backdrop-blur-md">
               Ver projeto
             </span>
           </div>
         </div>
         <div className="p-6 flex-1">
-          <h3 className="font-medium text-xl mb-2">{title}</h3>
+          <span className="text-xs text-muted-foreground">{category}</span>
+          <h3 className="font-medium text-xl mb-2 mt-1">{title}</h3>
           <p className="text-muted-foreground line-clamp-3">{description}</p>
         </div>
       </div>
