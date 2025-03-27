@@ -116,26 +116,6 @@ const getPost = async (slug: string): Promise<BlogPost | null> => {
     </ul>
     <p class="mt-4 font-semibold">👉 Resultado: <strong>+5.000 seguidores</strong> e <strong>15 oportunidades de negócios</strong>.</p>
   </div>
-
-  <h2>Recursos Adicionais</h2>
-  
-  <div class="grid md:grid-cols-2 gap-4 my-6">
-    <div class="bg-accent/5 p-4 rounded-lg border border-border">
-      <h3 class="font-semibold mb-2">📚 Ferramentas Recomendadas</h3>
-      <ul class="space-y-2">
-        <li><a href="#" class="text-primary hover:underline">Melhores apps para agendar posts</a></li>
-        <li><a href="#" class="text-primary hover:underline">Análise de hashtags estratégicas</a></li>
-      </ul>
-    </div>
-    
-    <div class="bg-accent/5 p-4 rounded-lg border border-border">
-      <h3 class="font-semibold mb-2">📅 Templates Grátis</h3>
-      <ul class="space-y-2">
-        <li><a href="#" class="text-primary hover:underline">Calendário de conteúdo</a></li>
-        <li><a href="#" class="text-primary hover:underline">Modelo de post viral</a></li>
-      </ul>
-    </div>
-  </div>
 </article>
 
 
@@ -190,7 +170,7 @@ const getPost = async (slug: string): Promise<BlogPost | null> => {
       </div>
 
       <div class="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg my-6">
-        <p><strong>🚀 Dado crucial:</strong> Profissionais que usam IA geram <strong>3x mais conteúdo</strong> com a mesma equipe.</p>
+        <p><strong>🚀 Dato crucial:</strong> Profissionais que usam IA geram <strong>3x mais conteúdo</strong> com a mesma equipe.</p>
       </div>
 
       <h2>2. Automação de Marketing (Top 3 para Escalar)</h2>
@@ -249,26 +229,6 @@ const getPost = async (slug: string): Promise<BlogPost | null> => {
           <li>✔ <strong>Redução</strong> de $2.300/mês em custos operacionais</li>
         </ul>
       </div>
-
-      <h2>📥 Recursos para Implementar Hoje</h2>
-      
-      <div class="grid md:grid-cols-2 gap-4 my-6">
-        <div class="bg-accent/5 p-4 rounded-lg border border-border">
-          <h3 class="font-semibold mb-2">📚 Guias Rápidos</h3>
-          <ul class="space-y-2">
-            <li><a href="#" class="text-primary hover:underline">Como integrar ChatGPT ao seu CRM</a></li>
-            <li><a href="#" class="text-primary hover:underline">Checklist de automação para iniciantes</a></li>
-          </ul>
-        </div>
-        
-        <div class="bg-accent/5 p-4 rounded-lg border border-border">
-          <h3 class="font-semibold mb-2">🛠️ Templates</h3>
-          <ul class="space-y-2">
-            <li><a href="#" class="text-primary hover:underline">Fluxo de automação pronto (Zapier)</a></li>
-            <li><a href="#" class="text-primary hover:underline">Prompt library para marketing</a></li>
-          </ul>
-        </div>
-      </div>
     </article>
       `,
     },
@@ -289,7 +249,7 @@ const getPost = async (slug: string): Promise<BlogPost | null> => {
       },
       tags: ["Case", "Vendas", "Resultados", "Setor Alimentício"],
       content: `
-        <h2>O Desafio Inicial</h2>
+       <h2>O Desafio Inicial</h2>
         <p>Uma rede de cafeterias premium com 5 unidades enfrentava:</p>
         <ul>
           <li>Vendas estagnadas há 2 anos</li>

@@ -57,6 +57,7 @@ export default function ContactPage() {
     try {
       if (!formRef.current) throw new Error("Formulário indisponível");
 
+      // Validação dos campos
       if (
         !formData.name.trim() ||
         !formData.email.trim() ||
@@ -65,20 +66,48 @@ export default function ContactPage() {
         throw new Error("Preencha todos os campos");
       }
 
-      const result = await emailjs.sendForm(
-        serviceId,
-        templateId,
-        formRef.current,
-        { publicKey }
-      );
+      // Inicialização do EmailJS
+      try {
+        await emailjs.init(publicKey);
+      } catch (initError: unknown) {
+        const message =
+          initError instanceof Error ? initError.message : "Erro desconhecido";
+        throw new Error(`Falha ao inicializar: ${message}`);
+      }
 
-      if (result.status !== 200) throw new Error("Falha no serviço de e-mail");
+      // Parâmetros que correspondem EXATAMENTE ao template
+      const templateParams = {
+        from_name: formData.name, // Corresponde ao {{from_name}} no template
+        from_email: formData.email, // Corresponde ao {{from_email}} no template
+        message: formData.message, // Adicione se seu template usar {{message}}
+        reply_to: formData.email, // Corresponde ao {{reply_to}} no template
+      };
+
+      // Envio do email
+      const result = await emailjs
+        .send(serviceId, templateId, templateParams, publicKey)
+        .catch((err: { status?: number; text?: string }) => {
+          console.error("Erro no envio:", {
+            status: err.status,
+            message: err.text,
+          });
+          throw new Error(err.text || "Falha ao enviar mensagem");
+        });
+
+      if (result.status !== 200) {
+        throw new Error(`Status inesperado: ${result.status}`);
+      }
 
       toast.success("Mensagem enviada com sucesso!");
       setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      console.error("Erro:", error);
-      toast.error(error instanceof Error ? error.message : "Erro desconhecido");
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : "Erro desconhecido ao enviar mensagem";
+
+      console.error("Erro completo:", error);
+      toast.error(errorMessage);
     } finally {
       setIsSubmitting(false);
     }

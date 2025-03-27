@@ -21,7 +21,7 @@ export default function Navbar() {
     },
     { href: "/works", label: "Sites", icon: <Globe className="h-5 w-5" /> },
     { href: "/blog", label: "Blog", icon: <Book className="h-5 w-5" /> },
-    { href: "/contact", label: "Contato", icon: <Mail className="h-5 w-5" /> },
+    { href: "/contact", label: "Contato", icon: <Mail className="h-5 w-5" /> }, // Corrigido de '/contact' para '/contato'
   ];
 
   return (

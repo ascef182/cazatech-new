@@ -2,8 +2,9 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FaWhatsapp, FaRobot } from "react-icons/fa";
-import { FiInstagram, FiCalendar, FiUsers } from "react-icons/fi";
+import { FiInstagram, FiCalendar, FiUsers, FiArrowLeft } from "react-icons/fi";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function AutomacoesPage() {
   const automationExamples = [
@@ -33,7 +34,18 @@ export default function AutomacoesPage() {
   };
 
   return (
-    <div className="container py-12 md:py-20">
+    <div className="container py-12 md:py-20 relative">
+      {/* Botão de Voltar */}
+      <div className="absolute right-4 top-[var(--header-height)] z-50 md:right-8">
+        <Link
+          href="/"
+          className="flex items-center justify-center w-10 h-10 rounded-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border border-gray-200 dark:border-gray-700 shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+          aria-label="Voltar para a página inicial"
+        >
+          <FiArrowLeft className="h-5 w-5 text-gray-700 dark:text-gray-300" />
+        </Link>
+      </div>
+
       {/* Hero Section */}
       <motion.div
         initial="hidden"
@@ -281,6 +293,12 @@ export default function AutomacoesPage() {
             className="bg-gradient-to-r from-primary to-purple-600 text-white px-8 py-3 rounded-md font-medium"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() =>
+              window.open(
+                "https://api.whatsapp.com/send/?phone=551151998147&text&type=phone_number&app_absent=0",
+                "_blank"
+              )
+            }
           >
             Quero automatizar meu negócio
           </motion.button>

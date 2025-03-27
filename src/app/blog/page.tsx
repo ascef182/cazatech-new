@@ -10,6 +10,7 @@ import {
   FiTag,
   FiArrowLeft,
 } from "react-icons/fi";
+
 export default function BlogPage() {
   // Dados dos artigos do blog
   const recentPosts = [
@@ -64,12 +65,12 @@ export default function BlogPage() {
 
   return (
     <div className="container py-12 md:py-20 relative">
-      {/* Botão de Voltar - Adicionado aqui */}
-      <div className="absolute right-4 top-4 z-50">
+      {/* Botão de Voltar */}
+      <div className="absolute right-4 top-[var(--header-height)] z-50 md:right-8">
         <Link
-          href="/" // Altere para a rota desejada (ex: "/blog" se quiser voltar para a listagem)
+          href="/"
           className="flex items-center justify-center w-10 h-10 rounded-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border border-gray-200 dark:border-gray-700 shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
-          aria-label="Voltar"
+          aria-label="Voltar para a página inicial"
         >
           <FiArrowLeft className="h-5 w-5 text-gray-700 dark:text-gray-300" />
         </Link>
@@ -95,7 +96,7 @@ export default function BlogPage() {
           {recentPosts.map((post) => (
             <article
               key={post.id}
-              className="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+              className="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow dark:border-gray-700"
             >
               <div className="md:flex">
                 <div className="md:w-1/3 h-48 md:h-auto relative">
@@ -138,24 +139,27 @@ export default function BlogPage() {
 
         {/* Sidebar */}
         <div className="space-y-8">
-          {/* Newsletter */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Assine nossa newsletter</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <p className="text-sm text-muted-foreground">
+          {/* Newsletter - Google Forms */}
+          <div className="border rounded-lg overflow-hidden dark:border-gray-700">
+            <div className="p-6 bg-card">
+              <h2 className="text-2xl font-bold mb-2">
+                Assine nossa newsletter
+              </h2>
+              <p className="text-sm text-muted-foreground mb-4">
                 Receba os melhores conteúdos sobre marketing digital diretamente
                 no seu e-mail.
               </p>
-              <div className="flex gap-2">
-                <Input placeholder="Seu melhor e-mail" />
-                <Button>
-                  <FiArrowRight className="h-4 w-4" />
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+              <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSebj7Az0IWKWTaRx0PYt8X8SC7atwWFdK0LAW8RoUvfjRdNcQ/viewform?embedded=true"
+                width="100%"
+                height="400"
+                frameBorder="0"
+                className="rounded-md bg-white dark:bg-gray-900/50 border dark:border-gray-700"
+              >
+                Carregando…
+              </iframe>
+            </div>
+          </div>
         </div>
       </div>
     </div>

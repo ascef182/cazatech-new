@@ -1,10 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FiArrowLeft } from "react-icons/fi";
 
 export default function PortfolioPage() {
   return (
     <div className="py-24">
-      <div className="container">
+      <div className="container relative">
+        {/* Botão de Voltar - Agora dentro do container e alinhado com o conteúdo */}
+        <div className="absolute right-4 top-0 z-50 md:right-0">
+          <Link
+            href="/"
+            className="flex items-center justify-center w-10 h-10 rounded-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border border-gray-200 dark:border-gray-700 shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+            aria-label="Voltar para a página inicial"
+          >
+            <FiArrowLeft className="h-5 w-5 text-gray-700 dark:text-gray-300" />
+          </Link>
+        </div>
+
         <div className="text-center mb-16">
           <div className="inline-flex items-center justify-center mb-6">
             <div className="tag">

@@ -58,12 +58,12 @@ export default function PortfolioSection() {
           </motion.p>
         </motion.div>
 
-        {/* Grid de Projetos - Layout ajustado */}
+        {/* Grid de Projetos - Layout 2x2 */}
         <motion.div
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={container}
-          className="grid grid-cols-1 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
         >
           <PortfolioCard
             image="/images/portfolio5.png"
@@ -106,7 +106,7 @@ export default function PortfolioSection() {
           className="text-center mt-16"
         >
           <Link
-            href="/portfolio"
+            href="/works"
             className="inline-block px-8 py-3 bg-purple-600 text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105"
           >
             Ver todos os projetos
@@ -135,9 +135,9 @@ function PortfolioCard({
   return (
     <motion.div variants={variants} className="w-full">
       <Link href={href} className="group block h-full">
-        <div className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all h-full flex flex-col md:flex-row border border-gray-200 hover:border-purple-300">
-          {/* Imagem - agora com largura controlada */}
-          <div className="relative w-full md:w-1/2 h-64 md:h-auto">
+        <div className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all h-full flex flex-col border border-gray-200 hover:border-purple-300">
+          {/* Imagem - agora quadrada em telas grandes */}
+          <div className="relative w-full aspect-square md:aspect-[4/3]">
             <Image
               src={image}
               alt={title}
@@ -166,10 +166,12 @@ function PortfolioCard({
             </div>
           </div>
 
-          {/* Conteúdo - agora com padding maior */}
-          <div className="p-8 flex-grow flex flex-col justify-center">
-            <h3 className="font-bold text-2xl text-gray-900 mb-4">{title}</h3>
-            <p className="text-gray-600 text-lg leading-relaxed mb-6">
+          {/* Conteúdo */}
+          <div className="p-6 flex-grow flex flex-col justify-center">
+            <h3 className="font-bold text-xl md:text-2xl text-gray-900 mb-3">
+              {title}
+            </h3>
+            <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-4">
               {description}
             </p>
             <span className="inline-flex items-center text-purple-600 font-medium">
