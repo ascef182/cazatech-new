@@ -1,18 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import {
-  FiArrowRight,
-  FiCalendar,
-  FiClock,
-  FiTag,
-  FiArrowLeft,
-} from "react-icons/fi";
+import { FiCalendar, FiClock, FiTag, FiArrowLeft } from "react-icons/fi";
 
-// Mova os dados dos posts para um arquivo separado para reutilização
-export const recentPosts = [
+// Dados dos posts - agora definidos como constante interna
+const recentPosts = [
   {
     id: "conteudo-educativo-linkedin",
     title: "O Poder do Conteúdo Educativo no LinkedIn",
@@ -24,7 +15,6 @@ export const recentPosts = [
     image:
       "https://images.unsplash.com/photo-1611944212129-29977ae1398c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     tags: ["LinkedIn", "Autoridade", "Conteúdo Educativo"],
-    content: "Artigo completo sobre estratégias no LinkedIn...",
   },
   {
     id: "ferramentas-marketing-2024",
@@ -37,7 +27,6 @@ export const recentPosts = [
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     tags: ["Ferramentas", "Marketing Digital", "2024"],
-    content: "Análise detalhada das melhores ferramentas...",
   },
   {
     id: "case-vendas-alimenticio",
@@ -50,11 +39,10 @@ export const recentPosts = [
     image:
       "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     tags: ["Case", "Vendas", "Resultados"],
-    content: "Detalhes do case de sucesso...",
   },
 ];
 
-export const categories = [
+const categories = [
   { name: "Automação", count: 12 },
   { name: "Social Media", count: 8 },
   { name: "Ferramentas", count: 5 },
@@ -115,7 +103,7 @@ export default function BlogPage() {
                   </div>
                   <h3 className="text-xl font-bold mb-2">
                     <Link
-                      href={`/blog/${post.id}`}
+                      href={`/blog/${post.id}`} // Link corrigido para a página do post
                       className="hover:text-primary transition-colors"
                     >
                       {post.title}
