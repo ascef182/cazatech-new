@@ -11,58 +11,58 @@ import {
   FiArrowLeft,
 } from "react-icons/fi";
 
+// Mova os dados dos posts para um arquivo separado para reutilização
+export const recentPosts = [
+  {
+    id: "conteudo-educativo-linkedin",
+    title: "O Poder do Conteúdo Educativo no LinkedIn",
+    excerpt:
+      "Como estabelecer autoridade no seu setor através de posts educativos no LinkedIn.",
+    category: "Social Media",
+    date: "1 Maio 2024",
+    readTime: "4 min",
+    image:
+      "https://images.unsplash.com/photo-1611944212129-29977ae1398c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    tags: ["LinkedIn", "Autoridade", "Conteúdo Educativo"],
+    content: "Artigo completo sobre estratégias no LinkedIn...",
+  },
+  {
+    id: "ferramentas-marketing-2024",
+    title: "Ferramentas Essenciais para Marketing Digital em 2024",
+    excerpt:
+      "Conheça as ferramentas que vão potencializar suas estratégias digitais este ano.",
+    category: "Ferramentas",
+    date: "24 Abril 2024",
+    readTime: "6 min",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    tags: ["Ferramentas", "Marketing Digital", "2024"],
+    content: "Análise detalhada das melhores ferramentas...",
+  },
+  {
+    id: "case-vendas-alimenticio",
+    title: "Case de Sucesso: Como Aumentamos as Vendas em 300%",
+    excerpt:
+      "O processo completo que usamos para transformar os resultados de um cliente do setor alimentício.",
+    category: "Cases",
+    date: "17 Abril 2024",
+    readTime: "8 min",
+    image:
+      "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    tags: ["Case", "Vendas", "Resultados"],
+    content: "Detalhes do case de sucesso...",
+  },
+];
+
+export const categories = [
+  { name: "Automação", count: 12 },
+  { name: "Social Media", count: 8 },
+  { name: "Ferramentas", count: 5 },
+  { name: "Cases", count: 7 },
+  { name: "Tendências", count: 3 },
+];
+
 export default function BlogPage() {
-  // Dados dos artigos do blog
-  const recentPosts = [
-    {
-      id: "conteudo-educativo-linkedin",
-      title: "O Poder do Conteúdo Educativo no LinkedIn",
-      excerpt:
-        "Como estabelecer autoridade no seu setor através de posts educativos no LinkedIn.",
-      category: "Social Media",
-      date: "1 Maio 2024",
-      readTime: "4 min",
-      image:
-        "https://images.unsplash.com/photo-1611944212129-29977ae1398c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-      tags: ["LinkedIn", "Autoridade", "Conteúdo Educativo"],
-      content: "Artigo completo sobre estratégias no LinkedIn...",
-    },
-    {
-      id: "ferramentas-marketing-2024",
-      title: "Ferramentas Essenciais para Marketing Digital em 2024",
-      excerpt:
-        "Conheça as ferramentas que vão potencializar suas estratégias digitais este ano.",
-      category: "Ferramentas",
-      date: "24 Abril 2024",
-      readTime: "6 min",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-      tags: ["Ferramentas", "Marketing Digital", "2024"],
-      content: "Análise detalhada das melhores ferramentas...",
-    },
-    {
-      id: "case-vendas-alimenticio",
-      title: "Case de Sucesso: Como Aumentamos as Vendas em 300%",
-      excerpt:
-        "O processo completo que usamos para transformar os resultados de um cliente do setor alimentício.",
-      category: "Cases",
-      date: "17 Abril 2024",
-      readTime: "8 min",
-      image:
-        "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-      tags: ["Case", "Vendas", "Resultados"],
-      content: "Detalhes do case de sucesso...",
-    },
-  ];
-
-  const categories = [
-    { name: "Automação", count: 12 },
-    { name: "Social Media", count: 8 },
-    { name: "Ferramentas", count: 5 },
-    { name: "Cases", count: 7 },
-    { name: "Tendências", count: 3 },
-  ];
-
   return (
     <div className="container py-12 md:py-20 relative">
       {/* Botão de Voltar */}
@@ -105,6 +105,7 @@ export default function BlogPage() {
                     alt={post.title}
                     fill
                     className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
                 <div className="p-6 md:w-2/3">
