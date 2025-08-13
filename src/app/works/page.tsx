@@ -102,7 +102,7 @@ export default function WorksPage() {
 
       {/* Floating WhatsApp - mobile only */}
       <Link
-        href="https://api.whatsapp.com/send/?phone=551151998147&text=Quero%20um%20site%20moderno"
+        href="https://api.whatsapp.com/send/?phone=5535998026821&text=Quero%20um%20site%20moderno"
         target="_blank"
         aria-label="Fale pelo WhatsApp"
         className="md:hidden fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full bg-emerald-500 text-white shadow-xl shadow-emerald-500/30 grid place-items-center hover:bg-emerald-400 transition-colors"

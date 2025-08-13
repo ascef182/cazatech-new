@@ -63,7 +63,7 @@ export default function AutomacoesPage() {
                 className="bg-pink-600 hover:bg-pink-500 text-white"
               >
                 <Link
-                  href="https://api.whatsapp.com/send/?phone=551151998147&text=Quero%20automatizar%20meu%20WhatsApp"
+                  href="https://api.whatsapp.com/send/?phone=5535998026821&text=Quero%20automatizar%20meu%20WhatsApp"
                   target="_blank"
                 >
                   <PhoneCall className="mr-2 h-4 w-4" /> Falar com um
@@ -243,7 +243,7 @@ export default function AutomacoesPage() {
                     <div className="mt-5 flex items-center gap-2">
                       <Button asChild className="bg-pink-600 hover:bg-pink-500">
                         <Link
-                          href="https://api.whatsapp.com/send/?phone=551151998147&text=Quero%20este%20plano"
+                          href="https://api.whatsapp.com/send/?phone=5535998026821&text=Quero%20este%20plano"
                           target="_blank"
                         >
                           Falar no WhatsApp
@@ -308,7 +308,7 @@ export default function AutomacoesPage() {
                   className="bg-pink-600 hover:bg-pink-500"
                 >
                   <Link
-                    href="https://api.whatsapp.com/send/?phone=551151998147&text=Quero%20um%20diagn%C3%B3stico%20gratuito"
+                    href="https://api.whatsapp.com/send/?phone=5535998026821&text=Quero%20um%20diagn%C3%B3stico%20gratuito"
                     target="_blank"
                   >
                     Falar no WhatsApp
