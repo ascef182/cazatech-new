@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { FiArrowLeft } from "react-icons/fi";
+import { MessageCircle } from "lucide-react";
+import { motion } from "framer-motion";
 
 // Dados dos projetos
 const projects = [
@@ -40,10 +44,38 @@ const projects = [
 
 export default function WorksPage() {
   return (
-    <div className="py-24">
-      <div className="container relative">
+    <div className="relative">
+      {/* Hero */}
+      <section className="relative bg-black text-white py-20 md:py-28 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" aria-hidden>
+          <div className="absolute -top-40 -left-40 h-80 w-80 rounded-full bg-pink-500/20 blur-3xl" />
+          <div className="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-blue-500/20 blur-3xl" />
+        </div>
+        <div className="container text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl md:text-6xl font-extrabold tracking-tight"
+          >
+            <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
+              Portfólio de Sites
+            </span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-4 text-white/70 max-w-2xl mx-auto"
+          >
+            Seleção de projetos que combinam performance, UX e estética moderna.
+          </motion.p>
+        </div>
+      </section>
+
+      <div className="container relative -mt-10 md:-mt-14 pb-24">
         {/* Botão de Voltar */}
-        <div className="absolute right-4 top-0 z-50 md:right-0">
+        <div className="absolute right-4 -top-10 md:-top-14 z-50 md:right-0">
           <Link
             href="/"
             className="flex items-center justify-center w-10 h-10 rounded-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border border-gray-200 dark:border-gray-700 shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
@@ -53,17 +85,8 @@ export default function WorksPage() {
           </Link>
         </div>
 
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center mb-6">
-            <div className="tag">
-              <p className="text-xs font-medium uppercase">WE ARE CAZATECH</p>
-            </div>
-          </div>
-
-          <h1 className="text-4xl md:text-6xl font-medium mb-6">Showcase</h1>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Grid de projetos */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {projects.map((project) => (
             <PortfolioCard
               key={project.id}
@@ -76,6 +99,16 @@ export default function WorksPage() {
           ))}
         </div>
       </div>
+
+      {/* Floating WhatsApp - mobile only */}
+      <Link
+        href="https://api.whatsapp.com/send/?phone=551151998147&text=Quero%20um%20site%20moderno"
+        target="_blank"
+        aria-label="Fale pelo WhatsApp"
+        className="md:hidden fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full bg-emerald-500 text-white shadow-xl shadow-emerald-500/30 grid place-items-center hover:bg-emerald-400 transition-colors"
+      >
+        <MessageCircle className="h-7 w-7" />
+      </Link>
     </div>
   );
 }
@@ -95,25 +128,48 @@ function PortfolioCard({
 }) {
   return (
     <Link href={href} className="group block h-full">
-      <div className="h-full bg-white rounded-lg overflow-hidden shadow-sm transition-all hover:shadow-md flex flex-col">
-        <div className="relative h-64 overflow-hidden flex-shrink-0">
+      <div className="relative h-full overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 shadow-sm transition-all hover:shadow-lg">
+        <div
+          className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"
+          aria-hidden
+        >
+          <div className="absolute -inset-40 bg-gradient-to-tr from-pink-500/10 via-purple-500/10 to-blue-500/10 blur-2xl" />
+        </div>
+        <div className="relative h-64 overflow-hidden">
           <Image
             src={image}
             alt={title}
             fill
-            className="object-cover transition-transform group-hover:scale-105"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
-          <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center">
-            <span className="bg-white/80 text-black px-4 py-2 rounded-full text-sm font-medium backdrop-blur-md">
-              Ver projeto
-            </span>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-70" />
+          <div className="absolute bottom-3 left-3 inline-flex items-center gap-2 rounded-full bg-white/85 backdrop-blur px-3 py-1 text-xs font-medium text-gray-900">
+            {category}
           </div>
         </div>
-        <div className="p-6 flex-1">
-          <span className="text-xs text-muted-foreground">{category}</span>
-          <h3 className="font-medium text-xl mb-2 mt-1">{title}</h3>
-          <p className="text-muted-foreground line-clamp-3">{description}</p>
+        <div className="p-5">
+          <h3 className="font-semibold text-lg md:text-xl">{title}</h3>
+          <p className="mt-1 text-sm text-muted-foreground line-clamp-3">
+            {description}
+          </p>
+          <div className="mt-4 inline-flex items-center text-sm font-medium text-pink-600 group-hover:text-pink-500">
+            Ver projeto
+            <svg
+              className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 12h14M13 5l7 7-7 7"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
         </div>
       </div>
     </Link>

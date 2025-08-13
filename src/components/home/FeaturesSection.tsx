@@ -2,8 +2,10 @@
 
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { useI18n } from "@/app/ClientBody";
 
 export default function FeaturesSection() {
+  const { t } = useI18n();
   // Variantes de animação
   const container = {
     hidden: { opacity: 0 },
@@ -98,13 +100,13 @@ export default function FeaturesSection() {
             variants={item}
             className="text-xl md:text-2xl font-medium mb-6 text-center bg-gradient-to-r from-gray-800 to-gray-600 dark:from-gray-200 dark:to-gray-400 bg-clip-text text-transparent"
           >
-            Impulsione sua marca no digital com exclusividade e criatividade.
+            {t("features_headline_a")}
             <br />
             <motion.span
               className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent"
               whileHover={{ scale: 1.02 }}
             >
-              Imaginação sem limites para tornar sua visão extraordinária!
+              {t("features_headline_b")}
             </motion.span>
           </motion.h2>
         </motion.div>
@@ -118,9 +120,9 @@ export default function FeaturesSection() {
           className="grid grid-cols-3 gap-8 mb-24 text-center"
         >
           {[
-            { value: 3, label: "Anos de experiência" },
-            { value: 40, label: "Clientes Satisfeitos" },
-            { value: 100, label: "Projetos" },
+            { value: 3, label: t("features_stat_years") },
+            { value: 40, label: t("features_stat_clients") },
+            { value: 100, label: t("features_stat_projects") },
           ].map((stat, index) => (
             <motion.div
               key={index}
@@ -146,23 +148,18 @@ export default function FeaturesSection() {
         >
           {[
             {
-              title:
-                "Transforme a identidade do seu negócio com estratégias de branding especializadas",
-              description:
-                "Eleve a presença da sua marca com soluções personalizadas que refletem sua essência.",
+              title: t("features_card_1_title"),
+              description: t("features_card_1_desc"),
               number: "01",
             },
             {
-              title:
-                "Desbloqueie soluções web inovadoras com tecnologia de ponta",
-              description:
-                "Nossa equipe cria experiências digitais fluidas para impulsionar resultados e o crescimento do seu negócio.",
+              title: t("features_card_2_title"),
+              description: t("features_card_2_desc"),
               number: "02",
             },
             {
-              title: "Design intuitivo para experiências excepcionais",
-              description:
-                "Desenvolvemos interfaces centradas no usuário para aumentar o engajamento e a usabilidade.",
+              title: t("features_card_3_title"),
+              description: t("features_card_3_desc"),
               number: "03",
             },
           ].map((feature, index) => (

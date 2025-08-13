@@ -5,23 +5,28 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, X, Home, Zap, Share2, Globe, Book, Mail } from "lucide-react";
+import { useI18n } from "@/app/ClientBody";
 
 export default function Navbar() {
+  const { t, lang, setLang } = useI18n();
   const navItems = [
-    { href: "/", label: "Home", icon: <Home className="h-5 w-5" /> },
+    { href: "/", label: t("nav_home"), icon: <Home className="h-5 w-5" /> },
     {
       href: "/automacoes",
-      label: "Automação",
+      label: t("nav_automation"),
       icon: <Zap className="h-5 w-5" />,
     },
     {
-      href: "/social-media",
-      label: "Social Media",
-      icon: <Share2 className="h-5 w-5" />,
+      href: "/works",
+      label: t("nav_sites"),
+      icon: <Globe className="h-5 w-5" />,
     },
-    { href: "/works", label: "Sites", icon: <Globe className="h-5 w-5" /> },
-    { href: "/blog", label: "Blog", icon: <Book className="h-5 w-5" /> },
-    { href: "/contact", label: "Contato", icon: <Mail className="h-5 w-5" /> }, // Corrigido de '/contact' para '/contato'
+    { href: "/blog", label: t("nav_blog"), icon: <Book className="h-5 w-5" /> },
+    {
+      href: "/contact",
+      label: t("nav_contact"),
+      icon: <Mail className="h-5 w-5" />,
+    },
   ];
 
   return (
@@ -78,6 +83,15 @@ export default function Navbar() {
                 </Link>
               </motion.div>
             ))}
+            <div className="ml-4">
+              <button
+                onClick={() => setLang(lang === "pt" ? "en" : "pt")}
+                className="px-3 py-1 text-xs font-semibold rounded-md border hover:bg-gray-100 dark:hover:bg-gray-800"
+                aria-label="Trocar idioma"
+              >
+                {lang === "pt" ? "EN" : "PT"}
+              </button>
+            </div>
           </div>
 
           {/* Menu Mobile */}
@@ -145,6 +159,17 @@ export default function Navbar() {
                         </SheetTrigger>
                       </motion.div>
                     ))}
+                    <div className="pt-2">
+                      <SheetTrigger asChild>
+                        <button
+                          onClick={() => setLang(lang === "pt" ? "en" : "pt")}
+                          className="w-full px-4 py-3 text-lg font-medium rounded-lg border hover:bg-gray-100 dark:hover:bg-gray-800"
+                          aria-label="Trocar idioma"
+                        >
+                          {lang === "pt" ? "EN" : "PT"}
+                        </button>
+                      </SheetTrigger>
+                    </div>
                   </nav>
 
                   {/* Rodapé do menu mobile */}

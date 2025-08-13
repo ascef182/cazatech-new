@@ -13,6 +13,8 @@ const nextConfig = {
       "images.unsplash.com",
       "ext.same-assets.com",
       "ugc.same-assets.com",
+      "html.themexriver.com",
+      "templatesjungle.com",
     ],
     remotePatterns: [
       {
@@ -33,6 +35,16 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "ugc.same-assets.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "html.themexriver.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "templatesjungle.com",
         pathname: "/**",
       },
     ],

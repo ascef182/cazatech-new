@@ -57,7 +57,7 @@ export default function Footer() {
     },
     { icon: <FiGlobe className="mr-2" />, href: "/works", text: "Sites" },
     { icon: <FiBook className="mr-2" />, href: "/blog", text: "Blog" },
-    { icon: <FiMail className="mr-2" />, href: "/contato", text: "Contato" },
+    { icon: <FiMail className="mr-2" />, href: "/contact", text: "Contato" },
   ];
 
   const legalLinks = [
