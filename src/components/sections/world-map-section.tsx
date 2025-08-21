@@ -1,7 +1,6 @@
 "use client";
 import WorldMap from "@/components/ui/world-map";
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { motion } from "motion/react";
 
 type Connection = {
   start: { lat: number; lng: number; label?: string };
@@ -36,22 +35,11 @@ const connections: Connection[] = [
 ];
 
 export default function WorldMapSection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const yTitle = useTransform(scrollYProgress, [0, 1], [0, -20]);
-  const yMap = useTransform(scrollYProgress, [0, 1], [0, -80]);
-
   return (
-    <section ref={ref} className="w-full bg-black py-16 md:py-24">
+    <section className="w-full bg-black py-16 md:py-24">
       <div className="container">
         <motion.h2
-          style={{
-            y: yTitle,
-            fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif",
-          }}
+          style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
           className="mb-2 text-center text-3xl md:text-4xl font-bold text-white"
         >
           {"Conexões ".split("").map((char, idx) => (
@@ -70,9 +58,7 @@ export default function WorldMapSection() {
         <p className="text-center text-neutral-400 mb-8">
           Conectando clientes e parceiros pelo mundo.
         </p>
-        <motion.div style={{ y: yMap }}>
-          <WorldMap dots={connections} lineColor="#0ea5e9" />
-        </motion.div>
+        <WorldMap dots={connections} lineColor="#0ea5e9" />
       </div>
     </section>
   );

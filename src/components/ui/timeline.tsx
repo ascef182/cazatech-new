@@ -34,7 +34,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     >
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
         <h2
-          className="text-[1.5rem] md:text-[2.375rem] mb-4 text-white max-w-4xl"
+          className="text-[1.7rem] md:text-[2.375rem] mb-4 text-white max-w-4xl"
           style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
         >
           Processo de entrega
