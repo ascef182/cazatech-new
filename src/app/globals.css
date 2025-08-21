@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 @font-face {
+  font-family: "Zero Hour";
+  src: url("/fonts/zero-hour/ZeroHour.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Satoshi";
   src: url("/fonts/Satoshi-Light.woff2") format("woff2");
   font-weight: 300;
@@ -75,7 +83,9 @@
   }
 
   body {
-    @apply bg-background text-foreground font-satoshi antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system,
+      Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   }
 
   /* Novas regras adicionadas */
@@ -125,4 +135,42 @@
   .section-padding {
     @apply py-12 md:py-24 lg:py-32;
   }
+
+  /* Marquee animation for hero text band */
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  /* Shine animation for CTA */
+  @keyframes shine {
+    0% {
+      left: -100%;
+    }
+    50% {
+      left: 120%;
+    }
+    100% {
+      left: 120%;
+    }
+  }
+  .animate-shine {
+    animation: shine 2.5s linear infinite;
+  }
+}
+
+/* Hide scrollbars utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

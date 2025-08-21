@@ -122,7 +122,7 @@ export default function BlogPage() {
 
       <div className="container relative -mt-8 md:-mt-12 pb-16">
         {/* Botão de Voltar */}
-        <div className="absolute right-4 -top-10 md:-top-14 z-50 md:right-0">
+        <div className="absolute left-4 -top-10 md:-top-14 z-50 md:left-0">
           <Link
             href="/"
             className="flex items-center justify-center w-10 h-10 rounded-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border border-gray-200 dark:border-gray-700 shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"

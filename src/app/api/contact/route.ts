@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { MailerSend, EmailParams, Sender, Recipient } from "mailersend";
 
 export async function POST(req: Request) {
   try {
@@ -23,41 +23,54 @@ export async function POST(req: Request) {
       );
     }
 
-    const host = process.env.SMTP_HOST;
-    const user = process.env.SMTP_USER;
-    const pass = process.env.SMTP_PASS;
-    const to = process.env.CONTACT_TO || "support@caza-tech.com";
-
-    if (!host || !user || !pass) {
+    const apiKey = process.env.API_KEY;
+    if (!apiKey) {
       return NextResponse.json(
-        { ok: false, error: "Email service not configured" },
+        { ok: false, error: "API_KEY não configurada" },
         { status: 500 }
       );
     }
 
-    const transporter = nodemailer.createTransport({
-      host,
-      port: Number(process.env.SMTP_PORT || 587),
-      secure: Boolean(process.env.SMTP_SECURE === "true"),
-      auth: { user, pass },
-    });
+    const referenceWord = process.env.CONTACT_REF || "";
 
-    await transporter.sendMail({
-      from: `Website Contact <${user}>`,
-      to,
-      subject: `Contato pelo site: ${name}`,
-      replyTo: email,
-      text: message,
-      html: `<p><strong>Nome:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Mensagem:</strong></p>
-            <p>${message.replace(/\n/g, "<br/>")}</p>`,
-    });
+    const mailerSend = new MailerSend({ apiKey });
 
-    return NextResponse.json({ ok: true });
+    const sentFrom = new Sender("support@caza-tech.com", "CazaTech Site");
+    const replyTo = new Sender(email, name);
+    const recipients = [
+      new Recipient("support@caza-tech.com", "Suporte CazaTech"),
+    ];
+
+    const subject = `Contato pelo site${
+      referenceWord ? ` [${referenceWord}]` : ""
+    }: ${name}`;
+    const html = `${
+      referenceWord
+        ? `<p><strong>Referência:</strong> ${referenceWord}</p>`
+        : ""
+    }
+      <p><strong>Nome:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Mensagem:</strong></p>
+      <p>${message.replace(/\n/g, "<br/>")}</p>`;
+
+    const emailParams = new EmailParams()
+      .setFrom(sentFrom)
+      .setTo(recipients)
+      .setReplyTo(replyTo)
+      .setSubject(subject)
+      .setHtml(html)
+      .setText(`Nome: ${name}\nEmail: ${email}\n\n${message}`);
+
+    await mailerSend.email.send(emailParams);
+
+    return NextResponse.json({
+      ok: true,
+      message: "Mensagem enviada com sucesso",
+    });
   } catch (err) {
     return NextResponse.json(
-      { ok: false, error: "Unexpected error" },
+      { ok: false, error: "Erro interno ao enviar o email" },
       { status: 500 }
     );
   }

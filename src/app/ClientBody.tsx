@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { Toaster } from "sonner";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CTAFloaters from "@/components/CTAFloaters";
 import { createContext, useMemo, useState, useContext } from "react";
 import { translations, type SupportedLang, getBrowserLang } from "@/lib/i18n";
 
@@ -45,6 +46,7 @@ export default function ClientBody({
       >
         <Navbar />
         <main className="pt-16 md:pt-20 min-h-screen">{children}</main>
+        <CTAFloaters />
         <Footer />
         <Toaster position="top-right" />
       </body>

@@ -75,7 +75,7 @@ export default function WorksPage() {
 
       <div className="container relative -mt-10 md:-mt-14 pb-24">
         {/* Botão de Voltar */}
-        <div className="absolute right-4 -top-10 md:-top-14 z-50 md:right-0">
+        <div className="absolute left-4 -top-10 md:-top-14 z-50 md:left-0">
           <Link
             href="/"
             className="flex items-center justify-center w-10 h-10 rounded-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border border-gray-200 dark:border-gray-700 shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
@@ -100,15 +100,7 @@ export default function WorksPage() {
         </div>
       </div>
 
-      {/* Floating WhatsApp - mobile only */}
-      <Link
-        href="https://api.whatsapp.com/send/?phone=5535998026821&text=Quero%20um%20site%20moderno"
-        target="_blank"
-        aria-label="Fale pelo WhatsApp"
-        className="md:hidden fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full bg-emerald-500 text-white shadow-xl shadow-emerald-500/30 grid place-items-center hover:bg-emerald-400 transition-colors"
-      >
-        <MessageCircle className="h-7 w-7" />
-      </Link>
+      {/* Floating WhatsApp removido (uso global via CTAFloaters) */}
     </div>
   );
 }

@@ -60,7 +60,7 @@ export default function AutomacoesPage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-pink-600 hover:bg-pink-500 text-white"
+                className="bg-black hover:bg-black text-white"
               >
                 <Link
                   href="https://api.whatsapp.com/send/?phone=5535998026821&text=Quero%20automatizar%20meu%20WhatsApp"
@@ -74,7 +74,7 @@ export default function AutomacoesPage() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10"
+                className="bg-black text-white hover:bg-black/90 border-white/20"
               >
                 <Link href="#planos">Ver planos</Link>
               </Button>
@@ -241,7 +241,10 @@ export default function AutomacoesPage() {
                       ))}
                     </ul>
                     <div className="mt-5 flex items-center gap-2">
-                      <Button asChild className="bg-pink-600 hover:bg-pink-500">
+                      <Button
+                        asChild
+                        className="bg-black hover:bg-black text-white"
+                      >
                         <Link
                           href="https://api.whatsapp.com/send/?phone=5535998026821&text=Quero%20este%20plano"
                           target="_blank"
@@ -249,7 +252,11 @@ export default function AutomacoesPage() {
                           Falar no WhatsApp
                         </Link>
                       </Button>
-                      <Button asChild variant="outline">
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="bg-black text-white hover:bg-black/90"
+                      >
                         <Link href="#faq">Detalhes</Link>
                       </Button>
                     </div>
@@ -305,7 +312,7 @@ export default function AutomacoesPage() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-pink-600 hover:bg-pink-500"
+                  className="bg-black hover:bg-black text-white"
                 >
                   <Link
                     href="https://api.whatsapp.com/send/?phone=5535998026821&text=Quero%20um%20diagn%C3%B3stico%20gratuito"
@@ -314,7 +321,12 @@ export default function AutomacoesPage() {
                     Falar no WhatsApp
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline">
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="bg-black text-white hover:bg-black/90"
+                >
                   <Link href="#planos">Ver planos</Link>
                 </Button>
               </div>

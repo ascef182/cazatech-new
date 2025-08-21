@@ -51,8 +51,7 @@ export default function ContactPage() {
             </span>
           </h1>
           <p className="mt-2 text-muted-foreground">
-            Retornamos em até 1 dia útil. Preferir WhatsApp? Informe no corpo da
-            mensagem.
+            Qual seu próximo projeto?
           </p>
         </div>
 
