@@ -5,14 +5,7 @@ import { Timeline } from "@/components/ui/timeline";
 export function TimelineSection() {
   const data = [
     {
-      title: (
-        <h3
-          className="text-xl leading-tight"
-          style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
-        >
-          Planejamento
-        </h3>
-      ),
+      title: "Planejamento",
       content: (
         <div className="max-w-3xl">
           <p className="text-neutral-700 dark:text-neutral-100">
@@ -22,14 +15,7 @@ export function TimelineSection() {
       ),
     },
     {
-      title: (
-        <h3
-          className="text-xl leading-tight"
-          style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
-        >
-          Design
-        </h3>
-      ),
+      title: "Design",
       content: (
         <div className="max-w-3xl">
           <p className="text-neutral-700 dark:text-neutral-300">
@@ -40,14 +26,7 @@ export function TimelineSection() {
       ),
     },
     {
-      title: (
-        <h3
-          className="text-xl leading-tight"
-          style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
-        >
-          Desenvolvimento
-        </h3>
-      ),
+      title: "Desenvolvimento",
       content: (
         <div className="max-w-3xl">
           <p className="text-neutral-700 dark:text-neutral-300">
@@ -57,14 +36,7 @@ export function TimelineSection() {
       ),
     },
     {
-      title: (
-        <h3
-          className="text-xl leading-tight"
-          style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
-        >
-          Lançamento
-        </h3>
-      ),
+      title: "Lançamento",
       content: (
         <div className="max-w-3xl">
           <p className="text-neutral-700 dark:text-neutral-300">

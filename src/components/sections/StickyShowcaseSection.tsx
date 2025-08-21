@@ -21,7 +21,7 @@ const content = [
     ),
   },
   {
-    title: "Web design de alta performance",
+    title: "Web design ",
     description:
       "Páginas rápidas, bonitas e focadas em conversão, com SEO técnico.",
     content: (
@@ -37,7 +37,7 @@ const content = [
     ),
   },
   {
-    title: "Prompts prontos",
+    title: "Automações",
     description: "Templates e frameworks prontos para acelerar sua produção.",
     content: (
       <div className="h-full w-full flex items-center justify-center bg-slate-900/25">

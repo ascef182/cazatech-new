@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { useI18n } from "@/app/ClientBody";
 
@@ -16,7 +16,7 @@ export default function FeaturesSection() {
         delayChildren: 0.3,
       },
     },
-  };
+  } as const;
 
   const item = {
     hidden: { y: 30, opacity: 0 },
@@ -24,12 +24,12 @@ export default function FeaturesSection() {
       y: 0,
       opacity: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         damping: 12,
         stiffness: 100,
       },
     },
-  };
+  } as const;
 
   const statsItem = {
     hidden: { scale: 0.8, opacity: 0 },
@@ -37,11 +37,11 @@ export default function FeaturesSection() {
       scale: 1,
       opacity: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100,
       },
     },
-  };
+  } as const;
 
   // Componente Counter com animação de 0 → número final
   const Counter = ({ value }: { value: number }) => {

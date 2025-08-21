@@ -34,7 +34,7 @@ export default function TestimonialSection() {
   return (
     <section
       aria-label="Depoimentos de clientes"
-      className="py-16 md:py-24 bg-black"
+      className="py-16 md:py-24 bg-white"
     >
       <div className="container">
         <h2
