@@ -31,6 +31,11 @@ export async function POST(req: Request) {
       );
     }
 
+    // Modo teste: se API_KEY === "TEST", não envia e-mail, apenas simula sucesso
+    if (apiKey === "TEST") {
+      return NextResponse.json({ ok: true, message: "Simulado (TEST)" });
+    }
+
     const referenceWord = process.env.CONTACT_REF || "";
 
     const mailerSend = new MailerSend({ apiKey });

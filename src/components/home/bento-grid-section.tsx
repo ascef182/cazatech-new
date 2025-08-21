@@ -16,7 +16,7 @@ export default function BentoGridSection() {
       <div className="container">
         <h2
           className="mb-8 text-center text-3xl md:text-4xl font-bold text-white"
-          style={{ fontFamily: "Zero Hour, Satoshi, sans-serif" }}
+          style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
         >
           Soluções em destaque
         </h2>
@@ -211,46 +211,57 @@ const SkeletonFive = () => {
 
 const items = [
   {
-    title: "Geração de Conteúdo com IA",
+    title: "Conversa humanizada (voz, áudio e texto)",
     description: (
-      <span className="text-sm">Conteúdo original e sob medida.</span>
+      <span className="text-sm">
+        Seu atendimento fala como humano: recebe e envia áudios, entende
+        contexto e mantém o tom da sua marca.
+      </span>
     ),
     header: <SkeletonOne />,
     className: "md:col-span-1",
     icon: <IconClipboardCopy className="h-4 w-4 text-neutral-400" />,
   },
   {
-    title: "Revisão Automatizada",
+    title: "Resposta rápida 24/7",
     description: (
-      <span className="text-sm">Correções inteligentes, sem esforço.</span>
+      <span className="text-sm">
+        Seu cliente sempre atendido: fila inteligente, auto‑reply e
+        disponibilidade total.
+      </span>
     ),
     header: <SkeletonTwo />,
     className: "md:col-span-1",
     icon: <IconFileBroken className="h-4 w-4 text-neutral-400" />,
   },
   {
-    title: "Sugestões Contextuais",
+    title: "Análise de sentimento",
     description: (
-      <span className="text-sm">Melhore seu texto com insights de IA.</span>
+      <span className="text-sm">
+        Detecta humor e intenção para priorizar leads e adaptar mensagens.
+      </span>
     ),
     header: <SkeletonThree />,
     className: "md:col-span-1",
     icon: <IconSignature className="h-4 w-4 text-neutral-400" />,
   },
   {
-    title: "Análise de Sentimento",
+    title: "Reconhecimento e roteamento",
     description: (
-      <span className="text-sm">Entenda como seu público percebe você.</span>
+      <span className="text-sm">
+        Identifica o cliente e direciona ao fluxo certo: vendas, suporte ou
+        cobrança.
+      </span>
     ),
     header: <SkeletonFour />,
     className: "md:col-span-2",
     icon: <IconTableColumn className="h-4 w-4 text-neutral-400" />,
   },
   {
-    title: "Sumarização de Texto",
+    title: "Fluxos por segmento",
     description: (
       <span className="text-sm">
-        Síntese clara e objetiva de conteúdos longos.
+        Conversas que se adaptam ao seu mercado: saúde, educação, varejo e mais.
       </span>
     ),
     header: <SkeletonFive />,

@@ -1,6 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+import ThreeDMarqueeDemoSecond from "@/components/3d-marquee-demo-2";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -21,65 +23,25 @@ export default function AutomacoesPage() {
 
   return (
     <div className="relative w-full overflow-hidden">
-      {/* Hero futurista */}
+      {/* Hero com 3D Marquee */}
       <section className="relative bg-black text-white">
+        <ThreeDMarqueeDemoSecond />
         <div className="absolute inset-0 pointer-events-none" aria-hidden>
-          <div className="absolute -top-40 -left-40 h-80 w-80 rounded-full bg-pink-500/20 blur-3xl" />
-          <div className="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-blue-500/20 blur-3xl" />
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent" />
         </div>
-        <div className="container py-24 md:py-28">
-          <div className="max-w-3xl mx-auto text-center">
-            <motion.h1
-              initial="hidden"
-              animate="visible"
-              variants={fadeIn}
-              className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight"
-            >
-              <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
-                Atendimento Automatizado no WhatsApp
-              </span>
-            </motion.h1>
-            <motion.p
-              initial="hidden"
-              animate="visible"
-              variants={fadeIn}
-              transition={{ delay: 0.1 }}
-              className="mt-4 md:mt-6 text-lg md:text-xl text-white/70"
-            >
-              Capte, qualifique e atenda clientes 24/7 com um fluxo inteligente
-              que reduz custos, aumenta conversões e acelera agendamentos.
-            </motion.p>
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeIn}
-              transition={{ delay: 0.2 }}
-              className="mt-8 flex items-center justify-center gap-3"
-            >
-              <Button
-                asChild
-                size="lg"
-                className="bg-black hover:bg-black text-white"
-              >
-                <Link
-                  href="https://api.whatsapp.com/send/?phone=5535998026821&text=Quero%20automatizar%20meu%20WhatsApp"
-                  target="_blank"
-                >
-                  <PhoneCall className="mr-2 h-4 w-4" /> Falar com um
-                  especialista
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="bg-black text-white hover:bg-black/90 border-white/20"
-              >
-                <Link href="#planos">Ver planos</Link>
-              </Button>
-            </motion.div>
-          </div>
+        <div className="container -mt-24 flex items-center justify-center">
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="secondary">Demonstração</Button>
+            </DialogTrigger>
+            <DialogContent className="max-w-4xl p-0 overflow-hidden">
+              <video
+                src="/videos/demonstração.mp4"
+                controls
+                className="w-full h-auto"
+              />
+            </DialogContent>
+          </Dialog>
         </div>
       </section>
 
@@ -264,6 +226,41 @@ export default function AutomacoesPage() {
                 </Card>
               </motion.div>
             ))}
+          </div>
+
+          {/* Card templates 2000 por 97,00 */}
+          <div className="mt-10">
+            <Card className="border-emerald-500/30 bg-emerald-500/5">
+              <CardHeader>
+                <CardTitle className="text-emerald-400">
+                  2000 Templates de Atendimento
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="flex items-center justify-between flex-wrap gap-4">
+                <p className="text-sm text-muted-foreground max-w-xl">
+                  Pacote pronto para implantar no seu negócio: fluxos, prompts e
+                  roteiros por segmento.
+                </p>
+                <div className="flex items-center gap-4">
+                  <div className="text-right">
+                    <div className="text-xs line-through text-white/50">
+                      R$ 999,90
+                    </div>
+                    <div className="text-2xl font-bold text-white">
+                      R$ 97,00
+                    </div>
+                  </div>
+                  <Button
+                    asChild
+                    className="bg-emerald-600 hover:bg-emerald-700"
+                  >
+                    <Link href="https://api.whatsapp.com/send/?phone=5535998026821&text=Quero%202000%20templates">
+                      Comprar agora
+                    </Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
