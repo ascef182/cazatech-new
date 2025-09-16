@@ -1,11 +1,16 @@
 "use client";
 
 import { motion } from "motion/react";
-import ThreeDMarqueeDemoSecond from "@/components/3d-marquee-demo-2";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import HeroAutomacoes from "@/components/automacoes/HeroAutomacoes";
+import HeroScrollVideo from "@/components/automacoes/HeroScrollVideo";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
+import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
+import { automacoesContent } from "@/content/automacoes";
 import {
   Zap,
   MessageSquare,
@@ -13,6 +18,11 @@ import {
   Users,
   CheckCircle2,
   PhoneCall,
+  Route,
+  Bot,
+  CalendarDays,
+  Repeat,
+  Receipt,
 } from "lucide-react";
 
 export default function AutomacoesPage() {
@@ -23,49 +33,17 @@ export default function AutomacoesPage() {
 
   return (
     <div className="relative w-full overflow-hidden">
-      {/* Hero com 3D Marquee */}
-      <section className="relative bg-black text-white">
-        <ThreeDMarqueeDemoSecond />
-        <div className="absolute inset-0 pointer-events-none" aria-hidden>
-          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent" />
-        </div>
-        <div className="container -mt-24 flex items-center justify-center">
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button variant="secondary">Demonstração</Button>
-            </DialogTrigger>
-            <DialogContent className="max-w-4xl p-0 overflow-hidden">
-              <video
-                src="/videos/demonstração.mp4"
-                controls
-                className="w-full h-auto"
-              />
-            </DialogContent>
-          </Dialog>
-        </div>
-      </section>
+      {/* Hero com grid de imagens n8n e CTA igual à raíz */}
+      <HeroAutomacoes />
+
+      {/* Scroll com vídeo demonstrativo no estilo da home */}
+      <HeroScrollVideo />
 
       {/* O que é e como funciona */}
       <section className="relative bg-background">
         <div className="container py-14 md:py-20">
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-            {[
-              {
-                icon: <MessageSquare className="h-5 w-5" />,
-                title: "Atendimento Inteligente",
-                desc: "Receba e responda automaticamente com linguagem natural, mantendo um tom humano.",
-              },
-              {
-                icon: <Users className="h-5 w-5" />,
-                title: "Qualificação e Triagem",
-                desc: "Identifique necessidades e direcione para vendas, suporte ou agendamento.",
-              },
-              {
-                icon: <Clock className="h-5 w-5" />,
-                title: "Agendamentos 24/7",
-                desc: "Integração com agenda: o cliente escolhe o horário direto pelo WhatsApp.",
-              },
-            ].map((f, i) => (
+            {automacoesContent.features.map((f, i) => (
               <motion.div
                 key={i}
                 initial="hidden"
@@ -76,7 +54,9 @@ export default function AutomacoesPage() {
                 className="rounded-2xl border bg-card text-card-foreground p-6 shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="flex items-center gap-3 text-pink-600">
-                  {f.icon}
+                  {f.icon === "chat" && <MessageSquare className="h-5 w-5" />}
+                  {f.icon === "route" && <Route className="h-5 w-5" />}
+                  {f.icon === "clock" && <Clock className="h-5 w-5" />}
                   <h3 className="font-semibold">{f.title}</h3>
                 </div>
                 <p className="mt-2 text-muted-foreground">{f.desc}</p>
@@ -129,6 +109,73 @@ export default function AutomacoesPage() {
         </div>
       </section>
 
+      {/* Tipos de automação (Bento Grid) */}
+      <section className="relative bg-black py-16 md:py-24">
+        <div className="container">
+          <h2
+            className="mb-8 text-center text-3xl md:text-4xl font-bold text-white"
+            style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
+          >
+            O que podemos automatizar
+          </h2>
+          <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
+            {automacoesContent.bentoGrid.map((item, i) => (
+              <BentoGridItem
+                key={i}
+                title={item.title}
+                description={item.description}
+                className={item.span === 2 ? "md:col-span-2" : undefined}
+                icon={
+                  item.icon === "calendar" ? (
+                    <CalendarDays className="h-4 w-4 text-neutral-400" />
+                  ) : item.icon === "receipt" ? (
+                    <Receipt className="h-4 w-4 text-neutral-400" />
+                  ) : item.icon === "repeat" ? (
+                    <Repeat className="h-4 w-4 text-neutral-400" />
+                  ) : (
+                    <Bot className="h-4 w-4 text-neutral-400" />
+                  )
+                }
+              />
+            ))}
+          </BentoGrid>
+        </div>
+      </section>
+
+      {/* Prova visual (Sticky Showcase) */}
+      <section className="w-full bg-black">
+        <StickyScroll
+          content={automacoesContent.sticky.map((s) => ({
+            title: s.title,
+            description: s.description,
+            content: (
+              <div className="h-full w-full flex items-center justify-center bg-black">
+                <Image
+                  src={s.image}
+                  alt={s.title}
+                  width={320}
+                  height={220}
+                  className="rounded-lg"
+                />
+              </div>
+            ),
+          }))}
+        />
+      </section>
+
+      {/* Depoimentos */}
+      <section className="py-16 md:py-24 bg-black">
+        <div className="container">
+          <h2
+            className="text-center text-2xl md:text-3xl font-bold mb-8 text-white/90"
+            style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
+          >
+            Depoimentos de Clientes
+          </h2>
+          <AnimatedTestimonials testimonials={automacoesContent.testimonials} />
+        </div>
+      </section>
+
       {/* Planos */}
       <section id="planos" className="relative bg-background">
         <div className="container py-14 md:py-20">
@@ -141,38 +188,7 @@ export default function AutomacoesPage() {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-            {[
-              {
-                tag: "Autônomos",
-                className: "border-pink-500/30",
-                accent: "from-pink-500/20 to-transparent",
-                items: [
-                  "Atendimento 24/7",
-                  "Respostas rápidas",
-                  "Até 1 número",
-                ],
-              },
-              {
-                tag: "Até 5 pessoas",
-                className: "border-purple-500/30",
-                accent: "from-purple-500/20 to-transparent",
-                items: [
-                  "Fila de atendimento",
-                  "Triagem inteligente",
-                  "Até 5 números",
-                ],
-              },
-              {
-                tag: "> 5 pessoas (Personalizado)",
-                className: "border-blue-500/30",
-                accent: "from-blue-500/20 to-transparent",
-                items: [
-                  "Integrações e SLA",
-                  "Relatórios",
-                  "Onboarding dedicado",
-                ],
-              },
-            ].map((p, i) => (
+            {automacoesContent.plans.map((p, i) => (
               <motion.div
                 key={p.tag}
                 initial="hidden"
@@ -272,29 +288,12 @@ export default function AutomacoesPage() {
             <div>
               <h3 className="text-2xl font-bold">Perguntas frequentes</h3>
               <ul className="mt-4 space-y-4 text-muted-foreground">
-                <li>
-                  <strong className="text-foreground">
-                    É necessário trocar meu número?
-                  </strong>
-                  <p>
-                    Não. Integramos no seu número atual ou criamos um dedicado
-                    ao atendimento.
-                  </p>
-                </li>
-                <li>
-                  <strong className="text-foreground">
-                    Posso intervir a qualquer momento?
-                  </strong>
-                  <p>Sim. O fluxo transfere para humano quando desejar.</p>
-                </li>
-                <li>
-                  <strong className="text-foreground">
-                    Quanto tempo para implementar?
-                  </strong>
-                  <p>
-                    De 3 a 10 dias úteis, conforme integrações e personalização.
-                  </p>
-                </li>
+                {automacoesContent.faq.map((f) => (
+                  <li key={f.q}>
+                    <strong className="text-foreground">{f.q}</strong>
+                    <p>{f.a}</p>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="rounded-2xl border p-6 bg-black text-white">
