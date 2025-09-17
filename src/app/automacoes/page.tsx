@@ -11,6 +11,8 @@ import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import { automacoesContent } from "@/content/automacoes";
+import { PricingTable } from "@/components/automacoes/PricingTable";
+import { FAQSchema } from "@/components/seo/JsonLd";
 import {
   Zap,
   MessageSquare,
@@ -177,112 +179,11 @@ export default function AutomacoesPage() {
       </section>
 
       {/* Planos */}
-      <section id="planos" className="relative bg-background">
-        <div className="container py-14 md:py-20">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
-              Planos sob medida
-            </h2>
-            <p className="mt-2 text-muted-foreground">
-              Cores da sua marca. Foco em conversão. Sem fidelidade.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-            {automacoesContent.plans.map((p, i) => (
-              <motion.div
-                key={p.tag}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeIn}
-                transition={{ delay: i * 0.1 }}
-              >
-                <Card
-                  className={`relative h-full border ${p.className} overflow-hidden`}
-                >
-                  <div
-                    className={`pointer-events-none absolute inset-0 bg-gradient-to-b ${p.accent}`}
-                    aria-hidden
-                  />
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Zap className="h-5 w-5 text-pink-600" /> {p.tag}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2 text-sm">
-                      {p.items.map((it) => (
-                        <li key={it} className="flex items-start gap-2">
-                          <CheckCircle2 className="mt-0.5 h-4 w-4 text-emerald-500" />{" "}
-                          {it}
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="mt-5 flex items-center gap-2">
-                      <Button
-                        asChild
-                        className="bg-black hover:bg-black text-white"
-                      >
-                        <Link
-                          href="https://api.whatsapp.com/send/?phone=5535998026821&text=Quero%20este%20plano"
-                          target="_blank"
-                        >
-                          Falar no WhatsApp
-                        </Link>
-                      </Button>
-                      <Button
-                        asChild
-                        variant="outline"
-                        className="bg-black text-white hover:bg-black/90"
-                      >
-                        <Link href="#faq">Detalhes</Link>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Card templates 2000 por 97,00 */}
-          <div className="mt-10">
-            <Card className="border-emerald-500/30 bg-emerald-500/5">
-              <CardHeader>
-                <CardTitle className="text-emerald-400">
-                  2000 Templates de Atendimento
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="flex items-center justify-between flex-wrap gap-4">
-                <p className="text-sm text-muted-foreground max-w-xl">
-                  Pacote pronto para implantar no seu negócio: fluxos, prompts e
-                  roteiros por segmento.
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="text-right">
-                    <div className="text-xs line-through text-white/50">
-                      R$ 999,90
-                    </div>
-                    <div className="text-2xl font-bold text-white">
-                      R$ 97,00
-                    </div>
-                  </div>
-                  <Button
-                    asChild
-                    className="bg-emerald-600 hover:bg-emerald-700"
-                  >
-                    <Link href="https://api.whatsapp.com/send/?phone=5535998026821&text=Quero%202000%20templates">
-                      Comprar agora
-                    </Link>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+      <PricingTable />
 
       {/* FAQ e CTA final */}
       <section id="faq" className="relative bg-background">
+        <FAQSchema faqs={automacoesContent.faq} />
         <div className="container py-14 md:py-20">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
@@ -291,7 +192,8 @@ export default function AutomacoesPage() {
                 {automacoesContent.faq.map((f) => (
                   <li key={f.q}>
                     <strong className="text-foreground">{f.q}</strong>
-                    <p>{f.a}</p>
+                    <br />
+                    {f.a}
                   </li>
                 ))}
               </ul>

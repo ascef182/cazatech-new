@@ -7,8 +7,7 @@ export const translations: Record<SupportedLang, Record<string, string>> = {
     // Navbar
     nav_home: "Home",
     nav_automation: "Automação",
-    nav_social: "Social Media",
-    nav_sites: "Sites",
+    nav_sites: "Works",
     nav_blog: "Blog",
     nav_contact: "Contato",
 
@@ -72,8 +71,7 @@ export const translations: Record<SupportedLang, Record<string, string>> = {
     // Navbar
     nav_home: "Home",
     nav_automation: "Automation",
-    nav_social: "Social Media",
-    nav_sites: "Websites",
+    nav_sites: "Works",
     nav_blog: "Blog",
     nav_contact: "Contact",
 

@@ -1,7 +1,7 @@
 export const automacoesContent = {
   hero: {
-    title: "Automatize seu WhatsApp",
-    subtitle: "Atendimento, vendas e agendamentos 24h por dia",
+    title: "Pare de Perder Clientes por Demora no Atendimento",
+    subtitle: "Automatize seu WhatsApp e converta 3x mais leads em vendas reais",
     backgroundImages: [
       "/images/n8n/n8n.png",
       "/images/n8n/n8n1.png",
@@ -26,18 +26,18 @@ export const automacoesContent = {
   features: [
     {
       icon: "chat",
-      title: "Atendimento Inteligente",
-      desc: "Respostas naturais, com tom da marca e memória contextual.",
+      title: "Seus Clientes Pensarão que Estão Falando com Humanos",
+      desc: "Conversas naturais que mantêm o tom da sua marca e lembram do histórico de cada cliente.",
     },
     {
       icon: "route",
-      title: "Qualificação e Triagem",
-      desc: "Roteamento automático para vendas, suporte ou agendamento.",
+      title: "Só Chegam Leads Qualificados na Sua Mesa",
+      desc: "Sistema inteligente separa curiosos de compradores reais antes de consumir seu tempo.",
     },
     {
       icon: "clock",
-      title: "Agendamentos 24/7",
-      desc: "Integrações com agenda, pagamentos e notificações.",
+      title: "Receba Pagamentos Automáticos Sem Perder Nenhuma Venda",
+      desc: "Agendamentos, lembretes e cobrança funcionam 24h, mesmo quando você está dormindo.",
     },
   ],
   bentoGrid: [

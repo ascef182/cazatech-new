@@ -3,14 +3,60 @@ import "./globals.css";
 import "@fontsource/plus-jakarta-sans/400.css";
 import "@fontsource/plus-jakarta-sans/700.css";
 import ClientBody from "./ClientBody";
+import { OrganizationSchema, WebsiteSchema } from '@/components/seo/JsonLd';
+import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 
 export const metadata: Metadata = {
   title: {
-    default: "CazaTech | Soluções Digitais para Empresas",
-    template: "%s | CazaTech",
+    default: "CazaTech | Automação WhatsApp que Vende 3x Mais",
+    template: "%s | CazaTech - Automação e Marketing Digital",
   },
   description:
-    "Sites profissionais, automações e marketing digital em São Paulo. Transformamos ideias em resultados mensuráveis para seu negócio.",
+    "Automatize seu WhatsApp, crie sites de alta conversão e aumente suas vendas em 300%. +50 empresas já confiam na CazaTech. Diagnóstico gratuito.",
+  keywords: [
+    "automação whatsapp",
+    "chatbot whatsapp",
+    "sites conversão",
+    "marketing digital são paulo",
+    "atendimento automatizado",
+    "vendas whatsapp"
+  ],
+  authors: [{ name: "CazaTech" }],
+  creator: "CazaTech",
+  publisher: "CazaTech",
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: "https://caza-tech.com",
+    siteName: "CazaTech",
+    title: "CazaTech - Automação WhatsApp que Vende 3x Mais",
+    description: "Pare de perder clientes por demora no atendimento. Automatize e venda mais.",
+    images: [
+      {
+        url: "/og-cazatech.jpg",
+        width: 1200,
+        height: 630,
+        alt: "CazaTech - Automação WhatsApp",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CazaTech - Automação WhatsApp que Vende 3x Mais",
+    description: "Pare de perder clientes por demora no atendimento. Automatize e venda mais.",
+    images: ["/og-cazatech.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -82,8 +128,29 @@ export default function RootLayout({
         <meta name="msapplication-navbutton-color" content="#ffffff" />
         <meta name="application-name" content="CazaTech" />
         <meta name="mobile-web-app-capable" content="yes" />
+
+        {/* Preload critical fonts */}
+        <link 
+          rel="preload" 
+          href="/fonts/zero-hour/ZeroHour.otf" 
+          as="font" 
+          type="font/otf" 
+          crossOrigin="" 
+        />
+        <link 
+          rel="preload" 
+          href="/fonts/Satoshi-Medium.woff2" 
+          as="font" 
+          type="font/woff2" 
+          crossOrigin="" 
+        />
       </head>
-      <ClientBody>{children}</ClientBody>
+      <ClientBody>
+        <GoogleAnalytics measurementId="G-XXXXXXXXXX" />
+        <OrganizationSchema />
+        <WebsiteSchema />
+        {children}
+      </ClientBody>
     </html>
   );
 }

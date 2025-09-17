@@ -1,7 +1,10 @@
 "use client";
 
 import Script from "next/script";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { SocialProof } from "./SocialProof";
+import { trackWhatsAppClick } from "@/components/analytics/GoogleAnalytics";
 
 declare global {
   namespace JSX {
@@ -15,21 +18,33 @@ declare global {
 }
 
 export default function HeroSection() {
-  return (
-    <section className="relative w-full bg-black h-screen overflow-hidden">
-      <Script
-        src="https://unpkg.com/@splinetool/viewer@1.10.45/build/spline-viewer.js"
-        type="module"
-        strategy="afterInteractive"
-      />
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [shouldLoadSpline, setShouldLoadSpline] = useState(false);
 
-      {/* Spline no background apenas para mobile */}
-      <div className="absolute inset-0 z-0 md:hidden">
-        <spline-viewer
-          url="https://prod.spline.design/sHI2Th9YzQmnDxBD/scene.splinecode"
-          className="w-full h-full object-cover"
-        />
-      </div>
+  useEffect(() => {
+    const checkDevice = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+    
+    checkDevice();
+    window.addEventListener('resize', checkDevice);
+    
+    // Lazy load Spline after component mounts
+    const timer = setTimeout(() => {
+      setShouldLoadSpline(true);
+    }, 100);
+
+    return () => {
+      window.removeEventListener('resize', checkDevice);
+      clearTimeout(timer);
+    };
+  }, []);
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      {/* Gradient Background - Aceternity Style */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.3),transparent_50%)]" />
 
       {/* Grid principal - duas colunas no desktop */}
       <div className="relative z-10 grid md:grid-cols-2 w-full h-full">
@@ -43,13 +58,13 @@ export default function HeroSection() {
               className="font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-tight"
               style={{ fontFamily: "Zero Hour, Satoshi, sans-serif" }}
             >
-              <span className="text-[#6A0DAD]">SOLUÇÕES</span>
+              <span className="text-white">AUTOMATIZE SEU</span>
               <br />
-              <span className="bg-gradient-to-r from-[#f7f7f7] via-[#c7c7c7] to-[#f7f7f7] bg-clip-text text-transparent">
-                INTELIGENTES
+              <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                WHATSAPP
               </span>
               <br />
-              <span className="text-[#6A0DAD]">PARA O SEU NEGÓCIO</span>
+              <span className="text-white">E VENDA 3X MAIS</span>
             </motion.h1>
 
             <motion.p
@@ -58,8 +73,8 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.05 }}
               className="mt-4 text-white/90 text-base sm:text-lg"
             >
-              Automatizamos processos, criamos sites e integramos IA para levar
-              sua empresa ao próximo nível.
+              Atendimento 24/7, qualificação automática e agendamentos inteligentes. 
+              Pare de perder clientes por demora no atendimento.
             </motion.p>
 
             <motion.div
@@ -69,18 +84,23 @@ export default function HeroSection() {
               className="mt-6 flex flex-col sm:flex-row items-center md:justify-start justify-center gap-4"
             >
               <a
-                href="/contact"
-                className="relative overflow-hidden rounded-2xl font-semibold text-white px-6 py-3 text-sm md:text-base bg-gradient-to-r from-purple-700 via-pink-600 to-black hover:scale-105 transition"
+                href="https://wa.me/5535998026821?text=Olá%20CazaTech%2C%20quero%20automatizar%20meu%20WhatsApp%20em%207%20dias"
+                target="_blank"
+                onClick={() => trackWhatsAppClick('hero_primary', 'Automatizar meu WhatsApp em 7 dias')}
+                className="relative overflow-hidden rounded-lg font-semibold text-white px-6 py-3 text-sm md:text-base bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
-                Quero uma solução
+                Automatizar meu WhatsApp em 7 dias
               </a>
               <a
                 href="/automacoes"
-                className="rounded-2xl border border-white text-white px-6 py-3 text-sm md:text-base hover:bg-white/10 transition"
+                className="rounded-lg border border-white/20 text-white px-6 py-3 text-sm md:text-base hover:bg-white/10 backdrop-blur-sm transition-all duration-300"
               >
-                Conheça nossos serviços
+                Ver demo de 2 min
               </a>
             </motion.div>
+
+            {/* Prova Social */}
+            <SocialProof customerCount={50} className="mt-6" />
           </div>
         </div>
 

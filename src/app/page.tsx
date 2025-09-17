@@ -1,5 +1,6 @@
 // app/page.tsx
 import HeroSection from "@/components/home/HeroSection";
+import { QuantifiedBenefits } from "@/components/home/QuantifiedBenefits";
 import TestimonialSection from "@/components/home/TestimonialSection";
 import ShowcaseGridSection from "@/components/sections/ShowcaseGridSection";
 import StickyShowcaseSection from "@/components/sections/StickyShowcaseSection";
@@ -14,6 +15,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <QuantifiedBenefits />
       <HeroScrollDemo />
       <TimelineSection />
       <BentoGridSection />

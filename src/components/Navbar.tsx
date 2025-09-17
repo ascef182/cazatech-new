@@ -116,24 +116,10 @@ export default function Navbar() {
                 aria-label="Menu mobile"
               >
                 <div className="relative h-full">
-                  {/* Botão de fechar */}
-                  <motion.div
-                    className="absolute top-4 right-4"
-                    whileHover={{ rotate: 90 }}
-                  >
-                    <SheetTrigger asChild>
-                      <button
-                        className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
-                        aria-label="Fechar menu"
-                      >
-                        <X className="h-6 w-6" aria-hidden="true" />
-                      </button>
-                    </SheetTrigger>
-                  </motion.div>
 
                   {/* Conteúdo do menu */}
                   <nav
-                    className="flex flex-col space-y-2 pt-16"
+                    className="flex flex-col space-y-2 pt-8"
                     aria-label="Navegação mobile"
                   >
                     {navItems.map((item, index) => (

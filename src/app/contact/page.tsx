@@ -13,6 +13,11 @@ import { toast } from "sonner";
 const schema = z.object({
   name: z.string().min(2, "Informe seu nome"),
   email: z.string().email("E-mail inválido"),
+  company: z.string().min(2, "Informe sua empresa"),
+  objective: z.enum(["automacao", "site", "consultoria"], {
+    errorMap: () => ({ message: "Selecione um objetivo" })
+  }),
+  budget: z.string().optional(),
   message: z.string().min(10, "Mensagem muito curta"),
 });
 
@@ -32,7 +37,7 @@ export default function ContactPage() {
       });
       const data = await res.json();
       if (!res.ok || !data.ok) throw new Error(data.error || "Falha no envio");
-      toast.success("Mensagem enviada com sucesso!");
+      toast.success("Mensagem enviada com sucesso! Responderemos em até 24h úteis.");
       form.reset();
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "Erro inesperado");
@@ -55,13 +60,19 @@ export default function ContactPage() {
           </p>
         </div>
 
+        <div className="mb-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+          <p className="text-blue-800 text-sm">
+            📞 <strong>Resposta garantida em até 24h úteis</strong> - Nossa equipe entrará em contato para agendar uma conversa personalizada.
+          </p>
+        </div>
+
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="name">Nome</Label>
+              <Label htmlFor="name">Nome *</Label>
               <Input
                 id="name"
-                placeholder="Seu nome"
+                placeholder="Seu nome completo"
                 {...form.register("name")}
               />
               {form.formState.errors.name && (
@@ -71,7 +82,7 @@ export default function ContactPage() {
               )}
             </div>
             <div>
-              <Label htmlFor="email">E-mail</Label>
+              <Label htmlFor="email">E-mail *</Label>
               <Input
                 id="email"
                 type="email"
@@ -85,12 +96,62 @@ export default function ContactPage() {
               )}
             </div>
           </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            <div>
+              <Label htmlFor="company">Empresa *</Label>
+              <Input
+                id="company"
+                placeholder="Nome da sua empresa"
+                {...form.register("company")}
+              />
+              {form.formState.errors.company && (
+                <p className="mt-1 text-sm text-red-600">
+                  {form.formState.errors.company.message}
+                </p>
+              )}
+            </div>
+            <div>
+              <Label htmlFor="objective">Objetivo *</Label>
+              <select
+                id="objective"
+                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                {...form.register("objective")}
+              >
+                <option value="">Selecione seu objetivo</option>
+                <option value="automacao">Automação WhatsApp</option>
+                <option value="site">Site/Landing Page</option>
+                <option value="consultoria">Consultoria Digital</option>
+              </select>
+              {form.formState.errors.objective && (
+                <p className="mt-1 text-sm text-red-600">
+                  {form.formState.errors.objective.message}
+                </p>
+              )}
+            </div>
+          </div>
+
           <div>
-            <Label htmlFor="message">Mensagem</Label>
+            <Label htmlFor="budget">Orçamento estimado (opcional)</Label>
+            <select
+              id="budget"
+              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              {...form.register("budget")}
+            >
+              <option value="">Prefiro não informar</option>
+              <option value="ate-5k">Até R$ 5.000</option>
+              <option value="5k-15k">R$ 5.000 - R$ 15.000</option>
+              <option value="15k-30k">R$ 15.000 - R$ 30.000</option>
+              <option value="acima-30k">Acima de R$ 30.000</option>
+            </select>
+          </div>
+
+          <div>
+            <Label htmlFor="message">Mensagem *</Label>
             <Textarea
               id="message"
-              className="h-40"
-              placeholder="Como podemos ajudar?"
+              className="h-32"
+              placeholder="Conte-nos mais sobre seu projeto, desafios atuais e objetivos..."
               {...form.register("message")}
             />
             {form.formState.errors.message && (

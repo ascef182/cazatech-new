@@ -1,87 +1,104 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { FiArrowLeft } from "react-icons/fi";
-import { motion } from "motion/react";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import HeroParallaxDemo from "@/components/hero-parallax-demo";
-import VortexDemo from "@/components/vortex-demo";
+import { WorksFeaturesDemo } from "@/components/works/features-demo";
+import { CaseStudy } from "@/components/works/CaseStudy";
+import { CaseFilter } from "@/components/works/CaseFilter";
+import { BreadcrumbSchema } from "@/components/seo/JsonLd";
+import { cases } from "@/content/cases";
 
 export default function WorksPage() {
-  return (
-    <div className="relative">
-      {/* Parallax showcase */}
-      <div className="bg-black">
-        <HeroParallaxDemo />
-      </div>
-      <div className="bg-black">
-        <VortexDemo />
-      </div>
+  const [activeCategory, setActiveCategory] = useState('all');
+  
+  // Get unique categories
+  const categories = Array.from(new Set(cases.map(c => c.category)));
+  
+  // Filter cases based on active category
+  const filteredCases = activeCategory === 'all' 
+    ? cases 
+    : cases.filter(c => c.category === activeCategory);
 
-      {/* Floating WhatsApp removido (uso global via CTAFloaters) */}
-    </div>
-  );
-}
+  const breadcrumbItems = [
+    { name: "Home", url: "https://cazatech.com.br" },
+    { name: "Works", url: "https://cazatech.com.br/works" }
+  ];
 
-function PortfolioCard({
-  image,
-  title,
-  description,
-  href,
-  category,
-}: {
-  image: string;
-  title: string;
-  description: string;
-  href: string;
-  category: string;
-}) {
   return (
-    <Link href={href} className="group block h-full">
-      <div className="relative h-full overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 shadow-sm transition-all hover:shadow-lg">
-        <div
-          className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"
-          aria-hidden
-        >
-          <div className="absolute -inset-40 bg-gradient-to-tr from-pink-500/10 via-purple-500/10 to-blue-500/10 blur-2xl" />
-        </div>
-        <div className="relative h-64 overflow-hidden">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-            sizes="(max-width: 768px) 100vw, 50vw"
+    <div className="bg-black">
+      <BreadcrumbSchema items={breadcrumbItems} />
+      <HeroParallaxDemo />
+      <WorksFeaturesDemo />
+      
+      {/* Cases Section */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+              Cases de Sucesso Reais
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Veja como transformamos negócios com automação inteligente. 
+              Resultados comprovados e mensuráveis.
+            </p>
+          </motion.div>
+
+          <CaseFilter 
+            categories={categories}
+            activeCategory={activeCategory}
+            onCategoryChange={setActiveCategory}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-70" />
-          <div className="absolute bottom-3 left-3 inline-flex items-center gap-2 rounded-full bg-white/85 backdrop-blur px-3 py-1 text-xs font-medium text-gray-900">
-            {category}
-          </div>
-        </div>
-        <div className="p-5">
-          <h3 className="font-semibold text-lg md:text-xl">{title}</h3>
-          <p className="mt-1 text-sm text-muted-foreground line-clamp-3">
-            {description}
-          </p>
-          <div className="mt-4 inline-flex items-center text-sm font-medium text-pink-600 group-hover:text-pink-500">
-            Ver projeto
-            <svg
-              className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M5 12h14M13 5l7 7-7 7"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+
+          <div className="space-y-0">
+            {filteredCases.map((caseData, index) => (
+              <CaseStudy 
+                key={caseData.id} 
+                caseData={caseData} 
+                index={index}
               />
-            </svg>
+            ))}
           </div>
+
+          {/* CTA Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mt-16 p-8 rounded-2xl bg-gradient-to-r from-purple-600/10 to-pink-600/10 border border-purple-200/20"
+          >
+            <h3 className="text-2xl font-bold mb-4">
+              Pronto para ser o próximo case de sucesso?
+            </h3>
+            <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
+              Agende uma conversa gratuita e descubra como podemos multiplicar 
+              seus resultados em até 30 dias.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="https://wa.me/5535998026821?text=Olá! Vi os cases de sucesso e quero agendar uma conversa para meu negócio"
+                target="_blank"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold hover:from-purple-700 hover:to-pink-700 transition-all"
+              >
+                Agendar Conversa Gratuita
+              </a>
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-purple-600 text-purple-600 font-semibold hover:bg-purple-50 transition-all"
+              >
+                Solicitar Proposta
+              </a>
+            </div>
+          </motion.div>
         </div>
-      </div>
-    </Link>
+      </section>
+    </div>
   );
 }

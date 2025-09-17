@@ -50,11 +50,6 @@ export default function Footer() {
       href: "/automacoes",
       text: "Automação",
     },
-    {
-      icon: <FiInstagram className="mr-2" />,
-      href: "/social-media",
-      text: "Social Media",
-    },
     { icon: <FiGlobe className="mr-2" />, href: "/works", text: "Sites" },
     { icon: <FiBook className="mr-2" />, href: "/blog", text: "Blog" },
     { icon: <FiMail className="mr-2" />, href: "/contact", text: "Contato" },
