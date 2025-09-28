@@ -12,13 +12,19 @@ function HeroSplineBackground() {
       <Suspense
         fallback={
           <div className="w-full h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-black flex items-center justify-center">
-            <div className="text-white text-xl">Carregando...</div>
+            <div className="text-white text-xl">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white mx-auto mb-4"></div>
+              Carregando experiência interativa...
+            </div>
           </div>
         }
       >
         <Spline
           className="w-full h-screen pointer-events-auto"
           scene="https://prod.spline.design/us3ALejTXl6usHZ7/scene.splinecode"
+          onError={() => {
+            console.warn("Erro ao carregar cena Spline, usando fallback");
+          }}
         />
       </Suspense>
       <div className="absolute inset-0 w-full h-screen pointer-events-none">
@@ -36,12 +42,11 @@ function HeroContent() {
         className="text-2xl sm:text-4xl md:text-6xl font-bold mb-4 leading-[1.1] tracking-wide"
         style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
       >
-        Tire sua ideia do papel,
-        <br className="hidden sm:inline" /> onde o design vira realidade.
+        Tire sua ideia do papel
       </h1>
       <p className="text-sm sm:text-base md:text-lg leading-snug mb-5 sm:mb-6 opacity-80 max-w-xl mx-auto">
-        Transformamos negócios com estratégias digitais, design de alto impacto
-        e tecnologia sob medida para acelerar resultados.
+        Estratégias digitais, design de alto impacto <br />e tecnologia sob
+        medida para acelerar resultados.
       </p>
       <div className="flex pointer-events-auto flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
         <Link

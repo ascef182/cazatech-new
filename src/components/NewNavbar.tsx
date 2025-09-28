@@ -102,18 +102,18 @@ export const serviceLinks: NavItemType[] = [
 
 // Definindo os links da empresa
 export const companyLinks: NavItemType[] = [
-  {
+  /*{
     title: "Sobre Nós",
     href: "/sobre",
     description: "Conheça nossa história e equipe especializada",
     icon: Users,
-  },
+  },*/ /*
   {
     title: "Cases de Sucesso",
     href: "/cases",
     description: "Veja como ajudamos nossos clientes a vender mais",
     icon: Star,
-  },
+  },*/
   {
     title: "Blog",
     href: "/blog",
@@ -282,9 +282,7 @@ function MobileNav() {
           <MenuIcon className="size-5" />
         </Button>
       </SheetTrigger>
-      <SheetContent
-        className="bg-background/95 supports-[backdrop-filter]:bg-background/80 w-full gap-0 backdrop-blur-lg"
-      >
+      <SheetContent className="bg-background/95 supports-[backdrop-filter]:bg-background/80 w-full gap-0 backdrop-blur-lg">
         <div className="flex h-14 items-center justify-between border-b px-4">
           <Image
             src="/images/logo.png"

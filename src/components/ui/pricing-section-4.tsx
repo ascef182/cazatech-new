@@ -88,7 +88,7 @@ const PricingSwitch = ({ onSwitch }: { onSwitch: (value: string) => void }) => {
         <button
           onClick={() => handleSwitch("0")}
           className={cn(
-            "relative z-10 w-fit h-10  rounded-full sm:px-6 px-3 sm:py-2 py-1 font-medium transition-colors",
+            "relative z-10 w-fit h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 font-medium transition-colors",
             selected === "0" ? "text-white" : "text-gray-200"
           )}
         >
@@ -112,7 +112,7 @@ const PricingSwitch = ({ onSwitch }: { onSwitch: (value: string) => void }) => {
           {selected === "1" && (
             <motion.span
               layoutId={"switch"}
-              className="absolute top-0 left-0 h-10 w-full  rounded-full border-4 shadow-sm shadow-blue-600 border-blue-600 bg-gradient-to-t from-blue-500 to-blue-600"
+              className="absolute top-0 left-0 h-10 w-full rounded-full border-4 shadow-sm shadow-blue-600 border-blue-600 bg-gradient-to-t from-blue-500 to-blue-600"
               transition={{ type: "spring", stiffness: 500, damping: 30 }}
             />
           )}
@@ -151,8 +151,9 @@ export default function PricingSection4() {
 
   return (
     <div
-      className=" min-h-screen  mx-auto relative bg-black overflow-x-hidden"
+      className=" min-h-screen mx-auto relative bg-black overflow-x-hidden"
       ref={pricingRef}
+      style={{ zIndex: 10 }}
     >
       <TimelineContent
         animationNum={4}
@@ -360,56 +361,6 @@ export default function PricingSection4() {
           </TimelineContent>
         ))}
       </div>
-
-      {/* Templates Offer */}
-      <TimelineContent
-        as="div"
-        animationNum={6}
-        timelineRef={pricingRef}
-        customVariants={revealVariants}
-        className="max-w-5xl mx-auto px-4 pb-16"
-      >
-        <Card className="border-emerald-500/30 bg-emerald-500/5 overflow-hidden relative">
-          <div className="absolute top-0 right-0 bg-red-500 text-white px-3 py-1 text-xs font-bold transform rotate-12 translate-x-2 -translate-y-1">
-            OFERTA LIMITADA
-          </div>
-          <CardHeader>
-            <h3 className="text-emerald-400 text-xl font-semibold">
-              🚀 Pacote Completo: 2000 Templates de Atendimento
-            </h3>
-          </CardHeader>
-          <CardContent className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex-1 text-gray-300">
-              <p className="mb-4">
-                Fluxos prontos para implantar no seu negócio: prompts, roteiros
-                e automações organizados por segmento (clínicas, e-commerce,
-                serviços, etc.)
-              </p>
-              <ul className="text-sm space-y-1">
-                <li>✅ 2000+ templates testados e aprovados</li>
-                <li>✅ Organizados por nicho de mercado</li>
-                <li>✅ Pronto para usar em qualquer plataforma</li>
-                <li>✅ Atualizações gratuitas por 6 meses</li>
-              </ul>
-            </div>
-            <div className="text-center">
-              <div className="text-sm line-through text-gray-400 mb-1">
-                De R$ 999,90
-              </div>
-              <div className="text-3xl font-bold text-emerald-400 mb-4">
-                R$ 97,00
-              </div>
-              <Link
-                href="https://wa.me/5535998026821?text=Quero%20comprar%20o%20pacote%20de%202000%20templates%20por%20R%24%2097"
-                target="_blank"
-                className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-semibold transition-colors"
-              >
-                Comprar Agora
-              </Link>
-            </div>
-          </CardContent>
-        </Card>
-      </TimelineContent>
     </div>
   );
 }

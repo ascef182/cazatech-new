@@ -27,6 +27,7 @@ export function HeroScrollDemo() {
           alt="hero"
           height={720}
           width={1400}
+          loading="lazy"
           className="mx-auto rounded-2xl object-cover h-full object-left-top"
           draggable={false}
         />

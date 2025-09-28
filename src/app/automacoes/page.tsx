@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import HeroAutomacoes from "@/components/automacoes/HeroAutomacoes";
-import HeroScrollVideo from "@/components/automacoes/HeroScrollVideo";
+import { Iphone16Pro } from "@/components/ui/iphone-16-pro";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -37,109 +37,25 @@ export default function AutomacoesPage() {
       {/* Hero com grid de imagens n8n e CTA igual à raíz */}
       <HeroAutomacoes />
 
-      {/* Scroll com vídeo demonstrativo no estilo da home */}
-      <HeroScrollVideo />
-
-      {/* O que é e como funciona */}
-      <section className="relative bg-background">
-        <div className="container py-14 md:py-20">
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-            {automacoesContent.features.map((f, i) => (
-              <motion.div
-                key={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeIn}
-                transition={{ delay: i * 0.1 }}
-                className="rounded-2xl border bg-card text-card-foreground p-6 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="flex items-center gap-3 text-pink-600">
-                  {f.icon === "chat" && <MessageSquare className="h-5 w-5" />}
-                  {f.icon === "route" && <Route className="h-5 w-5" />}
-                  {f.icon === "clock" && <Clock className="h-5 w-5" />}
-                  <h3 className="font-semibold">{f.title}</h3>
-                </div>
-                <p className="mt-2 text-muted-foreground">{f.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-          <div className="mt-10 grid md:grid-cols-2 gap-6">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="rounded-2xl border p-6 bg-black text-white"
-            >
-              <h3 className="text-xl font-bold">Por que agora?</h3>
-              <ul className="mt-4 space-y-3 text-white/80">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-pink-500" />{" "}
-                  Reduza tempo de atendimento em até 80%
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-purple-500" />{" "}
-                  Aumente conversão com respostas instantâneas
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-blue-500" />{" "}
-                  Escale sem contratar mais equipe
-                </li>
-              </ul>
-            </motion.div>
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              transition={{ delay: 0.1 }}
-              className="rounded-2xl border p-6 bg-gradient-to-br from-pink-500/15 via-purple-500/10 to-blue-500/15"
-            >
-              <h3 className="text-xl font-bold">Como funciona o fluxo</h3>
-              <p className="mt-2 text-muted-foreground">
-                Captação → Qualificação → Triagem → Agendamento →
-                Pós-atendimento
-              </p>
-              <p className="mt-3 text-sm text-muted-foreground">
-                Você enviará o JSON do fluxo em "Secretária" e nós adaptaremos a
-                narrativa, elementos de UI e copy para conversão.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Tipos de automação (Bento Grid) */}
-      <section className="relative bg-black py-16 md:py-24">
-        <div className="container">
+      {/* iPhone 16 Pro mockup com vídeo demonstrativo */}
+      <section className="flex justify-center items-center py-16 md:py-24 bg-white">
+        <div className="text-center">
           <h2
-            className="mb-8 text-center text-3xl md:text-4xl font-bold text-white"
+            className="text-3xl md:text-4xl font-bold mb-8 text-black"
             style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
           >
-            O que podemos automatizar
+            Como funciona?
           </h2>
-          <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
-            {automacoesContent.bentoGrid.map((item, i) => (
-              <BentoGridItem
-                key={i}
-                title={item.title}
-                description={item.description}
-                className={item.span === 2 ? "md:col-span-2" : undefined}
-                icon={
-                  item.icon === "calendar" ? (
-                    <CalendarDays className="h-4 w-4 text-neutral-400" />
-                  ) : item.icon === "receipt" ? (
-                    <Receipt className="h-4 w-4 text-neutral-400" />
-                  ) : item.icon === "repeat" ? (
-                    <Repeat className="h-4 w-4 text-neutral-400" />
-                  ) : (
-                    <Bot className="h-4 w-4 text-neutral-400" />
-                  )
-                }
-              />
-            ))}
-          </BentoGrid>
+          <div className="flex justify-center">
+            <Iphone16Pro
+              videoSrc="/videos/demonstração.mp4"
+              width={433}
+              height={882}
+              shadow
+              rounded
+              hoverAnimation
+            />
+          </div>
         </div>
       </section>
 

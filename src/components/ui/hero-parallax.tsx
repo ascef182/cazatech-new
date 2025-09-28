@@ -90,17 +90,16 @@ export const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
+    <div className="max-w-5xl relative mx-auto py-1 md:py-1 px-4 w-full left-0 top-0">
       <h1
-        className="text-2xl md:text-7xl font-bold dark:text-white"
+        className="text-1xl md:text-5xl font-bold text-white"
         style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
       >
-        The Ultimate <br /> development studio
+        Mais que um site <br /> sua marca.
       </h1>
-      <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-        We build beautiful products with the latest technologies and frameworks.
-        We are a team of passionate developers and designers that love to build
-        amazing products.
+      <p className="max-w-2xl text-base md:text-xl mt-8 text-neutral-200">
+        Desenvolvemos aplicações web com alta performance, SEO estratégico para
+        crescimentos orgânico, tecnologia e frameworks avançados.
       </p>
     </div>
   );

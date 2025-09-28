@@ -31,10 +31,11 @@ export function TestimonialsSection() {
                 <img
                   src={image}
                   alt={name}
+                  loading="lazy"
                   className="w-12 h-12 rounded-full object-cover"
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).src =
-                      "/images/avatar-fallback.jpg";
+                      "/images/testimonial.jpeg";
                   }}
                 />
                 <div>

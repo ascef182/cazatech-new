@@ -23,23 +23,35 @@ type BlogArticleProps = {
   author?: Author;
   html?: string;
   children?: React.ReactNode;
+  backHref?: string;
+  backLabel?: string;
 };
 
 export default function BlogArticle(props: BlogArticleProps) {
-  const { title, category, date, readTime, image, author, html, children } =
-    props;
+  const {
+    title,
+    category,
+    date,
+    readTime,
+    image,
+    author,
+    html,
+    children,
+    backHref = "/blog",
+    backLabel = "Voltar",
+  } = props;
 
   return (
     <TracingBeam className="px-6">
       <div className="container py-10 md:py-14 relative max-w-4xl">
         <div className="mb-8">
           <Link
-            href="/blog"
+            href={backHref}
             className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-card border hover:bg-accent transition-all duration-200 shadow-sm text-sm"
             aria-label="Voltar para o blog"
           >
             <FiArrowLeft className="h-4 w-4" />
-            <span>Voltar</span>
+            <span>{backLabel}</span>
           </Link>
         </div>
 

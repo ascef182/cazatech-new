@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle2, Zap, Shield, Clock } from 'lucide-react';
-import Link from 'next/link';
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CheckCircle2, Zap, Shield, Clock } from "lucide-react";
+import Link from "next/link";
 
 interface PricingTier {
   name: string;
@@ -29,10 +29,10 @@ const pricingTiers: PricingTier[] = [
       "Até 1 número WhatsApp",
       "Integração básica com planilhas",
       "Suporte por 15 dias",
-      "Treinamento da equipe incluído"
+      "Treinamento da equipe incluído",
     ],
     color: "border-pink-500/30 bg-pink-500/5",
-    whatsappText: "Olá! Quero contratar o plano Starter de automação WhatsApp"
+    whatsappText: "Olá! Quero contratar o plano Starter de automação WhatsApp",
   },
   {
     name: "Growth",
@@ -47,11 +47,11 @@ const pricingTiers: PricingTier[] = [
       "Agendamentos automáticos",
       "Relatórios de performance",
       "Suporte por 30 dias",
-      "Otimizações mensais"
+      "Otimizações mensais",
     ],
     highlight: true,
     color: "border-purple-500/30 bg-purple-500/5",
-    whatsappText: "Olá! Quero contratar o plano Growth de automação WhatsApp"
+    whatsappText: "Olá! Quero contratar o plano Growth de automação WhatsApp",
   },
   {
     name: "Enterprise",
@@ -66,11 +66,12 @@ const pricingTiers: PricingTier[] = [
       "SLA garantido",
       "Suporte prioritário 24/7",
       "Gerente de conta dedicado",
-      "Treinamentos avançados"
+      "Treinamentos avançados",
     ],
     color: "border-blue-500/30 bg-blue-500/5",
-    whatsappText: "Olá! Quero uma proposta personalizada para o plano Enterprise"
-  }
+    whatsappText:
+      "Olá! Quero uma proposta personalizada para o plano Enterprise",
+  },
 ];
 
 export const PricingTable = () => {
@@ -85,12 +86,14 @@ export const PricingTable = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+          <h2
+            className="text-3xl md:text-4xl font-bold mb-4 text-foreground"
+            style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
+          >
             Planos que Cabem no Seu Bolso
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Implementação rápida, sem fidelidade e com garantia de resultados. 
-            Escolha o plano ideal para o tamanho do seu negócio.
+            Implementação rápida, sem fidelidade e com garantia de resultados.
           </p>
         </motion.div>
 
@@ -128,12 +131,18 @@ export const PricingTable = () => {
                   </div>
                 </div>
               )}
-              
-              <Card className={`relative h-full ${tier.color} border-2 ${tier.highlight ? 'scale-105' : ''} transition-all duration-300 hover:shadow-lg`}>
+
+              <Card
+                className={`relative h-full ${tier.color} border-2 ${
+                  tier.highlight ? "scale-105" : ""
+                } transition-all duration-300 hover:shadow-lg`}
+              >
                 <CardHeader className="text-center pb-4">
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <Zap className="w-5 h-5 text-purple-600" />
-                    <CardTitle className="text-xl font-bold">{tier.name}</CardTitle>
+                    <CardTitle className="text-xl font-bold">
+                      {tier.name}
+                    </CardTitle>
                   </div>
                   <p className="text-sm text-muted-foreground mb-4">
                     {tier.description}
@@ -148,9 +157,7 @@ export const PricingTable = () => {
                     <div className="text-xl font-semibold text-purple-600">
                       + {tier.monthlyPrice}
                     </div>
-                    <div className="text-sm text-muted-foreground">
-                      por mês
-                    </div>
+                    <div className="text-sm text-muted-foreground">por mês</div>
                   </div>
                 </CardHeader>
 
@@ -167,24 +174,24 @@ export const PricingTable = () => {
                   <div className="space-y-3 pt-4">
                     <Button
                       asChild
-                      className={`w-full ${tier.highlight ? 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700' : 'bg-black hover:bg-black/90'} text-white`}
+                      className={`w-full ${
+                        tier.highlight
+                          ? "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+                          : "bg-black hover:bg-black/90"
+                      } text-white`}
                     >
                       <Link
-                        href={`https://wa.me/5535998026821?text=${encodeURIComponent(tier.whatsappText)}`}
+                        href={`https://wa.me/5535998026821?text=${encodeURIComponent(
+                          tier.whatsappText
+                        )}`}
                         target="_blank"
                       >
                         Contratar {tier.name}
                       </Link>
                     </Button>
-                    
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="w-full"
-                    >
-                      <Link href="/contact">
-                        Falar com Consultor
-                      </Link>
+
+                    <Button asChild variant="outline" className="w-full">
+                      <Link href="/contact">Falar com Consultor</Link>
                     </Button>
                   </div>
 
@@ -220,8 +227,9 @@ export const PricingTable = () => {
             <CardContent className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="flex-1">
                 <p className="text-muted-foreground mb-4">
-                  Fluxos prontos para implantar no seu negócio: prompts, roteiros e automações 
-                  organizados por segmento (clínicas, e-commerce, serviços, etc.)
+                  Fluxos prontos para implantar no seu negócio: prompts,
+                  roteiros e automações organizados por segmento (clínicas,
+                  e-commerce, serviços, etc.)
                 </p>
                 <ul className="text-sm space-y-1 text-muted-foreground">
                   <li>✅ 2000+ templates testados e aprovados</li>
@@ -241,7 +249,7 @@ export const PricingTable = () => {
                   asChild
                   className="bg-emerald-600 hover:bg-emerald-700 text-white px-8"
                 >
-                  <Link 
+                  <Link
                     href="https://wa.me/5535998026821?text=Quero%20comprar%20o%20pacote%20de%202000%20templates%20por%20R%24%2097"
                     target="_blank"
                   >

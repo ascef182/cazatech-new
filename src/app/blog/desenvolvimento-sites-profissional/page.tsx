@@ -1,45 +1,62 @@
-import { processMarkdown, readMarkdownFile } from "@/lib/markdown";
-
-export const metadata = {
-  title: "Como um Site Profissional Impulsiona Seu Negócio e Vendas Online",
-  description: "Descubra como um site profissional pode transformar sua presença digital e impulsionar suas vendas online com estratégias eficazes.",
-};
+"use client";
+import BlogArticle from "@/components/ui/blog-article";
 
 export default function BlogPost() {
-  const markdownContent = readMarkdownFile("Desenvolvimento de Sites_ Como um Site Profissional Impulsiona Seu Negócio e Vendas Online.md");
-  const htmlContent = processMarkdown(markdownContent);
+  const post = {
+    id: "desenvolvimento-sites-profissional",
+    title: "Como um Site Profissional Impulsiona Seu Negócio e Vendas Online",
+    excerpt:
+      "Descubra como um site profissional pode transformar sua presença digital e impulsionar suas vendas online com estratégias eficazes.",
+    category: "Desenvolvimento Web",
+    date: "15 Março 2024",
+    readTime: "6 min",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+    author: {
+      name: "Carlos Eduardo",
+      role: "Especialista em Desenvolvimento Web",
+      avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+    },
+    tags: ["Desenvolvimento", "Web", "Vendas", "Estratégias"],
+    content: `
+      <article>
+        <h2>Por que um Site Profissional é Essencial</h2>
+        <p>Em um mundo cada vez mais digital, o site da sua empresa é o primeiro ponto de contato com potenciais clientes. Estudos mostram que 75% dos consumidores julgam a credibilidade de uma empresa baseada na qualidade do seu site.</p>
+
+        <h2>O que Define um Site Profissional</h2>
+        <ul>
+          <li><strong>Design Responsivo:</strong> Adaptável a todos os dispositivos</li>
+          <li><strong>Velocidade de Carregamento:</strong> Menos de 3 segundos para não perder visitantes</li>
+          <li><strong>Conteúdo Otimizado:</strong> Textos que convertem e informam</li>
+          <li><strong>SEO Técnico:</strong> Encontrado facilmente no Google</li>
+        </ul>
+
+        <h2>Impacto nas Vendas</h2>
+        <p>Um site bem estruturado pode aumentar suas vendas em até 200%. Como? Através de:</p>
+        <ul>
+          <li>Landing pages otimizadas para conversão</li>
+          <li>Integração com ferramentas de automação</li>
+          <li>Chatbots para atendimento 24/7</li>
+          <li>Formulários de contato estratégicos</li>
+        </ul>
+
+        <div class="bg-primary/10 p-6 rounded-xl my-8 border border-primary/20">
+          <h3 class="text-lg font-semibold mb-3">Resultado Comprovado</h3>
+          <p>Clientes que investiram em sites profissionais viram um aumento médio de <strong>150% nas conversões</strong> em 6 meses.</p>
+        </div>
+      </article>
+    `,
+  };
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="max-w-4xl mx-auto">
-        <article className="prose prose-lg max-w-none prose-headings:text-gray-800 prose-p:text-gray-600 prose-li:text-gray-600 prose-strong:text-gray-700">
-          <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
-        </article>
-        
-        <div className="mt-12 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border">
-          <h3 className="text-lg font-semibold mb-3">Pronto para criar seu site profissional?</h3>
-          <p className="text-gray-600 mb-4">
-            A CazaTech desenvolve sites que realmente convertem visitantes em clientes. 
-            Entre em contato e vamos transformar sua presença digital.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <a
-              href="https://wa.me/5535998026821?text=Olá! Quero desenvolver um site profissional"
-              className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Falar no WhatsApp
-            </a>
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center px-6 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition font-medium"
-            >
-              Solicitar Orçamento
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <BlogArticle
+      title={post.title}
+      category={post.category}
+      date={post.date}
+      readTime={post.readTime}
+      image={{ src: post.image, alt: post.title }}
+      author={post.author}
+      html={post.content}
+    />
   );
 }

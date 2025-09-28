@@ -8,7 +8,7 @@ import { automacoesContent } from "@/content/automacoes";
 export default function HeroAutomacoes() {
   const images = automacoesContent.hero.backgroundImages;
   return (
-    <section className="relative mx-auto  flex h-screen w-full max-w-7xl flex-col items-center justify-center overflow-hidden rounded-3xl bg-black text-white">
+    <section className="relative mx-auto flex h-screen w-full max-w-7xl flex-col items-center justify-center overflow-hidden rounded-3xl bg-black text-white -mt-16 md:-mt-20">
       {/* Background: 3 horizontal carousels com direções alternadas */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none px-6 md:px-10">
         <div className="absolute inset-0 flex flex-col justify-center gap-8 opacity-80">
@@ -72,8 +72,8 @@ export default function HeroAutomacoes() {
         Eleve seu atendimento a outro nível
       </h2>
       <p className="relative z-20 mx-auto max-w-2xl py-8 text-center text-sm text-neutral-200 md:text-base">
-        Respostas rápidas, humanas e 24/7 no WhatsApp. Fluxos adaptáveis para
-        cada segmento.
+        Respostas rápidas, humanas e 24/7 no WhatsApp. <br />
+        Fluxos adaptáveis para cada segmento.
       </p>
 
       <div className="relative z-20 flex flex-wrap items-center justify-center gap-4 pt-4">
