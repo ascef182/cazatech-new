@@ -1,4 +1,4 @@
-import { SVGProps, forwardRef, CSSProperties } from "react";
+import { SVGProps, forwardRef, CSSProperties, useId } from "react";
 
 export interface Iphone16ProProps extends SVGProps<SVGSVGElement> {
   /** Frame width */
@@ -64,6 +64,7 @@ export const Iphone16Pro = forwardRef<SVGSVGElement, Iphone16ProProps>(
     }: Iphone16ProProps,
     ref
   ) => {
+    const clipPathId = useId().replace(/[:]/g, "");
     return (
       <svg
         ref={ref}
@@ -101,7 +102,7 @@ export const Iphone16Pro = forwardRef<SVGSVGElement, Iphone16ProProps>(
         />
 
         {/* Screen area */}
-        <clipPath id="screen">
+        <clipPath id={clipPathId}>
           <rect
             x="21"
             y="21"
@@ -121,7 +122,7 @@ export const Iphone16Pro = forwardRef<SVGSVGElement, Iphone16ProProps>(
             rx={screenRadius}
             ry={screenRadius}
             fill={`url(#gradient)`}
-            clipPath="url(#screen)"
+            clipPath={`url(#${clipPathId})`}
           />
         )}
 
@@ -133,7 +134,7 @@ export const Iphone16Pro = forwardRef<SVGSVGElement, Iphone16ProProps>(
             width={width - 42}
             height={height - 42}
             preserveAspectRatio="xMidYMid slice"
-            clipPath="url(#screen)"
+            clipPath={`url(#${clipPathId})`}
             className={contentClassName}
             style={contentStyle}
           />
@@ -145,16 +146,16 @@ export const Iphone16Pro = forwardRef<SVGSVGElement, Iphone16ProProps>(
             y="21"
             width={width - 42}
             height={height - 42}
-            clipPath="url(#screen)"
+            clipPath={`url(#${clipPathId})`}
           >
             <video
-              className={`w-full h-full object-cover rounded-[${screenRadius}px] ${contentClassName}`}
+              className={`w-full h-full object-cover ${contentClassName ?? ""}`}
               src={videoSrc}
               autoPlay
               loop
               muted
               playsInline
-              style={contentStyle}
+              style={{ ...contentStyle, borderRadius: screenRadius }}
             />
           </foreignObject>
         )}

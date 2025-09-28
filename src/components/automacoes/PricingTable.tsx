@@ -206,60 +206,6 @@ export const PricingTable = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Templates Offer */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16"
-        >
-          <Card className="border-emerald-500/30 bg-emerald-500/5 overflow-hidden">
-            <div className="absolute top-0 right-0 bg-red-500 text-white px-3 py-1 text-xs font-bold transform rotate-12 translate-x-2 -translate-y-1">
-              OFERTA LIMITADA
-            </div>
-            <CardHeader>
-              <CardTitle className="text-emerald-600 text-xl">
-                🚀 Pacote Completo: 2000 Templates de Atendimento
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="flex-1">
-                <p className="text-muted-foreground mb-4">
-                  Fluxos prontos para implantar no seu negócio: prompts,
-                  roteiros e automações organizados por segmento (clínicas,
-                  e-commerce, serviços, etc.)
-                </p>
-                <ul className="text-sm space-y-1 text-muted-foreground">
-                  <li>✅ 2000+ templates testados e aprovados</li>
-                  <li>✅ Organizados por nicho de mercado</li>
-                  <li>✅ Pronto para usar em qualquer plataforma</li>
-                  <li>✅ Atualizações gratuitas por 6 meses</li>
-                </ul>
-              </div>
-              <div className="text-center">
-                <div className="text-sm line-through text-muted-foreground mb-1">
-                  De R$ 999,90
-                </div>
-                <div className="text-3xl font-bold text-emerald-600 mb-4">
-                  R$ 97,00
-                </div>
-                <Button
-                  asChild
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white px-8"
-                >
-                  <Link
-                    href="https://wa.me/5535998026821?text=Quero%20comprar%20o%20pacote%20de%202000%20templates%20por%20R%24%2097"
-                    target="_blank"
-                  >
-                    Comprar Agora
-                  </Link>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
       </div>
     </section>
   );

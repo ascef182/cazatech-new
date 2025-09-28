@@ -11,10 +11,12 @@ export async function POST(req: Request) {
       );
     }
 
-    const { name, email, message } = body as {
+    const { name, email, message, phone, company } = body as {
       name?: string;
       email?: string;
       message?: string;
+      phone?: string;
+      company?: string;
     };
     if (!name || !email || !message) {
       return NextResponse.json(
@@ -56,6 +58,8 @@ export async function POST(req: Request) {
     }
       <p><strong>Nome:</strong> ${name}</p>
       <p><strong>Email:</strong> ${email}</p>
+      ${phone ? `<p><strong>Telefone:</strong> ${phone}</p>` : ""}
+      ${company ? `<p><strong>Empresa:</strong> ${company}</p>` : ""}
       <p><strong>Mensagem:</strong></p>
       <p>${message.replace(/\n/g, "<br/>")}</p>`;
 
@@ -65,9 +69,39 @@ export async function POST(req: Request) {
       .setReplyTo(replyTo)
       .setSubject(subject)
       .setHtml(html)
-      .setText(`Nome: ${name}\nEmail: ${email}\n\n${message}`);
+      .setText(
+        `Nome: ${name}\nEmail: ${email}${phone ? `\nTelefone: ${phone}` : ""}${
+          company ? `\nEmpresa: ${company}` : ""
+        }\n\n${message}`
+      );
 
     await mailerSend.email.send(emailParams);
+
+    // Confirmation email to client
+    const confirmationParams = new EmailParams()
+      .setFrom(sentFrom)
+      .setTo([new Recipient(email, name)])
+      .setSubject("Recebemos sua mensagem – CazaTech")
+      .setHtml(
+        `<div style="font-family: Arial, sans-serif; max-width: 600px;">
+          <h2>Olá ${name}!</h2>
+          <p>Recebemos sua mensagem e retornaremos em até 24h úteis.</p>
+          <p><strong>Resumo:</strong></p>
+          <div style="background:#f5f5f5;padding:12px;border-radius:8px;white-space:pre-wrap;">${message
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")}</div>
+          <p style="color:#666;font-size:12px;">Este é um e-mail automático. Por favor, responda a este e-mail se precisar complementar as informações.</p>
+        </div>`
+      )
+      .setText(
+        `Recebemos sua mensagem e retornaremos em até 24h úteis.\n\n${message}`
+      );
+
+    try {
+      await mailerSend.email.send(confirmationParams);
+    } catch (e) {
+      // Não falhar a requisição se o e-mail de confirmação não for enviado
+    }
 
     return NextResponse.json({
       ok: true,

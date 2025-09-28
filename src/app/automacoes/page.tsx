@@ -47,14 +47,17 @@ export default function AutomacoesPage() {
             Como funciona?
           </h2>
           <div className="flex justify-center">
-            <Iphone16Pro
-              videoSrc="/videos/demonstração.mp4"
-              width={433}
-              height={882}
-              shadow
-              rounded
-              hoverAnimation
-            />
+            <div className="relative w-full max-w-[433px] px-4">
+              <Iphone16Pro
+                videoSrc="/videos/demonstração.mp4"
+                width={433}
+                height={882}
+                className="w-full h-auto"
+                shadow
+                rounded
+                hoverAnimation
+              />
+            </div>
           </div>
         </div>
       </section>

@@ -24,8 +24,6 @@ const plans = [
       "Respostas inteligentes personalizadas",
       "Até 1 número WhatsApp",
       "Integração básica com planilhas",
-      "Suporte por 15 dias",
-      "Treinamento da equipe incluído",
     ],
   },
   {
@@ -44,9 +42,6 @@ const plans = [
       "Até 5 números WhatsApp",
       "Integrações avançadas (CRM, pagamentos)",
       "Agendamentos automáticos",
-      "Relatórios de performance",
-      "Suporte por 30 dias",
-      "Otimizações mensais",
     ],
   },
   {
@@ -65,11 +60,8 @@ const plans = [
       "Tudo do Growth, mais:",
       "Números WhatsApp ilimitados",
       "Integrações customizadas",
-      "API dedicada",
       "SLA garantido",
       "Suporte prioritário 24/7",
-      "Gerente de conta dedicado",
-      "Treinamentos avançados",
     ],
   },
 ];
