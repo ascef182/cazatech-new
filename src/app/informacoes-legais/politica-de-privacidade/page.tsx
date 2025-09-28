@@ -1,54 +1,38 @@
+import { processMarkdown, readMarkdownFile } from "@/lib/markdown";
+
 export const metadata = {
   title: "Política de Privacidade - CazaTech",
+  description: "Política de privacidade e proteção de dados da CazaTech",
 };
 
 export default function PrivacyPolicy() {
+  const markdownContent = readMarkdownFile("Política de Privacidade da CazaTech.md");
+  const htmlContent = processMarkdown(markdownContent);
+
   return (
-    <article className="prose max-w-none">
-      <h2 className="text-2xl font-semibold text-gray-800 mb-6">
-        Política de Privacidade
-      </h2>
-
-      <section className="mb-8">
-        <h3 className="text-xl font-medium text-gray-700 mb-3">
-          1. Informações Gerais
-        </h3>
-        <p className="text-gray-600 mb-4">
-          A CazaTech valoriza a privacidade de seus usuários. Esta política
-          descreve como coletamos, usamos e protegemos suas informações
-          pessoais.
+    <article className="prose prose-lg max-w-none prose-headings:text-gray-800 prose-p:text-gray-600 prose-li:text-gray-600 prose-strong:text-gray-700">
+      <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+      
+      <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+        <h4 className="font-medium text-blue-800 mb-2">
+          📧 Contato - Encarregado de Dados
+        </h4>
+        <p className="text-sm text-blue-700">
+          Para exercer seus direitos ou esclarecer dúvidas sobre esta política:
         </p>
-      </section>
-
-      <section className="mb-8">
-        <h3 className="text-xl font-medium text-gray-700 mb-3">
-          2. Dados Coletados
-        </h3>
-        <p className="text-gray-600 mb-4">
-          Podemos coletar informações como nome, e-mail, telefone e dados de
-          navegação quando você interage com nosso site ou serviços.
+        <p className="text-sm text-blue-700 mt-1">
+          E-mail: support@caza-tech.com
         </p>
-      </section>
+      </div>
 
-      <section className="mb-8">
-        <h3 className="text-xl font-medium text-gray-700 mb-3">
-          3. Uso dos Dados
-        </h3>
-        <p className="text-gray-600 mb-4">
-          Utilizamos seus dados para fornecer nossos serviços, melhorar sua
-          experiência e enviar comunicações relevantes.
+      <div className="mt-4 p-4 bg-gray-50 rounded-lg">
+        <p className="text-sm text-gray-500">
+          Última atualização: {new Date().toLocaleDateString("pt-BR")}
         </p>
-      </section>
-
-      <section>
-        <h3 className="text-xl font-medium text-gray-700 mb-3">
-          4. Alterações nesta Política
-        </h3>
-        <p className="text-gray-600">
-          Reservamos o direito de modificar esta política a qualquer momento.
-          Alterações significativas serão comunicadas aos usuários.
+        <p className="text-sm text-gray-500 mt-2">
+          Esta política está em conformidade com a LGPD (Lei 13.709/2018)
         </p>
-      </section>
+      </div>
     </article>
   );
 }

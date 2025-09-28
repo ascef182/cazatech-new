@@ -9,9 +9,8 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
-import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import { automacoesContent } from "@/content/automacoes";
-import { PricingTable } from "@/components/automacoes/PricingTable";
+import PricingSection4 from "@/components/ui/pricing-section-4";
 import { FAQSchema } from "@/components/seo/JsonLd";
 import {
   Zap,
@@ -165,21 +164,10 @@ export default function AutomacoesPage() {
         />
       </section>
 
-      {/* Depoimentos */}
-      <section className="py-16 md:py-24 bg-black">
-        <div className="container">
-          <h2
-            className="text-center text-2xl md:text-3xl font-bold mb-8 text-white/90"
-            style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
-          >
-            Depoimentos de Clientes
-          </h2>
-          <AnimatedTestimonials testimonials={automacoesContent.testimonials} />
-        </div>
-      </section>
-
       {/* Planos */}
-      <PricingTable />
+      <section id="planos">
+        <PricingSection4 />
+      </section>
 
       {/* FAQ e CTA final */}
       <section id="faq" className="relative bg-background">

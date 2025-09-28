@@ -1,12 +1,14 @@
-import Link from "next/link";
+"use client";
+import BlogArticle from "@/components/ui/blog-article";
 
 export default function Post() {
   return (
-    <article className="container py-12 md:py-20 prose prose-neutral dark:prose-invert max-w-3xl">
-      <Link href="/blog" className="text-sm text-muted-foreground">
-        ← Voltar
-      </Link>
-      <h1>SEO Técnico para Next.js: Checklist 2024</h1>
+    <BlogArticle
+      title="SEO Técnico para Next.js: Checklist 2024"
+      category="Tecnologia"
+      date="12 Abril 2024"
+      readTime="5 min"
+    >
       <p>
         Melhore Core Web Vitals, utilize metadados, sitemap e schema markup.
       </p>
@@ -20,6 +22,6 @@ export default function Post() {
       <p>Use metadata no App Router para cada página crítica.</p>
       <h2>Schema</h2>
       <p>Adicione JSON-LD para Article, Product, Breadcrumb.</p>
-    </article>
+    </BlogArticle>
   );
 }

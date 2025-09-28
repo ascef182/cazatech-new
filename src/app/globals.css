@@ -53,6 +53,8 @@
     --input: 0 0% 90%;
     --ring: 290 40% 50%;
     --radius: 0.5rem;
+    --gradient-color: #8350e8;
+    --sparkles-color: #8350e8;
   }
 
   .dark {
@@ -75,6 +77,8 @@
     --border: 215 27.9% 16.9%;
     --input: 215 27.9% 16.9%;
     --ring: 216 12.2% 83.9%;
+    --gradient-color: #8350e8;
+    --sparkles-color: #ffffff;
   }
 
   /* Definição explícita da classe border-border */
@@ -106,7 +110,7 @@
   }
 
   .prose {
-    @apply text-lg md:text-xl leading-relaxed;
+    @apply text-base md:text-[17px] leading-relaxed;
   }
 }
 
@@ -124,6 +128,45 @@
 
 /* Novos componentes adicionados */
 @layer components {
+  .blog-prose {
+    @apply max-w-none;
+  }
+  .blog-prose :where(h1) {
+    @apply text-2xl md:text-3xl mb-4 mt-6;
+  }
+  .blog-prose :where(h2) {
+    @apply text-xl md:text-2xl mb-3 mt-6;
+  }
+  .blog-prose :where(h3) {
+    @apply text-lg md:text-xl mb-2 mt-5;
+  }
+  .blog-prose :where(p) {
+    @apply my-4 text-[15px] md:text-[16px] leading-[1.8];
+  }
+  .blog-prose :where(ul) {
+    @apply my-4 pl-5;
+  }
+  .blog-prose :where(li) {
+    @apply my-1;
+  }
+  .blog-prose :where(a) {
+    @apply text-primary underline-offset-4 hover:underline;
+  }
+  .blog-prose :where(img) {
+    @apply rounded-lg shadow-sm my-6;
+  }
+  .blog-prose :where(blockquote) {
+    @apply border-l-4 border-primary/30 bg-primary/5 px-4 py-2 rounded-r-md my-6;
+  }
+  .blog-prose :where(table) {
+    @apply w-full my-6 border-collapse;
+  }
+  .blog-prose :where(th) {
+    @apply p-3 text-left border-b bg-accent/10;
+  }
+  .blog-prose :where(td) {
+    @apply p-3 border-b;
+  }
   .responsive-text {
     @apply text-base md:text-lg lg:text-xl;
   }
@@ -163,6 +206,48 @@
   }
   .animate-shine {
     animation: shine 2.5s linear infinite;
+  }
+
+  /* Accordion animations */
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  .animate-accordion-down {
+    animation: accordion-down 0.2s ease-out;
+  }
+
+  .animate-accordion-up {
+    animation: accordion-up 0.2s ease-out;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out;
   }
 }
 

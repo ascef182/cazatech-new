@@ -1,11 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
+import { createContext, useMemo, useState, useContext, useEffect } from "react";
 import { Toaster } from "sonner";
-import Navbar from "@/components/Navbar";
+import NewNavbar from "@/components/NewNavbar";
 import Footer from "@/components/Footer";
 import CTAFloaters from "@/components/CTAFloaters";
-import { createContext, useMemo, useState, useContext } from "react";
 import { translations, type SupportedLang, getBrowserLang } from "@/lib/i18n";
 
 type I18nContextType = {
@@ -27,6 +26,7 @@ export default function ClientBody({
 }: {
   children: React.ReactNode;
 }) {
+  const [isPageLoaded, setIsPageLoaded] = useState(false);
   const [lang, setLang] = useState<SupportedLang>(getBrowserLang());
   const t = useMemo(
     () => (key: string) => translations[lang]?.[key] ?? key,
@@ -36,6 +36,13 @@ export default function ClientBody({
   useEffect(() => {
     // This runs only on the client after hydration
     document.body.className = "antialiased";
+    const onLoad = () => setIsPageLoaded(true);
+    if (document.readyState === "complete") {
+      setIsPageLoaded(true);
+    } else {
+      window.addEventListener("load", onLoad, { once: true });
+    }
+    return () => window.removeEventListener("load", onLoad);
   }, []);
 
   return (
@@ -44,7 +51,15 @@ export default function ClientBody({
         className="antialiased font-satoshi text-foreground bg-background"
         suppressHydrationWarning
       >
-        <Navbar />
+        {!isPageLoaded && (
+          <div className="fixed inset-0 z-[9999] grid place-items-center bg-background/95 backdrop-blur-sm">
+            <div className="relative w-20 h-20">
+              <div className="absolute inset-0 rounded-full border-4 border-muted animate-[spin_1.2s_linear_infinite] border-t-primary" />
+              <div className="absolute inset-3 rounded-full border-4 border-muted/60 animate-[spin_1.6s_linear_infinite_reverse] border-t-primary/60" />
+            </div>
+          </div>
+        )}
+        <NewNavbar />
         <main className="pt-16 md:pt-20 min-h-screen">{children}</main>
         <CTAFloaters />
         <Footer />

@@ -3,10 +3,10 @@ import "./globals.css";
 import "@fontsource/plus-jakarta-sans/400.css";
 import "@fontsource/plus-jakarta-sans/700.css";
 import ClientBody from "./ClientBody";
-import { OrganizationSchema, WebsiteSchema } from '@/components/seo/JsonLd';
-import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
+import { OrganizationSchema, WebsiteSchema } from "@/components/seo/JsonLd";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: {
     default: "CazaTech | Automação WhatsApp que Vende 3x Mais",
     template: "%s | CazaTech - Automação e Marketing Digital",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "sites conversão",
     "marketing digital são paulo",
     "atendimento automatizado",
-    "vendas whatsapp"
+    "vendas whatsapp",
   ],
   authors: [{ name: "CazaTech" }],
   creator: "CazaTech",
@@ -30,7 +30,8 @@ export const metadata: Metadata = {
     url: "https://caza-tech.com",
     siteName: "CazaTech",
     title: "CazaTech - Automação WhatsApp que Vende 3x Mais",
-    description: "Pare de perder clientes por demora no atendimento. Automatize e venda mais.",
+    description:
+      "Pare de perder clientes por demora no atendimento. Automatize e venda mais.",
     images: [
       {
         url: "/og-cazatech.jpg",
@@ -43,7 +44,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "CazaTech - Automação WhatsApp que Vende 3x Mais",
-    description: "Pare de perder clientes por demora no atendimento. Automatize e venda mais.",
+    description:
+      "Pare de perder clientes por demora no atendimento. Automatize e venda mais.",
     images: ["/og-cazatech.jpg"],
   },
   robots: {
@@ -57,7 +59,41 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  icons: {
+    icon: [
+      { url: "/images/favicon/favicon.ico" },
+      { url: "/images/favicon/favicon.svg", type: "image/svg+xml" },
+      {
+        url: "/images/favicon/favicon-96x96.png",
+        type: "image/png",
+        sizes: "96x96",
+      },
+      {
+        url: "/images/favicon/web-app-manifest-192x192.png",
+        type: "image/png",
+        sizes: "192x192",
+      },
+      {
+        url: "/images/favicon/web-app-manifest-512x512.png",
+        type: "image/png",
+        sizes: "512x512",
+      },
+    ],
+    apple: [
+      { url: "/images/favicon/apple-touch-icon.png", sizes: "180x180" },
+      { url: "/images/favicon/apple-touch-icon-152x152.png", sizes: "152x152" },
+      { url: "/images/favicon/apple-touch-icon-167x167.png", sizes: "167x167" },
+    ],
+  },
+  manifest: "/images/favicon/site.webmanifest",
 };
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    metadataBase: new URL("https://www.caza-tech.com"),
+    ...baseMetadata,
+  };
+}
 
 export default function RootLayout({
   children,
@@ -67,53 +103,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
-        {/* Favicon básico */}
-        <link rel="icon" href="/images/favicon/favicon.ico" sizes="any" />
-        <link
-          rel="icon"
-          href="/images/favicon/favicon.svg"
-          type="image/svg+xml"
-        />
-        <link
-          rel="icon"
-          href="/images/favicon/favicon-96x96.png"
-          type="image/png"
-          sizes="96x96"
-        />
-
-        {/* Apple Touch Icon - Solução definitiva */}
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/images/favicon/apple-touch-icon.png"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="152x152"
-          href="/images/favicon/apple-touch-icon-152x152.png"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="167x167"
-          href="/images/favicon/apple-touch-icon-167x167.png"
-        />
-
-        {/* Web Manifest com ícones */}
-        <link rel="manifest" href="/images/favicon/site.webmanifest" />
-
-        {/* Ícones para PWA */}
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="192x192"
-          href="/images/favicon/web-app-manifest-192x192.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="512x512"
-          href="/images/favicon/web-app-manifest-512x512.png"
-        />
+        {/* Ícones e manifest gerenciados via Next Metadata API */}
 
         {/* Meta tags para tema - Solução cross-browser */}
         <meta name="msapplication-TileColor" content="#ffffff" />
@@ -130,19 +120,19 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
 
         {/* Preload critical fonts */}
-        <link 
-          rel="preload" 
-          href="/fonts/zero-hour/ZeroHour.otf" 
-          as="font" 
-          type="font/otf" 
-          crossOrigin="" 
+        <link
+          rel="preload"
+          href="/fonts/zero-hour/ZeroHour.otf"
+          as="font"
+          type="font/otf"
+          crossOrigin=""
         />
-        <link 
-          rel="preload" 
-          href="/fonts/Satoshi-Medium.woff2" 
-          as="font" 
-          type="font/woff2" 
-          crossOrigin="" 
+        <link
+          rel="preload"
+          href="/fonts/Satoshi-Medium.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin=""
         />
       </head>
       <ClientBody>

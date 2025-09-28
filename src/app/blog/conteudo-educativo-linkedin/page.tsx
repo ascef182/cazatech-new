@@ -1,6 +1,5 @@
-import Link from "next/link";
-import Image from "next/image";
-import { FiArrowLeft, FiCalendar, FiClock, FiTag } from "react-icons/fi";
+"use client";
+import BlogArticle from "@/components/ui/blog-article";
 
 export default function PostPage() {
   // Dados do post diretamente na página
@@ -92,77 +91,14 @@ export default function PostPage() {
   };
 
   return (
-    <div className="container py-12 md:py-20 relative max-w-4xl">
-      {/* Botão de Voltar */}
-      <div className="absolute right-4 top-[var(--header-height)] z-50 md:right-8">
-        <Link
-          href="/blog"
-          className="flex items-center justify-center w-10 h-10 rounded-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border border-gray-200 dark:border-gray-700 shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
-          aria-label="Voltar para o blog"
-        >
-          <FiArrowLeft className="h-5 w-5 text-gray-700 dark:text-gray-300" />
-        </Link>
-      </div>
-
-      {/* Cabeçalho do Post */}
-      <div className="mb-8">
-        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-          <FiTag className="h-4 w-4" />
-          <span>{post.category}</span>
-        </div>
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">{post.title}</h1>
-        <div className="flex justify-between items-center text-sm text-muted-foreground mb-8">
-          <div className="flex items-center gap-2">
-            <FiCalendar className="h-4 w-4" />
-            <span>{post.date}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <FiClock className="h-4 w-4" />
-            <span>{post.readTime}</span>
-          </div>
-        </div>
-        <div className="relative h-64 md:h-96 w-full mb-8 rounded-lg overflow-hidden">
-          <Image
-            src={post.image}
-            alt={post.title}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 80vw"
-          />
-        </div>
-      </div>
-
-      {/* Conteúdo do Post */}
-      <article
-        className="prose dark:prose-invert max-w-none
-                   prose-headings:font-bold prose-headings:mt-8 prose-headings:mb-4
-                   prose-p:my-4 prose-p:leading-relaxed
-                   prose-ul:my-4 prose-li:my-1
-                   prose-blockquote:border-l-primary prose-blockquote:border-l-4
-                   prose-blockquote:bg-primary/10 prose-blockquote:px-4 prose-blockquote:py-2
-                   prose-blockquote:rounded-r-lg
-                   prose-a:text-primary hover:prose-a:underline
-                   prose-strong:text-foreground
-                   prose-img:rounded-lg prose-img:shadow-md"
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      />
-
-      {/* Seção do Autor */}
-      <div className="mt-12 pt-6 border-t border-border">
-        <div className="flex items-center gap-4">
-          <Image
-            src={post.author.avatar}
-            alt={post.author.name}
-            width={64}
-            height={64}
-            className="rounded-full"
-          />
-          <div>
-            <h3 className="font-semibold">{post.author.name}</h3>
-            <p className="text-sm text-muted-foreground">{post.author.role}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <BlogArticle
+      title={post.title}
+      category={post.category}
+      date={post.date}
+      readTime={post.readTime}
+      image={{ src: post.image, alt: post.title }}
+      author={post.author}
+      html={post.content}
+    />
   );
 }

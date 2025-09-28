@@ -1,23 +1,25 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { motion } from "framer-motion";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 interface SocialProofProps {
   customerCount: number;
   className?: string;
+  size?: "sm" | "md";
 }
 
-export const SocialProof = ({ 
-  customerCount = 50, 
-  className = '' 
+export const SocialProof = ({
+  customerCount = 50,
+  className = "",
+  size = "md",
 }: SocialProofProps) => {
   const avatars = [
-    { src: '/images/testimonial.jpeg', alt: 'Cliente 1', fallback: 'C1' },
-    { src: '/images/testimonial.jpeg', alt: 'Cliente 2', fallback: 'C2' },
-    { src: '/images/testimonial.jpeg', alt: 'Cliente 3', fallback: 'C3' },
-    { src: '/images/testimonial.jpeg', alt: 'Cliente 4', fallback: 'C4' },
-    { src: '/images/testimonial.jpeg', alt: 'Cliente 5', fallback: 'C5' },
+    { src: "/images/testimonial.jpeg", alt: "Cliente 1", fallback: "C1" },
+    { src: "/images/testimonial.jpeg", alt: "Cliente 2", fallback: "C2" },
+    { src: "/images/testimonial.jpeg", alt: "Cliente 3", fallback: "C3" },
+    { src: "/images/testimonial.jpeg", alt: "Cliente 4", fallback: "C4" },
+    { src: "/images/testimonial.jpeg", alt: "Cliente 5", fallback: "C5" },
   ];
 
   return (
@@ -29,7 +31,12 @@ export const SocialProof = ({
     >
       <div className="flex -space-x-2">
         {avatars.map((avatar, index) => (
-          <Avatar key={index} className="w-8 h-8 border-2 border-white">
+          <Avatar
+            key={index}
+            className={`${
+              size === "sm" ? "w-7 h-7" : "w-8 h-8"
+            } border-2 border-white`}
+          >
             <AvatarImage src={avatar.src} alt={avatar.alt} />
             <AvatarFallback className="bg-purple-600 text-white text-xs">
               {avatar.fallback}
@@ -38,7 +45,9 @@ export const SocialProof = ({
         ))}
       </div>
       <div className="text-white/80 text-sm">
-        <span className="font-semibold text-white">+{customerCount} empresas</span>
+        <span className="font-semibold text-white">
+          +{customerCount} empresas
+        </span>
         <br />
         <span>já automatizaram com a CazaTech</span>
       </div>

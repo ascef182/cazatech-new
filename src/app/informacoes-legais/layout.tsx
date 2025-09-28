@@ -23,16 +23,34 @@ export default function LegalLayout({
           <aside className="md:w-1/4">
             <nav className="space-y-2">
               <Link
+                href="/informacoes-legais/termos-de-uso"
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition"
+              >
+                Termos de Uso
+              </Link>
+              <Link
                 href="/informacoes-legais/politica-de-privacidade"
                 className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition"
               >
                 Política de Privacidade
               </Link>
               <Link
-                href="/informacoes-legais/termos-de-uso"
+                href="/informacoes-legais/politica-de-reembolso"
                 className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition"
               >
-                Termos de Uso
+                Política de Reembolso
+              </Link>
+              <Link
+                href="/informacoes-legais/parcerias"
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition"
+              >
+                Parcerias
+              </Link>
+              <Link
+                href="/informacoes-legais/central-de-ajuda"
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition"
+              >
+                Central de Ajuda
               </Link>
               <Link
                 href="/informacoes-legais/faq"

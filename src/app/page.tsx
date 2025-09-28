@@ -1,7 +1,7 @@
 // app/page.tsx
-import HeroSection from "@/components/home/HeroSection";
+import { HeroSection } from "@/components/ui/galaxy-interactive-hero-section";
 import { QuantifiedBenefits } from "@/components/home/QuantifiedBenefits";
-import TestimonialSection from "@/components/home/TestimonialSection";
+import { TestimonialsSection } from "@/components/ui/testimonials-section";
 import ShowcaseGridSection from "@/components/sections/ShowcaseGridSection";
 import StickyShowcaseSection from "@/components/sections/StickyShowcaseSection";
 
@@ -15,13 +15,12 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <QuantifiedBenefits />
       <HeroScrollDemo />
       <TimelineSection />
       <BentoGridSection />
 
       <StickyShowcaseSection />
-      <TestimonialSection />
+      <TestimonialsSection />
       <WorldMapSection />
     </>
   );

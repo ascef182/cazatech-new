@@ -21,7 +21,7 @@ export default function FAQPage() {
     {
       question: "Como entro em contato com o suporte?",
       answer:
-        "Nosso suporte está disponível via e-mail support@caza-tech.com e WhatsApp +55 11 5199-8147.",
+        "Nosso suporte está disponível via e-mail support@caza-tech.com.",
     },
   ];
 

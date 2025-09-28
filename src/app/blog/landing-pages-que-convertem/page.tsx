@@ -1,12 +1,14 @@
-import Link from "next/link";
+"use client";
+import BlogArticle from "@/components/ui/blog-article";
 
 export default function Post() {
   return (
-    <article className="container py-12 md:py-20 prose prose-neutral dark:prose-invert max-w-3xl">
-      <Link href="/blog" className="text-sm text-muted-foreground">
-        ← Voltar
-      </Link>
-      <h1>Landing Pages que Convertem: 10 Princípios Essenciais</h1>
+    <BlogArticle
+      title="Landing Pages que Convertem: 10 Princípios Essenciais"
+      category="Estratégia"
+      date="8 Abril 2024"
+      readTime="6 min"
+    >
       <ol>
         <li>Hero claro com proposta de valor</li>
         <li>Prova social</li>
@@ -19,6 +21,6 @@ export default function Post() {
         <li>Garantias e FAQs</li>
         <li>Testes A/B</li>
       </ol>
-    </article>
+    </BlogArticle>
   );
 }

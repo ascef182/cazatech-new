@@ -4,88 +4,124 @@ import Image from "next/image";
 import { FiCalendar, FiClock, FiTag, FiArrowLeft } from "react-icons/fi";
 import { motion } from "framer-motion";
 
-// Dados dos posts com conteúdo mais estratégico e relevante
+// Lista alinhada com as rotas reais existentes em /src/app/blog
 const recentPosts = [
   {
-    id: "automacao-whatsapp-resultados-comprovados",
-    title: "Automação WhatsApp: Como Triplicar Vendas em 30 Dias",
+    id: "desenvolvimento-sites-profissional",
+    title: "Como um Site Profissional Impulsiona Seu Negócio e Vendas Online",
     excerpt:
-      "Estratégia completa para implementar automação WhatsApp que gera resultados mensuráveis. Cases reais e ROI comprovado.",
+      "Descubra como um site profissional pode transformar sua presença digital e impulsionar suas vendas online.",
+    category: "Desenvolvimento",
+    date: "20 Dezembro 2024",
+    readTime: "12 min",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+    tags: ["Sites", "Vendas"],
+  },
+  {
+    id: "solucoes-saas-personalizadas",
+    title: "Soluções SaaS Personalizadas: O Futuro da Otimização de Processos",
+    excerpt:
+      "Explore como soluções SaaS personalizadas podem revolucionar a gestão empresarial e impulsionar a eficiência operacional.",
+    category: "SaaS",
+    date: "18 Dezembro 2024",
+    readTime: "10 min",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+    tags: ["SaaS", "Processos"],
+  },
+  {
+    id: "automacao-processos-empresariais",
+    title: "Automação de Processos: Reduza Custos e Aumente a Eficiência",
+    excerpt:
+      "Descubra como a automação de processos pode transformar sua empresa, reduzindo custos operacionais e aumentando a eficiência.",
+    category: "Automação",
+    date: "16 Dezembro 2024",
+    readTime: "9 min",
+    image:
+      "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=800&auto=format&fit=crop",
+    tags: ["Automação", "Eficiência"],
+  },
+  {
+    id: "atendimento-automatizado-whatsapp",
+    title: "Atendimento Automatizado no WhatsApp: Guia Completo",
+    excerpt:
+      "Como estruturar um funil de atendimento que qualifica leads e fecha vendas em escala.",
     category: "Automação",
     date: "15 Dezembro 2024",
     readTime: "8 min",
     image:
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?q=80&w=800&auto=format&fit=crop",
-    tags: ["WhatsApp", "Automação", "ROI", "Vendas"],
+      "https://images.unsplash.com/photo-1524749292158-7540c2494485?q=80&w=800&auto=format&fit=crop",
+    tags: ["WhatsApp", "Automação"],
   },
   {
-    id: "chatbots-inteligentes-qualificacao-leads",
-    title: "Chatbots Inteligentes: Qualificação de Leads que Converte",
+    id: "case-vendas-alimenticio",
+    title: "Case de Sucesso: Como Aumentamos as Vendas em 300%",
     excerpt:
-      "Como criar fluxos de qualificação automática que identificam leads prontos para comprar e aumentam a taxa de fechamento.",
-    category: "Automação",
-    date: "10 Dezembro 2024",
+      "O processo completo que usamos para transformar os resultados de um cliente do setor alimentício.",
+    category: "Cases",
+    date: "17 Abril 2024",
+    readTime: "8 min",
+    image:
+      "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=800&auto=format&fit=crop",
+    tags: ["Case", "Vendas"],
+  },
+  {
+    id: "conteudo-educativo-linkedin",
+    title: "O Poder do Conteúdo Educativo no LinkedIn em 2024",
+    excerpt:
+      "Como estabelecer autoridade no seu setor através de posts educativos no LinkedIn.",
+    category: "Social Media",
+    date: "1 Maio 2024",
+    readTime: "4 min",
+    image:
+      "https://images.unsplash.com/photo-1611944212129-29977ae1398c?q=80&w=800&auto=format&fit=crop",
+    tags: ["LinkedIn", "Conteúdo"],
+  },
+  {
+    id: "ferramentas-marketing-2024",
+    title: "Ferramentas Essenciais para Marketing Digital em 2024",
+    excerpt:
+      "Conheça as ferramentas que vão potencializar suas estratégias digitais este ano.",
+    category: "Ferramentas",
+    date: "24 Abril 2024",
     readTime: "6 min",
     image:
-      "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=800&auto=format&fit=crop",
-    tags: ["Chatbot", "Qualificação", "Leads", "IA"],
-  },
-  {
-    id: "case-clinica-estetica-400-agendamentos",
-    title: "Case Real: Clínica Aumentou Agendamentos em 400%",
-    excerpt:
-      "Como uma clínica de estética saiu de 20 para 100 agendamentos mensais usando automação WhatsApp. Processo completo revelado.",
-    category: "Cases",
-    date: "5 Dezembro 2024",
-    readTime: "10 min",
-    image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?q=80&w=800&auto=format&fit=crop",
-    tags: ["Case", "Saúde", "Agendamentos", "Resultados"],
-  },
-  {
-    id: "funis-conversao-whatsapp-2024",
-    title: "Funis de Conversão WhatsApp: Guia Definitivo 2024",
-    excerpt:
-      "Estrutura passo a passo para criar funis que convertem visitantes em clientes pagantes via WhatsApp. Templates inclusos.",
-    category: "Estratégia",
-    date: "28 Novembro 2024",
-    readTime: "12 min",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
-    tags: ["Funis", "Conversão", "WhatsApp", "Templates"],
-  },
-  {
-    id: "integracao-crm-whatsapp-vendas",
-    title: "Integração CRM + WhatsApp: Vendas em Escala",
-    excerpt:
-      "Como integrar seu CRM com automação WhatsApp para escalar vendas sem perder o toque pessoal. Ferramentas e implementação.",
-    category: "Tecnologia",
-    date: "20 Novembro 2024",
-    readTime: "7 min",
-    image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
-    tags: ["CRM", "Integração", "Vendas", "Escala"],
+    tags: ["Ferramentas", "Automação"],
   },
   {
-    id: "metricas-automacao-whatsapp-kpis",
-    title: "Métricas que Importam: KPIs para Automação WhatsApp",
-    excerpt:
-      "Quais métricas acompanhar para otimizar sua automação WhatsApp e maximizar ROI. Dashboard e relatórios essenciais.",
-    category: "Analytics",
-    date: "12 Novembro 2024",
+    id: "seo-tecnico-para-nextjs",
+    title: "SEO Técnico para Next.js: Checklist 2024",
+    excerpt: "Melhore Core Web Vitals, metadados, sitemap e schema markup.",
+    category: "Tecnologia",
+    date: "12 Abril 2024",
     readTime: "5 min",
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
-    tags: ["Métricas", "KPIs", "ROI", "Analytics"],
+    tags: ["SEO", "Next.js"],
+  },
+  {
+    id: "landing-pages-que-convertem",
+    title: "Landing Pages que Convertem: 10 Princípios Essenciais",
+    excerpt:
+      "Os pilares que aumentam conversão em páginas de destino modernas.",
+    category: "Estratégia",
+    date: "8 Abril 2024",
+    readTime: "6 min",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+    tags: ["CRO", "Landing Page"],
   },
 ];
 
 const categories = [
-  { name: "Automação", count: 15 },
+  { name: "Automação", count: 18 },
+  { name: "Desenvolvimento", count: 12 },
+  { name: "SaaS", count: 10 },
   { name: "Cases", count: 8 },
   { name: "Estratégia", count: 6 },
   { name: "Tecnologia", count: 4 },
-  { name: "Analytics", count: 3 },
 ];
 
 export default function BlogPage() {
@@ -112,14 +148,15 @@ export default function BlogPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mt-3 text-white/70 max-w-2xl mx-auto"
           >
-            Estratégias práticas de automação WhatsApp, cases reais e insights para multiplicar seus resultados.
+            Estratégias práticas de automação WhatsApp, cases reais e insights
+            para multiplicar seus resultados.
           </motion.p>
         </div>
       </section>
 
       <div className="container relative -mt-8 md:-mt-12 pb-16">
         {/* Botão de Voltar */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -143,7 +180,10 @@ export default function BlogPage() {
               <h2 className="text-2xl font-bold">Artigos Recentes</h2>
               <div className="flex gap-2">
                 {categories.slice(0, 3).map((cat) => (
-                  <span key={cat.name} className="px-3 py-1 text-xs bg-accent rounded-full">
+                  <span
+                    key={cat.name}
+                    className="px-3 py-1 text-xs bg-accent rounded-full"
+                  >
                     {cat.name}
                   </span>
                 ))}
@@ -178,11 +218,11 @@ export default function BlogPage() {
                     <div className="p-6 flex-1 flex flex-col justify-between">
                       <div>
                         <h3 className="text-xl font-bold mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
-                          <Link href={`/blog/${post.id}`}>
-                            {post.title}
-                          </Link>
+                          <Link href={`/blog/${post.id}`}>{post.title}</Link>
                         </h3>
-                        <p className="text-muted-foreground mb-4 line-clamp-3">{post.excerpt}</p>
+                        <p className="text-muted-foreground mb-4 line-clamp-3">
+                          {post.excerpt}
+                        </p>
                       </div>
                       <div className="flex items-center justify-between text-sm text-muted-foreground">
                         <div className="flex items-center gap-4">
@@ -197,7 +237,10 @@ export default function BlogPage() {
                         </div>
                         <div className="flex gap-1">
                           {post.tags.slice(0, 2).map((tag) => (
-                            <span key={tag} className="px-2 py-1 text-xs bg-muted rounded">
+                            <span
+                              key={tag}
+                              className="px-2 py-1 text-xs bg-muted rounded"
+                            >
                               {tag}
                             </span>
                           ))}
@@ -222,9 +265,14 @@ export default function BlogPage() {
               <h3 className="font-bold mb-4">Categorias</h3>
               <div className="space-y-2">
                 {categories.map((cat) => (
-                  <div key={cat.name} className="flex items-center justify-between py-2 hover:bg-accent rounded-md px-2 transition-colors cursor-pointer">
+                  <div
+                    key={cat.name}
+                    className="flex items-center justify-between py-2 hover:bg-accent rounded-md px-2 transition-colors cursor-pointer"
+                  >
                     <span className="text-sm">{cat.name}</span>
-                    <span className="text-xs bg-muted px-2 py-1 rounded">{cat.count}</span>
+                    <span className="text-xs bg-muted px-2 py-1 rounded">
+                      {cat.count}
+                    </span>
                   </div>
                 ))}
               </div>

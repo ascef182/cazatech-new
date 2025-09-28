@@ -20,15 +20,10 @@ export default function HeroScrollVideo() {
           muted
           loop
           playsInline
-          poster="/images/video-thumb.jpg"
+          poster="/images/testimonial.jpeg"
           className="mx-auto rounded-2xl object-cover h-full object-center shadow-lg"
         />
       </ContainerScroll>
     </div>
   );
 }
-
-
-
-
-

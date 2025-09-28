@@ -18,44 +18,30 @@ declare global {
 }
 
 export default function HeroSection() {
-  const [isDesktop, setIsDesktop] = useState(false);
+  // Keep a tiny state for future enhancements, but avoid unnecessary logic
   const [shouldLoadSpline, setShouldLoadSpline] = useState(false);
 
   useEffect(() => {
-    const checkDevice = () => {
-      setIsDesktop(window.innerWidth >= 768);
-    };
-    
-    checkDevice();
-    window.addEventListener('resize', checkDevice);
-    
-    // Lazy load Spline after component mounts
-    const timer = setTimeout(() => {
-      setShouldLoadSpline(true);
-    }, 100);
-
-    return () => {
-      window.removeEventListener('resize', checkDevice);
-      clearTimeout(timer);
-    };
+    const timer = setTimeout(() => setShouldLoadSpline(true), 100);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
-      {/* Gradient Background - Aceternity Style */}
+    <section className="relative min-h-[88vh] md:min-h-screen flex items-center overflow-hidden bg-black">
+      {/* Backgrounds */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.3),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(120,119,198,0.25),transparent_55%)]" />
 
-      {/* Grid principal - duas colunas no desktop */}
-      <div className="relative z-10 grid md:grid-cols-2 w-full h-full">
+      {/* Grid principal */}
+      <div className="relative z-10 grid w-full h-full items-center md:grid-cols-2">
         {/* Coluna Esquerda - Conteúdo */}
-        <div className="flex items-center justify-center md:justify-end px-6 md:px-16">
-          <div className="max-w-lg text-center md:text-left">
+        <div className="flex md:justify-end px-6 md:px-14 pt-12 md:pt-0">
+          <div className="max-w-[520px] w-full mx-auto md:mx-0 text-center md:text-left">
             <motion.h1
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-tight"
+              className="font-bold text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight leading-tight md:mt-[-20%]"
               style={{ fontFamily: "Zero Hour, Satoshi, sans-serif" }}
             >
               <span className="text-white">AUTOMATIZE SEU</span>
@@ -71,22 +57,27 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.05 }}
-              className="mt-4 text-white/90 text-base sm:text-lg"
+              className="mt-6 text-white/90 text-base sm:text-lg"
             >
-              Atendimento 24/7, qualificação automática e agendamentos inteligentes. 
-              Pare de perder clientes por demora no atendimento.
+              Atendimento 24/7, qualificação automática e agendamentos
+              inteligentes. Pare de perder clientes por demora no atendimento.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mt-6 flex flex-col sm:flex-row items-center md:justify-start justify-center gap-4"
+              className="mt-6 flex flex-col sm:flex-row items-center md:justify-start justify-center gap-3 sm:gap-4"
             >
               <a
                 href="https://wa.me/5535998026821?text=Olá%20CazaTech%2C%20quero%20automatizar%20meu%20WhatsApp%20em%207%20dias"
                 target="_blank"
-                onClick={() => trackWhatsAppClick('hero_primary', 'Automatizar meu WhatsApp em 7 dias')}
+                onClick={() =>
+                  trackWhatsAppClick(
+                    "hero_primary",
+                    "Automatizar meu WhatsApp em 7 dias"
+                  )
+                }
                 className="relative overflow-hidden rounded-lg font-semibold text-white px-6 py-3 text-sm md:text-base bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Automatizar meu WhatsApp em 7 dias
@@ -100,16 +91,32 @@ export default function HeroSection() {
             </motion.div>
 
             {/* Prova Social */}
-            <SocialProof customerCount={50} className="mt-6" />
+            <SocialProof customerCount={50} className="mt-5" size="sm" />
+
+            {/* Mobile Spline below CTAs */}
+            {shouldLoadSpline && (
+              <div className="mt-6 md:hidden flex justify-center">
+                <div className="w-[60%] aspect-video rounded-2xl overflow-hidden">
+                  <spline-viewer
+                    url="https://prod.spline.design/h4vIirljpefHPM2v/scene.splinecode"
+                    className="w-full h-full"
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
         {/* Coluna Direita - Cena do Spline apenas no desktop */}
-        <div className="hidden bg-black md:block relative w-full h-full">
-          <spline-viewer
-            url="https://prod.spline.design/h4vIirljpefHPM2v/scene.splinecode"
-            className="absolute inset-0 w-full h-full"
-          />
+        <div className="hidden md:block relative w-full h-full">
+          <div className="relative ml-0 md:ml-4 mr-4 h-[60vh] md:h-[72vh]">
+            {shouldLoadSpline && (
+              <spline-viewer
+                url="https://prod.spline.design/h4vIirljpefHPM2v/scene.splinecode"
+                className="absolute inset-0 w-full h-full rounded-[24px] bg-gradient-to-b from-transparent to-transparent"
+              />
+            )}
+          </div>
         </div>
       </div>
 
