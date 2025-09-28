@@ -6,9 +6,7 @@ const nextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
-  experimental: {
-    optimizePackageImports: ["lucide-react", "framer-motion"],
-  },
+  // keep defaults; custom optimization caused runtime chunk issues
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -55,46 +53,7 @@ const nextConfig = {
       },
     ],
   },
-  webpack: (config, { isServer }) => {
-    // Optimize bundle size
-    if (!isServer) {
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        fs: false,
-        net: false,
-        tls: false,
-      };
-    }
-
-    // Optimize chunks
-    config.optimization = {
-      ...config.optimization,
-      splitChunks: {
-        chunks: "all",
-        cacheGroups: {
-          default: false,
-          vendors: false,
-          // Vendor chunk para bibliotecas externas
-          vendor: {
-            name: "vendors",
-            chunks: "all",
-            test: /node_modules/,
-            priority: 20,
-          },
-          // Common chunk para código compartilhado
-          common: {
-            name: "commons",
-            minChunks: 2,
-            priority: 10,
-            reuseExistingChunk: true,
-            enforce: true,
-          },
-        },
-      },
-    };
-
-    return config;
-  },
+  // no custom webpack optimization
 };
 
 export default nextConfig;

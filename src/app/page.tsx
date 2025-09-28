@@ -14,6 +14,11 @@ const HeroScrollDemo = lazy(() =>
     default: module.HeroScrollDemo,
   }))
 );
+const SectionWithMockup = lazy(() =>
+  import("@/components/ui/section-with-mockup").then((m) => ({
+    default: m.default,
+  }))
+);
 import { TimelineSection } from "@/components/sections/timeline-section";
 
 export default function Home() {
@@ -22,6 +27,30 @@ export default function Home() {
       <HeroSection />
       <Suspense fallback={<div className="h-96 bg-gray-900 animate-pulse" />}>
         <HeroScrollDemo />
+      </Suspense>
+      <Suspense fallback={<div className="h-[60vh] bg-black" />}>
+        <SectionWithMockup
+          title={
+            <>
+              Intelligence,
+              <br />
+              delivered to you.
+            </>
+          }
+          description={
+            <>
+              Get a tailored Monday morning brief directly in
+              <br />
+              your inbox, crafted by your virtual personal
+              <br />
+              analyst, spotlighting essential watchlist stories
+              <br />
+              and earnings for the week ahead.
+            </>
+          }
+          primaryImageSrc="https://www.fey.com/marketing/_next/static/media/newsletter-desktop-2_4x.e594b737.png"
+          secondaryImageSrc="https://www.fey.com/marketing/_next/static/media/newsletter-desktop-1_4x.9cc114e6.png"
+        />
       </Suspense>
       <TimelineSection />
       <BentoGridSection />
