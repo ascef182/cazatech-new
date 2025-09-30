@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import {
   Zap,
   Globe,
@@ -35,6 +36,13 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import { LiquidButton } from "@/components/ui/liquid-glass-button";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -154,6 +162,21 @@ export const companyLinks: NavItemType[] = [
 
 export default function NewNavbar() {
   const { t, lang, setLang } = useI18n();
+  const pathname = usePathname();
+  const router = useRouter();
+
+  function switchLang(nextLang: "pt" | "en" | "es") {
+    setLang(nextLang);
+    if (!pathname) return;
+    const isEn = pathname.startsWith("/en");
+    if (nextLang === "en" && !isEn) {
+      const next = pathname === "/" ? "/en" : `/en${pathname}`;
+      router.push(next);
+    } else if (nextLang !== "en" && isEn) {
+      const next = pathname === "/en" ? "/" : pathname.replace(/^\/en/, "");
+      router.push(next || "/");
+    }
+  }
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
@@ -176,18 +199,40 @@ export default function NewNavbar() {
 
           {/* Actions */}
           <div className="flex items-center gap-2">
-            <Button asChild className="hidden sm:flex">
-              <Link href="/contact">Falar com Consultor</Link>
-            </Button>
-
-            {/* Language Toggle */}
-            <button
-              onClick={() => setLang(lang === "pt" ? "en" : "pt")}
-              className="hidden md:flex px-3 py-1 text-xs font-semibold rounded-md border hover:bg-gray-100 dark:hover:bg-gray-800"
-              aria-label="Trocar idioma"
+            <LiquidButton
+              onClick={() => router.push("/contact")}
+              className="hidden sm:flex"
             >
-              {lang === "pt" ? "EN" : "PT"}
-            </button>
+              Fale com um consultor
+            </LiquidButton>
+
+            {/* Language Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="hidden md:inline-flex"
+                >
+                  {lang === "pt"
+                    ? "Português"
+                    : lang === "en"
+                    ? "English"
+                    : "Español"}
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => switchLang("pt")}>
+                  Português
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => switchLang("en")}>
+                  English
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => switchLang("es")}>
+                  Español
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
             {/* Mobile Menu */}
             <MobileNav />
@@ -199,6 +244,7 @@ export default function NewNavbar() {
 }
 
 function DesktopMenu() {
+  const { t } = useI18n();
   return (
     <NavigationMenu className="hidden lg:block">
       <NavigationMenuList>
@@ -252,7 +298,7 @@ function DesktopMenu() {
 
         <NavigationMenuItem>
           <NavigationMenuLink asChild className="cursor-pointer">
-            <Link href="/contact">Contato</Link>
+            <Link href="/contact">{t("nav_contact")}</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
@@ -262,6 +308,20 @@ function DesktopMenu() {
 
 function MobileNav() {
   const { t, lang, setLang } = useI18n();
+  const pathname = usePathname();
+  const router = useRouter();
+  function switchLang(nextLang: "pt" | "en" | "es") {
+    setLang(nextLang);
+    if (!pathname) return;
+    const isEn = pathname.startsWith("/en");
+    if (nextLang === "en" && !isEn) {
+      const next = pathname === "/" ? "/en" : `/en${pathname}`;
+      router.push(next);
+    } else if (nextLang !== "en" && isEn) {
+      const next = pathname === "/en" ? "/" : pathname.replace(/^\/en/, "");
+      router.push(next || "/");
+    }
+  }
   const sections = [
     {
       id: "servicos",
@@ -334,13 +394,24 @@ function MobileNav() {
           </div>
 
           {/* Language Toggle */}
-          <div className="mt-4 pt-4 border-t">
+          <div className="mt-4 pt-4 border-t grid grid-cols-3 gap-2">
             <button
-              onClick={() => setLang(lang === "pt" ? "en" : "pt")}
-              className="w-full px-4 py-2 text-sm font-medium rounded-lg border hover:bg-gray-100 dark:hover:bg-gray-800"
-              aria-label="Trocar idioma"
+              onClick={() => switchLang("pt")}
+              className="px-4 py-2 text-sm font-medium rounded-lg border hover:bg-gray-100 dark:hover:bg-gray-800"
             >
-              {lang === "pt" ? "English" : "Português"}
+              Português
+            </button>
+            <button
+              onClick={() => switchLang("en")}
+              className="px-4 py-2 text-sm font-medium rounded-lg border hover:bg-gray-100 dark:hover:bg-gray-800"
+            >
+              English
+            </button>
+            <button
+              onClick={() => switchLang("es")}
+              className="px-4 py-2 text-sm font-medium rounded-lg border hover:bg-gray-100 dark:hover:bg-gray-800"
+            >
+              Español
             </button>
           </div>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useMemo, useState, useContext, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Toaster } from "sonner";
 import NewNavbar from "@/components/NewNavbar";
 import Footer from "@/components/Footer";
@@ -28,6 +29,7 @@ export default function ClientBody({
 }) {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   const [lang, setLang] = useState<SupportedLang>(getBrowserLang());
+  const pathname = usePathname();
   const t = useMemo(
     () => (key: string) => translations[lang]?.[key] ?? key,
     [lang]
@@ -44,6 +46,14 @@ export default function ClientBody({
     }
     return () => window.removeEventListener("load", onLoad);
   }, []);
+
+  // Sync language with pathname prefix
+  useEffect(() => {
+    if (!pathname) return;
+    if (pathname.startsWith("/en")) setLang("en");
+    else if (pathname.startsWith("/es")) setLang("es");
+    else setLang("pt");
+  }, [pathname]);
 
   return (
     <I18nContext.Provider value={{ lang, setLang, t }}>

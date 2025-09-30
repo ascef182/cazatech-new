@@ -29,8 +29,8 @@ export function GoogleGeminiEffectDemo() {
           pathLengthFourth,
           pathLengthFifth,
         ]}
-        title="Cases de Sucesso Reais"
-        description="Nossa metodologia comprovada transforma ideias em resultados mensuráveis. Veja como multiplicamos vendas e otimizamos processos para empresas de todos os tamanhos."
+        title="Launch 🚀"
+        description={undefined}
       />
     </div>
   );

@@ -34,13 +34,13 @@ export async function POST(req: Request) {
     const resendKey = process.env.RESEND_KEY;
     if (resendKey) {
       const resend = new Resend(resendKey);
-      const from = process.env.FROM_EMAIL || "noreply@caza-tech.com";
+      const from = process.env.FROM_EMAIL || "support@caza-tech.com";
       const support = process.env.SUPPORT_EMAIL || "support@caza-tech.com";
 
       await resend.emails.send({
         from,
         to: [support],
-        reply_to: email,
+        replyTo: email,
         subject: `Contato pelo site${
           referenceWord ? ` [${referenceWord}]` : ""
         }: ${name}`,
