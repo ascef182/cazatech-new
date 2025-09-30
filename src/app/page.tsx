@@ -32,9 +32,8 @@ export default function Home() {
         <SectionWithMockup
           title={
             <>
-              Intelligence,
-              <br />
-              delivered to you.
+              Sistemas inteligentes,
+              <br />e mais rentáveis.
             </>
           }
           description={

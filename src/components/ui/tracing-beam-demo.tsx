@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { calsans } from "@/fonts/calsans";
+import Image from "next/image";
 
 import { twMerge } from "tailwind-merge";
 import { TracingBeam } from "@/components/ui/tracing-beam";
@@ -21,12 +22,11 @@ export default function TracingBeamDemo() {
 
             <div className="text-sm  prose prose-sm dark:prose-invert">
               {item?.image && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
+                <Image
                   src={item.image}
                   alt="blog thumbnail"
-                  height="1000"
-                  width="1000"
+                  height={1000}
+                  width={1000}
                   className="rounded-lg mb-10 object-cover"
                 />
               )}
@@ -116,7 +116,3 @@ const dummyContent = [
       "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=3506&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
-
-
-
-

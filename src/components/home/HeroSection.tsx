@@ -1,11 +1,11 @@
 "use client";
 
-import Script from "next/script";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { SocialProof } from "./SocialProof";
 import { trackWhatsAppClick } from "@/components/analytics/GoogleAnalytics";
 
+/* eslint-disable @typescript-eslint/no-namespace */
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -16,10 +16,13 @@ declare global {
     }
   }
 }
+/* eslint-enable @typescript-eslint/no-namespace */
 
 export default function HeroSection() {
   // Keep a tiny state for future enhancements, but avoid unnecessary logic
   const [shouldLoadSpline, setShouldLoadSpline] = useState(false);
+  const [splineLoading, setSplineLoading] = useState(true);
+  const [splineError, setSplineError] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setShouldLoadSpline(true), 100);
@@ -72,6 +75,7 @@ export default function HeroSection() {
               <a
                 href="https://wa.me/5535998026821?text=Olá%20CazaTech%2C%20quero%20automatizar%20meu%20WhatsApp%20em%207%20dias"
                 target="_blank"
+                rel="noopener noreferrer"
                 onClick={() =>
                   trackWhatsAppClick(
                     "hero_primary",
@@ -95,11 +99,17 @@ export default function HeroSection() {
 
             {/* Mobile Spline below CTAs */}
             {shouldLoadSpline && (
-              <div className="mt-6 md:hidden flex justify-center">
+              <div className="mt-6 md:hidden flex justify-center relative">
+                {splineLoading && (
+                  <div className="absolute inset-0 grid place-items-center bg-black">
+                    <div className="text-white text-sm">Carregando 3D...</div>
+                  </div>
+                )}
                 <div className="w-[60%] aspect-video rounded-2xl overflow-hidden">
                   <spline-viewer
                     url="https://prod.spline.design/h4vIirljpefHPM2v/scene.splinecode"
                     className="w-full h-full"
+                    onLoad={() => setSplineLoading(false)}
                   />
                 </div>
               </div>
@@ -111,10 +121,18 @@ export default function HeroSection() {
         <div className="hidden md:block relative w-full h-full">
           <div className="relative ml-0 md:ml-4 mr-4 h-[60vh] md:h-[72vh]">
             {shouldLoadSpline && (
-              <spline-viewer
-                url="https://prod.spline.design/h4vIirljpefHPM2v/scene.splinecode"
-                className="absolute inset-0 w-full h-full rounded-[24px] bg-gradient-to-b from-transparent to-transparent"
-              />
+              <div className="absolute inset-0">
+                {splineLoading && (
+                  <div className="absolute inset-0 grid place-items-center bg-black">
+                    <div className="text-white">Carregando 3D...</div>
+                  </div>
+                )}
+                <spline-viewer
+                  url="https://prod.spline.design/h4vIirljpefHPM2v/scene.splinecode"
+                  className="absolute inset-0 w-full h-full rounded-[24px] bg-black"
+                  onLoad={() => setSplineLoading(false)}
+                />
+              </div>
             )}
           </div>
         </div>

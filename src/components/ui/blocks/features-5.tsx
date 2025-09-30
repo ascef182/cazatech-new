@@ -1,5 +1,6 @@
 "use client";
 import { Activity, DraftingCompass, Mail, Zap } from "lucide-react";
+import Image from "next/image";
 
 export function Features() {
   return (
@@ -38,20 +39,26 @@ export function Features() {
           </div>
           <div className="border-border/50 relative rounded-3xl border p-3 lg:col-span-3">
             <div className="bg-gradient-to-b aspect-76/59 relative rounded-2xl from-zinc-300 to-transparent p-px dark:from-zinc-700">
-              <img
-                src="./images/setup.png"
-                className="hidden rounded-[15px] dark:block"
-                alt="dashboard dark"
-                width={1207}
-                height={929}
-              />
-              <img
-                src="./images/setup.png"
-                className="rounded-[15px] shadow dark:hidden"
-                alt="dashboard light"
-                width={1207}
-                height={929}
-              />
+              <div className="hidden dark:block">
+                <Image
+                  src="/images/setup.png"
+                  alt="dashboard dark"
+                  width={1207}
+                  height={929}
+                  className="rounded-[15px]"
+                  priority={false}
+                />
+              </div>
+              <div className="dark:hidden">
+                <Image
+                  src="/images/setup.png"
+                  alt="dashboard light"
+                  width={1207}
+                  height={929}
+                  className="rounded-[15px] shadow"
+                  priority={false}
+                />
+              </div>
             </div>
           </div>
         </div>

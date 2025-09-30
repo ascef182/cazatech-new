@@ -1,6 +1,6 @@
 "use client";
 
-export type SupportedLang = "pt" | "en";
+export type SupportedLang = "pt" | "en" | "es";
 
 export const translations: Record<SupportedLang, Record<string, string>> = {
   pt: {
@@ -66,6 +66,8 @@ export const translations: Record<SupportedLang, Record<string, string>> = {
     plan_custom_b2: "Integrações específicas do seu negócio",
     plan_custom_b3: "Roadmap e acompanhamento dedicado",
     plan_custom_cta: "Quero um plano sob medida",
+    // Generic
+    cta_consultant: "Fale com Consultor",
   },
   en: {
     // Navbar
@@ -130,6 +132,75 @@ export const translations: Record<SupportedLang, Record<string, string>> = {
     plan_custom_b2: "Business‑specific integrations",
     plan_custom_b3: "Roadmap and dedicated follow‑up",
     plan_custom_cta: "I want a tailored plan",
+    // Generic
+    cta_consultant: "Talk to Consultant",
+  },
+  es: {
+    // Navbar
+    nav_home: "Inicio",
+    nav_automation: "Automatización",
+    nav_sites: "Works",
+    nav_blog: "Blog",
+    nav_contact: "Contacto",
+
+    // Hero
+    hero_tag: "SOMOS CAZATECH",
+    hero_title_a: "Eleva tu presencia con",
+    hero_title_b: "soluciones creativas",
+    hero_sub_a: "DE LA IMAGINACIÓN A LA INNOVACIÓN",
+    hero_sub_b: "ESTRATEGIAS QUE GENERAN RESULTADOS",
+    hero_cta_email: "support@caza-tech.com",
+
+    // Features
+    features_headline_a:
+      "Impulsa tu marca online con exclusividad y creatividad.",
+    features_headline_b:
+      "¡Imaginación sin límites para hacer tu visión extraordinaria!",
+    features_stat_years: "Años de experiencia",
+    features_stat_clients: "Clientes satisfechos",
+    features_stat_projects: "Proyectos",
+    features_card_1_title:
+      "Transforma la identidad de tu marca con estrategias de branding",
+    features_card_1_desc:
+      "Eleva la presencia de tu marca con soluciones personalizadas que reflejen su esencia.",
+    features_card_2_title: "Soluciones web innovadoras con tecnología de punta",
+    features_card_2_desc:
+      "Experiencias digitales fluidas que impulsan resultados y crecimiento.",
+    features_card_3_title: "Diseño intuitivo para experiencias excepcionales",
+    features_card_3_desc:
+      "Interfaces centradas en el usuario para aumentar el compromiso y la usabilidad.",
+
+    // CTAs
+    cta_whatsapp: "Hablar por WhatsApp",
+    cta_bar_text: "¿Listo para transformar tu negocio?",
+    cta_bar_btn: "Agendar evaluación gratuita",
+
+    // Plans
+    plan_title: "Planes diseñados para tu etapa",
+    plan_subtitle:
+      "No mostramos precios: nos enfocamos en el valor. Elige un plan y recibe una propuesta a medida.",
+    plan_popular: "Más popular",
+    plan_cta: "Quiero este plan",
+    plan_starter_name: "Starter",
+    plan_starter_b1: "Landing page de alta conversión",
+    plan_starter_b2: "Copy y SEO esenciales",
+    plan_starter_b3: "Integración de WhatsApp y formulario",
+    plan_basic_name: "Basic",
+    plan_basic_b1: "Sitio institucional moderno (hasta 5 páginas)",
+    plan_basic_b2: "Blog + Optimización de rendimiento",
+    plan_basic_b3: "Componentes shadcn/ui + Tailwind",
+    plan_premium_name: "Premium",
+    plan_premium_b1: "Experiencia premium con animaciones/3D",
+    plan_premium_b2: "Automatización de atención (chatbot WhatsApp)",
+    plan_premium_b3: "Configuración avanzada de SEO y métricas",
+    plan_custom_name: "Personalizado",
+    plan_custom_b1: "Funcionalidades bajo demanda",
+    plan_custom_b2: "Integraciones específicas para tu negocio",
+    plan_custom_b3: "Roadmap y acompañamiento dedicado",
+    plan_custom_cta: "Quiero un plan a medida",
+
+    // Generic
+    cta_consultant: "Hablar con Consultor",
   },
 };
 
@@ -137,5 +208,6 @@ export function getBrowserLang(): SupportedLang {
   if (typeof navigator === "undefined") return "pt";
   const lang = navigator.language?.toLowerCase();
   if (lang.startsWith("en")) return "en";
+  if (lang.startsWith("es")) return "es";
   return "pt";
 }
