@@ -56,9 +56,7 @@ export default function WorksPage() {
   return (
     <div className="bg-black">
       <BreadcrumbSchema items={breadcrumbItems} />
-      <div style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}>
-        <HeroParallaxDemo />
-      </div>
+      <HeroParallaxDemo />
       <Features />
 
       <section id="works-carousel" className="mt-16">

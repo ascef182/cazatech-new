@@ -87,7 +87,7 @@ export const PricingTable = () => {
           className="text-center mb-12"
         >
           <h2
-            className="text-3xl md:text-4xl font-bold mb-4 text-foreground"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground"
             style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
           >
             Planos que Cabem no Seu Bolso

@@ -1,7 +1,8 @@
 export const automacoesContent = {
   hero: {
     title: "Pare de Perder Clientes por Demora no Atendimento",
-    subtitle: "Automatize seu WhatsApp e converta 3x mais leads em vendas reais",
+    subtitle:
+      "Automatize seu WhatsApp e converta 3x mais leads em vendas reais",
     backgroundImages: [
       "/images/n8n/n8n.png",
       "/images/n8n/n8n1.png",
@@ -69,24 +70,25 @@ export const automacoesContent = {
   sticky: [
     {
       title: "Fluxo no WhatsApp",
-      description: "Veja como seu cliente interage na prática.",
+      description:
+        "Atendimento 24 horas por 7 dias na semana. A inteligência artificial que entende áudios, manda áudios, marca reuniões, lê emails, vende seu produto, consulta seu estoque, responde perguntas frequentes. ",
       image: "/images/n8n/n8n.png",
     },
     {
-      title: "Painel no n8n",
+      title: "Painel do cliente",
       description: "Monitore etapas e resultados em tempo real.",
       image: "/images/n8n/n8n-flow.webp",
     },
     {
       title: "Integrações",
-      description: "CRM, pagamentos e planilhas em um só lugar.",
+      description: "CRM, pagamentos, planilhas, banco de dados, API's.",
       image: "/images/n8n/n8n2.png",
     },
   ],
   testimonials: [
     {
-      name: "Clínica XYZ",
-      designation: "Diretora",
+      name: "Clínica Bem Estar",
+      designation: "Médica Geral",
       quote:
         "Reduzimos 60% do tempo de atendimento e aumentamos os agendamentos.",
       src: "/images/testimonial.jpeg",
@@ -94,7 +96,8 @@ export const automacoesContent = {
     {
       name: "Edu Fit",
       designation: "CEO",
-      quote: "Os follow-ups automáticos recuperaram leads perdidos.",
+      quote:
+        "Os follow-ups automáticos recuperaram leads perdidos dentro da minha academia. O atendimento no whatsapp aumentou a taxa de conversão e fechamento de mensalidades em 300%",
       src: "/images/testimonial.jpeg",
     },
   ],

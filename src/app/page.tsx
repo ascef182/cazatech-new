@@ -31,21 +31,30 @@ export default function Home() {
       <Suspense fallback={<div className="h-[60vh] bg-black" />}>
         <SectionWithMockup
           title={
-            <>
+            <span
+              style={{
+                fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif",
+              }}
+            >
               Sistemas inteligentes,
               <br />e mais rentáveis.
-            </>
+            </span>
           }
           description={
-            <>
-              Get a tailored Monday morning brief directly in
+            <span
+              className="text-gray-600 dark:text-gray-300"
+              style={{ fontSize: "18px", lineHeight: "1.6" }}
+            >
+              Aumente seus lucros e investimentos
               <br />
-              your inbox, crafted by your virtual personal
+              enquanto um sistema trabalha para você 24/7.
               <br />
-              analyst, spotlighting essential watchlist stories
+              Rankeamento nas pesquisas do Google, <br />
+              atendimento personalizado com AI,
               <br />
-              and earnings for the week ahead.
-            </>
+              automações de marketing, <br />
+              automações de tarefas repetitivas.
+            </span>
           }
           primaryImageSrc="https://www.fey.com/marketing/_next/static/media/newsletter-desktop-2_4x.e594b737.png"
           secondaryImageSrc="https://www.fey.com/marketing/_next/static/media/newsletter-desktop-1_4x.9cc114e6.png"

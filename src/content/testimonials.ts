@@ -12,7 +12,7 @@ export const testimonials: Testimonial[] = [
       "A CazaTech revolucionou nosso atendimento! Implementaram uma automação que responde instantaneamente e aumentou nossa taxa de conversão em 280%. Parceria excepcional!",
     name: "Carlos Mendes",
     role: "CEO",
-    company: "Loja Virtual Premium",
+    company: "Loja Men Wear",
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
   },
@@ -35,7 +35,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Their WhatsApp automation platform transformed our customer service. The response time improvement and lead qualification features are outstanding.",
+      "Their Telegram and email automation transformed our customer service. The response time improvement and lead qualification features are outstanding.",
     name: "Jennifer Martinez",
     role: "Operations Manager",
     company: "TechFlow Solutions",
@@ -66,12 +66,11 @@ export const testimonials: Testimonial[] = [
     name: "Juliana Ferreira",
     role: "Sócia-Diretora",
     company: "Clínica Vida Saudável",
-    image:
-      "https://images.unsplash.com/photo-1559941904-8ced2f5a2b8d?w=150&h=150&fit=crop&crop=face",
+    image: "./images/flavia.jfif",
   },
   {
     quote:
-      "Outstanding service and results! CazaTech delivered a WhatsApp automation that perfectly fits our business needs. Customer engagement increased by 250%.",
+      "Outstanding service and results! CazaTech delivered a email automation that perfectly fits our business needs. Customer engagement increased by 250%.",
     name: "Michael Thompson",
     role: "Marketing Director",
     company: "Global Ventures Ltd",
@@ -98,7 +97,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "The level of customization and support from CazaTech is exceptional. Their WhatsApp automation helped us achieve a 300% increase in qualified leads.",
+      "The level of customization and support from CazaTech is exceptional. Their Telegram automation helped us achieve a 300% increase in qualified leads.",
     name: "Sarah Johnson",
     role: "Head of Sales",
     company: "Digital Marketing Pro",
@@ -115,4 +114,3 @@ export const testimonials: Testimonial[] = [
       "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face",
   },
 ];
-

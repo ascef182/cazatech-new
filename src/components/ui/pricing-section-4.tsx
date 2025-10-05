@@ -193,7 +193,10 @@ export default function PricingSection4() {
       </TimelineContent>
 
       <article className="text-center mb-6 pt-32 max-w-3xl mx-auto space-y-2 relative z-50">
-        <h2 className="text-4xl font-medium text-white">
+        <h2
+          className="text-3xl md:text-4xl lg:text-5xl font-bold text-white"
+          style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
+        >
           <VerticalCutReveal
             splitBy="words"
             staggerDuration={0.15}
@@ -356,3 +359,361 @@ export default function PricingSection4() {
     </div>
   );
 }
+
+          ></div>
+
+          <div
+
+            className="absolute left-[-568px] right-[-568px] top-0 h-[2053px] flex-none rounded-full"
+
+            style={{
+
+              border: "200px solid #3131f5",
+
+              filter: "blur(92px)",
+
+              WebkitFilter: "blur(92px)",
+
+            }}
+
+            data-border="true"
+
+            data-framer-name="Ellipse 2"
+
+          ></div>
+
+        </div>
+
+      </TimelineContent>
+
+
+
+      <article className="text-center mb-6 pt-32 max-w-3xl mx-auto space-y-2 relative z-50">
+
+        <h2 className="text-4xl font-medium text-white">
+
+          <VerticalCutReveal
+
+            splitBy="words"
+
+            staggerDuration={0.15}
+
+            staggerFrom="first"
+
+            reverse={true}
+
+            containerClassName="justify-center "
+
+            transition={{
+
+              type: "spring",
+
+              stiffness: 250,
+
+              damping: 40,
+
+              delay: 0, // First element
+
+            }}
+
+          >
+
+            Planos que Cabem no Seu Bolso
+
+          </VerticalCutReveal>
+
+        </h2>
+
+
+
+        <TimelineContent
+
+          as="p"
+
+          animationNum={0}
+
+          timelineRef={pricingRef}
+
+          customVariants={revealVariants}
+
+          className="text-gray-300"
+
+        >
+
+          Implementação rápida, sem fidelidade e com garantia de resultados.
+
+          Escolha o plano ideal para o tamanho do seu negócio.
+
+        </TimelineContent>
+
+
+
+        <TimelineContent
+
+          as="div"
+
+          animationNum={1}
+
+          timelineRef={pricingRef}
+
+          customVariants={revealVariants}
+
+        >
+
+          <PricingSwitch onSwitch={togglePricingPeriod} />
+
+        </TimelineContent>
+
+      </article>
+
+
+
+      <div
+
+        className="absolute top-0 left-[10%] right-[10%] w-[80%] h-full z-0"
+
+        style={{
+
+          backgroundImage: `
+
+        radial-gradient(circle at center, #206ce8 0%, transparent 70%)
+
+      `,
+
+          opacity: 0.6,
+
+          mixBlendMode: "multiply",
+
+        }}
+
+      />
+
+
+
+      <div className="grid md:grid-cols-3 max-w-5xl gap-4 py-6 mx-auto px-4">
+
+        {plans.map((plan, index) => (
+
+          <TimelineContent
+
+            key={plan.name}
+
+            as="div"
+
+            animationNum={2 + index}
+
+            timelineRef={pricingRef}
+
+            customVariants={revealVariants}
+
+          >
+
+            <Card
+
+              className={`relative text-white border-neutral-800 ${
+
+                plan.popular
+
+                  ? "bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 shadow-[0px_-13px_300px_0px_#0900ff] z-20"
+
+                  : "bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 z-10"
+
+              }`}
+
+            >
+
+              {plan.popular && (
+
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+
+                  <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+
+                    Mais Popular
+
+                  </div>
+
+                </div>
+
+              )}
+
+
+
+              <CardHeader className="text-left ">
+
+                <div className="flex justify-between">
+
+                  <h3 className="text-3xl mb-2">{plan.name}</h3>
+
+                </div>
+
+
+
+                {showSetup && plan.setupPrice > 0 && (
+
+                  <div className="flex items-baseline mb-2">
+
+                    <span className="text-2xl font-semibold ">
+
+                      R${" "}
+
+                      <NumberFlow
+
+                        value={plan.setupPrice}
+
+                        className="text-2xl font-semibold"
+
+                      />
+
+                    </span>
+
+                    <span className="text-gray-300 ml-1 text-sm">
+
+                      setup único
+
+                    </span>
+
+                  </div>
+
+                )}
+
+
+
+                <div className="flex items-baseline">
+
+                  <span className="text-4xl font-semibold ">
+
+                    {plan.monthlyText ? (
+
+                      plan.monthlyText
+
+                    ) : (
+
+                      <>
+
+                        R${" "}
+
+                        <NumberFlow
+
+                          value={plan.price}
+
+                          className="text-4xl font-semibold"
+
+                        />
+
+                      </>
+
+                    )}
+
+                  </span>
+
+                  {!plan.monthlyText && (
+
+                    <span className="text-gray-300 ml-1">/mês</span>
+
+                  )}
+
+                </div>
+
+
+
+                {showSetup && plan.setupText && (
+
+                  <div className="text-2xl font-semibold text-gray-300">
+
+                    {plan.setupText}
+
+                  </div>
+
+                )}
+
+
+
+                <p className="text-sm text-gray-300 mb-4">{plan.description}</p>
+
+              </CardHeader>
+
+
+
+              <CardContent className="pt-0">
+
+                <Link
+
+                  href={`https://wa.me/5535998026821?text=${encodeURIComponent(
+
+                    plan.whatsappText
+
+                  )}`}
+
+                  target="_blank"
+
+                  className={`block w-full mb-6 p-4 text-xl rounded-xl text-center transition-all ${
+
+                    plan.popular
+
+                      ? "bg-gradient-to-t from-blue-500 to-blue-600  shadow-lg shadow-blue-800 border border-blue-500 text-white hover:from-blue-600 hover:to-blue-700"
+
+                      : plan.buttonVariant === "outline"
+
+                      ? "bg-gradient-to-t from-neutral-950 to-neutral-600  shadow-lg shadow-neutral-900 border border-neutral-800 text-white hover:from-neutral-900 hover:to-neutral-500"
+
+                      : ""
+
+                  }`}
+
+                >
+
+                  {plan.buttonText}
+
+                </Link>
+
+
+
+                <div className="space-y-3 pt-4 border-t border-neutral-700">
+
+                  <h4 className="font-medium text-base mb-3">
+
+                    {plan.includes[0]}
+
+                  </h4>
+
+                  <ul className="space-y-2">
+
+                    {plan.includes.slice(1).map((feature, featureIndex) => (
+
+                      <li
+
+                        key={featureIndex}
+
+                        className="flex items-center gap-2"
+
+                      >
+
+                        <span className="h-2.5 w-2.5 bg-neutral-500 rounded-full grid place-content-center"></span>
+
+                        <span className="text-sm text-gray-300">{feature}</span>
+
+                      </li>
+
+                    ))}
+
+                  </ul>
+
+                </div>
+
+              </CardContent>
+
+            </Card>
+
+          </TimelineContent>
+
+        ))}
+
+      </div>
+
+    </div>
+
+  );
+
+}
+
+

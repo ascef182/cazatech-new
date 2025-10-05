@@ -95,9 +95,12 @@ export const Header = () => {
         className="text-1xl md:text-5xl font-bold text-white"
         style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
       >
-        Mais que um site <br /> sua marca.
+        Sua marca <br /> destacada.
       </h1>
-      <p className="max-w-2xl text-base md:text-xl mt-8 text-neutral-200">
+      <p
+        className="max-w-2xl text-base md:text-xl mt-8 text-neutral-200"
+        style={{ fontFamily: " 'Plus Jakarta Sans', sans-serif" }}
+      >
         Desenvolvemos aplicações web com alta performance, SEO estratégico para
         crescimentos orgânico, tecnologia e frameworks avançados.
       </p>

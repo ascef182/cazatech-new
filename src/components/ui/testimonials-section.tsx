@@ -9,11 +9,11 @@ export function TestimonialsSection() {
       <div className="mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Resultados Reais, Clientes Satisfeitos
+            Resultados Reais
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Veja como empresas estão crescendo com nossa automação WhatsApp —
-            histórias reais, resultados comprovados, crescimento sustentável.
+            Veja como empresas estão crescendo com nossas soluções, resultados
+            comprovados, crescimento sustentável.
           </p>
         </div>
 
