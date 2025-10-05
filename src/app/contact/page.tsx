@@ -26,44 +26,18 @@ type FormData = z.infer<typeof schema>;
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const form = useForm<FormData>({ resolver: zodResolver(schema) });
-  const formspreeFormId = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID;
 
   const onSubmit = async (values: FormData) => {
     setIsSubmitting(true);
     try {
-      if (formspreeFormId) {
-        const resFs = await fetch(`https://formspree.io/f/${formspreeFormId}`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            name: values.name,
-            email: values.email,
-            company: values.company,
-            objective: values.objective,
-            budget: values.budget ?? "",
-            message: values.message,
-            _replyto: values.email,
-            _subject: `Contato pelo site: ${values.name}`,
-          }),
-        });
-        const dataFs = await resFs.json().catch(() => null as any);
-        if (!resFs.ok || dataFs?.errors) {
-          const errMsg =
-            dataFs?.errors?.[0]?.message || dataFs?.message || "Falha no envio";
-          throw new Error(errMsg);
-        }
-      } else {
-        const res = await fetch("/api/contact", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(values),
-        });
-        const data = await res.json();
-        if (!res.ok || !data.ok)
-          throw new Error(data.error || "Falha no envio");
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error || "Falha no envio");
       }
 
       toast.success(
@@ -71,7 +45,9 @@ export default function ContactPage() {
       );
       form.reset();
     } catch (e) {
-      toast.error(e instanceof Error ? e.message : "Erro inesperado");
+      const errorMessage = e instanceof Error ? e.message : "Erro inesperado";
+      toast.error(errorMessage);
+      console.error("Erro ao enviar formulário:", e);
     } finally {
       setIsSubmitting(false);
     }

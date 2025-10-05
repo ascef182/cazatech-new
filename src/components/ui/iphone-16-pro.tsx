@@ -147,26 +147,34 @@ export const Iphone16Pro = forwardRef<SVGSVGElement, Iphone16ProProps>(
             width={width - 42}
             height={height - 42}
             clipPath={`url(#${clipPathId})`}
-            preserveAspectRatio="xMidYMid slice"
+            style={{ overflow: "hidden" }}
           >
-            <video
-              className={`w-full h-full object-cover transform-gpu will-change-transform ${
-                contentClassName ?? ""
-              }`}
-              src={videoSrc}
-              autoPlay
-              loop
-              muted
-              playsInline
+            <div
               style={{
-                ...contentStyle,
-                borderRadius: screenRadius,
-                objectFit: "cover",
                 width: "100%",
                 height: "100%",
                 overflow: "hidden",
+                borderRadius: screenRadius,
               }}
-            />
+            >
+              <video
+                className={`w-full h-full object-cover ${
+                  contentClassName ?? ""
+                }`}
+                src={videoSrc}
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{
+                  ...contentStyle,
+                  objectFit: "cover",
+                  width: "100%",
+                  height: "100%",
+                  display: "block",
+                }}
+              />
+            </div>
           </foreignObject>
         )}
 

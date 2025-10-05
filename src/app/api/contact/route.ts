@@ -7,7 +7,7 @@ export async function POST(req: Request) {
     const body = await req.json().catch(() => null);
     if (!body || typeof body !== "object") {
       return NextResponse.json(
-        { ok: false, error: "Invalid payload" },
+        { ok: false, error: "Dados inválidos" },
         { status: 400 }
       );
     }
@@ -24,10 +24,21 @@ export async function POST(req: Request) {
       };
     if (!name || !email || !message) {
       return NextResponse.json(
-        { ok: false, error: "Missing fields" },
+        { ok: false, error: "Preencha todos os campos obrigatórios" },
         { status: 400 }
       );
     }
+
+    // Log do contato recebido (sempre salva no console/logs mesmo sem email configurado)
+    console.log("📧 Novo contato recebido:", {
+      timestamp: new Date().toISOString(),
+      name,
+      email,
+      company,
+      objective,
+      budget,
+      message: message.substring(0, 100),
+    });
 
     const referenceWord = process.env.CONTACT_REF || "";
 
@@ -80,10 +91,16 @@ export async function POST(req: Request) {
     } else {
       const apiKey = process.env.API_KEY;
       if (!apiKey) {
-        return NextResponse.json(
-          { ok: false, error: "API_KEY não configurada" },
-          { status: 500 }
+        // Não há configuração de email, mas ainda assim registra o contato
+        console.warn(
+          "⚠️  Nenhuma API de email configurada. Configure RESEND_KEY ou API_KEY no .env.local"
         );
+        console.log("💾 Contato salvo nos logs do servidor");
+
+        return NextResponse.json({
+          ok: true,
+          message: "Contato registrado com sucesso",
+        });
       }
       if (apiKey === "TEST") {
         return NextResponse.json({ ok: true, message: "Simulado (TEST)" });
@@ -106,6 +123,8 @@ export async function POST(req: Request) {
         <p><strong>Email:</strong> ${email}</p>
         ${phone ? `<p><strong>Telefone:</strong> ${phone}</p>` : ""}
         ${company ? `<p><strong>Empresa:</strong> ${company}</p>` : ""}
+        ${objective ? `<p><strong>Objetivo:</strong> ${objective}</p>` : ""}
+        ${budget ? `<p><strong>Orçamento:</strong> ${budget}</p>` : ""}
         <p><strong>Mensagem:</strong></p>
         <p>${message.replace(/\n/g, "<br/>")}</p>`;
       const emailParams = new EmailParams()
@@ -117,7 +136,9 @@ export async function POST(req: Request) {
         .setText(
           `Nome: ${name}\nEmail: ${email}${
             phone ? `\nTelefone: ${phone}` : ""
-          }${company ? `\nEmpresa: ${company}` : ""}\n\n${message}`
+          }${company ? `\nEmpresa: ${company}` : ""}${
+            objective ? `\nObjetivo: ${objective}` : ""
+          }${budget ? `\nOrçamento: ${budget}` : ""}\n\n${message}`
         );
       await mailerSend.email.send(emailParams);
     }
@@ -127,8 +148,9 @@ export async function POST(req: Request) {
       message: "Mensagem enviada com sucesso",
     });
   } catch (err) {
+    console.error("❌ Erro ao processar contato:", err);
     return NextResponse.json(
-      { ok: false, error: "Erro interno ao enviar o email" },
+      { ok: false, error: "Erro ao processar sua mensagem. Tente novamente." },
       { status: 500 }
     );
   }
