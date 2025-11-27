@@ -1,0 +1,104 @@
+export const marketingContent = {
+  hero: {
+    title: "Marketing que Gera Demanda e Autoridade",
+    subtitle:
+      "Estratégias de tráfego, SEO e conteúdo desenhadas para vender tecnologia e serviços de alto valor (High Ticket).",
+    backgroundImages: [
+      "/images/n8n/n8n.png", // Placeholder, ideally should be marketing related
+      "/images/n8n/n8n-flow.webp",
+    ],
+  },
+  timeline: [
+    {
+      step: "Planejamento",
+      desc: "Definição de ICP, canais e oferta irresistível.",
+    },
+    {
+      step: "Estrutura",
+      desc: "Setup de Pixel, Tag Manager, Analytics e CRM.",
+    },
+    {
+      step: "Tração",
+      desc: "Início das campanhas de tráfego e produção de conteúdo.",
+    },
+    {
+      step: "Otimização",
+      desc: "Análise de dados para reduzir CAC e aumentar LTV.",
+    },
+  ],
+  features: [
+    {
+      icon: "target",
+      title: "Tráfego Pago de Alta Performance",
+      desc: "Campanhas no Meta e Google Ads focadas em ROI e leads qualificados.",
+    },
+    {
+      icon: "search",
+      title: "SEO Técnico e de Conteúdo",
+      desc: "Posicione sua empresa no topo do Google para termos que geram venda.",
+    },
+    {
+      icon: "pen",
+      title: "Copywriting e Narrativa",
+      desc: "Textos que conectam, persuadem e vendem sem parecer vendedor chato.",
+    },
+  ],
+  bentoGrid: [
+    {
+      title: "Gestão de Tráfego",
+      description: "Meta Ads, Google Ads e LinkedIn Ads.",
+      icon: "target",
+      span: 2,
+    },
+    {
+      title: "Branding",
+      description: "Identidade visual que transmite autoridade.",
+      icon: "palette",
+      span: 1,
+    },
+    {
+      title: "SEO",
+      description: "Otimização On-page e Off-page.",
+      icon: "search",
+      span: 1,
+    },
+    {
+      title: "Conteúdo",
+      description: "Estratégia para LinkedIn e Instagram.",
+      icon: "pen",
+      span: 2,
+    },
+  ],
+  sticky: [
+    {
+      title: "Funil de Vendas",
+      description:
+        "Desenhamos a jornada completa do cliente, do anúncio até o fechamento.",
+      image: "/images/n8n/n8n-flow.webp", // Placeholder
+    },
+    {
+      title: "Dashboards de BI",
+      description: "Visualize seus números em tempo real para tomar decisões rápidas.",
+      image: "/images/n8n/n8n.png", // Placeholder
+    },
+    {
+      title: "Automação de Marketing",
+      description: "Nutrição de leads via e-mail e WhatsApp integrada ao CRM.",
+      image: "/images/n8n/n8n2.png", // Placeholder
+    },
+  ],
+  faq: [
+    {
+      q: "Qual o investimento mínimo?",
+      a: "Recomendamos verba de mídia a partir de R$ 1.500/mês para testes consistentes.",
+    },
+    {
+      q: "Vocês fazem o criativo (design)?",
+      a: "Sim, nosso time cria os anúncios estáticos e roteiros para vídeo.",
+    },
+    {
+      q: "Quanto tempo para dar resultado?",
+      a: "Tráfego pago gera dados imediatos, mas a maturação da campanha leva de 1 a 3 meses.",
+    },
+  ],
+};

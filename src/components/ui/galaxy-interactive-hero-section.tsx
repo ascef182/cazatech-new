@@ -42,25 +42,25 @@ function HeroContent() {
         className="text-2xl sm:text-4xl md:text-6xl font-bold mb-4 leading-[1.1] tracking-wide"
         style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
       >
-        Tire sua ideia do papel
+        Sistemas que trabalham enquanto você dorme.
       </h1>
       <p className="text-sm sm:text-base md:text-lg leading-snug mb-5 sm:mb-6 opacity-80 max-w-xl mx-auto">
-        Estratégias digitais, design de alto impacto <br />e tecnologia sob
-        medida para acelerar resultados.
+        Deixe a tecnologia fazer o trabalho pesado: apps, sites, automações no WhatsApp, 
+        SaaS sob demanda e marketing para impulsionar seu negócio.
       </p>
       <div className="flex pointer-events-auto flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
         <Link
           href="/contact"
-          className="bg-[#8200DB29] hover:bg-black/50 text-white font-semibold text-sm sm:text-base py-2 sm:py-2.5 px-5 sm:px-6 rounded-full transition duration-300 w-full sm:w-auto border border-[#322D36] text-center backdrop-blur-lg"
+          className="bg-gradient-to-r from-purple-600/90 to-blue-600/90 hover:from-purple-700 hover:to-blue-700 text-white font-semibold text-sm sm:text-base py-2.5 sm:py-3 px-6 sm:px-8 rounded-full transition-all duration-300 w-full sm:w-auto border border-purple-500/30 text-center backdrop-blur-lg shadow-lg shadow-purple-500/20 hover:shadow-purple-500/30"
         >
-          Começar Agora
+          Quero criar meu projeto
         </Link>
         <Link
-          href="/works"
-          className="pointer-events-auto bg-[#0009] border border-gray-600 hover:border-gray-400 text-gray-200 hover:text-white font-medium text-sm sm:text-base py-2 sm:py-2.5 px-5 sm:px-6 rounded-full transition duration-300 flex items-center justify-center w-full sm:w-auto"
+          href="/automacoes"
+          className="pointer-events-auto bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:border-white/30 text-white font-medium text-sm sm:text-base py-2.5 sm:py-3 px-6 sm:px-8 rounded-full transition-all duration-300 flex items-center justify-center w-full sm:w-auto"
         >
           <Play className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="currentColor" />
-          Ver Projetos
+          Ver Soluções
         </Link>
       </div>
     </div>

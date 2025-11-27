@@ -1,11 +1,11 @@
 export const automacoesContent = {
   hero: {
-    title: "Pare de Perder Clientes por Demora no Atendimento",
+    title: "Sua Clínica com Atendimento 24/7, Sem Falhas e Sem CLT",
     subtitle:
-      "Automatize seu WhatsApp e converta 3x mais leads em vendas reais",
+      "A Secretária v3 atende WhatsApp, agenda consultas, cobra pacientes e reduz faltas automaticamente. A revolução que sua recepção precisa.",
     backgroundImages: [
       "/images/n8n/n8n.png",
-      "/images/n8n/n8n1.png",
+      "/images/n8n/flow-v3.png",
       "/images/n8n/n8n2.png",
       "/images/n8n/n8n3.jpeg",
       "/images/n8n/n8n-flow.webp",
@@ -15,121 +15,134 @@ export const automacoesContent = {
   timeline: [
     {
       step: "Diagnóstico",
-      desc: "Analisamos seu processo atual e pontos de atrito.",
+      desc: "Mapeamos o fluxo atual da sua clínica e identificamos gargalos de atendimento.",
     },
     {
       step: "Configuração",
-      desc: "Montamos seu fluxo no n8n, com tom e regras da marca.",
+      desc: "Implementamos a Secretária v3 com o tom de voz da sua marca e regras de negócio.",
     },
-    { step: "Integração", desc: "Conectamos CRM, pagamentos e agendas." },
-    { step: "Suporte contínuo", desc: "Acompanhamos e otimizamos com dados." },
+    {
+      step: "Integração Total",
+      desc: "Conectamos WhatsApp, Google Calendar, Asaas e Chatwoot em um sistema único.",
+    },
+    {
+      step: "Treinamento & Scale",
+      desc: "Treinamos sua equipe para operar o painel e acompanhamos os resultados.",
+    },
   ],
   features: [
     {
       icon: "chat",
-      title: "Seus Clientes Pensarão que Estão Falando com Humanos",
-      desc: "Conversas naturais que mantêm o tom da sua marca e lembram do histórico de cada cliente.",
+      title: "Atendimento Humanizado 24/7",
+      desc: "IA que entende áudio e texto, responde dúvidas e agenda consultas a qualquer hora do dia ou da noite.",
     },
     {
       icon: "route",
-      title: "Só Chegam Leads Qualificados na Sua Mesa",
-      desc: "Sistema inteligente separa curiosos de compradores reais antes de consumir seu tempo.",
+      title: "Fim do No-Show",
+      desc: "Lembretes automáticos inteligentes que confirmam presença e reduzem drasticamente as faltas.",
     },
     {
       icon: "clock",
-      title: "Receba Pagamentos Automáticos Sem Perder Nenhuma Venda",
-      desc: "Agendamentos, lembretes e cobrança funcionam 24h, mesmo quando você está dormindo.",
+      title: "Financeiro no Piloto Automático",
+      desc: "Geração de links de pagamento (Pix/Boleto) e baixa automática via integração com Asaas.",
     },
   ],
   bentoGrid: [
     {
-      title: "Agendamentos",
-      description: "Horários, lembretes e confirmação automática.",
+      title: "Agendamento Google",
+      description: "Sincronização em tempo real com a agenda dos seus médicos.",
       icon: "calendar",
       span: 1,
     },
     {
-      title: "Cobranças via Pix/Boleto",
-      description: "Links de pagamento e baixa automática.",
+      title: "Gestão Financeira",
+      description: "Cobrança automática e controle de inadimplência integrado.",
       icon: "receipt",
       span: 2,
     },
     {
-      title: "Follow-up de Vendas",
-      description: "Mensagens reengajam leads no timing certo.",
+      title: "Recuperação de Leads",
+      description: "Follow-up automático para pacientes que pararam de responder.",
       icon: "repeat",
       span: 1,
     },
     {
-      title: "Atendimento Inteligente",
-      description: "Conversa humanizada com voz/áudio e contexto.",
+      title: "Central de Controle",
+      description: "Painel Chatwoot para sua equipe monitorar tudo em um só lugar.",
       icon: "bot",
       span: 2,
     },
   ],
   sticky: [
     {
-      title: "Fluxo no WhatsApp",
+      title: "O Cérebro da Operação",
       description:
-        "Atendimento 24 horas por 7 dias na semana. A inteligência artificial que entende áudios, manda áudios, marca reuniões, lê emails, vende seu produto, consulta seu estoque, responde perguntas frequentes. ",
-      image: "/images/n8n/n8n.png",
+        "Fluxos complexos no n8n que orquestram cada interação, garantindo que nenhum paciente fique sem resposta.",
+      image: "/images/n8n/flow-v3.png",
     },
     {
-      title: "Painel do cliente",
-      description: "Monitore etapas e resultados em tempo real.",
+      title: "Visão Total do Atendimento",
+      description: "Painel Kanban para visualizar em qual etapa cada paciente está: Agendado, Pendente ou Em Atendimento.",
       image: "/images/n8n/n8n-flow.webp",
     },
     {
-      title: "Integrações",
-      description: "CRM, pagamentos, planilhas, banco de dados, API's.",
+      title: "Integrações Poderosas",
+      description: "Conectamos as ferramentas que você já usa: Google Calendar, Drive, Asaas e WhatsApp.",
       image: "/images/n8n/n8n2.png",
     },
   ],
   testimonials: [
     {
-      name: "Clínica Bem Estar",
-      designation: "Médica Geral",
+      name: "Dra. Fernanda Oliveira",
+      designation: "Clínica Bem Estar",
       quote:
-        "Reduzimos 60% do tempo de atendimento e aumentamos os agendamentos.",
+        "A Secretária v3 reduziu nossas faltas em 40% já no primeiro mês. A equipe agora foca no paciente presencial.",
       src: "/images/testimonial.jpeg",
     },
     {
-      name: "Edu Fit",
-      designation: "CEO",
+      name: "Ricardo Santos",
+      designation: "CEO Edu Fit",
       quote:
-        "Os follow-ups automáticos recuperaram leads perdidos dentro da minha academia. O atendimento no whatsapp aumentou a taxa de conversão e fechamento de mensalidades em 300%",
+        "Recuperamos alunos que estavam perdidos no WhatsApp. A automação pagou o investimento na primeira semana.",
       src: "/images/testimonial.jpeg",
     },
   ],
   plans: [
     {
-      tag: "Profissionais individuais",
-      items: ["Atendimento 24/7", "Respostas rápidas", "Até 1 número"],
+      tag: "Consultório",
+      items: ["1 Número WhatsApp", "Agendamento Automático", "Lembretes Simples"],
       className: "border-pink-500/30",
       accent: "from-pink-500/20 to-transparent",
     },
     {
-      tag: "Pequenas equipes",
-      items: ["Fila de atendimento", "Triagem inteligente", "Até 5 números"],
+      tag: "Clínica Growth",
+      items: ["Múltiplos Atendentes", "Integração Financeira", "Recuperação de Leads"],
       className: "border-purple-500/30",
       accent: "from-purple-500/20 to-transparent",
     },
     {
-      tag: "Empresas personalizadas",
-      items: ["Integrações e SLA", "Relatórios", "Onboarding dedicado"],
+      tag: "Rede / Franquia",
+      items: ["API Personalizada", "Dashboard de BI", "Gerente de Conta"],
       className: "border-blue-500/30",
       accent: "from-blue-500/20 to-transparent",
     },
   ],
   faq: [
     {
-      q: "É necessário trocar meu número?",
-      a: "Não. Integramos no seu número atual ou criamos um dedicado ao atendimento.",
+      q: "Preciso trocar o número da clínica?",
+      a: "Não. Integramos a automação diretamente no seu número atual de WhatsApp Business.",
     },
-    { q: "Funciona com meu CRM?", a: "Sim, integramos com CRMs e planilhas." },
     {
-      q: "Preciso de conhecimento técnico?",
-      a: "Não. Implementamos e damos suporte.",
+      q: "A automação substitui minha secretária?",
+      a: "Não. Ela elimina o trabalho repetitivo (agendar, confirmar), permitindo que sua equipe foque no acolhimento e casos complexos.",
+    },
+    {
+      q: "E se o paciente mandar áudio?",
+      a: "Nossa IA transcreve e entende áudios, respondendo de forma natural e contextualizada.",
+    },
+    {
+      q: "Funciona para qualquer sistema?",
+      a: "Temos integração nativa com Google Calendar e Asaas. Para outros sistemas, fazemos análise de viabilidade via API.",
     },
   ],
 };

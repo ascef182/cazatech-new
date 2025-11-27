@@ -2,26 +2,24 @@
 
 import { motion, Variants } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, ReactNode, ElementType } from "react";
+import { useRef, ReactNode, createElement, ElementType } from "react";
 
 interface TimelineContentProps {
   children: ReactNode;
   as?: ElementType;
   animationNum: number;
-  timelineRef: React.RefObject<HTMLElement>;
+  timelineRef: React.RefObject<HTMLElement | null>;
   customVariants?: Variants;
   className?: string;
-  [key: string]: unknown;
 }
 
 export function TimelineContent({
   children,
-  as: Component = "div",
+  as = "div",
   animationNum,
   timelineRef,
   customVariants,
   className = "",
-  ...props
 }: TimelineContentProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -53,9 +51,8 @@ export function TimelineContent({
       animate={isInView ? "visible" : "hidden"}
       variants={variants}
       className={className}
-      {...props}
     >
-      <Component>{children}</Component>
+      {createElement(as, null, children)}
     </motion.div>
   );
 }
