@@ -1,5 +1,5 @@
 import BlogTemplate from "@/components/BlogTemplate";
-import { getMarkdownData } from "@/lib/markdown";
+import { getLegalDocument } from "@/lib/markdown";
 
 export const metadata = {
   title: "Central de Ajuda - CazaTech",
@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 export default async function HelpCenter() {
-  const md = await getMarkdownData("Central de Ajuda da CazaTech.md");
+  const md = await getLegalDocument("central-de-ajuda");
   return (
     <BlogTemplate
       frontmatter={{ title: "Central de Ajuda" }}

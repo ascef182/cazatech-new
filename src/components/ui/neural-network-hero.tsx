@@ -175,8 +175,8 @@ function ShaderPlane() {
   });
 
   return (
-    <mesh ref={meshRef} position={[0, -0.75, -0.5]}>
-      <planeGeometry args={[4, 4]} />
+    <mesh ref={meshRef} position={[0, 0, 0]}>
+      <planeGeometry args={[10, 8]} />
       <cPPNShaderMaterial ref={materialRef} side={THREE.DoubleSide} />
     </mesh>
   );
@@ -210,12 +210,12 @@ function ShaderBackground() {
   );
   
   return (
-    <div ref={canvasRef} className="bg-black absolute inset-0 -z-10 w-full h-full" aria-hidden>
+    <div ref={canvasRef} className="fixed top-0 left-0 w-full h-full -z-50 bg-black" aria-hidden>
       <Canvas
         camera={camera}
         gl={{ antialias: true, alpha: false }}
         dpr={[1, 2]}
-        style={{ width: '100%', height: '100%' }}
+        style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}
       >
         <ShaderPlane />
       </Canvas>
@@ -326,7 +326,7 @@ export default function NeuralNetworkHero({
     <section ref={sectionRef} className="relative h-screen w-full overflow-hidden">
       <ShaderBackground />
 
-      <div className="relative mx-auto flex max-w-7xl flex-col items-start gap-6 px-6 pb-24 pt-36 sm:gap-8 sm:pt-44 md:px-10 lg:px-16">
+      <div className="relative mx-auto flex max-w-7xl flex-col items-start gap-6 px-6 pb-24 pt-24 sm:gap-8 sm:pt-32 md:px-10 lg:px-16">
         <div ref={badgeRef} className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm">
           <span className="text-[10px] font-light uppercase tracking-[0.08em] text-white/70">{badgeLabel}</span>
           <span className="h-1 w-1 rounded-full bg-white/40" />

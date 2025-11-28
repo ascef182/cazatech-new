@@ -202,6 +202,7 @@ export default function NewNavbar() {
             <LiquidButton
               onClick={() => router.push("/contact")}
               className="hidden sm:flex"
+              size="lg"
             >
               Fale com um consultor
             </LiquidButton>

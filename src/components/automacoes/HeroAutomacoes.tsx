@@ -67,18 +67,19 @@ export default function HeroAutomacoes() {
       </div>
       <h2
         className="relative z-20 mx-auto max-w-4xl text-center text-2xl font-bold text-balance md:text-4xl lg:text-6xl"
-        style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
       >
-        Eleve seu atendimento a outro nível
+        Sua empresa atendendo 24h por dia — sem depender de ninguém.
       </h2>
       <p className="relative z-20 mx-auto max-w-2xl py-8 text-center text-sm text-neutral-200 md:text-base">
-        Respostas rápidas, humanas e 24/7 no WhatsApp. <br />
-        Fluxos adaptáveis para cada segmento.
+        A Secretária v3 é uma automação completa no WhatsApp que agenda, envia PIX, 
+        confirma consultas, faz follow-up e transforma conversas em vendas reais.
       </p>
 
       <div className="relative z-20 flex flex-wrap items-center justify-center gap-4 pt-4">
-        <Button asChild className="bg-sky-600 hover:bg-sky-700">
-          <Link href="#planos">Ver planos</Link>
+        <Button asChild className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 shadow-lg shadow-purple-500/25">
+          <Link href="https://wa.me/5535998026821?text=Olá! Quero instalar a Secretária v3 na minha empresa." target="_blank">
+            Instalar Secretária v3
+          </Link>
         </Button>
         <Dialog>
           <DialogTrigger asChild>
@@ -86,7 +87,7 @@ export default function HeroAutomacoes() {
               variant="outline"
               className="border-white/20 bg-white/10 backdrop-blur-sm hover:bg-white/20"
             >
-              Demonstração
+              Ver Demonstração
             </Button>
           </DialogTrigger>
           <DialogContent className="max-w-4xl p-0 overflow-hidden">

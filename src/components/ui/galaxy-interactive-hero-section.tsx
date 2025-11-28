@@ -38,15 +38,12 @@ function HeroSplineBackground() {
 function HeroContent() {
   return (
     <div className="text-center text-white px-4 max-w-3xl mx-auto">
-      <h1
-        className="text-2xl sm:text-4xl md:text-6xl font-bold mb-4 leading-[1.1] tracking-wide"
-        style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
-      >
+      <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-4 leading-[1.1] tracking-wide">
         Sistemas que trabalham enquanto você dorme.
       </h1>
       <p className="text-sm sm:text-base md:text-lg leading-snug mb-5 sm:mb-6 opacity-80 max-w-xl mx-auto">
-        Deixe a tecnologia fazer o trabalho pesado: apps, sites, automações no WhatsApp, 
-        SaaS sob demanda e marketing para impulsionar seu negócio.
+        Deixe a tecnologia fazer o trabalho pesado: apps, sites, automações no
+        WhatsApp, SaaS sob demanda e marketing para impulsionar seu negócio.
       </p>
       <div className="flex pointer-events-auto flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
         <Link

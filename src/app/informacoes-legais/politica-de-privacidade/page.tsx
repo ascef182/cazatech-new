@@ -1,5 +1,5 @@
 import BlogTemplate from "@/components/BlogTemplate";
-import { getMarkdownData } from "@/lib/markdown";
+import { getLegalDocument } from "@/lib/markdown";
 
 export const metadata = {
   title: "Política de Privacidade - CazaTech",
@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 export default async function PrivacyPolicy() {
-  const md = await getMarkdownData("Política de Privacidade da CazaTech.md");
+  const md = await getLegalDocument("politica-de-privacidade");
   return (
     <BlogTemplate
       frontmatter={{ title: "" }}

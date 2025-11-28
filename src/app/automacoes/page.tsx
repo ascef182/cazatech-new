@@ -1,51 +1,37 @@
 "use client";
 
-import { motion } from "motion/react";
 import HeroAutomacoes from "@/components/automacoes/HeroAutomacoes";
 import { Iphone16Pro } from "@/components/ui/iphone-16-pro";
-import Link from "next/link";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 import { automacoesContent } from "@/content/automacoes";
-import PricingSection4 from "@/components/ui/pricing-section-4";
+import { BenefitsSection } from "@/components/automacoes/BenefitsSection";
+import { NicheCards } from "@/components/automacoes/NicheCards";
+import { HowItWorksTimeline } from "@/components/automacoes/HowItWorksTimeline";
+import { WaitlistCTA } from "@/components/automacoes/WaitlistCTA";
+import DatabaseWithRestApi from "@/components/ui/database-with-rest-api";
 import { FAQSchema } from "@/components/seo/JsonLd";
-import {
-  Zap,
-  MessageSquare,
-  Clock,
-  Users,
-  CheckCircle2,
-  PhoneCall,
-  Route,
-  Bot,
-  CalendarDays,
-  Repeat,
-  Receipt,
-} from "lucide-react";
 
 export default function AutomacoesPage() {
-  const fadeIn = {
-    hidden: { opacity: 0, y: 24 },
-    visible: { opacity: 1, y: 0 },
-  };
-
   return (
     <div className="relative w-full overflow-hidden">
       {/* Hero com grid de imagens n8n e CTA igual à raíz */}
       <HeroAutomacoes />
 
       {/* iPhone 16 Pro mockup com vídeo demonstrativo */}
-      <section className="flex justify-center items-center py-16 md:py-24 bg-white">
+      <section id="demo" className="flex justify-center items-center py-16 md:py-24 bg-white">
         <div className="text-center">
+          <span className="inline-flex items-center px-3 py-1 text-xs font-medium uppercase tracking-wider rounded-full bg-purple-100 text-purple-700 mb-4">
+            Demonstração
+          </span>
           <h2
-            className="text-3xl md:text-4xl font-bold mb-8 text-black"
-            style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
+            className="text-3xl md:text-4xl font-bold mb-4 text-black"
           >
-            Como funciona?
+            Como funciona na prática?
           </h2>
+          <p className="text-gray-600 mb-8 max-w-md mx-auto">
+            Assista uma conversa real da Secretária v3 em ação
+          </p>
           <div className="flex justify-center">
             <div className="relative w-full max-w-[433px] px-4">
               <Iphone16Pro
@@ -58,6 +44,45 @@ export default function AutomacoesPage() {
                 hoverAnimation
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Timeline */}
+      <HowItWorksTimeline />
+
+      {/* Database API Animation - Integrations */}
+      <section className="w-full bg-black py-16 md:py-24">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm mb-6">
+              <span className="text-[10px] font-light uppercase tracking-[0.08em] text-white/70">Integrações</span>
+              <span className="h-1 w-1 rounded-full bg-white/40" />
+              <span className="text-xs font-light tracking-tight text-white/80">Conecte Tudo</span>
+            </span>
+            <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-white mb-4">
+              Integração com suas ferramentas
+            </h2>
+            <p className="text-lg font-light tracking-tight text-white/60 max-w-2xl mx-auto">
+              Conectamos WhatsApp, N8N, CRMs e bancos de dados em um fluxo automatizado.
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <DatabaseWithRestApi 
+              circleText="API"
+              badgeTexts={{
+                first: "WhatsApp",
+                second: "N8N",
+                third: "CRM",
+                fourth: "Database"
+              }}
+              buttonTexts={{
+                first: "CazaTech",
+                second: "Integração"
+              }}
+              title="Troca de dados via REST API personalizada"
+              lightColor="#8350E8"
+            />
           </div>
         </div>
       </section>
@@ -83,62 +108,46 @@ export default function AutomacoesPage() {
         />
       </section>
 
-      {/* Planos */}
-      <section id="planos">
-        <PricingSection4 />
-      </section>
+      {/* Benefits Section (substitui pricing) */}
+      <BenefitsSection />
 
-      {/* FAQ e CTA final */}
-      <section id="faq" className="relative bg-background">
+      {/* Niche Cards */}
+      <NicheCards />
+
+      {/* FAQ Section */}
+      <section id="faq" className="relative bg-neutral-950 py-16 md:py-24">
         <FAQSchema faqs={automacoesContent.faq} />
-        <div className="container py-14 md:py-20">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-2xl font-bold">Perguntas frequentes</h3>
-              <ul className="mt-4 space-y-4 text-muted-foreground">
-                {automacoesContent.faq.map((f) => (
-                  <li key={f.q}>
-                    <strong className="text-foreground">{f.q}</strong>
-                    <br />
-                    {f.a}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="rounded-2xl border p-6 bg-black text-white">
-              <h3 className="text-2xl font-bold">
-                Pronto para converter mais pelo WhatsApp?
-              </h3>
-              <p className="mt-2 text-white/80">
-                Enviamos um diagnóstico gratuito com oportunidades de automação
-                para seu negócio.
-              </p>
-              <div className="mt-6 flex flex-wrap items-center gap-3">
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-black hover:bg-black text-white"
-                >
-                  <Link
-                    href="https://api.whatsapp.com/send/?phone=5535998026821&text=Quero%20um%20diagn%C3%B3stico%20gratuito"
-                    target="_blank"
-                  >
-                    Falar no WhatsApp
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="bg-black text-white hover:bg-black/90"
-                >
-                  <Link href="#planos">Ver planos</Link>
-                </Button>
-              </div>
-            </div>
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm mb-6">
+              <span className="text-[10px] font-light uppercase tracking-[0.08em] text-white/70">FAQ</span>
+              <span className="h-1 w-1 rounded-full bg-white/40" />
+              <span className="text-xs font-light tracking-tight text-white/80">Dúvidas Frequentes</span>
+            </span>
+            <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-white mb-4">
+              Perguntas frequentes
+            </h2>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <ul className="space-y-6">
+              {automacoesContent.faq.map((f) => (
+                <li key={f.q} className="border-b border-white/10 pb-6">
+                  <strong className="text-white block mb-2 font-light text-lg">{f.q}</strong>
+                  <span className="text-white/60 text-sm font-light leading-relaxed">{f.a}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
+
+      {/* CTA Final - Captura de Email */}
+      <WaitlistCTA 
+        title="Automatize seu atendimento"
+        subtitle="Receba uma consultoria gratuita e descubra como aumentar suas vendas com automação."
+        buttonText="Quero Automatizar"
+        successMessage="Entraremos em contato em breve!"
+      />
     </div>
   );
 }

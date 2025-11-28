@@ -40,6 +40,29 @@ export async function POST(req: Request) {
       message: message.substring(0, 100),
     });
 
+    // Dispara webhook em paralelo (não bloqueia o fluxo principal)
+    const webhookUrl = process.env.WEBHOOK_URL;
+    if (webhookUrl) {
+      fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Webhook-Source": "cazatech-contact-form",
+          ...(process.env.WEBHOOK_SECRET && {
+            "X-Webhook-Secret": process.env.WEBHOOK_SECRET,
+          }),
+        },
+        body: JSON.stringify({
+          lead: { name, email, phone, company, objective, budget, message },
+          metadata: {
+            source: "contact-page",
+            timestamp: new Date().toISOString(),
+            origin: process.env.NEXT_PUBLIC_SITE_URL || "https://caza-tech.com",
+          },
+        }),
+      }).catch((err) => console.error("Webhook falhou:", err));
+    }
+
     const referenceWord = process.env.CONTACT_REF || "";
 
     const resendKey = process.env.RESEND_KEY;

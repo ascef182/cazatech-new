@@ -1,5 +1,5 @@
 import BlogTemplate from "@/components/BlogTemplate";
-import { getMarkdownData } from "@/lib/markdown";
+import { getLegalDocument } from "@/lib/markdown";
 
 export const metadata = {
   title: "Política de Reembolso - CazaTech",
@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 export default async function RefundPolicy() {
-  const md = await getMarkdownData("Política de Reembolso da CazaTech.md");
+  const md = await getLegalDocument("politica-de-reembolso");
   return (
     <BlogTemplate
       frontmatter={{ title: "" }}

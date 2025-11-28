@@ -1,5 +1,5 @@
 import BlogTemplate from "@/components/BlogTemplate";
-import { getMarkdownData } from "@/lib/markdown";
+import { getLegalDocument } from "@/lib/markdown";
 
 export const metadata = {
   title: "Termos de Uso - CazaTech",
@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 export default async function TermsOfUse() {
-  const md = await getMarkdownData("Termos de Uso da CazaTech.md");
+  const md = await getLegalDocument("termos-de-uso");
   return (
     <BlogTemplate
       frontmatter={{ title: "" }}

@@ -1,14 +1,20 @@
 // app/page.tsx
 import { lazy, Suspense } from "react";
-import { HeroSection } from "@/components/ui/galaxy-interactive-hero-section";
-import { QuantifiedBenefits } from "@/components/home/QuantifiedBenefits";
-import { TestimonialsSection } from "@/components/ui/testimonials-section";
-import ShowcaseGridSection from "@/components/sections/ShowcaseGridSection";
-import StickyShowcaseSection from "@/components/sections/StickyShowcaseSection";
 
-import BentoGridSection from "@/components/home/bento-grid-section";
+// Novos componentes premium (client-side only)
+import { 
+  NeuralNetworkHero, 
+  StaggerTestimonials, 
+  RadialOrbitalTimeline 
+} from "@/components/home/dynamic-sections";
+
+// Componentes existentes
+import StickyShowcaseSection from "@/components/sections/StickyShowcaseSection";
+import { WhyDifferent } from "@/components/home/WhyDifferent";
+import { FinalCTA } from "@/components/home/FinalCTA";
+import CazaTechProductsSection from "@/components/home/CazaTechProductsSection";
 import WorldMapSection from "@/components/sections/world-map-section";
-// import { MacbookScrollDemo } from "@/components/sections/macbook-scroll";
+
 const HeroScrollDemo = lazy(() =>
   import("@/components/sections/container-scroll-section").then((module) => ({
     default: module.HeroScrollDemo,
@@ -19,52 +25,67 @@ const SectionWithMockup = lazy(() =>
     default: m.default,
   }))
 );
-import { TimelineSection } from "@/components/sections/timeline-section";
 
 export default function Home() {
   return (
     <>
-      <HeroSection />
-      <Suspense fallback={<div className="h-96 bg-gray-900 animate-pulse" />}>
+      {/* Hero Premium com animação neural network */}
+      <NeuralNetworkHero />
+      
+      {/* Scroll Demo */}
+      <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
         <HeroScrollDemo />
       </Suspense>
+      
+      {/* Seção com Mockup */}
       <Suspense fallback={<div className="h-[60vh] bg-black" />}>
         <SectionWithMockup
           title={
-            <span
-              style={{
-                fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif",
-              }}
-            >
-              Sistemas inteligentes,
-              <br />e mais rentáveis.
+            <span className="font-extralight tracking-tight">
+              Conectamos você com programadores
+              <br />que transformam ideias em produtos digitais
             </span>
           }
           description={
-            <span
-              className="text-gray-600 dark:text-gray-300"
-              style={{ fontSize: "18px", lineHeight: "1.6" }}
-            >
-              Aumente seus lucros e investimentos
+            <span className="font-light tracking-tight text-white/75">
+              Seu projeto não precisa de promessas, precisa de execução. 
+              A CazaTech conecta você com uma equipe de tecnologia experiente 
+              para tirar sua ideia do papel — do zero ao lançamento.
               <br />
-              enquanto um sistema trabalha para você 24/7.
               <br />
-              Rankeamento nas pesquisas do Google, <br />
-              atendimento personalizado com AI,
+              • Automação de WhatsApp com IA (Secretária v3)
               <br />
-              automações de marketing, <br />
-              automações de tarefas repetitivas.
+              • Desenvolvimento de SaaS e Apps sob demanda
+              <br />
+              • Sites de alta performance e SEO
+              <br />
+              • Integrações complexas (n8n, APIs, Bancos)
             </span>
           }
           primaryImageSrc="https://www.fey.com/marketing/_next/static/media/newsletter-desktop-2_4x.e594b737.png"
           secondaryImageSrc="https://www.fey.com/marketing/_next/static/media/newsletter-desktop-1_4x.9cc114e6.png"
         />
       </Suspense>
-      <TimelineSection />
-      <BentoGridSection />
+      
+      {/* Timeline Orbital - processo de entrega */}
+      <RadialOrbitalTimeline />
+      
+      {/* Soluções CazaTech */}
+      <CazaTechProductsSection />
 
+      {/* Showcase Sticky */}
       <StickyShowcaseSection />
-      <TestimonialsSection />
+      
+      {/* Por que somos diferentes */}
+      <WhyDifferent />
+      
+      {/* Depoimentos com efeito stagger */}
+      <StaggerTestimonials />
+      
+      {/* CTA Final */}
+      <FinalCTA />
+      
+      {/* Mapa Global */}
       <WorldMapSection />
     </>
   );

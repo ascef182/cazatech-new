@@ -96,6 +96,8 @@ export default function RadialOrbitalTimeline({
   const containerRef = useRef<HTMLDivElement>(null);
   const orbitRef = useRef<HTMLDivElement>(null);
   const nodeRefs = useRef<Record<number, HTMLDivElement | null>>({});
+  const animationRef = useRef<number | null>(null);
+  const lastTimeRef = useRef<number>(0);
 
   const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === containerRef.current || e.target === orbitRef.current) {
@@ -139,21 +141,33 @@ export default function RadialOrbitalTimeline({
     });
   };
 
-  useEffect(() => {
-    let rotationTimer: NodeJS.Timeout;
-
+  const animate = (time: number) => {
+    if (!lastTimeRef.current) lastTimeRef.current = time;
+    const deltaTime = time - lastTimeRef.current;
+    
+    if (deltaTime >= 16) { // Cap at ~60fps
+      setRotationAngle((prev) => {
+        const newAngle = (prev + 0.05) % 360; // Smoother, slower rotation
+        return newAngle;
+      });
+      lastTimeRef.current = time;
+    }
+    
     if (autoRotate) {
-      rotationTimer = setInterval(() => {
-        setRotationAngle((prev) => {
-          const newAngle = (prev + 0.3) % 360;
-          return Number(newAngle.toFixed(3));
-        });
-      }, 50);
+      animationRef.current = requestAnimationFrame(animate);
+    }
+  };
+
+  useEffect(() => {
+    if (autoRotate) {
+      animationRef.current = requestAnimationFrame(animate);
+    } else if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
     }
 
     return () => {
-      if (rotationTimer) {
-        clearInterval(rotationTimer);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
       }
     };
   }, [autoRotate]);
@@ -273,7 +287,7 @@ export default function RadialOrbitalTimeline({
                 <div
                   key={item.id}
                   ref={(el) => { nodeRefs.current[item.id] = el; }}
-                  className="absolute transition-all duration-700 cursor-pointer"
+                  className="absolute transition-transform duration-75 ease-linear cursor-pointer will-change-transform"
                   style={nodeStyle}
                   onClick={(e) => {
                     e.stopPropagation();
@@ -316,7 +330,7 @@ export default function RadialOrbitalTimeline({
                   </div>
 
                   {isExpanded && (
-                    <Card className="absolute top-20 left-1/2 -translate-x-1/2 w-72 bg-black/95 backdrop-blur-lg border-white/20 shadow-xl shadow-purple-500/10 overflow-visible">
+                    <Card className="absolute top-20 left-1/2 -translate-x-1/2 w-72 bg-black/95 backdrop-blur-lg border-white/20 shadow-xl shadow-purple-500/10 overflow-visible z-[300]">
                       <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-purple-500/50"></div>
                       <CardHeader className="pb-2">
                         <div className="flex justify-between items-center">
@@ -412,4 +426,3 @@ export default function RadialOrbitalTimeline({
 }
 
 export { RadialOrbitalTimeline };
-
