@@ -9,7 +9,7 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "A CazaTech revolucionou nosso atendimento! Implementaram uma automação que responde instantaneamente e aumentou nossa taxa de conversão em 280%. Parceria excepcional!",
+      "A automação da CazaTech mudou nosso atendimento. Respostas rápidas e profissionais 24h.",
     name: "Carlos Mendes",
     role: "CEO",
     company: "Loja Men Wear",
@@ -18,7 +18,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Nossa empresa cresceu 350% após a automação WhatsApp da CazaTech. O ROI foi incrível - recuperamos o investimento em apenas 2 meses. Recomendo demais!",
+      "Recuperamos o investimento em 2 meses. A qualificação automática de leads fez toda diferença.",
     name: "Ana Paula Silva",
     role: "Diretora Comercial",
     company: "Beleza & Estilo",
@@ -26,7 +26,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "O que mais me impressionou foi a qualidade da entrega. A CazaTech entendeu exatamente nossa necessidade e criou fluxos perfeitos. Atendimento 24/7 sem perder nenhum cliente!",
+      "Fluxos perfeitos e atendimento humanizado. Nossa equipe agora foca no que realmente importa.",
     name: "Roberto Santos",
     role: "Gerente de Vendas",
     company: "AutoPeças Brasil",
@@ -35,7 +35,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Their Telegram and email automation transformed our customer service. The response time improvement and lead qualification features are outstanding.",
+      "Sistema inteligente que entende nosso cliente. Redução real de tempo de resposta.",
     name: "Jennifer Martinez",
     role: "Operations Manager",
     company: "TechFlow Solutions",
@@ -44,16 +44,16 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Desde que implementamos a automação da CazaTech, nossa equipe consegue focar no que realmente importa: fechar vendas! O sistema qualifica os leads automaticamente.",
+      "Nossa equipe fechando vendas enquanto a automação qualifica leads. Produtividade real.",
     name: "Mariana Costa",
-    role: "Coordenadora de Marketing",
+    role: "Coordenadora",
     company: "Imóveis Top",
     image:
       "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=150&h=150&fit=crop&crop=face",
   },
   {
     quote:
-      "Parceria incrível com a CazaTech! Eles não apenas entregaram a automação, mas nos ajudaram a otimizar todo nosso processo de vendas. Taxa de resposta subiu 400%!",
+      "Não é só automação, é parceria. Eles otimizaram todo nosso processo.",
     name: "Fernando Oliveira",
     role: "Proprietário",
     company: "Restaurante Sabor & Arte",
@@ -62,7 +62,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "A automação WhatsApp da CazaTech nos permitiu escalar sem contratar mais pessoas. Atendemos 5x mais clientes com a mesma equipe. Resultado: lucro 300% maior!",
+      "Escalamos sem contratar. Atendemos muito mais com a mesma equipe.",
     name: "Juliana Ferreira",
     role: "Sócia-Diretora",
     company: "Clínica Vida Saudável",
@@ -70,25 +70,25 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Outstanding service and results! CazaTech delivered a email automation that perfectly fits our business needs. Customer engagement increased by 250%.",
+      "Professional automation that fits perfectly. Our engagement metrics improved significantly.",
     name: "Michael Thompson",
     role: "Marketing Director",
-    company: "Global Ventures Ltd",
+    company: "Global Ventures",
     image:
       "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?w=150&h=150&fit=crop&crop=face",
   },
   {
     quote:
-      "A CazaTech transformou nossa forma de trabalhar. Antes perdíamos muitos leads por demora no atendimento. Hoje, com a automação, convertemos 85% dos contatos!",
+      "Antes perdíamos leads pela demora. Hoje respondemos na hora e convertemos mais.",
     name: "Patricia Rocha",
     role: "Gerente Geral",
-    company: "Moda Feminina Elegance",
+    company: "Moda Elegance",
     image:
       "https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?w=150&h=150&fit=crop&crop=face",
   },
   {
     quote:
-      "Investimento que se paga sozinho! A automação da CazaTech aumentou nossas vendas em 420% no primeiro trimestre. Suporte excepcional durante toda implementação.",
+      "Investimento que vale a pena. Suporte excepcional em toda implementação.",
     name: "Diego Almeida",
     role: "CEO",
     company: "TechStart Inovação",
@@ -97,7 +97,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "The level of customization and support from CazaTech is exceptional. Their Telegram automation helped us achieve a 300% increase in qualified leads.",
+      "Customization level is impressive. They understand complex business needs.",
     name: "Sarah Johnson",
     role: "Head of Sales",
     company: "Digital Marketing Pro",
@@ -106,7 +106,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "A qualidade da entrega da CazaTech superou todas nossas expectativas. A automação funciona perfeitamente e o ROI foi de 500% no primeiro ano. Parceiros de verdade!",
+      "Qualidade acima das expectativas. Automação que funciona de verdade.",
     name: "Rodrigo Nascimento",
     role: "Diretor Comercial",
     company: "Construtora Horizonte",

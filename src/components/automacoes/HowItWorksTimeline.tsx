@@ -138,11 +138,11 @@ export function HowItWorksTimeline() {
         {/* Timeline */}
         <div className="relative max-w-3xl mx-auto">
           {/* Vertical Line Background */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-neutral-800 md:-translate-x-1/2" />
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-neutral-800 md:-translate-x-1/2" />
           
           {/* Animated Line */}
           <motion.div
-            className="absolute left-6 md:left-1/2 top-0 w-px bg-gradient-to-b from-purple-500 via-blue-500 to-emerald-500 md:-translate-x-1/2"
+            className="absolute left-4 md:left-1/2 top-0 w-px bg-gradient-to-b from-purple-500 via-blue-500 to-emerald-500 md:-translate-x-1/2"
             style={{ height: lineHeight }}
           />
 
@@ -163,7 +163,7 @@ export function HowItWorksTimeline() {
                 {/* Content - alternates sides on desktop */}
                 <div
                   className={cn(
-                    "md:text-right",
+                    "ml-16 md:ml-0 md:text-right",
                     index % 2 !== 0 && "md:order-2 md:text-left"
                   )}
                 >
@@ -198,7 +198,7 @@ export function HowItWorksTimeline() {
                 {/* Icon - center on desktop */}
                 <div
                   className={cn(
-                    "absolute left-0 md:left-1/2 md:-translate-x-1/2",
+                    "absolute left-4 md:left-1/2 -translate-x-1/2",
                     "z-10"
                   )}
                 >
@@ -228,7 +228,7 @@ export function HowItWorksTimeline() {
             viewport={{ once: true }}
             className="relative flex justify-center mt-12"
           >
-            <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 -top-4 w-px h-8 bg-gradient-to-b from-emerald-500 to-transparent" />
+            <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 -top-4 w-px h-8 bg-gradient-to-b from-emerald-500 to-transparent" />
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg shadow-emerald-500/30">
               <CheckCircle className="w-8 h-8 text-white" />
             </div>

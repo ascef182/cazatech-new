@@ -244,7 +244,7 @@ export function BenefitsSection() {
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="sm:max-w-md bg-neutral-900 border-neutral-800">
+                <DialogContent className="sm:max-w-lg bg-neutral-900 border-neutral-800 max-h-[90vh] overflow-y-auto">
                   <DialogHeader>
                     <DialogTitle className="sr-only">
                       Diagnóstico Gratuito
@@ -255,7 +255,7 @@ export function BenefitsSection() {
                     source="automacoes-benefits"
                     product="automacao"
                     title="Diagnóstico Gratuito"
-                    description="Conte sobre seu negócio e enviaremos uma análise personalizada."
+                    description="Preencha os dados abaixo e receba uma análise personalizada do seu atendimento em até 24h."
                     buttonText="Solicitar Diagnóstico"
                     onSuccess={() => setIsDialogOpen(false)}
                   />

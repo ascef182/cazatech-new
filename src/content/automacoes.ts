@@ -75,19 +75,19 @@ export const automacoesContent = {
   ],
   sticky: [
     {
-      title: "O Cérebro da Operação",
+      title: "Orquestração Inteligente via n8n",
       description:
-        "Fluxos complexos no n8n que orquestram cada interação, garantindo que nenhum paciente fique sem resposta.",
+        "Motor de automação enterprise que processa milhares de interações simultâneas. Cada conversa segue fluxos condicionais complexos, com fallbacks inteligentes e escalabilidade infinita sem perda de performance.",
       image: "/images/n8n/flow-v3.png",
     },
     {
-      title: "Visão Total do Atendimento",
-      description: "Painel Kanban para visualizar em qual etapa cada paciente está: Agendado, Pendente ou Em Atendimento.",
+      title: "Painel Kanban Centralizado",
+      description: "Dashboard Chatwoot com visão 360° do funil de atendimento. Acompanhe em tempo real: leads entrando, conversas em andamento, agendamentos confirmados e casos que precisam de intervenção humana.",
       image: "/images/n8n/n8n-flow.webp",
     },
     {
-      title: "Integrações Poderosas",
-      description: "Conectamos as ferramentas que você já usa: Google Calendar, Drive, Asaas e WhatsApp.",
+      title: "Ecossistema Integrado Nativo",
+      description: "Stack tecnológico conectada via API: WhatsApp Business, Google Workspace (Calendar + Drive), Asaas (pagamentos), Chatwoot (CRM) e webhooks customizados. Zero trabalho manual, 100% sincronizado.",
       image: "/images/n8n/n8n2.png",
     },
   ],

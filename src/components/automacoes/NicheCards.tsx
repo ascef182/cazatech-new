@@ -7,8 +7,9 @@ import {
   Scale,
   Scissors,
   ArrowRight,
-  AlertTriangle,
+  CheckCircle2,
 } from "lucide-react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
@@ -21,10 +22,12 @@ const nichos = [
     icon: Stethoscope,
     title: "Clínicas e Consultórios",
     subtitle: "Médicos, Dentistas, Psicólogos",
-    problems: [
-      "No-show alto (até 30% de faltas)",
-      "Atendimento lento no WhatsApp",
-      "Cobrança manual demorada",
+    image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&auto=format&fit=crop",
+    benefits: [
+      "Agenda sincronizada automaticamente",
+      "Lembretes que reduzem no-show em 40%",
+      "Cobrança via Pix sem trabalho manual",
+      "Triagem de sintomas via IA",
     ],
     results: "Redução de 40% nas faltas",
     gradient: "from-rose-500 to-pink-600",
@@ -34,10 +37,12 @@ const nichos = [
     icon: Building2,
     title: "Imobiliárias",
     subtitle: "Corretores e Incorporadoras",
-    problems: [
-      "Leads não qualificados",
-      "Corretores sobrecarregados",
-      "Perda de leads fora do horário",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&auto=format&fit=crop",
+    benefits: [
+      "Qualificação automática de leads",
+      "Atendimento 24h para consultas",
+      "Agendamento de visitas automatizado",
+      "Integração com CRM imobiliário",
     ],
     results: "3x mais leads qualificados",
     gradient: "from-blue-500 to-indigo-600",
@@ -47,10 +52,12 @@ const nichos = [
     icon: Scale,
     title: "Escritórios de Advocacia",
     subtitle: "Advogados e Jurídico",
-    problems: [
-      "Triagem manual de casos",
-      "Tempo de resposta alto",
-      "Dificuldade no follow-up",
+    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&auto=format&fit=crop",
+    benefits: [
+      "Triagem automática de casos",
+      "Coleta de documentos via WhatsApp",
+      "Follow-up inteligente de processos",
+      "Atendimento inicial sem espera",
     ],
     results: "50% mais eficiência",
     gradient: "from-amber-500 to-orange-600",
@@ -60,10 +67,12 @@ const nichos = [
     icon: Scissors,
     title: "Salões e Estéticas",
     subtitle: "Cabeleireiros, Estéticas, Spas",
-    problems: [
-      "Agendamento caótico",
-      "Lembretes manuais",
-      "Clientes esquecem horário",
+    image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&auto=format&fit=crop",
+    benefits: [
+      "Agenda visual sincronizada",
+      "Confirmação automática de horários",
+      "Lembretes personalizados",
+      "Gestão de pacotes e promoções",
     ],
     results: "Agenda 100% organizada",
     gradient: "from-purple-500 to-violet-600",
@@ -135,39 +144,42 @@ export function NicheCards() {
                     }}
                   />
 
-                  {/* Header */}
-                  <div className="relative flex items-start gap-4 mb-6">
-                    <div
-                      className={cn(
-                        "w-14 h-14 rounded-xl flex items-center justify-center shrink-0",
-                        "bg-gradient-to-br",
-                        nicho.gradient
-                      )}
-                    >
-                      <nicho.icon className="w-7 h-7 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-white mb-1">
-                        {nicho.title}
-                      </h3>
-                      <p className="text-sm text-neutral-500">{nicho.subtitle}</p>
+                  {/* Image */}
+                  <div className="relative w-full h-48 mb-6 rounded-xl overflow-hidden">
+                    <Image
+                      src={nicho.image}
+                      alt={nicho.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${nicho.gradient} mix-blend-overlay opacity-30`} />
+                    <div className="absolute top-4 right-4 p-3 rounded-xl bg-black/50 backdrop-blur-md border border-white/10">
+                      <nicho.icon className="w-6 h-6 text-white" />
                     </div>
                   </div>
 
-                  {/* Problems List */}
+                  {/* Header */}
                   <div className="relative mb-6">
-                    <h4 className="text-sm font-medium text-neutral-400 mb-3 flex items-center gap-2">
-                      <AlertTriangle className="w-4 h-4 text-amber-500" />
-                      Problemas que resolvemos:
+                    <h3 className="text-xl font-bold text-white mb-1">
+                      {nicho.title}
+                    </h3>
+                    <p className="text-sm text-neutral-500">{nicho.subtitle}</p>
+                  </div>
+
+                  {/* Benefits List */}
+                  <div className="relative mb-6">
+                    <h4 className="text-sm font-medium text-emerald-400 mb-3 flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4" />
+                      O que a Secretária v3 faz:
                     </h4>
                     <ul className="space-y-2">
-                      {nicho.problems.map((problem, i) => (
+                      {nicho.benefits.map((benefit, i) => (
                         <li
                           key={i}
                           className="flex items-start gap-2 text-neutral-300 text-sm"
                         >
-                          <span className="w-1.5 h-1.5 rounded-full bg-neutral-600 mt-2 shrink-0" />
-                          {problem}
+                          <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
+                          {benefit}
                         </li>
                       ))}
                     </ul>

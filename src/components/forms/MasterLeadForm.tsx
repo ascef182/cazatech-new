@@ -176,7 +176,10 @@ export function MasterLeadForm({
       fetch("/api/webhook/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...payload, timestamp: new Date().toISOString() }),
+        body: JSON.stringify({
+          ...payload,
+          timestamp: new Date().toISOString(),
+        }),
       }).catch((err) => console.error("Erro ao enviar para webhook:", err));
 
       // Enviar para WhatsApp
@@ -223,7 +226,12 @@ export function MasterLeadForm({
         >
           {title}
         </h3>
-        <p className={cn("text-sm", dark ? "text-neutral-400" : "text-neutral-600")}>
+        <p
+          className={cn(
+            "text-sm",
+            dark ? "text-neutral-400" : "text-neutral-900"
+          )}
+        >
           {description}
         </p>
       </div>
@@ -246,7 +254,12 @@ export function MasterLeadForm({
               <CheckCircle2 className="w-8 h-8 text-emerald-400" />
             </motion.div>
             <h4 className="text-xl font-semibold mb-2">Mensagem Enviada!</h4>
-            <p className={cn("text-sm text-center", dark ? "text-neutral-400" : "text-neutral-600")}>
+            <p
+              className={cn(
+                "text-sm text-center",
+                dark ? "text-neutral-400" : "text-neutral-600"
+              )}
+            >
               Você será redirecionado para o WhatsApp.
             </p>
           </motion.div>
@@ -258,14 +271,21 @@ export function MasterLeadForm({
             exit={{ opacity: 0 }}
           >
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-4"
+              >
                 {/* Nome */}
                 <FormField
                   control={form.control}
                   name="nome"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className={dark ? "text-neutral-300" : "text-neutral-700"}>
+                      <FormLabel
+                        className={
+                          dark ? "text-neutral-300" : "text-neutral-700"
+                        }
+                      >
                         Nome *
                       </FormLabel>
                       <FormControl>
@@ -286,7 +306,11 @@ export function MasterLeadForm({
                   name="whatsapp"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className={dark ? "text-neutral-300" : "text-neutral-700"}>
+                      <FormLabel
+                        className={
+                          dark ? "text-neutral-300" : "text-neutral-700"
+                        }
+                      >
                         WhatsApp *
                       </FormLabel>
                       <FormControl>
@@ -316,7 +340,11 @@ export function MasterLeadForm({
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className={dark ? "text-neutral-300" : "text-neutral-700"}>
+                          <FormLabel
+                            className={
+                              dark ? "text-neutral-300" : "text-neutral-700"
+                            }
+                          >
                             E-mail
                           </FormLabel>
                           <FormControl>
@@ -338,7 +366,11 @@ export function MasterLeadForm({
                       name="empresa"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className={dark ? "text-neutral-300" : "text-neutral-700"}>
+                          <FormLabel
+                            className={
+                              dark ? "text-neutral-300" : "text-neutral-700"
+                            }
+                          >
                             Empresa
                           </FormLabel>
                           <FormControl>
@@ -359,10 +391,17 @@ export function MasterLeadForm({
                       name="segmento"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className={dark ? "text-neutral-300" : "text-neutral-700"}>
+                          <FormLabel
+                            className={
+                              dark ? "text-neutral-300" : "text-neutral-700"
+                            }
+                          >
                             Segmento
                           </FormLabel>
-                          <Select onValueChange={field.onChange} value={field.value}>
+                          <Select
+                            onValueChange={field.onChange}
+                            value={field.value}
+                          >
                             <FormControl>
                               <SelectTrigger className={inputClass}>
                                 <SelectValue placeholder="Selecione o segmento" />
@@ -370,7 +409,10 @@ export function MasterLeadForm({
                             </FormControl>
                             <SelectContent>
                               {segmentoOptions.map((option) => (
-                                <SelectItem key={option.value} value={option.value}>
+                                <SelectItem
+                                  key={option.value}
+                                  value={option.value}
+                                >
                                   {option.label}
                                 </SelectItem>
                               ))}
@@ -390,10 +432,17 @@ export function MasterLeadForm({
                     name="interesse"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className={dark ? "text-neutral-300" : "text-neutral-700"}>
+                        <FormLabel
+                          className={
+                            dark ? "text-neutral-300" : "text-neutral-700"
+                          }
+                        >
                           O que você precisa? *
                         </FormLabel>
-                        <Select onValueChange={field.onChange} value={field.value}>
+                        <Select
+                          onValueChange={field.onChange}
+                          value={field.value}
+                        >
                           <FormControl>
                             <SelectTrigger className={inputClass}>
                               <SelectValue placeholder="Selecione uma opção" />
@@ -401,7 +450,10 @@ export function MasterLeadForm({
                           </FormControl>
                           <SelectContent>
                             {interesseOptions.map((option) => (
-                              <SelectItem key={option.value} value={option.value}>
+                              <SelectItem
+                                key={option.value}
+                                value={option.value}
+                              >
                                 {option.label}
                               </SelectItem>
                             ))}
@@ -420,13 +472,20 @@ export function MasterLeadForm({
                     name="mensagem"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className={dark ? "text-neutral-300" : "text-neutral-700"}>
+                        <FormLabel
+                          className={
+                            dark ? "text-neutral-300" : "text-neutral-700"
+                          }
+                        >
                           Mensagem
                         </FormLabel>
                         <FormControl>
                           <Textarea
                             placeholder="Conte um pouco sobre seu projeto..."
-                            className={cn(inputClass, "min-h-[100px] resize-none")}
+                            className={cn(
+                              inputClass,
+                              "min-h-[100px] resize-none"
+                            )}
                             {...field}
                           />
                         </FormControl>
@@ -486,4 +545,3 @@ export function MasterLeadForm({
 }
 
 export default MasterLeadForm;
-

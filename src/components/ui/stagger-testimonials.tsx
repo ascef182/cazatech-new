@@ -87,7 +87,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
     <div
       onClick={() => handleMove(position)}
       className={cn(
-        "absolute left-1/2 top-1/2 cursor-pointer border-2 p-8 transition-all duration-500 ease-in-out",
+        "absolute left-1/2 top-1/2 cursor-pointer border-2 p-8 transition-all duration-500 ease-in-out overflow-hidden",
         isCenter 
           ? "z-10 bg-white text-black border-white" 
           : "z-0 bg-neutral-900 text-white border-neutral-700 hover:border-purple-500/50"
@@ -95,6 +95,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       style={{
         width: cardSize,
         height: cardSize,
+        minHeight: '280px',
         clipPath: `polygon(50px 0%, calc(100% - 50px) 0%, 100% 50px, 100% 100%, calc(100% - 50px) 100%, 50px 100%, 0 100%, 0 0)`,
         transform: `
           translate(-50%, -50%) 
@@ -124,13 +125,13 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         }}
       />
       <h3 className={cn(
-        "text-base sm:text-xl font-extralight tracking-tight leading-relaxed",
+        "text-base sm:text-xl font-extralight tracking-tight leading-relaxed line-clamp-4 overflow-hidden text-ellipsis",
         isCenter ? "text-black" : "text-white"
       )}>
         "{testimonial.testimonial}"
       </h3>
       <p className={cn(
-        "absolute bottom-8 left-8 right-8 mt-2 text-sm font-light italic tracking-tight",
+        "absolute bottom-8 left-8 right-8 mt-2 text-sm font-light italic tracking-tight truncate",
         isCenter ? "text-black/70" : "text-white/60"
       )}>
         - {testimonial.by}
