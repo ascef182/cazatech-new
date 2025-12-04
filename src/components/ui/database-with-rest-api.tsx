@@ -250,22 +250,23 @@ const DatabaseWithRestApi = ({
         {/* box title */}
         <div className="absolute -top-3 z-20 flex items-center justify-center rounded-lg border bg-[#101112] px-2 py-1 sm:-top-4 sm:py-1.5">
           <SparklesIcon className="size-3" />
-          <span className="ml-2 text-[10px]">{title}</span>
+          <span className="ml-2 text-[10px] text-white">{title}</span>{" "}
         </div>
         {/* box outter circle */}
-        <div className="absolute -bottom-8 z-30 grid h-[60px] w-[60px] place-items-center rounded-full border-t bg-[#141516] font-semibold text-xs">
+        <div className="absolute -bottom-8 z-30 grid h-[60px] w-[60px] place-items-center rounded-full border-t bg-[#141516] font-semibold text-xs text-white">
+          {" "}
           {circleText}
         </div>
         {/* box content */}
-        <div className="relative z-10 flex h-[150px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background shadow-md">
+        <div className="relative z-10 flex h-[150px] w-full items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-neutral-900 shadow-md">
           {/* Badges */}
           <div className="absolute bottom-8 left-12 z-10 h-7 rounded-full bg-[#101112] px-3 text-xs border flex items-center gap-2 ">
             <HeartHandshakeIcon className="size-4" />
-            <span>{buttonTexts.first}</span>
+            <span className="text-white">{buttonTexts.first}</span>{" "}
           </div>
           <div className="absolute right-16 z-10 hidden h-7 rounded-full bg-[#101112] px-3 text-xs sm:flex border items-center gap-2">
             <Folder className="size-4" />
-            <span>{buttonTexts.second}</span>
+            <span className="text-white">{buttonTexts.second}</span>{" "}
           </div>
           {/* Circles */}
           <motion.div
@@ -325,7 +326,3 @@ const DatabaseIcon = ({ x = "0", y = "0" }: { x: string; y: string }) => {
     </svg>
   );
 };
-
-
-
-
