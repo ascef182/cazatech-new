@@ -24,7 +24,7 @@ export default function LeadershipSection() {
             <div className="relative w-full aspect-[4/5] max-w-md mx-auto lg:mx-0 rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-purple-500/10">
               {/* Placeholder image - Replace with Pam's photo */}
               <Image
-                src="/images/pam-cazarini.jfif"
+                src="/images/pam-cazarini.png"
                 alt="Pâm Ascef - Liderança Técnica"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
