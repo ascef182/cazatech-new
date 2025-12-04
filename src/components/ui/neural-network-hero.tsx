@@ -318,8 +318,8 @@ function ShaderPlane() {
   });
 
   return (
-    <mesh ref={meshRef} position={[0, 0, 0]}>
-      <planeGeometry args={[20, 20]} />
+    <mesh ref={meshRef} position={[0, -0.75, -0.5]}>
+      <planeGeometry args={[5, 5]} />
       <cPPNShaderMaterial ref={materialRef} side={THREE.DoubleSide} />
     </mesh>
   );
@@ -330,8 +330,8 @@ function ShaderBackground() {
 
   const camera = useMemo(
     () => ({
-      position: [0, 0, 3] as [number, number, number],
-      fov: 50,
+      position: [0, 0, 1] as [number, number, number],
+      fov: 75,
       near: 0.1,
       far: 1000,
     }),
@@ -363,7 +363,7 @@ function ShaderBackground() {
   return (
     <div
       ref={canvasRef}
-      className="bg-black absolute inset-0 -z-10 w-full h-full overflow-hidden"
+      className="bg-black absolute inset-0 -z-10 w-full h-full"
       aria-hidden
     >
       <Canvas
@@ -374,7 +374,7 @@ function ShaderBackground() {
       >
         <ShaderPlane />
       </Canvas>
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/40" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/20" />
     </div>
   );
 }

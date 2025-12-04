@@ -4,6 +4,12 @@ import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { testimonials, type Testimonial } from "@/content/testimonials";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const SQRT_5000 = Math.sqrt(5000);
 
@@ -16,6 +22,7 @@ interface TestimonialCardProps {
   testimonial: TestimonialWithId;
   handleMove: (steps: number) => void;
   cardSize: number;
+  onCardClick: (testimonial: TestimonialWithId) => void;
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({
@@ -23,12 +30,24 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   testimonial,
   handleMove,
   cardSize,
+  onCardClick,
 }) => {
   const isCenter = position === 0;
+  
+  const truncateText = (text: string, maxLength: number) => {
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength) + "...";
+  };
 
   return (
     <div
-      onClick={() => handleMove(position)}
+      onClick={() => {
+        if (isCenter) {
+          onCardClick(testimonial);
+        } else {
+          handleMove(position);
+        }
+      }}
       className={cn(
         "absolute left-1/2 top-1/2 cursor-pointer border-2 p-8 transition-all duration-500 ease-in-out",
         isCenter
@@ -73,7 +92,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           isCenter ? "text-primary-foreground" : "text-foreground"
         )}
       >
-        "{testimonial.quote}"
+        "{truncateText(testimonial.quote, 100)}"
       </h3>
       <p
         className={cn(
@@ -92,6 +111,7 @@ export default function StaggerTestimonials() {
   const [testimonialsList, setTestimonialsList] = useState<
     TestimonialWithId[]
   >([]);
+  const [selectedTestimonial, setSelectedTestimonial] = useState<TestimonialWithId | null>(null);
 
   // Initialize testimonials with tempId
   useEffect(() => {
@@ -162,6 +182,7 @@ export default function StaggerTestimonials() {
             handleMove={handleMove}
             position={position}
             cardSize={cardSize}
+            onCardClick={setSelectedTestimonial}
           />
         );
       })}
@@ -190,6 +211,33 @@ export default function StaggerTestimonials() {
           <ChevronRight />
         </button>
       </div>
+
+      {/* Modal de Testimonial Completo */}
+      <Dialog open={!!selectedTestimonial} onOpenChange={() => setSelectedTestimonial(null)}>
+        <DialogContent className="bg-neutral-900 border-neutral-800 max-w-2xl">
+          <DialogHeader>
+            <DialogTitle className="text-white text-2xl flex items-center gap-3">
+              <img
+                src={selectedTestimonial?.image}
+                alt={selectedTestimonial?.name}
+                className="h-16 w-14 bg-muted object-cover object-top"
+              />
+              <div>
+                <div className="font-bold">{selectedTestimonial?.name}</div>
+                <div className="text-sm text-white/60 font-normal">
+                  {selectedTestimonial?.role} · {selectedTestimonial?.company}
+                </div>
+              </div>
+            </DialogTitle>
+          </DialogHeader>
+          
+          <div className="mt-4">
+            <p className="text-white/80 text-base leading-relaxed italic">
+              "{selectedTestimonial?.quote}"
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
