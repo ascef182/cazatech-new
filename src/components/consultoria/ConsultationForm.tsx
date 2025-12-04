@@ -24,6 +24,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { toast } from "sonner";
+import { submitToFormspree } from "@/lib/formspree";
 
 const formSchema = z.object({
   name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
@@ -48,10 +50,18 @@ export default function ConsultationForm() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // Simular envio
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    console.log(values);
-    setIsSubmitted(true);
+    try {
+      await submitToFormspree({
+        ...values,
+        source: "consultoria-page",
+        sourceUrl: typeof window !== "undefined" ? window.location.href : "",
+      });
+      setIsSubmitted(true);
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Não foi possível enviar agora.";
+      toast.error(message);
+    }
   }
 
   if (isSubmitted) {
@@ -211,5 +221,7 @@ export default function ConsultationForm() {
     </div>
   );
 }
+
+
 
 

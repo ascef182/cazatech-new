@@ -73,24 +73,7 @@ export const automacoesContent = {
       span: 2,
     },
   ],
-  sticky: [
-    {
-      title: "Orquestração Inteligente via n8n",
-      description:
-        "Motor de automação enterprise que processa milhares de interações simultâneas. Cada conversa segue fluxos condicionais complexos, com fallbacks inteligentes e escalabilidade infinita sem perda de performance.",
-      image: "/images/n8n/flow-v3.png",
-    },
-    {
-      title: "Painel Kanban Centralizado",
-      description: "Dashboard Chatwoot com visão 360° do funil de atendimento. Acompanhe em tempo real: leads entrando, conversas em andamento, agendamentos confirmados e casos que precisam de intervenção humana.",
-      image: "/images/n8n/n8n-flow.webp",
-    },
-    {
-      title: "Ecossistema Integrado Nativo",
-      description: "Stack tecnológico conectada via API: WhatsApp Business, Google Workspace (Calendar + Drive), Asaas (pagamentos), Chatwoot (CRM) e webhooks customizados. Zero trabalho manual, 100% sincronizado.",
-      image: "/images/n8n/n8n2.png",
-    },
-  ],
+  sticky: [],
   testimonials: [
     {
       name: "Dra. Fernanda Oliveira",

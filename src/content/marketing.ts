@@ -89,24 +89,16 @@ export const marketingContent = {
   ],
   faq: [
     {
-      q: "Quanto tempo leva para ver resultados?",
-      a: "Primeiros dados em 7 dias. Campanhas otimizadas em 30-60 dias. ROI positivo geralmente em 90 dias com ajustes contínuos.",
+      q: "Qual o investimento mínimo?",
+      a: "Recomendamos verba de mídia a partir de R$ 1.500/mês para testes consistentes.",
     },
     {
-      q: "Vocês trabalham com qual ticket médio mínimo?",
-      a: "Ideal para produtos/serviços acima de R$ 500. Para high-ticket (R$ 3k+), nosso processo de qualificação de leads é ainda mais refinado.",
+      q: "Vocês fazem o criativo (design)?",
+      a: "Sim, nosso time cria os anúncios estáticos e roteiros para vídeo.",
     },
     {
-      q: "Qual a diferença para uma agência tradicional?",
-      a: "Somos especializados em tecnologia e serviços B2B. Entendemos jornadas complexas de compra e ciclos longos de decisão.",
-    },
-    {
-      q: "Qual o investimento mínimo recomendado?",
-      a: "Recomendamos verba de mídia a partir de R$ 2.000/mês para testes consistentes e coleta de dados relevantes.",
-    },
-    {
-      q: "Vocês criam os materiais de divulgação?",
-      a: "Sim. Nosso time desenvolve anúncios, copy, landing pages e toda estrutura criativa necessária para as campanhas.",
+      q: "Quanto tempo para dar resultado?",
+      a: "Tráfego pago gera dados imediatos, mas a maturação da campanha leva de 1 a 3 meses.",
     },
   ],
 };

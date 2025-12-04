@@ -26,6 +26,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { toast } from "sonner";
+import { submitToFormspree } from "@/lib/formspree";
 
 // ============================================
 // 📋 SCHEMAS DE VALIDAÇÃO
@@ -165,12 +167,11 @@ export function MasterLeadForm({
         segmento: data.segmento || "",
       };
 
-      // Enviar para API (não bloqueia o fluxo)
-      fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      }).catch((err) => console.error("Erro ao enviar para API:", err));
+      await submitToFormspree({
+        ...payload,
+        formVariant: variant,
+        sourceUrl: typeof window !== "undefined" ? window.location.href : "",
+      });
 
       // Enviar para webhook (se configurado)
       fetch("/api/webhook/lead", {
@@ -198,6 +199,9 @@ export function MasterLeadForm({
       }, 3000);
     } catch (error) {
       console.error("Erro ao processar formulário:", error);
+      const message =
+        error instanceof Error ? error.message : "Não foi possível enviar agora.";
+      toast.error(message);
     } finally {
       setIsSubmitting(false);
     }

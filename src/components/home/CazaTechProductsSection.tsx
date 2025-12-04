@@ -1,24 +1,31 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import {
   Bot,
   Zap,
-  BrainCircuit,
   Smartphone,
   Rocket,
   BarChart3,
   Globe,
-  ShieldCheck,
-  MessageSquareText,
-  Users,
-  Layers,
   Code2,
+  Search,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function CazaTechProductsSection() {
+  const [selectedProduct, setSelectedProduct] = useState<typeof products[0] | null>(null);
+
   return (
     <section className="py-20 bg-black" id="solucoes">
       <div className="container mx-auto px-4 md:px-6">
@@ -37,18 +44,71 @@ export default function CazaTechProductsSection() {
         </div>
         
         <BentoGrid className="max-w-6xl mx-auto md:auto-rows-[20rem]">
-          {items.map((item, i) => (
+          {products.map((product, i) => (
             <BentoGridItem
               key={i}
-              title={item.title}
-              description={item.description}
-              header={item.header}
-              className={item.className}
-              icon={item.icon}
+              title={product.title}
+              description={product.description}
+              header={
+                <div 
+                  onClick={() => setSelectedProduct(product)}
+                  className="cursor-pointer h-full"
+                >
+                  {product.header}
+                </div>
+              }
+              className={product.className}
+              icon={product.icon}
             />
           ))}
         </BentoGrid>
       </div>
+
+      {/* Modal com detalhes */}
+      <Dialog open={!!selectedProduct} onOpenChange={() => setSelectedProduct(null)}>
+        <DialogContent className="bg-neutral-900 border-neutral-800 max-w-2xl">
+          <DialogHeader>
+            <DialogTitle className="text-white text-2xl flex items-center gap-3">
+              {selectedProduct?.icon}
+              {selectedProduct?.title}
+            </DialogTitle>
+            <DialogDescription className="text-white/60 text-base pt-2">
+              {selectedProduct?.fullDescription}
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="space-y-4 mt-4">
+            <div>
+              <h4 className="text-white font-semibold mb-2">O que está incluído:</h4>
+              <ul className="space-y-2 text-white/70">
+                {selectedProduct?.features.map((feature, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="text-purple-400 mt-1">✓</span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {selectedProduct?.cta && (
+              <div className="pt-4 flex gap-3">
+                <Button asChild className="bg-white text-black hover:bg-white/90">
+                  <Link href={selectedProduct.cta.primary.href}>
+                    {selectedProduct.cta.primary.text}
+                  </Link>
+                </Button>
+                {selectedProduct.cta.secondary && (
+                  <Button asChild variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                    <Link href={selectedProduct.cta.secondary.href}>
+                      {selectedProduct.cta.secondary.text}
+                    </Link>
+                  </Button>
+                )}
+              </div>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
@@ -61,114 +121,138 @@ const Skeleton = ({ children, className }: { children?: React.ReactNode; classNa
   </div>
 );
 
-const items = [
+const products = [
   {
-    title: "Conversa Humanizada",
-    description: "Seu atendimento fala como humano: recebe e envia áudios, entende contexto e mantém o tom da sua marca.",
+    title: "Websites de Alta Conversão",
+    description: "Sites institucionais e landing pages que transformam visitantes em clientes.",
+    fullDescription: "Desenvolvemos sites modernos, rápidos e otimizados para conversão. Focamos em UX, performance e SEO para garantir que seu site não apenas impressione, mas também converta.",
     header: (
-      <Skeleton className="bg-gradient-to-br from-purple-900/40 to-blue-900/40 flex items-center justify-center group overflow-hidden">
+      <Skeleton className="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 flex items-center justify-center group overflow-hidden">
         <motion.div 
           whileHover={{ scale: 1.1 }} 
           className="p-4 rounded-full bg-white/5 border border-white/10 backdrop-blur-md"
         >
-          <MessageSquareText className="w-8 h-8 text-purple-400" />
+          <Globe className="w-8 h-8 text-cyan-400" />
         </motion.div>
       </Skeleton>
     ),
-    className: "md:col-span-2",
-    icon: <Bot className="h-4 w-4 text-neutral-500" />,
+    className: "md:col-span-2 md:row-span-1",
+    icon: <Globe className="h-6 w-6 text-cyan-400" />,
+    features: [
+      "Design moderno e responsivo",
+      "Otimização para conversão (CRO)",
+      "Integração com ferramentas de marketing",
+      "Hospedagem e domínio inclusos",
+      "Suporte técnico contínuo"
+    ],
+    cta: {
+      primary: { text: "Ver Portfolio", href: "/works" },
+      secondary: { text: "Solicitar Orçamento", href: "/contact" }
+    }
   },
   {
-    title: "Resposta Rápida 24/7",
-    description: "Seu cliente sempre atendido: fila inteligente, auto‑reply e disponibilidade total.",
+    title: "Apps Personalizados",
+    description: "Aplicativos móveis e web que resolvem problemas reais do seu negócio.",
+    fullDescription: "Criamos aplicativos sob medida para iOS, Android e Web. Do MVP ao produto escalável, com foco em experiência do usuário e performance.",
     header: (
-      <Skeleton className="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 flex items-center justify-center group overflow-hidden">
+      <Skeleton className="bg-gradient-to-br from-purple-900/40 to-fuchsia-900/40 flex items-center justify-center overflow-hidden">
+        <Smartphone className="w-16 h-16 text-fuchsia-400/50 group-hover:rotate-6 transition-transform duration-500" />
+      </Skeleton>
+    ),
+    className: "md:col-span-1 md:row-span-1",
+    icon: <Smartphone className="h-6 w-6 text-fuchsia-400" />,
+    features: [
+      "Apps nativos (iOS/Android) e PWA",
+      "Integração com APIs e serviços externos",
+      "Interface intuitiva e moderna",
+      "Notificações push e funcionalidades offline",
+      "Publicação nas lojas de apps"
+    ],
+    cta: {
+      primary: { text: "Falar com Consultor", href: "/contact" },
+    }
+  },
+  {
+    title: "Automação de Atendimento",
+    description: "Chatbots inteligentes no WhatsApp com IA para atendimento 24/7.",
+    fullDescription: "A Secretária v3 é nossa solução de automação de atendimento via WhatsApp. Atende, agenda, cobra e recupera leads automaticamente.",
+    header: (
+      <Skeleton className="bg-gradient-to-br from-emerald-900/40 to-teal-900/40 flex items-center justify-center group overflow-hidden">
         <motion.div 
-          animate={{ rotate: [0, 10, -10, 0] }} 
-          transition={{ repeat: Infinity, duration: 2, repeatDelay: 3 }}
+          animate={{ scale: [1, 1.05, 1] }} 
+          transition={{ repeat: Infinity, duration: 3 }}
           className="p-4 rounded-full bg-white/5 border border-white/10 backdrop-blur-md"
         >
-          <Zap className="w-8 h-8 text-yellow-400" />
+          <Bot className="w-8 h-8 text-emerald-400" />
+        </motion.div>
+      </Skeleton>
+    ),
+    className: "md:col-span-3 md:row-span-1",
+    icon: <Bot className="h-6 w-6 text-emerald-400" />,
+    features: [
+      "Atendimento humanizado 24/7",
+      "Agendamento automático no Google Calendar",
+      "Lembretes e confirmações por WhatsApp",
+      "Cobrança integrada com Asaas",
+      "Recuperação de leads perdidos"
+    ],
+    cta: {
+      primary: { text: "Conhecer Secretária v3", href: "/automacoes" },
+      secondary: { text: "Ver Demo", href: "/automacoes#demo" }
+    }
+  },
+  {
+    title: "SaaS sob Medida",
+    description: "Plataformas completas e escaláveis para seu modelo de negócio.",
+    fullDescription: "Desenvolvemos software como serviço (SaaS) do zero. Da arquitetura à escala, com segurança, IA e infraestrutura cloud.",
+    header: (
+      <Skeleton className="bg-gradient-to-br from-violet-900/40 to-purple-900/40 flex items-center justify-center">
+        <Code2 className="w-16 h-16 text-violet-400/50" />
+      </Skeleton>
+    ),
+    className: "md:col-span-1 md:row-span-1",
+    icon: <Code2 className="h-6 w-6 text-violet-400" />,
+    features: [
+      "MVP ágil em 4-8 semanas",
+      "Arquitetura escalável e segura",
+      "Dashboards e relatórios customizados",
+      "API para integrações",
+      "Infraestrutura cloud (AWS/Vercel)"
+    ],
+    cta: {
+      primary: { text: "Saber Mais", href: "/saas" },
+      secondary: { text: "Agendar Consultoria", href: "/contact" }
+    }
+  },
+  {
+    title: "SEO e Performance",
+    description: "Otimização técnica para ranquear no Google e converter mais.",
+    fullDescription: "Auditoria SEO completa, otimização técnica, conteúdo estratégico e acompanhamento de métricas para aumentar sua visibilidade online.",
+    header: (
+      <Skeleton className="bg-gradient-to-br from-orange-900/40 to-red-900/40 flex items-center justify-center overflow-hidden">
+        <motion.div
+          animate={{ y: [0, -10, 0] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+        >
+          <Search className="w-16 h-16 text-orange-400/50" />
         </motion.div>
       </Skeleton>
     ),
     className: "md:col-span-1",
-    icon: <Zap className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    title: "Análise de Sentimento",
-    description: "Detecta humor e intenção para priorizar leads e adaptar mensagens.",
-    header: (
-      <Skeleton className="bg-gradient-to-br from-emerald-900/40 to-teal-900/40 flex items-center justify-center overflow-hidden">
-        <BrainCircuit className="w-24 h-24 text-emerald-500/20 absolute -right-4 -bottom-4" />
-        <div className="relative z-10 flex gap-2">
-          <span className="px-2 py-1 rounded bg-emerald-500/20 text-emerald-400 text-xs border border-emerald-500/30">Positivo</span>
-          <span className="px-2 py-1 rounded bg-red-500/20 text-red-400 text-xs border border-red-500/30">Negativo</span>
-        </div>
-      </Skeleton>
-    ),
-    className: "md:col-span-1",
-    icon: <BrainCircuit className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    title: "UI Amigável e Moderna",
-    description: "Dashboards intuitivos e interfaces que encantam seus usuários.",
-    header: (
-      <Skeleton className="bg-neutral-900 flex items-end justify-center overflow-hidden pt-8">
-        <div className="w-[90%] h-full bg-neutral-800 rounded-t-xl border-t border-l border-r border-white/10 p-4 shadow-2xl relative top-2 hover:-top-0 transition-all duration-300">
-          <div className="flex gap-2 mb-4">
-            <div className="w-2 h-2 rounded-full bg-red-500" />
-            <div className="w-2 h-2 rounded-full bg-yellow-500" />
-            <div className="w-2 h-2 rounded-full bg-green-500" />
-          </div>
-          <div className="space-y-2">
-            <div className="h-2 w-3/4 bg-neutral-700 rounded" />
-            <div className="h-2 w-1/2 bg-neutral-700 rounded" />
-            <div className="grid grid-cols-2 gap-2 mt-4">
-              <div className="h-16 bg-neutral-700/50 rounded" />
-              <div className="h-16 bg-neutral-700/50 rounded" />
-            </div>
-          </div>
-        </div>
-      </Skeleton>
-    ),
-    className: "md:col-span-2",
-    icon: <Smartphone className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    title: "Performance com SEO",
-    description: "Páginas rápidas, bonitas e focadas em conversão, com SEO técnico avançado.",
-    header: (
-      <Skeleton className="bg-gradient-to-br from-orange-900/40 to-red-900/40 flex items-center justify-center overflow-hidden">
-        <Rocket className="w-16 h-16 text-orange-500/50 group-hover:-translate-y-2 transition-transform duration-500" />
-      </Skeleton>
-    ),
-    className: "md:col-span-2",
-    icon: <Rocket className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    title: "Escalável e Estável",
-    description: "Criamos com as melhores práticas para garantir estabilidade e qualidade.",
-    header: (
-      <Skeleton className="bg-neutral-900 flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-white/[0.05] bg-[length:20px_20px]" />
-        <ShieldCheck className="w-12 h-12 text-blue-400 relative z-10" />
-      </Skeleton>
-    ),
-    className: "md:col-span-1",
-    icon: <Layers className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    title: "Automação que Converte",
-    description: "Fluxos inteligentes para captação, qualificação e fechamento no WhatsApp.",
-    header: (
-      <Skeleton className="bg-gradient-to-br from-violet-900/40 to-fuchsia-900/40 flex items-center justify-center">
-        <BarChart3 className="w-16 h-16 text-fuchsia-400/50" />
-      </Skeleton>
-    ),
-    className: "md:col-span-3",
-    icon: <Users className="h-4 w-4 text-neutral-500" />,
+    icon: <Search className="h-6 w-6 text-orange-400" />,
+    features: [
+      "Auditoria técnica completa",
+      "Otimização de Core Web Vitals",
+      "Estratégia de palavras-chave",
+      "Link building e autoridade",
+      "Relatórios mensais de progresso"
+    ],
+    cta: {
+      primary: { text: "Análise Gratuita", href: "/contact" },
+    }
   },
 ];
+
+
 
 

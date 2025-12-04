@@ -104,29 +104,6 @@ export default function SaasPage() {
         </div>
       </section>
 
-      {/* Sticky Scroll Section */}
-      <section className="w-full bg-black py-20">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-white tracking-tight">
-          Tecnologia de Ponta
-        </h2>
-        <StickyScroll
-          content={saasContent.sticky.map((s) => ({
-            title: s.title,
-            description: s.description,
-            content: (
-              <div className="h-full w-full flex items-center justify-center bg-black">
-                <Image
-                  src={s.image}
-                  alt={s.title}
-                  width={320}
-                  height={220}
-                  className="rounded-lg object-cover"
-                />
-              </div>
-            ),
-          }))}
-        />
-      </section>
 
       {/* Contact Form Section */}
       <Contact2

@@ -6,7 +6,7 @@ import { Toaster } from "sonner";
 import NewNavbar from "@/components/NewNavbar";
 import Footer from "@/components/Footer";
 import CTAFloaters from "@/components/CTAFloaters";
-import { translations, type SupportedLang, getBrowserLang } from "@/lib/i18n";
+import { translations, type SupportedLang } from "@/lib/i18n";
 
 type I18nContextType = {
   lang: SupportedLang;
@@ -28,8 +28,15 @@ export default function ClientBody({
   children: React.ReactNode;
 }) {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
-  const [lang, setLang] = useState<SupportedLang>(getBrowserLang());
   const pathname = usePathname();
+  
+  const derivedLangFromPath = pathname?.startsWith("/en")
+    ? "en"
+    : pathname?.startsWith("/es")
+    ? "es"
+    : "pt";
+
+  const [lang, setLang] = useState<SupportedLang>(derivedLangFromPath);
   const t = useMemo(
     () => (key: string) => translations[lang]?.[key] ?? key,
     [lang]
@@ -49,11 +56,8 @@ export default function ClientBody({
 
   // Sync language with pathname prefix
   useEffect(() => {
-    if (!pathname) return;
-    if (pathname.startsWith("/en")) setLang("en");
-    else if (pathname.startsWith("/es")) setLang("es");
-    else setLang("pt");
-  }, [pathname]);
+    setLang(derivedLangFromPath);
+  }, [derivedLangFromPath]);
 
   return (
     <I18nContext.Provider value={{ lang, setLang, t }}>

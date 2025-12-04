@@ -9,7 +9,7 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "A automação da CazaTech mudou nosso atendimento. Respostas rápidas e profissionais 24h.",
+      "A gente já tinha tentado mudar o site várias vezes, mas nada parecia realmente nosso. Quando a CazaTech entrou, parecia que estavam traduzindo nossa cabeça. O site, o blog e até a automação começaram a trabalhar juntos… pela primeira vez senti que tudo fazia sentido.",
     name: "Carlos Mendes",
     role: "CEO",
     company: "Loja Men Wear",
@@ -18,7 +18,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Recuperamos o investimento em 2 meses. A qualificação automática de leads fez toda diferença.",
+      "Sempre achei que tráfego pago fosse só gastar dinheiro. Depois que o blog e o site foram redesenhados, os anúncios finalmente começaram a dar retorno. O conteúdo conversa com o design, o design conversa com a automação… e tudo passou a fluir naturalmente.",
     name: "Ana Paula Silva",
     role: "Diretora Comercial",
     company: "Beleza & Estilo",
@@ -26,7 +26,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Fluxos perfeitos e atendimento humanizado. Nossa equipe agora foca no que realmente importa.",
+      "A gente sofria com um site antigo, lento e sem identidade. A CazaTech não apenas refez o design — eles criaram uma experiência. O blog trouxe vida, a automação trouxe organização e o SEO fez as pessoas finalmente nos encontrarem. Parece que a marca acordou.",
     name: "Roberto Santos",
     role: "Gerente de Vendas",
     company: "AutoPeças Brasil",
@@ -35,7 +35,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Sistema inteligente que entende nosso cliente. Redução real de tempo de resposta.",
+      "Contamos nossa bagunça digital para eles sem saber por onde começar. Eles responderam construindo um sistema interno, ajustando o SEO, criando páginas novas e organizando nosso suporte. O que era um caos virou rotina tranquila.",
     name: "Jennifer Martinez",
     role: "Operations Manager",
     company: "TechFlow Solutions",
@@ -44,16 +44,16 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Nossa equipe fechando vendas enquanto a automação qualifica leads. Produtividade real.",
+      "O blog nunca foi prioridade… até que a CazaTech o transformou em nossa principal fonte de clientes. Eles redesenharam o site, organizaram o conteúdo e integraram tudo com o CRM. Hoje, é como se nosso negócio tivesse encontrado sua voz.",
     name: "Mariana Costa",
-    role: "Coordenadora",
+    role: "Coordenadora de Marketing",
     company: "Imóveis Top",
     image:
       "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=150&h=150&fit=crop&crop=face",
   },
   {
     quote:
-      "Não é só automação, é parceria. Eles otimizaram todo nosso processo.",
+      "Quando vi o novo design do site, parecia que alguém tinha entendido nossa essência pela primeira vez. A parte mais louca é que o tráfego orgânico começou a crescer sozinho, porque o blog e o SEO começaram a conversar com o público de verdade.",
     name: "Fernando Oliveira",
     role: "Proprietário",
     company: "Restaurante Sabor & Arte",
@@ -62,7 +62,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Escalamos sem contratar. Atendemos muito mais com a mesma equipe.",
+      "Tínhamos um site bonito, mas inútil. A CazaTech transformou ele em uma máquina organizada — blog, automação, área de pacientes, tudo conectado. Hoje o atendimento é leve e a equipe não corre mais atrás de informações perdidas.",
     name: "Juliana Ferreira",
     role: "Sócia-Diretora",
     company: "Clínica Vida Saudável",
@@ -70,25 +70,25 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Professional automation that fits perfectly. Our engagement metrics improved significantly.",
+      "Entrei buscando só tráfego pago, mas saí com um ecossistema inteiro: novo site, blog estratégico, fluxos bem pensados e anúncios que fazem sentido. Foi a primeira vez que senti que tínhamos uma estrutura de verdade.",
     name: "Michael Thompson",
     role: "Marketing Director",
-    company: "Global Ventures",
+    company: "Global Ventures Ltd",
     image:
       "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?w=150&h=150&fit=crop&crop=face",
   },
   {
     quote:
-      "Antes perdíamos leads pela demora. Hoje respondemos na hora e convertemos mais.",
+      "A CazaTech pegou nossas dores e transformou em um fluxo completo. O site novo nos posicionou melhor, o blog educou o público, e a automação garante que ninguém fica sem resposta. É uma sensação de ‘finalmente estamos fazendo certo’.",
     name: "Patricia Rocha",
     role: "Gerente Geral",
-    company: "Moda Elegance",
+    company: "Moda Feminina Elegance",
     image:
       "https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?w=150&h=150&fit=crop&crop=face",
   },
   {
     quote:
-      "Investimento que vale a pena. Suporte excepcional em toda implementação.",
+      "Precisávamos de um sistema, mas ganhamos muito mais. Eles criaram um painel, reorganizaram o site, ajustaram nossas campanhas e até nos ajudaram a pensar no conteúdo. Hoje, tudo se encaixa.",
     name: "Diego Almeida",
     role: "CEO",
     company: "TechStart Inovação",
@@ -97,7 +97,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Customization level is impressive. They understand complex business needs.",
+      "Sempre achei que UX era só ‘deixar bonito’. Depois do novo site percebi a diferença que faz na prática. O conteúdo flui, a automação responde, o sistema registra. É como se a empresa tivesse ficado mais inteligente.",
     name: "Sarah Johnson",
     role: "Head of Sales",
     company: "Digital Marketing Pro",
@@ -106,7 +106,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Qualidade acima das expectativas. Automação que funciona de verdade.",
+      "O blog trouxe autoridade, o site trouxe confiança e a automação trouxe calma. Antes era tudo espalhado… hoje tudo trabalha a nosso favor.",
     name: "Rodrigo Nascimento",
     role: "Diretor Comercial",
     company: "Construtora Horizonte",

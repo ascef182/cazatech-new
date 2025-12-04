@@ -69,24 +69,7 @@ export const saasContent = {
       span: 2,
     },
   ],
-  sticky: [
-    {
-      title: "Dashboard Intuitivo",
-      description:
-        "Interfaces limpas e focadas na experiência do usuário (UX) para garantir retenção.",
-      image: "/templates/clario-website.webp", // Using existing image
-    },
-    {
-      title: "Infraestrutura Cloud",
-      description: "Deploy automatizado, backups diários e escalabilidade horizontal.",
-      image: "/templates/hype-website.webp", // Using existing image
-    },
-    {
-      title: "API First",
-      description: "Seu SaaS pronto para integrar com outras ferramentas do mercado.",
-      image: "/images/n8n/n8n-flow.webp", // Using existing image
-    },
-  ],
+  sticky: [],
   faq: [
     {
       q: "Vocês assinam NDA?",

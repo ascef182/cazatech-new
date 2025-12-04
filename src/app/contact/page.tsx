@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
+import { submitToFormspree } from "@/lib/formspree";
 
 const schema = z.object({
   name: z.string().min(2, "Informe seu nome"),
@@ -30,15 +31,11 @@ export default function ContactPage() {
   const onSubmit = async (values: FormData) => {
     setIsSubmitting(true);
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+      await submitToFormspree({
+        ...values,
+        source: "contact-page",
+        sourceUrl: typeof window !== "undefined" ? window.location.href : "",
       });
-      const data = await res.json();
-      if (!res.ok || !data.ok) {
-        throw new Error(data.error || "Falha no envio");
-      }
 
       toast.success(
         "Mensagem enviada com sucesso! Responderemos em até 24h úteis."

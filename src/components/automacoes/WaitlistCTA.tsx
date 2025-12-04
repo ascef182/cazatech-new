@@ -3,6 +3,8 @@
 import { useState, useRef, FormEvent, ChangeEvent } from "react"
 import { motion } from "motion/react"
 import { Bot, Zap, CheckCircle } from "lucide-react"
+import { toast } from "sonner"
+import { submitToFormspree } from "@/lib/formspree"
 
 interface WaitlistCTAProps {
   title?: string;
@@ -23,18 +25,28 @@ export const WaitlistCTA = ({
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle")
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!email) return
 
     setStatus("loading")
 
-    // Simular envio - aqui você integraria com sua API
-    setTimeout(() => {
+    try {
+      await submitToFormspree({
+        email,
+        source: "waitlist-cta",
+        sourceUrl: typeof window !== "undefined" ? window.location.href : "",
+      })
       setStatus("success")
       setEmail("")
       fireConfetti()
-    }, 1500)
+      setTimeout(() => setStatus("idle"), 3200)
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Não foi possível enviar agora."
+      toast.error(message)
+      setStatus("idle")
+    }
   }
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -293,5 +305,7 @@ export const WaitlistCTA = ({
 }
 
 export default WaitlistCTA
+
+
 
 

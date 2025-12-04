@@ -6,8 +6,8 @@ import { motion } from "motion/react";
 interface SectionWithMockupProps {
   title: string | React.ReactNode;
   description: string | React.ReactNode;
-  primaryImageSrc: string;
-  secondaryImageSrc: string;
+  primaryImageSrc?: string;
+  secondaryImageSrc?: string;
   reverseLayout?: boolean;
 }
 
@@ -70,60 +70,66 @@ const SectionWithMockup: React.FC<SectionWithMockupProps> = ({
           </motion.div>
 
           {/* App mockup/Image Content */}
-          <motion.div
-            className={`relative mt-10 md:mt-0 mx-auto ${imageOrderClass} w-full max-w-[300px] md:max-w-[471px]`}
-            variants={itemVariants}
-          >
-            {/* Decorative Background Element */}
+          {(primaryImageSrc || secondaryImageSrc) && (
             <motion.div
-              className={`absolute w-[300px] h-[317px] md:w-[472px] md:h-[500px] bg-[#090909] rounded-[32px] z-0`}
-              style={{
-                top: reverseLayout ? "auto" : "10%",
-                bottom: reverseLayout ? "10%" : "auto",
-                left: reverseLayout ? "auto" : "-20%",
-                right: reverseLayout ? "-20%" : "auto",
-                transform: reverseLayout
-                  ? "translate(0, 0)"
-                  : "translateY(10%)",
-                filter: "blur(2px)",
-              }}
-              initial={{ y: reverseLayout ? 0 : 0 }}
-              whileInView={{ y: reverseLayout ? -20 : -30 }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] as const }}
-              viewport={{ once: true, amount: 0.5 }}
+              className={`relative mt-10 md:mt-0 mx-auto ${imageOrderClass} w-full max-w-[300px] md:max-w-[471px]`}
+              variants={itemVariants}
             >
-              <div
-                className="relative w-full h-full bg-cover bg-center rounded-[32px]"
-                style={{ backgroundImage: `url(${secondaryImageSrc})` }}
-              />
-            </motion.div>
+              {/* Decorative Background Element */}
+              {secondaryImageSrc && (
+                <motion.div
+                  className={`absolute w-[300px] h-[317px] md:w-[472px] md:h-[500px] bg-[#090909] rounded-[32px] z-0`}
+                  style={{
+                    top: reverseLayout ? "auto" : "10%",
+                    bottom: reverseLayout ? "10%" : "auto",
+                    left: reverseLayout ? "auto" : "-20%",
+                    right: reverseLayout ? "-20%" : "auto",
+                    transform: reverseLayout
+                      ? "translate(0, 0)"
+                      : "translateY(10%)",
+                    filter: "blur(2px)",
+                  }}
+                  initial={{ y: reverseLayout ? 0 : 0 }}
+                  whileInView={{ y: reverseLayout ? -20 : -30 }}
+                  transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] as const }}
+                  viewport={{ once: true, amount: 0.5 }}
+                >
+                  <div
+                    className="relative w-full h-full bg-cover bg-center rounded-[32px]"
+                    style={{ backgroundImage: `url(${secondaryImageSrc})` }}
+                  />
+                </motion.div>
+              )}
 
             {/* Main Mockup Card */}
-            <motion.div
-              className="relative w-full h-[405px] md:h-[637px] bg-[#ffffff0a] rounded-[32px] backdrop-blur-[15px] backdrop-brightness-[100%] border-0 z-10 overflow-hidden"
-              initial={{ y: reverseLayout ? 0 : 0 }}
-              whileInView={{ y: reverseLayout ? 20 : 30 }}
-              transition={{
-                duration: 1.2,
-                ease: [0.16, 1, 0.3, 1] as const,
-                delay: 0.1,
-              }}
-              viewport={{ once: true, amount: 0.5 }}
-            >
-              <div className="p-0 h-full">
-                <div
-                  className="h-full relative"
-                  style={{ backgroundSize: "100% 100%" }}
-                >
-                  {/* Primary Image */}
+            {primaryImageSrc && (
+              <motion.div
+                className="relative w-full h-[405px] md:h-[637px] bg-[#ffffff0a] rounded-[32px] backdrop-blur-[15px] backdrop-brightness-[100%] border-0 z-10 overflow-hidden"
+                initial={{ y: reverseLayout ? 0 : 0 }}
+                whileInView={{ y: reverseLayout ? 20 : 30 }}
+                transition={{
+                  duration: 1.2,
+                  ease: [0.16, 1, 0.3, 1] as const,
+                  delay: 0.1,
+                }}
+                viewport={{ once: true, amount: 0.5 }}
+              >
+                <div className="p-0 h-full">
                   <div
-                    className="w-full h-full bg-cover bg-center"
-                    style={{ backgroundImage: `url(${primaryImageSrc})` }}
-                  />
+                    className="h-full relative"
+                    style={{ backgroundSize: "100% 100%" }}
+                  >
+                    {/* Primary Image */}
+                    <div
+                      className="w-full h-full bg-cover bg-center"
+                      style={{ backgroundImage: `url(${primaryImageSrc})` }}
+                    />
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            )}
           </motion.div>
+          )}
         </motion.div>
       </div>
 

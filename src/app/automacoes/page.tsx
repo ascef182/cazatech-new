@@ -20,7 +20,7 @@ export default function AutomacoesPage() {
 
       {/* iPhone 16 Pro mockup com vídeo demonstrativo */}
       <section id="demo" className="flex justify-center items-center py-16 md:py-24 bg-white">
-        <div className="text-center">
+        <div className="text-center max-w-7xl mx-auto px-4">
           <span className="inline-flex items-center px-3 py-1 text-xs font-medium uppercase tracking-wider rounded-full bg-purple-100 text-purple-700 mb-4">
             Demonstração
           </span>
@@ -33,11 +33,11 @@ export default function AutomacoesPage() {
             Assista uma conversa real da Secretária v3 em ação
           </p>
           <div className="flex justify-center">
-            <div className="relative w-full max-w-[433px] px-4">
+            <div className="relative w-full max-w-[380px] px-4">
               <Iphone16Pro
                 videoSrc="/videos/demonstração.mp4"
-                width={433}
-                height={882}
+                width={380}
+                height={775}
                 className="w-full h-auto"
                 shadow
                 rounded
@@ -68,45 +68,27 @@ export default function AutomacoesPage() {
             </p>
           </div>
           <div className="flex justify-center">
-            <DatabaseWithRestApi 
-              circleText="API"
-              badgeTexts={{
-                first: "WhatsApp",
-                second: "N8N",
-                third: "CRM",
-                fourth: "Database"
-              }}
-              buttonTexts={{
-                first: "CazaTech",
-                second: "Integração"
-              }}
-              title="Troca de dados via REST API personalizada"
-              lightColor="#8350E8"
-            />
+            <div className="bg-black rounded-2xl p-8 border border-white/10">
+              <DatabaseWithRestApi 
+                circleText="API"
+                badgeTexts={{
+                  first: "WhatsApp",
+                  second: "N8N",
+                  third: "CRM",
+                  fourth: "Database"
+                }}
+                buttonTexts={{
+                  first: "CazaTech",
+                  second: "Integração"
+                }}
+                title="Troca de dados via REST API personalizada"
+                lightColor="#8350E8"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Prova visual (Sticky Showcase) */}
-      <section className="w-full bg-black">
-        <StickyScroll
-          content={automacoesContent.sticky.map((s) => ({
-            title: s.title,
-            description: s.description,
-            content: (
-              <div className="h-full w-full flex items-center justify-center bg-black">
-                <Image
-                  src={s.image}
-                  alt={s.title}
-                  width={320}
-                  height={220}
-                  className="rounded-lg"
-                />
-              </div>
-            ),
-          }))}
-        />
-      </section>
 
       {/* Benefits Section (substitui pricing) */}
       <BenefitsSection />

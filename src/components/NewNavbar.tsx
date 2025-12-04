@@ -80,12 +80,6 @@ export const serviceLinks: NavItemType[] = [
     icon: Globe,
   },
   {
-    title: "Marketing Digital",
-    href: "/marketing",
-    description: "Estratégias para aumentar suas vendas online",
-    icon: TrendingUp,
-  },
-  {
     title: "Crie seu SAAS hoje",
     href: "/saas",
     description: "Desenvolvimento de software como serviço personalizado",
@@ -93,7 +87,8 @@ export const serviceLinks: NavItemType[] = [
   },
   {
     title: "Consultoria",
-    href: "https://wa.me/5535998026821?text=Olá! Quero uma consultoria especializada para meu negócio",
+    href: "/consultoria",
+    description: "Consultoria especializada para seu negócio",
     icon: Target,
   },
   {
@@ -377,15 +372,15 @@ function MobileNav() {
 
           {/* Direct Links */}
           <div className="mt-4 space-y-2">
-            <SheetClose asChild>
-              <Link
-                href="/contact"
-                className="flex items-center gap-2 rounded-sm p-2 text-sm transition-all hover:bg-accent"
-              >
-                <Mail className="size-4" />
-                Contato
-              </Link>
-            </SheetClose>
+                <SheetClose asChild>
+                  <Link
+                    href="/contact"
+                    className="flex items-center gap-2 rounded-sm p-2 text-sm transition-all hover:bg-accent"
+                  >
+                    <Mail className="size-4" />
+                    {t("nav_contact")}
+                  </Link>
+                </SheetClose>
           </div>
 
           {/* Language Toggle */}
