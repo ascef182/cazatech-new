@@ -167,6 +167,8 @@ export function MasterLeadForm({
         segmento: data.segmento || "",
       };
 
+      console.log('📝 Enviando master lead form:', payload);
+      
       await submitToFormspree({
         ...payload,
         formVariant: variant,
@@ -198,10 +200,10 @@ export function MasterLeadForm({
         form.reset();
       }, 3000);
     } catch (error) {
-      console.error("Erro ao processar formulário:", error);
+      console.error('❌ Erro master lead:', error);
       const message =
         error instanceof Error ? error.message : "Não foi possível enviar agora.";
-      toast.error(message);
+      toast.error(`Erro: ${message}`);
     } finally {
       setIsSubmitting(false);
     }

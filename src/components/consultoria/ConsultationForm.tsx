@@ -51,6 +51,7 @@ export default function ConsultationForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
+      console.log('📝 Enviando consultoria:', values);
       await submitToFormspree({
         ...values,
         source: "consultoria-page",
@@ -58,9 +59,10 @@ export default function ConsultationForm() {
       });
       setIsSubmitted(true);
     } catch (error) {
+      console.error('❌ Erro consultoria:', error);
       const message =
         error instanceof Error ? error.message : "Não foi possível enviar agora.";
-      toast.error(message);
+      toast.error(`Erro ao enviar: ${message}`);
     }
   }
 

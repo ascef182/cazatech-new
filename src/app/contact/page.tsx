@@ -31,6 +31,7 @@ export default function ContactPage() {
   const onSubmit = async (values: FormData) => {
     setIsSubmitting(true);
     try {
+      console.log('📝 Enviando formulário de contato:', values);
       await submitToFormspree({
         ...values,
         source: "contact-page",
@@ -43,8 +44,8 @@ export default function ContactPage() {
       form.reset();
     } catch (e) {
       const errorMessage = e instanceof Error ? e.message : "Erro inesperado";
-      toast.error(errorMessage);
-      console.error("Erro ao enviar formulário:", e);
+      console.error('❌ Erro detalhado:', e);
+      toast.error(`Erro ao enviar: ${errorMessage}`);
     } finally {
       setIsSubmitting(false);
     }

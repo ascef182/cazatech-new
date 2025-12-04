@@ -391,7 +391,7 @@ interface HeroProps {
 export default function NeuralNetworkHero({
   title = "Soluções que entendem o fluxo do seu cliente",
   description = "Criamos automações, sites e estratégias pensando em cada etapa da jornada. Da primeira mensagem até o fechamento.",
-  badgeText = "Secretária v3 · Automações Inteligentes",
+  badgeText = " Web & MOobile· Automações Inteligentes",
   badgeLabel = "CazaTech",
   ctaButtons = [
     { text: "Ver soluções", href: "#solucoes", primary: true },

@@ -90,7 +90,7 @@ export const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="max-w-5xl relative mx-auto py-1 md:py-1 px-4 w-full left-0 top-0">
+    <div className="max-w-5xl relative mx-auto py-20 md:py-32 px-4 w-full left-0 bottom-0">
       <h1
         className="text-1xl md:text-5xl font-bold text-white"
         style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}

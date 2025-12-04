@@ -8,10 +8,10 @@ import { automacoesContent } from "@/content/automacoes";
 export default function HeroAutomacoes() {
   const images = automacoesContent.hero.backgroundImages;
   return (
-    <section className="relative mx-auto flex h-screen w-full max-w-7xl flex-col items-center justify-center overflow-hidden bg-black text-white">
+    <section className="relative mx-auto flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-black text-white">
       {/* Background: 3 horizontal carousels com direções alternadas */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none px-6 md:px-10">
-        <div className="absolute inset-0 flex flex-col justify-center gap-8 opacity-80">
+        <div className="absolute inset-0 flex flex-col justify-center gap-12 md:gap-16 opacity-80">
           {/* Row 1 */}
           <div className="relative h-28 md:h-32 lg:h-36 overflow-hidden">
             <div className="animate-marquee inline-flex items-center gap-6 will-change-transform">

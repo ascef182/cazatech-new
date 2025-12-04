@@ -5,7 +5,7 @@ import BeamGridBackground from "@/components/ui/beam-grid-background";
 
 export default function HeroSaas() {
   return (
-    <section className="relative mx-auto flex h-screen w-full max-w-7xl flex-col items-center justify-center overflow-hidden rounded-3xl bg-black text-white">
+    <section className="relative mx-auto flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-black text-white">
       {/* BeamGrid Background */}
       <BeamGridBackground 
         asBackground

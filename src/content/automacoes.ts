@@ -5,7 +5,7 @@ export const automacoesContent = {
       "A Secretária v3 atende WhatsApp, agenda consultas, cobra pacientes e reduz faltas automaticamente. A revolução que sua recepção precisa.",
     backgroundImages: [
       "/images/n8n/n8n.png",
-      "/images/n8n/flow-v3.png",
+      "/images/n8n/n8n1.png",
       "/images/n8n/n8n2.png",
       "/images/n8n/n8n3.jpeg",
       "/images/n8n/n8n-flow.webp",

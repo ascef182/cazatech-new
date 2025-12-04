@@ -32,6 +32,7 @@ export const WaitlistCTA = ({
     setStatus("loading")
 
     try {
+      console.log('📝 Enviando waitlist:', { email });
       await submitToFormspree({
         email,
         source: "waitlist-cta",
@@ -42,6 +43,7 @@ export const WaitlistCTA = ({
       fireConfetti()
       setTimeout(() => setStatus("idle"), 3200)
     } catch (error) {
+      console.error('❌ Erro waitlist:', error);
       const message =
         error instanceof Error ? error.message : "Não foi possível enviar agora."
       toast.error(message)
@@ -238,6 +240,7 @@ export const WaitlistCTA = ({
             >
               <input
                 type="email"
+                name="email"
                 required
                 placeholder="seu@email.com"
                 value={email}

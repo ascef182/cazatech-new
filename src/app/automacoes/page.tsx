@@ -19,8 +19,8 @@ export default function AutomacoesPage() {
       <HeroAutomacoes />
 
       {/* iPhone 16 Pro mockup com vídeo demonstrativo */}
-      <section id="demo" className="flex justify-center items-center py-16 md:py-24 bg-white">
-        <div className="text-center max-w-7xl mx-auto px-4">
+      <section id="demo" className="flex justify-center items-center py-16 md:py-24 bg-white overflow-hidden">
+        <div className="text-center max-w-7xl mx-auto px-4 w-full">
           <span className="inline-flex items-center px-3 py-1 text-xs font-medium uppercase tracking-wider rounded-full bg-purple-100 text-purple-700 mb-4">
             Demonstração
           </span>
@@ -32,13 +32,13 @@ export default function AutomacoesPage() {
           <p className="text-gray-600 mb-8 max-w-md mx-auto">
             Assista uma conversa real da Secretária v3 em ação
           </p>
-          <div className="flex justify-center">
-            <div className="relative w-full max-w-[380px] px-4">
+          <div className="flex justify-center w-full">
+            <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[380px] px-2 sm:px-4">
               <Iphone16Pro
                 videoSrc="/videos/demonstração.mp4"
                 width={380}
                 height={775}
-                className="w-full h-auto"
+                className="w-full h-auto max-w-full"
                 shadow
                 rounded
                 hoverAnimation

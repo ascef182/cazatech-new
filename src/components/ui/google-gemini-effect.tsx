@@ -32,10 +32,10 @@ export const GoogleGeminiEffect = ({
           {description}
         </p>
       ) : null}
-      <div className="w-full h-[890px] -top-60 md:-top-40  flex items-center justify-center bg-red-transparent absolute ">
+      <div className="w-full h-[890px] -top-60 md:-top-40  flex items-center justify-center bg-red-transparent absolute px-4">
         <a
           href="/contact"
-          className="font-bold bg-white rounded-full md:px-4 md:py-2 px-2 py-1 md:mt-24 mt-8 z-30 md:text-base text-black text-xs  w-fit mx-auto "
+          className="font-bold bg-white rounded-full md:px-8 md:py-3 px-4 py-2 md:mt-24 mt-8 z-30 md:text-base text-black text-xs w-full max-w-xs md:max-w-sm text-center"
         >
           Contato
         </a>
