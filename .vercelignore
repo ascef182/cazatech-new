@@ -1,0 +1,7 @@
+# Excluir git e caches grandes
+.git
+.next/cache
+public/videos/*
+# excluir templates grandes se for movê-los
+public/templates/*.png
+public/templates/*.mp4
