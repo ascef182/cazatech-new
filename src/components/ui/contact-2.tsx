@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { submitToFormspree } from "@/lib/formspree";
+import { trackFormSubmission } from "@/components/analytics/GoogleAnalytics";
 
 // Define the Zod schema for form validation
 const formSchema = z.object({
@@ -19,25 +21,6 @@ const formSchema = z.object({
 });
 
 type ContactFormValues = z.infer<typeof formSchema>;
-
-// Utility function to submit data to Formspree
-async function submitToFormspree(endpoint: string, data: Record<string, any>) {
-  const response = await fetch(endpoint, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-
-  if (!response.ok) {
-    const errorData = await response.json();
-    throw new Error(errorData.error || "Formspree submission failed");
-  }
-
-  return response.json();
-}
 
 interface Contact2Props {
   title?: string;
@@ -71,15 +54,13 @@ export const Contact2 = ({
   });
 
   const onSubmit = async (data: ContactFormValues) => {
-    const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
-
-    if (!FORMSPREE_ENDPOINT) {
-      toast.error("Formspree endpoint is not configured.");
-      return;
-    }
-
     try {
-      await submitToFormspree(FORMSPREE_ENDPOINT, data);
+      await submitToFormspree({
+        ...data,
+        source: "saas-page",
+        sourceUrl: typeof window !== "undefined" ? window.location.href : "",
+      });
+      trackFormSubmission("saas-page");
       toast.success("Message sent successfully!");
       reset(); // Reset form fields after successful submission
     } catch (error: any) {

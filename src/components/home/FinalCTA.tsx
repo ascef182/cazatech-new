@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowRight, Sparkles, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { trackWhatsAppClick } from "@/components/analytics/GoogleAnalytics";
 import {
   Dialog,
   DialogContent,
@@ -94,6 +95,12 @@ export function FinalCTA() {
               <Link
                 href="https://wa.me/5535998026821?text=Olá! Vi o site e quero conversar sobre um projeto."
                 target="_blank"
+                onClick={() =>
+                  trackWhatsAppClick(
+                    "home-final-cta",
+                    "Vi o site e quero conversar sobre um projeto"
+                  )
+                }
               >
                 <MessageCircle className="w-4 h-4 mr-2" />
                 Falar no WhatsApp

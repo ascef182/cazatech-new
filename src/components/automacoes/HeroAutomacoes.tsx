@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { ThreeDMarquee } from "@/components/ui/3d-marquee";
 import { automacoesContent } from "@/content/automacoes";
+import { trackWhatsAppClick } from "@/components/analytics/GoogleAnalytics";
 
 export default function HeroAutomacoes() {
   const images = automacoesContent.hero.backgroundImages;
@@ -82,6 +83,9 @@ export default function HeroAutomacoes() {
           <Link
             href="https://wa.me/5535998026821?text=Olá! Quero instalar a Secretária v3 na minha empresa."
             target="_blank"
+            onClick={() =>
+              trackWhatsAppClick("automacoes-hero", "Instalar Secretária v3")
+            }
           >
             Instalar Secretária v3
           </Link>

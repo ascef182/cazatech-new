@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import BeamGridBackground from "@/components/ui/beam-grid-background";
+import { trackWhatsAppClick } from "@/components/analytics/GoogleAnalytics";
 
 export default function HeroSaas() {
   return (
@@ -30,7 +31,13 @@ export default function HeroSaas() {
 
       <div className="relative z-20 flex flex-wrap items-center justify-center gap-4 pt-4">
         <Button asChild className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 shadow-lg shadow-purple-500/25">
-          <Link href="https://wa.me/5535998026821?text=Quero%20criar%20meu%20SaaS" target="_blank">
+          <Link
+            href="https://wa.me/5535998026821?text=Quero%20criar%20meu%20SaaS"
+            target="_blank"
+            onClick={() =>
+              trackWhatsAppClick("saas-hero", "Quero criar meu SaaS")
+            }
+          >
             Falar com Especialista
           </Link>
         </Button>

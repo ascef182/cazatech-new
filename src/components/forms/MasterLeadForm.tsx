@@ -28,6 +28,7 @@ import {
 } from "@/components/ui/select";
 import { toast } from "sonner";
 import { submitToFormspree } from "@/lib/formspree";
+import { trackFormSubmission } from "@/components/analytics/GoogleAnalytics";
 
 // ============================================
 // 📋 SCHEMAS DE VALIDAÇÃO
@@ -167,13 +168,13 @@ export function MasterLeadForm({
         segmento: data.segmento || "",
       };
 
-      console.log('📝 Enviando master lead form:', payload);
-      
       await submitToFormspree({
         ...payload,
         formVariant: variant,
         sourceUrl: typeof window !== "undefined" ? window.location.href : "",
       });
+
+      trackFormSubmission(source || "master-lead-form");
 
       // Enviar para webhook (se configurado)
       fetch("/api/webhook/lead", {
@@ -183,7 +184,9 @@ export function MasterLeadForm({
           ...payload,
           timestamp: new Date().toISOString(),
         }),
-      }).catch((err) => console.error("Erro ao enviar para webhook:", err));
+      }).catch(() => {
+        // silencioso em produção; erros de webhook não devem impactar o usuário
+      });
 
       // Enviar para WhatsApp
       sendToWhatsApp(data);
@@ -200,7 +203,6 @@ export function MasterLeadForm({
         form.reset();
       }, 3000);
     } catch (error) {
-      console.error('❌ Erro master lead:', error);
       const message =
         error instanceof Error ? error.message : "Não foi possível enviar agora.";
       toast.error(`Erro: ${message}`);

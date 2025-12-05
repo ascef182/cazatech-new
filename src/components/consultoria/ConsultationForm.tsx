@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/select";
 import { toast } from "sonner";
 import { submitToFormspree } from "@/lib/formspree";
+import { trackFormSubmission } from "@/components/analytics/GoogleAnalytics";
 
 const formSchema = z.object({
   name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
@@ -57,6 +58,7 @@ export default function ConsultationForm() {
         source: "consultoria-page",
         sourceUrl: typeof window !== "undefined" ? window.location.href : "",
       });
+      trackFormSubmission("consultoria-page");
       setIsSubmitted(true);
     } catch (error) {
       console.error('❌ Erro consultoria:', error);

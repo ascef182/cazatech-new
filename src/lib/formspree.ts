@@ -2,8 +2,12 @@
 
 type FormspreePayload = Record<string, string | string[] | undefined>;
 
+const isDev = process.env.NODE_ENV !== "production";
+
 async function postJson(url: string, payload: FormspreePayload) {
-  console.log('📤 Enviando para Formspree:', { url, payload });
+  if (isDev) {
+    console.log("📤 Enviando para Formspree:", { url, payload });
+  }
   
   const response = await fetch(url, {
     method: "POST",
@@ -14,22 +18,28 @@ async function postJson(url: string, payload: FormspreePayload) {
     body: JSON.stringify(payload),
   });
 
-  console.log('📥 Resposta do Formspree:', {
-    status: response.status,
-    statusText: response.statusText,
-    ok: response.ok
-  });
+  if (isDev) {
+    console.log("📥 Resposta do Formspree:", {
+      status: response.status,
+      statusText: response.statusText,
+      ok: response.ok,
+    });
+  }
 
   let data: unknown = null;
   try {
     data = await response.json();
-    console.log('📦 Data recebida:', data);
+    if (isDev) {
+      console.log("📦 Data recebida:", data);
+    }
   } catch {
     data = null;
   }
 
   if (!response.ok) {
-    console.error('❌ Erro Formspree:', { response, data });
+    if (isDev) {
+      console.error("❌ Erro Formspree:", { response, data });
+    }
     const fallbackMessage =
       typeof data === "object" && data !== null && "errors" in data
         ? JSON.stringify((data as { errors: unknown }).errors)
@@ -43,11 +53,13 @@ async function postJson(url: string, payload: FormspreePayload) {
 export async function submitToFormspree(payload: FormspreePayload) {
   const endpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
   
-  console.log('🔍 Formspree Debug:', {
-    endpoint: endpoint || 'NÃO ENCONTRADO',
-    hasEndpoint: !!endpoint,
-    envKeys: Object.keys(process.env).filter(k => k.includes('FORMSPREE'))
-  });
+  if (isDev) {
+    console.log("🔍 Formspree Debug:", {
+      endpoint: endpoint || "NÃO ENCONTRADO",
+      hasEndpoint: !!endpoint,
+      envKeys: Object.keys(process.env).filter((k) => k.includes("FORMSPREE")),
+    });
+  }
 
   if (!endpoint) {
     throw new Error(

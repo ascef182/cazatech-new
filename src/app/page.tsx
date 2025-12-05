@@ -12,6 +12,7 @@ import {
 import { FinalCTA } from "@/components/home/FinalCTA";
 import CazaTechProductsSection from "@/components/home/CazaTechProductsSection";
 
+// Scroll demo é pesado; já está em lazy + Suspense para não bloquear o Hero
 const HeroScrollDemo = lazy(() =>
   import("@/components/sections/container-scroll-section").then((module) => ({
     default: module.HeroScrollDemo,

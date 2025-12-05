@@ -100,6 +100,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
   return (
     <html lang="pt-BR">
       <head>
@@ -136,7 +138,7 @@ export default function RootLayout({
         />
       </head>
       <ClientBody>
-        <GoogleAnalytics measurementId="G-XXXXXXXXXX" />
+        {GA_ID && <GoogleAnalytics measurementId={GA_ID} />}
         <OrganizationSchema />
         <WebsiteSchema />
         {children}

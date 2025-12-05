@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { submitToFormspree } from "@/lib/formspree";
+import { trackFormSubmission } from "@/components/analytics/GoogleAnalytics";
 
 const schema = z.object({
   name: z.string().min(2, "Informe seu nome"),
@@ -31,12 +32,13 @@ export default function ContactPage() {
   const onSubmit = async (values: FormData) => {
     setIsSubmitting(true);
     try {
-      console.log('📝 Enviando formulário de contato:', values);
       await submitToFormspree({
         ...values,
         source: "contact-page",
         sourceUrl: typeof window !== "undefined" ? window.location.href : "",
       });
+
+      trackFormSubmission("contact-page");
 
       toast.success(
         "Mensagem enviada com sucesso! Responderemos em até 24h úteis."
