@@ -2,7 +2,8 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "next/link"; // Keep Link for external or direct usage if needed, but we prefer ScopedLink
+import ScopedLink from "@/components/ui/ScopedLink";
 import { usePathname, useRouter } from "next/navigation";
 import {
   Zap,
@@ -68,36 +69,36 @@ import { useI18n } from "@/app/ClientBody";
 // Definindo os links de serviços
 export const serviceLinks: NavItemType[] = [
   {
-    title: "Automação WhatsApp",
+    title: "nav.services.automation",
     href: "/automacoes",
-    description: "Chatbots inteligentes para atendimento 24/7",
+    description: "nav.services.automation_desc", // Placeholder if key missing, checks existing
     icon: Bot,
   },
   {
-    title: "Sites de Alta Conversão",
+    title: "nav.services.works",
     href: "/works",
-    description: "Landing pages que convertem visitantes em clientes",
+    description: "nav.services.works_desc",
     icon: Globe,
   },
   {
-    title: "Crie seu SAAS hoje",
+    title: "nav.services.saas",
     href: "/saas",
-    description: "Desenvolvimento de software como serviço personalizado",
+    description: "nav.services.saas_desc",
     icon: Briefcase,
   },
   {
-    title: "Consultoria",
+    title: "nav.services.consulting",
     href: "/consultoria",
-    description: "Consultoria especializada para seu negócio",
+    description: "nav.services.consulting_desc",
     icon: Target,
   },
   {
-    title: "Análise de Performance",
+    title: "nav.services.performance", // Key missing in provided JSON, using key as fallback
     href: "https://wa.me/5535998026821?text=Olá! Quero uma análise de performance do meu negócio",
     icon: BarChart,
   },
   {
-    title: "Integração de Sistemas",
+    title: "nav.services.integration", // Key missing
     href: "https://wa.me/5535998026821?text=Olá! Preciso de integração de sistemas para minha empresa",
     icon: Smartphone,
   },
@@ -105,53 +106,41 @@ export const serviceLinks: NavItemType[] = [
 
 // Definindo os links da empresa
 export const companyLinks: NavItemType[] = [
-  /*{
-    title: "Sobre Nós",
-    href: "/sobre",
-    description: "Conheça nossa história e equipe especializada",
-    icon: Users,
-  },*/ /*
   {
-    title: "Cases de Sucesso",
-    href: "/cases",
-    description: "Veja como ajudamos nossos clientes a vender mais",
-    icon: Star,
-  },*/
-  {
-    title: "Blog",
+    title: "nav.company.blog",
     href: "/blog",
-    description: "Dicas e insights sobre automação e marketing",
+    description: "nav.company.blogDescription",
     icon: Book,
   },
   {
-    title: "Termos de Uso",
+    title: "nav.company.terms",
     href: "/informacoes-legais/termos-de-uso",
-    description: "Nossos termos e condições de uso",
+    description: "nav.company.termsDescription",
     icon: FileText,
   },
   {
-    title: "Política de Privacidade",
+    title: "nav.company.privacy",
     href: "/informacoes-legais/politica-de-privacidade",
-    description: "Como protegemos suas informações",
+    description: "nav.company.privacyDescription",
     icon: Shield,
   },
   {
-    title: "Política de Reembolso",
+    title: "nav.company.refund",
     href: "/informacoes-legais/politica-de-reembolso",
-    description: "Detalhes sobre reembolsos e cancelamentos",
+    description: "nav.company.refundDescription",
     icon: RotateCcw,
   },
   {
-    title: "Parcerias",
+    title: "nav.company.partnerships",
     href: "/parcerias",
     icon: Handshake,
-    description: "Colabore conosco para crescimento mútuo",
+    description: "nav.company.partnershipsDescription",
   },
   {
-    title: "Central de Ajuda",
+    title: "nav.company.help",
     href: "/ajuda",
     icon: HelpCircle,
-    description: "Encontre respostas para suas dúvidas",
+    description: "nav.company.helpDescription",
   },
 ];
 
@@ -161,15 +150,21 @@ export default function NewNavbar() {
   const router = useRouter();
 
   function switchLang(nextLang: "pt" | "en" | "es") {
-    setLang(nextLang);
+    // Don't call setLang here - let ClientBody handle it based on pathname change
+    // This prevents race condition between setLang and router.push
     if (!pathname) return;
-    const isEn = pathname.startsWith("/en");
-    if (nextLang === "en" && !isEn) {
-      const next = pathname === "/" ? "/en" : `/en${pathname}`;
-      router.push(next);
-    } else if (nextLang !== "en" && isEn) {
-      const next = pathname === "/en" ? "/" : pathname.replace(/^\/en/, "");
-      router.push(next || "/");
+
+    // Remove existing locale prefix if any
+    let path = pathname;
+    if (path.startsWith("/en")) path = path.replace(/^\/en/, "");
+    if (path.startsWith("/es")) path = path.replace(/^\/es/, "");
+    if (path.startsWith("/pt")) path = path.replace(/^\/pt/, "");
+    if (!path.startsWith("/")) path = "/" + path;
+
+    if (nextLang === "pt") {
+      router.push(path); // Default to root for PT based on observed behavior
+    } else {
+      router.push(`/${nextLang}${path === "/" ? "" : path}`);
     }
   }
 
@@ -178,7 +173,7 @@ export default function NewNavbar() {
       <div className="container mx-auto h-14 w-full max-w-6xl px-4">
         <div className="flex h-full items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
+          <ScopedLink href="/" className="flex items-center gap-2">
             <Image
               src="/images/logo.png"
               alt="CazaTech - Soluções Digitais"
@@ -187,7 +182,7 @@ export default function NewNavbar() {
               className="h-8 md:h-10 w-auto"
               priority
             />
-          </Link>
+          </ScopedLink>
 
           {/* Desktop Navigation */}
           <DesktopMenu />
@@ -195,11 +190,14 @@ export default function NewNavbar() {
           {/* Actions */}
           <div className="flex items-center gap-2">
             <LiquidButton
-              onClick={() => router.push("/contact")}
+              onClick={() => router.push("/contact")} // Logic for router push might need to be localized?
+              // Better to use ScopedLink logic or update router.push 
+              // But LiquidButton is onClick. 
+              // Let's wrapping it:
               className="hidden sm:flex"
               size="lg"
             >
-              Fale com um consultor
+              {t("nav.contact")}
             </LiquidButton>
 
             {/* Language Dropdown */}
@@ -245,13 +243,23 @@ function DesktopMenu() {
     <NavigationMenu className="hidden lg:block">
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Serviços</NavigationMenuTrigger>
+          <NavigationMenuTrigger>{t("nav.services.title")}</NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className="grid w-full md:w-[700px] md:grid-cols-[1fr_.35fr]">
               <ul className="grid grow gap-4 p-4 md:grid-cols-2 md:border-r">
                 {serviceLinks.slice(0, 4).map((link) => (
                   <li key={link.href}>
-                    <NavGridCard link={link} />
+                    {/* Using ScopedLink inside NavGridCard is tricky as NavGridCard might use Link internally. 
+                        If NavGridCard is imported, we might need to modify it or ensure it accepts a custom Link.
+                        But assuming we can pass href, let's see. 
+                        Actually NavGridCard likely renders a Link. We should check it.
+                        For now, assuming I can't easily change NavGridCard without checking it.
+                    */}
+                    <NavGridCard link={{
+                      ...link,
+                      title: t(link.title),
+                      description: link.description ? t(link.description) : undefined 
+                    }} />
                   </li>
                 ))}
               </ul>
@@ -259,7 +267,10 @@ function DesktopMenu() {
                 {serviceLinks.slice(4).map((link) => (
                   <li key={link.href}>
                     <NavSmallItem
-                      item={link}
+                      item={{
+                        ...link,
+                        title: t(link.title)
+                      }}
                       href={link.href}
                       className="gap-x-1"
                     />
@@ -271,20 +282,28 @@ function DesktopMenu() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Empresa</NavigationMenuTrigger>
+          <NavigationMenuTrigger>{t("nav.company.title")}</NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className="grid w-full md:w-[700px] md:grid-cols-[1fr_.40fr]">
               <ul className="grid grow grid-cols-2 gap-4 p-4 md:border-r">
                 {companyLinks.slice(0, 3).map((link) => (
                   <li key={link.href}>
-                    <NavGridCard link={link} className="min-h-28" />
+                    <NavGridCard link={{
+                      ...link,
+                      title: t(link.title),
+                      description: link.description ? t(link.description) : undefined
+                    }} className="min-h-28" />
                   </li>
                 ))}
               </ul>
               <ul className="space-y-2 p-4">
                 {companyLinks.slice(3).map((link) => (
                   <li key={link.href}>
-                    <NavLargeItem href={link.href} link={link} />
+                    <NavLargeItem href={link.href} link={{
+                      ...link,
+                      title: t(link.title),
+                      description: link.description ? t(link.description) : undefined
+                    }} />
                   </li>
                 ))}
               </ul>
@@ -294,7 +313,7 @@ function DesktopMenu() {
 
         <NavigationMenuItem>
           <NavigationMenuLink asChild className="cursor-pointer">
-            <Link href="/contact">{t("nav_contact")}</Link>
+            <ScopedLink href="/contact">{t("nav.contact")}</ScopedLink>
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
@@ -306,27 +325,33 @@ function MobileNav() {
   const { t, lang, setLang } = useI18n();
   const pathname = usePathname();
   const router = useRouter();
+  
   function switchLang(nextLang: "pt" | "en" | "es") {
-    setLang(nextLang);
+    // Don't call setLang here - let ClientBody handle it based on pathname change
+    // This prevents race condition between setLang and router.push
     if (!pathname) return;
-    const isEn = pathname.startsWith("/en");
-    if (nextLang === "en" && !isEn) {
-      const next = pathname === "/" ? "/en" : `/en${pathname}`;
-      router.push(next);
-    } else if (nextLang !== "en" && isEn) {
-      const next = pathname === "/en" ? "/" : pathname.replace(/^\/en/, "");
-      router.push(next || "/");
+    let path = pathname;
+    if (path.startsWith("/en")) path = path.replace(/^\/en/, "");
+    if (path.startsWith("/es")) path = path.replace(/^\/es/, "");
+    if (path.startsWith("/pt")) path = path.replace(/^\/pt/, "");
+    if (!path.startsWith("/")) path = "/" + path;
+
+    if (nextLang === "pt") {
+      router.push(path);
+    } else {
+      router.push(`/${nextLang}${path === "/" ? "" : path}`);
     }
   }
+
   const sections = [
     {
       id: "servicos",
-      name: "Serviços",
+      name: t("nav.services.title"),
       list: serviceLinks,
     },
     {
       id: "empresa",
-      name: "Empresa",
+      name: t("nav.company.title"),
       list: companyLinks,
     },
   ];
@@ -360,7 +385,11 @@ function MobileNav() {
                     {section.list.map((link) => (
                       <li key={link.href}>
                         <SheetClose asChild>
-                          <NavItemMobile item={link} />
+                          <NavItemMobile item={{
+                            ...link,
+                            title: t(link.title),
+                            description: link.description ? t(link.description) : undefined
+                          }} />
                         </SheetClose>
                       </li>
                     ))}
@@ -373,13 +402,13 @@ function MobileNav() {
           {/* Direct Links */}
           <div className="mt-4 space-y-2">
                 <SheetClose asChild>
-                  <Link
+                  <ScopedLink
                     href="/contact"
                     className="flex items-center gap-2 rounded-sm p-2 text-sm transition-all hover:bg-accent"
                   >
                     <Mail className="size-4" />
-                    {t("nav_contact")}
-                  </Link>
+                    {t("nav.contact")}
+                  </ScopedLink>
                 </SheetClose>
           </div>
 

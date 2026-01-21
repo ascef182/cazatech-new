@@ -5,7 +5,7 @@ import { TimelineContent } from "@/components/ui/timeline-animation";
 import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
 import { cn } from "@/lib/utils";
 import NumberFlow from "@number-flow/react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import Link from "next/link";
 

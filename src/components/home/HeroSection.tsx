@@ -1,22 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { SocialProof } from "./SocialProof";
 import { trackWhatsAppClick } from "@/components/analytics/GoogleAnalytics";
 
-/* eslint-disable @typescript-eslint/no-namespace */
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      "spline-viewer": React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement> & { url: string },
-        HTMLElement
-      >;
-    }
-  }
-}
-/* eslint-enable @typescript-eslint/no-namespace */
+// Dynamic import with SSR disabled for Spline 3D
+const Spline = dynamic(() => import("@splinetool/react-spline"), {
+  ssr: false,
+  loading: () => <div className="w-full h-full bg-black animate-pulse" />,
+});
 
 export default function HeroSection() {
   // Keep a tiny state for future enhancements, but avoid unnecessary logic
@@ -106,11 +100,13 @@ export default function HeroSection() {
                   </div>
                 )}
                 <div className="w-[60%] aspect-video rounded-2xl overflow-hidden">
-                  <spline-viewer
-                    url="https://prod.spline.design/h4vIirljpefHPM2v/scene.splinecode"
-                    className="w-full h-full"
-                    onLoad={() => setSplineLoading(false)}
-                  />
+                  <Suspense fallback={<div className="w-full h-full bg-black" />}>
+                    <Spline
+                      scene="https://prod.spline.design/h4vIirljpefHPM2v/scene.splinecode"
+                      className="w-full h-full"
+                      onLoad={() => setSplineLoading(false)}
+                    />
+                  </Suspense>
                 </div>
               </div>
             )}
@@ -127,11 +123,13 @@ export default function HeroSection() {
                     <div className="text-white">Carregando 3D...</div>
                   </div>
                 )}
-                <spline-viewer
-                  url="https://prod.spline.design/h4vIirljpefHPM2v/scene.splinecode"
-                  className="absolute inset-0 w-full h-full rounded-[24px] bg-black"
-                  onLoad={() => setSplineLoading(false)}
-                />
+                <Suspense fallback={<div className="absolute inset-0 w-full h-full rounded-[24px] bg-black" />}>
+                  <Spline
+                    scene="https://prod.spline.design/h4vIirljpefHPM2v/scene.splinecode"
+                    className="absolute inset-0 w-full h-full rounded-[24px] bg-black"
+                    onLoad={() => setSplineLoading(false)}
+                  />
+                </Suspense>
               </div>
             )}
           </div>

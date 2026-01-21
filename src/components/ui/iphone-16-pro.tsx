@@ -166,6 +166,7 @@ export const Iphone16Pro = forwardRef<SVGSVGElement, Iphone16ProProps>(
                 loop
                 muted
                 playsInline
+                onError={(e) => console.warn("Video failed to load:", videoSrc, e)}
                 style={{
                   ...contentStyle,
                   objectFit: "cover",

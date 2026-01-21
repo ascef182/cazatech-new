@@ -1,10 +1,7 @@
+@import "../styles/design-tokens.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Design System Tokens */
-@import "../styles/design-tokens.css";
-
 @font-face {
   font-family: "Satoshi";
   src: url("/fonts/Satoshi-Light.woff2") format("woff2");

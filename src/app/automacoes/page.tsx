@@ -35,7 +35,7 @@ export default function AutomacoesPage() {
           <div className="flex justify-center w-full">
             <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[380px] px-2 sm:px-4">
               <Iphone16Pro
-                videoSrc="/videos/demonstração.mp4"
+                videoSrc="/videos/demonstracao.mp4"
                 width={380}
                 height={775}
                 className="w-full h-auto max-w-full"

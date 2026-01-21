@@ -1,5 +1,7 @@
 "use client";
 
+import { useI18n } from "@/app/ClientBody";
+
 import { useMemo, useRef } from "react";
 import { Canvas, extend, useFrame } from "@react-three/fiber";
 import { shaderMaterial } from "@react-three/drei";
@@ -389,16 +391,38 @@ interface HeroProps {
 }
 
 export default function NeuralNetworkHero({
-  title = "Soluções que entendem o fluxo do seu cliente",
-  description = "Criamos automações, sites e estratégias pensando em cada etapa da jornada. Da primeira mensagem até o fechamento.",
-  badgeText = " Web & MOobile· Automações Inteligentes",
-  badgeLabel = "CazaTech",
-  ctaButtons = [
-    { text: "Ver soluções", href: "#solucoes", primary: true },
-    { text: "Falar com consultor", href: "/contact" },
-  ],
-  microDetails = ["Atendimento 24/7", "Integrações nativas", "ROI mensurável"],
+  title,
+  description,
+  badgeText,
+  badgeLabel,
+  ctaButtons,
+  microDetails,
 }: HeroProps) {
+  const { t } = useI18n();
+  
+  // Defaults using translations with manual fallbacks to prevent showing keys
+  const resolvedTitle = title ?? t("hero.title") !== "hero.title" ? t("hero.title") : "Soluções que entendem o fluxo do seu cliente";
+  const resolvedDescription = description ?? t("hero.description") !== "hero.description" ? t("hero.description") : "Criamos automações, sites e estratégias pensando em cada etapa da jornada. Da primeira mensagem até o fechamento.";
+  const resolvedBadgeText = badgeText ?? t("hero.badgeText") !== "hero.badgeText" ? t("hero.badgeText") : " Web & Mobile · Automações Inteligentes";
+  const resolvedBadgeLabel = badgeLabel ?? t("hero.badgeLabel") !== "hero.badgeLabel" ? t("hero.badgeLabel") : "CazaTech";
+  
+  const resolvedCtaButtons = ctaButtons ?? [
+    { 
+      text: t("hero.cta.solutions") !== "hero.cta.solutions" ? t("hero.cta.solutions") : "Ver soluções", 
+      href: "#solucoes", 
+      primary: true 
+    },
+    { 
+      text: t("hero.cta.contact") !== "hero.cta.contact" ? t("hero.cta.contact") : "Falar com consultor", 
+      href: "/contact" 
+    },
+  ];
+  
+  const resolvedMicroDetails = microDetails ?? [
+    t("hero.micro.0") !== "hero.micro.0" ? t("hero.micro.0") : "Atendimento 24/7",
+    t("hero.micro.1") !== "hero.micro.1" ? t("hero.micro.1") : "Integrações nativas",
+    t("hero.micro.2") !== "hero.micro.2" ? t("hero.micro.2") : "ROI mensurável",
+  ];
   const sectionRef = useRef<HTMLElement | null>(null);
   const headerRef = useRef<HTMLHeadingElement | null>(null);
   const paraRef = useRef<HTMLParagraphElement | null>(null);
@@ -497,11 +521,11 @@ export default function NeuralNetworkHero({
           className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm"
         >
           <span className="text-[10px] font-light uppercase tracking-[0.08em] text-white/70">
-            {badgeLabel}
+            {resolvedBadgeLabel}
           </span>
           <span className="h-1 w-1 rounded-full bg-white/40" />
           <span className="text-xs font-light tracking-tight text-white/80">
-            {badgeText}
+            {resolvedBadgeText}
           </span>
         </div>
 
@@ -509,18 +533,18 @@ export default function NeuralNetworkHero({
           ref={headerRef}
           className="max-w-3xl text-left text-5xl font-extralight leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl"
         >
-          {title}
+          {resolvedTitle}
         </h1>
 
         <p
           ref={paraRef}
           className="max-w-xl text-left text-base font-light leading-relaxed tracking-tight text-white/80 sm:text-lg"
         >
-          {description}
+          {resolvedDescription}
         </p>
 
         <div ref={ctaRef} className="flex flex-wrap items-center gap-3 pt-2">
-          {ctaButtons.map((button, index) => (
+          {resolvedCtaButtons.map((button, index) => (
             <a
               key={`${button.text}-${index}`}
               href={button.href}
@@ -536,7 +560,7 @@ export default function NeuralNetworkHero({
         </div>
 
         <ul className="mt-8 flex flex-wrap gap-6 text-xs font-extralight tracking-tight text-white/60">
-          {microDetails.map((detail, index) => (
+          {resolvedMicroDetails.map((detail, index) => (
             <li
               key={detail}
               ref={(el) => {

@@ -6,7 +6,7 @@ import {
   useTransform,
   useSpring,
   type MotionValue,
-} from "motion/react";
+} from "framer-motion";
 
 export const HeroParallax = ({
   products,

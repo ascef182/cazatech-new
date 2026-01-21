@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { Code2, Rocket, Users, Terminal } from "lucide-react";
 

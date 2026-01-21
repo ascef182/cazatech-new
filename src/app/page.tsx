@@ -1,5 +1,9 @@
+"use client";
+
 // app/page.tsx
 import { lazy, Suspense } from "react";
+import Image from "next/image";
+import { useI18n } from "@/app/ClientBody";
 
 // Novos componentes premium (client-side only)
 import {
@@ -20,6 +24,8 @@ const HeroScrollDemo = lazy(() =>
 );
 
 export default function Home() {
+  const { t } = useI18n();
+
   return (
     <>
       {/* Hero Premium com animação neural network */}
@@ -35,37 +41,36 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-extralight tracking-tight text-white mb-4">
-              Conectamos você com programadores
+              {t("sections.intro.title")}
               <br />
             </h2>
             <p className="text-white/75 max-w-2xl mx-auto font-light text-base leading-relaxed">
-              Transformamos sua visão em produto digital. Automação, SaaS, sites
-              e integrações complexas.
+              {t("sections.intro.description")}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mt-16">
             {[
               {
-                title: "Automação WhatsApp",
+                title: t("sections.intro.cards.whatsapp"),
                 image:
                   "https://images.unsplash.com/photo-1611746872915-64382b5c76da?q=80&w=800&auto=format&fit=crop",
                 gradient: "from-emerald-500/20 to-teal-500/20",
               },
               {
-                title: "SaaS e Apps",
+                title: t("sections.intro.cards.saas"),
                 image:
                   "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
                 gradient: "from-purple-500/20 to-pink-500/20",
               },
               {
-                title: "Sites & SEO",
+                title: t("sections.intro.cards.websites"),
                 image:
                   "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=800&auto=format&fit=crop",
                 gradient: "from-blue-500/20 to-cyan-500/20",
               },
               {
-                title: "Integrações n8n",
+                title: t("sections.intro.cards.integrations"),
                 image:
                   "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop",
                 gradient: "from-orange-500/20 to-red-500/20",
@@ -75,10 +80,12 @@ export default function Home() {
                 key={i}
                 className="group relative overflow-hidden rounded-2xl border border-white/10 bg-neutral-900/50 backdrop-blur-sm hover:border-purple-500/30 transition-all duration-500 h-64"
               >
-                <img
+                <Image
                   src={item.image}
                   alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${item.gradient} mix-blend-overlay`}

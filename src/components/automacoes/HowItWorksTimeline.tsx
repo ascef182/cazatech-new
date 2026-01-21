@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { MessageSquare, Brain, Zap, CheckCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 

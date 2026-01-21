@@ -22,8 +22,157 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useI18n } from "@/app/ClientBody";
+
+const Skeleton = ({
+  children,
+  className,
+}: {
+  children?: React.ReactNode;
+  className?: string;
+}) => (
+  <div
+    className={`flex flex-1 w-full h-full min-h-[6rem] rounded-xl border border-white/10 bg-neutral-900/50 mask-image-gradient ${className}`}
+  >
+    {children}
+  </div>
+);
 
 export default function CazaTechProductsSection() {
+  const { t } = useI18n();
+  
+  const products = [
+    {
+      title: t("sections.products.items.websites.title"),
+      description: t("sections.products.items.websites.description"),
+      fullDescription: "Desenvolvemos sites modernos, rápidos e otimizados para conversão. Focamos em UX, performance e SEO para garantir que seu site não apenas impressione, mas também converta.",
+      header: (
+        <Skeleton className="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 flex items-center justify-center group overflow-hidden">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            className="p-4 rounded-full bg-white/5 border border-white/10 backdrop-blur-md"
+          >
+            <Globe className="w-8 h-8 text-cyan-400" />
+          </motion.div>
+        </Skeleton>
+      ),
+      className: "md:col-span-2 md:row-span-1",
+      icon: <Globe className="h-6 w-6 text-cyan-400" />,
+      features: [
+        "Design moderno e responsivo",
+        "Otimização para conversão (CRO)",
+        "Integração com ferramentas de marketing",
+        "Hospedagem e domínio inclusos",
+        "Suporte técnico contínuo",
+      ],
+      cta: {
+        primary: { text: "Ver Portfolio", href: "/works" },
+        secondary: { text: "Solicitar Orçamento", href: "/contact" },
+      },
+    },
+    {
+      title: t("sections.products.items.apps.title"),
+      description: t("sections.products.items.apps.description"),
+      fullDescription: "Criamos aplicativos sob medida para iOS, Android e Web. Do MVP ao produto escalável, com foco em experiência do usuário e performance.",
+      header: (
+        <Skeleton className="bg-gradient-to-br from-purple-900/40 to-fuchsia-900/40 flex items-center justify-center overflow-hidden">
+          <Smartphone className="w-16 h-16 text-fuchsia-400/50 group-hover:rotate-6 transition-transform duration-500" />
+        </Skeleton>
+      ),
+      className: "md:col-span-1 md:row-span-1",
+      icon: <Smartphone className="h-6 w-6 text-fuchsia-400" />,
+      features: [
+        "Apps nativos (iOS/Android) e PWA",
+        "Integração com APIs e serviços externos",
+        "Interface intuitiva e moderna",
+        "Notificações push e funcionalidades offline",
+        "Publicação nas lojas de apps",
+      ],
+      cta: {
+        primary: { text: "Falar com Consultor", href: "/contact" },
+      },
+    },
+    {
+      title: t("sections.products.items.automation.title"),
+      description: t("sections.products.items.automation.description"),
+      fullDescription: "A Secretária v3 é nossa solução de automação de atendimento via WhatsApp. Atende, agenda, cobra e recupera leads automaticamente.",
+      header: (
+        <Skeleton className="bg-gradient-to-br from-emerald-900/40 to-teal-900/40 flex items-center justify-center group overflow-hidden">
+          <motion.div
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ repeat: Infinity, duration: 3 }}
+            className="p-4 rounded-full bg-white/5 border border-white/10 backdrop-blur-md"
+          >
+            <Bot className="w-8 h-8 text-emerald-400" />
+          </motion.div>
+        </Skeleton>
+      ),
+      className: "md:col-span-3 md:row-span-1",
+      icon: <Bot className="h-6 w-6 text-emerald-400" />,
+      features: [
+        "Atendimento humanizado 24/7",
+        "Agendamento automático no Google Calendar",
+        "Lembretes e confirmações por WhatsApp",
+        "Cobrança integrada com Asaas",
+        "Recuperação de leads perdidos",
+      ],
+      cta: {
+        primary: { text: "Conhecer Secretária v3", href: "/automacoes" },
+        secondary: { text: "Ver Demo", href: "/automacoes#demo" },
+      },
+    },
+    {
+      title: t("sections.products.items.saas.title"),
+      description: t("sections.products.items.saas.description"),
+      fullDescription: "Desenvolvemos software como serviço (SaaS) do zero. Da arquitetura à escala, com segurança, IA e infraestrutura cloud.",
+      header: (
+        <Skeleton className="bg-gradient-to-br from-violet-900/40 to-purple-900/40 flex items-center justify-center">
+          <Code2 className="w-16 h-16 text-violet-400/50" />
+        </Skeleton>
+      ),
+      className: "md:col-span-1 md:row-span-1",
+      icon: <Code2 className="h-6 w-6 text-violet-400" />,
+      features: [
+        "MVP ágil em 4-8 semanas",
+        "Arquitetura escalável e segura",
+        "Dashboards e relatórios customizados",
+        "API para integrações",
+        "Infraestrutura cloud (AWS/Vercel)",
+      ],
+      cta: {
+        primary: { text: "Saber Mais", href: "/saas" },
+        secondary: { text: "Agendar Consultoria", href: "/contact" },
+      },
+    },
+    {
+      title: t("sections.products.items.seo.title"),
+      description: t("sections.products.items.seo.description"),
+      fullDescription: "Auditoria SEO completa, otimização técnica, conteúdo estratégico e acompanhamento de métricas para aumentar sua visibilidade online.",
+      header: (
+        <Skeleton className="bg-gradient-to-br from-orange-900/40 to-red-900/40 flex items-center justify-center overflow-hidden">
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+          >
+            <Search className="w-16 h-16 text-orange-400/50" />
+          </motion.div>
+        </Skeleton>
+      ),
+      className: "md:col-span-2 md:row-span-1",
+      icon: <Search className="h-6 w-6 text-orange-400" />,
+      features: [
+        "Auditoria técnica completa",
+        "Otimização de Core Web Vitals",
+        "Estratégia de palavras-chave",
+        "Link building e autoridade",
+        "Relatórios mensais de progresso",
+      ],
+      cta: {
+        primary: { text: "Análise Gratuita", href: "/contact" },
+      },
+    },
+  ];
+
   const [selectedProduct, setSelectedProduct] = useState<
     (typeof products)[0] | null
   >(null);
@@ -34,19 +183,18 @@ export default function CazaTechProductsSection() {
         <div className="text-center mb-12">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm mb-6">
             <span className="text-[10px] font-light uppercase tracking-[0.08em] text-white/70">
-              Soluções
+              {t("sections.products.badge")}
             </span>
             <span className="h-1 w-1 rounded-full bg-white/40" />
             <span className="text-xs font-light tracking-tight text-white/80">
-              Ecossistema CazaTech
+              {t("sections.products.title")}
             </span>
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
-            Soluções em destaque
+            {t("sections.products.subtitle")}
           </h2>
           <p className="text-white/60 max-w-2xl mx-auto font-light">
-            Tecnologia de ponta para escalar seu negócio, do atendimento ao
-            marketing.
+            {t("sections.products.description")}
           </p>
         </div>
 
@@ -131,158 +279,3 @@ export default function CazaTechProductsSection() {
     </section>
   );
 }
-
-const Skeleton = ({
-  children,
-  className,
-}: {
-  children?: React.ReactNode;
-  className?: string;
-}) => (
-  <div
-    className={`flex flex-1 w-full h-full min-h-[6rem] rounded-xl border border-white/10 bg-neutral-900/50 mask-image-gradient ${className}`}
-  >
-    {children}
-  </div>
-);
-
-const products = [
-  {
-    title: "Websites de Alta Conversão",
-    description:
-      "Sites institucionais e landing pages que transformam visitantes em clientes.",
-    fullDescription:
-      "Desenvolvemos sites modernos, rápidos e otimizados para conversão. Focamos em UX, performance e SEO para garantir que seu site não apenas impressione, mas também converta.",
-    header: (
-      <Skeleton className="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 flex items-center justify-center group overflow-hidden">
-        <motion.div
-          whileHover={{ scale: 1.1 }}
-          className="p-4 rounded-full bg-white/5 border border-white/10 backdrop-blur-md"
-        >
-          <Globe className="w-8 h-8 text-cyan-400" />
-        </motion.div>
-      </Skeleton>
-    ),
-    className: "md:col-span-2 md:row-span-1",
-    icon: <Globe className="h-6 w-6 text-cyan-400" />,
-    features: [
-      "Design moderno e responsivo",
-      "Otimização para conversão (CRO)",
-      "Integração com ferramentas de marketing",
-      "Hospedagem e domínio inclusos",
-      "Suporte técnico contínuo",
-    ],
-    cta: {
-      primary: { text: "Ver Portfolio", href: "/works" },
-      secondary: { text: "Solicitar Orçamento", href: "/contact" },
-    },
-  },
-  {
-    title: "Apps Personalizados",
-    description:
-      "Aplicativos móveis e web que resolvem problemas reais do seu negócio.",
-    fullDescription:
-      "Criamos aplicativos sob medida para iOS, Android e Web. Do MVP ao produto escalável, com foco em experiência do usuário e performance.",
-    header: (
-      <Skeleton className="bg-gradient-to-br from-purple-900/40 to-fuchsia-900/40 flex items-center justify-center overflow-hidden">
-        <Smartphone className="w-16 h-16 text-fuchsia-400/50 group-hover:rotate-6 transition-transform duration-500" />
-      </Skeleton>
-    ),
-    className: "md:col-span-1 md:row-span-1",
-    icon: <Smartphone className="h-6 w-6 text-fuchsia-400" />,
-    features: [
-      "Apps nativos (iOS/Android) e PWA",
-      "Integração com APIs e serviços externos",
-      "Interface intuitiva e moderna",
-      "Notificações push e funcionalidades offline",
-      "Publicação nas lojas de apps",
-    ],
-    cta: {
-      primary: { text: "Falar com Consultor", href: "/contact" },
-    },
-  },
-  {
-    title: "Automação de Atendimento",
-    description:
-      "Chatbots inteligentes no WhatsApp com IA para atendimento 24/7.",
-    fullDescription:
-      "A Secretária v3 é nossa solução de automação de atendimento via WhatsApp. Atende, agenda, cobra e recupera leads automaticamente.",
-    header: (
-      <Skeleton className="bg-gradient-to-br from-emerald-900/40 to-teal-900/40 flex items-center justify-center group overflow-hidden">
-        <motion.div
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{ repeat: Infinity, duration: 3 }}
-          className="p-4 rounded-full bg-white/5 border border-white/10 backdrop-blur-md"
-        >
-          <Bot className="w-8 h-8 text-emerald-400" />
-        </motion.div>
-      </Skeleton>
-    ),
-    className: "md:col-span-3 md:row-span-1",
-    icon: <Bot className="h-6 w-6 text-emerald-400" />,
-    features: [
-      "Atendimento humanizado 24/7",
-      "Agendamento automático no Google Calendar",
-      "Lembretes e confirmações por WhatsApp",
-      "Cobrança integrada com Asaas",
-      "Recuperação de leads perdidos",
-    ],
-    cta: {
-      primary: { text: "Conhecer Secretária v3", href: "/automacoes" },
-      secondary: { text: "Ver Demo", href: "/automacoes#demo" },
-    },
-  },
-  {
-    title: "SaaS sob Medida",
-    description:
-      "Plataformas completas e escaláveis para seu modelo de negócio.",
-    fullDescription:
-      "Desenvolvemos software como serviço (SaaS) do zero. Da arquitetura à escala, com segurança, IA e infraestrutura cloud.",
-    header: (
-      <Skeleton className="bg-gradient-to-br from-violet-900/40 to-purple-900/40 flex items-center justify-center">
-        <Code2 className="w-16 h-16 text-violet-400/50" />
-      </Skeleton>
-    ),
-    className: "md:col-span-1 md:row-span-1",
-    icon: <Code2 className="h-6 w-6 text-violet-400" />,
-    features: [
-      "MVP ágil em 4-8 semanas",
-      "Arquitetura escalável e segura",
-      "Dashboards e relatórios customizados",
-      "API para integrações",
-      "Infraestrutura cloud (AWS/Vercel)",
-    ],
-    cta: {
-      primary: { text: "Saber Mais", href: "/saas" },
-      secondary: { text: "Agendar Consultoria", href: "/contact" },
-    },
-  },
-  {
-    title: "SEO e Performance",
-    description: "Otimização técnica para ranquear no Google e converter mais.",
-    fullDescription:
-      "Auditoria SEO completa, otimização técnica, conteúdo estratégico e acompanhamento de métricas para aumentar sua visibilidade online.",
-    header: (
-      <Skeleton className="bg-gradient-to-br from-orange-900/40 to-red-900/40 flex items-center justify-center overflow-hidden">
-        <motion.div
-          animate={{ y: [0, -10, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-        >
-          <Search className="w-16 h-16 text-orange-400/50" />
-        </motion.div>
-      </Skeleton>
-    ),
-    className: "md:col-span-2 md:row-span-1",
-    icon: <Search className="h-6 w-6 text-orange-400" />,
-    features: [
-      "Auditoria técnica completa",
-      "Otimização de Core Web Vitals",
-      "Estratégia de palavras-chave",
-      "Link building e autoridade",
-      "Relatórios mensais de progresso",
-    ],
-    cta: {
-      primary: { text: "Análise Gratuita", href: "/contact" },
-    },
-  },
-];

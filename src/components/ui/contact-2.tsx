@@ -1,4 +1,5 @@
 import React from "react";
+import { useI18n } from "@/app/ClientBody";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -31,12 +32,19 @@ interface Contact2Props {
 }
 
 export const Contact2 = ({
-  title = "Contact Us",
-  description = "We are available for questions, feedback, or collaboration opportunities. Let us know how we can help!",
-  phone = "(123) 34567890",
-  email = "email@example.com",
-  web = { label: "shadcnblocks.com", url: "https://shadcnblocks.com" },
+  title,
+  description,
+  phone,
+  email,
+  web,
 }: Contact2Props) => {
+  const { t } = useI18n();
+  const translatedTitle = title ?? t('contact2.title');
+  const translatedDescription = description ?? t('contact2.description');
+  const translatedPhone = phone ?? t('contact2.phone');
+  const translatedEmail = email ?? t('contact2.email');
+  const translatedWebLabel = web?.label ?? t('contact2.web.label');
+  const translatedWebUrl = web?.url ?? t('contact2.web.url');
   const {
     register,
     handleSubmit,
@@ -75,7 +83,7 @@ export const Contact2 = ({
           <div className="mx-auto flex max-w-sm flex-col justify-between gap-10">
             <div className="text-center lg:text-left">
               <h1 className="mb-2 text-5xl font-semibold lg:mb-1 lg:text-6xl text-white">
-                {title}
+                {translatedTitle}
               </h1>
               <p className="text-white/60">{description}</p>
             </div>
@@ -91,13 +99,13 @@ export const Contact2 = ({
                 <li>
                   <span className="font-bold text-white">Email: </span>
                   <a href={`mailto:${email}`} className="underline hover:text-purple-400">
-                    {email}
+                    {translatedEmail}
                   </a>
                 </li>
                 <li>
                   <span className="font-bold text-white">Web: </span>
-                  <a href={web.url} target="_blank" className="underline hover:text-purple-400">
-                    {web.label}
+                  <a href={translatedWebUrl} target="_blank" className="underline hover:text-purple-400">
+                    {translatedWebLabel}
                   </a>
                 </li>
               </ul>

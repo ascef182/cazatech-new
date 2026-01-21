@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef, FormEvent, ChangeEvent } from "react"
-import { motion } from "motion/react"
+import { motion } from "framer-motion"
 import { Bot, Zap, CheckCircle } from "lucide-react"
 import { toast } from "sonner"
 import { submitToFormspree } from "@/lib/formspree"

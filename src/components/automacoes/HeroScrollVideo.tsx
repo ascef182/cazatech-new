@@ -15,7 +15,7 @@ export default function HeroScrollVideo() {
         }
       >
         <video
-          src="/videos/demonstração.mp4"
+          src="/videos/demonstracao.mp4"
           autoPlay
           muted
           loop

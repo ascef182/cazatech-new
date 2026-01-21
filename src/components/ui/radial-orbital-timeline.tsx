@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { useI18n } from "@/app/ClientBody";
 
 interface TimelineItem {
   id: number;
@@ -19,74 +20,16 @@ interface TimelineItem {
   energy: number;
 }
 
-// Processo de entrega CazaTech
-const cazatechTimelineData: TimelineItem[] = [
-  {
-    id: 1,
-    title: "Discovery",
-    date: "Semana 1",
-    content: "Entendemos profundamente seu negócio, desafios e objetivos. Mapeamos processos atuais e identificamos oportunidades de automação.",
-    category: "Análise",
-    icon: Search,
-    relatedIds: [2],
-    status: "completed" as const,
-    energy: 100,
-  },
-  {
-    id: 2,
-    title: "Planejamento",
-    date: "Semana 2",
-    content: "Definimos arquitetura técnica, roadmap de entregas e milestones. Você acompanha cada etapa do projeto em tempo real.",
-    category: "Estratégia",
-    icon: FileText,
-    relatedIds: [1, 3],
-    status: "completed" as const,
-    energy: 90,
-  },
-  {
-    id: 3,
-    title: "Desenvolvimento",
-    date: "Semanas 3-6",
-    content: "Construímos sua solução com as melhores tecnologias. Código limpo, integrações robustas e fluxos inteligentes.",
-    category: "Execução",
-    icon: Code,
-    relatedIds: [2, 4],
-    status: "in-progress" as const,
-    energy: 70,
-  },
-  {
-    id: 4,
-    title: "Testes & QA",
-    date: "Semana 7",
-    content: "Validação rigorosa de cada funcionalidade. Testes de carga, segurança e experiência do usuário garantem qualidade.",
-    category: "Validação",
-    icon: TestTube,
-    relatedIds: [3, 5],
-    status: "pending" as const,
-    energy: 40,
-  },
-  {
-    id: 5,
-    title: "Lançamento",
-    date: "Semana 8",
-    content: "Deploy em produção com monitoramento 24/7. Treinamento da equipe e suporte contínuo para garantir resultados.",
-    category: "Entrega",
-    icon: Rocket,
-    relatedIds: [4],
-    status: "pending" as const,
-    energy: 20,
-  },
-];
-
 interface RadialOrbitalTimelineProps {
   timelineData?: TimelineItem[];
   className?: string;
 }
 
 export default function RadialOrbitalTimeline({
-  timelineData = cazatechTimelineData,
+  timelineData: initialData,
   className,
 }: RadialOrbitalTimelineProps) {
+  const { t } = useI18n();
   const [expandedItems, setExpandedItems] = useState<Record<number, boolean>>({});
   const [rotationAngle, setRotationAngle] = useState<number>(0);
   const [autoRotate, setAutoRotate] = useState<boolean>(true);
@@ -98,6 +41,67 @@ export default function RadialOrbitalTimeline({
   const nodeRefs = useRef<Record<number, HTMLDivElement | null>>({});
   const animationRef = useRef<number | null>(null);
   const lastTimeRef = useRef<number>(0);
+
+  // Processo de entrega CazaTech (Inside component for i18n)
+  const cazatechTimelineData: TimelineItem[] = [
+    {
+      id: 1,
+      title: t("sections.process.steps.discovery"),
+      date: "Semana 1",
+      content: "Entendemos profundamente seu negócio, desafios e objetivos. Mapeamos processos atuais e identificamos oportunidades de automação.",
+      category: "Análise",
+      icon: Search,
+      relatedIds: [2],
+      status: "completed" as const,
+      energy: 100,
+    },
+    {
+      id: 2,
+      title: t("sections.process.steps.planning"),
+      date: "Semana 2",
+      content: "Definimos arquitetura técnica, roadmap de entregas e milestones. Você acompanha cada etapa do projeto em tempo real.",
+      category: "Estratégia",
+      icon: FileText,
+      relatedIds: [1, 3],
+      status: "completed" as const,
+      energy: 90,
+    },
+    {
+      id: 3,
+      title: t("sections.process.steps.development"),
+      date: "Semanas 3-6",
+      content: "Construímos sua solução com as melhores tecnologias. Código limpo, integrações robustas e fluxos inteligentes.",
+      category: "Execução",
+      icon: Code,
+      relatedIds: [2, 4],
+      status: "in-progress" as const,
+      energy: 70,
+    },
+    {
+      id: 4,
+      title: t("sections.process.steps.testing"),
+      date: "Semana 7",
+      content: "Validação rigorosa de cada funcionalidade. Testes de carga, segurança e experiência do usuário garantem qualidade.",
+      category: "Validação",
+      icon: TestTube,
+      relatedIds: [3, 5],
+      status: "pending" as const,
+      energy: 40,
+    },
+    {
+      id: 5,
+      title: t("sections.process.steps.launch"),
+      date: "Semana 8",
+      content: "Deploy em produção com monitoramento 24/7. Treinamento da equipe e suporte contínuo para garantir resultados.",
+      category: "Entrega",
+      icon: Rocket,
+      relatedIds: [4],
+      status: "pending" as const,
+      energy: 20,
+    },
+  ];
+
+  const timelineData = initialData || cazatechTimelineData;
 
   const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === containerRef.current || e.target === orbitRef.current) {
@@ -228,15 +232,15 @@ export default function RadialOrbitalTimeline({
       {/* Header */}
       <div className="container mx-auto px-6 mb-8 text-center">
         <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm mb-6">
-          <span className="text-[10px] font-light uppercase tracking-[0.08em] text-white/70">Processo</span>
+          <span className="text-[10px] font-light uppercase tracking-[0.08em] text-white/70">{t("sections.process.badge")}</span>
           <span className="h-1 w-1 rounded-full bg-white/40" />
-          <span className="text-xs font-light tracking-tight text-white/80">Como Trabalhamos</span>
+          <span className="text-xs font-light tracking-tight text-white/80">{t("sections.process.title")}</span>
         </span>
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-white mb-4">
-          Do conceito ao lançamento
+          {t("sections.process.subtitle")}
         </h2>
         <p className="text-lg font-light tracking-tight text-white/60 max-w-2xl mx-auto">
-          Um processo estruturado e transparente para entregar resultados excepcionais.
+          {t("sections.process.description")}
         </p>
       </div>
 
@@ -418,7 +422,7 @@ export default function RadialOrbitalTimeline({
       {/* Instructions */}
       <div className="text-center mt-8">
         <p className="text-sm font-light text-white/40">
-          Clique nas etapas para explorar cada fase do processo
+          {t("sections.process.cta")}
         </p>
       </div>
     </section>
@@ -426,3 +430,5 @@ export default function RadialOrbitalTimeline({
 }
 
 export { RadialOrbitalTimeline };
+
+

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(rename:*)",
+      "Bash(move \"D:\\\\1-CazaTech\\\\Projetos\\\\cazatech-new\\\\caza-tech.com\\\\cazatech-new\\\\public\\\\videos\\\\demonstração.mp4\" \"D:\\\\1-CazaTech\\\\Projetos\\\\cazatech-new\\\\caza-tech.com\\\\cazatech-new\\\\public\\\\videos\\\\demonstracao.mp4\")",
+      "Bash(cmd /c \"move \"\"D:\\\\1-CazaTech\\\\Projetos\\\\cazatech-new\\\\caza-tech.com\\\\cazatech-new\\\\public\\\\videos\\\\demonstração.mp4\"\" \"\"D:\\\\1-CazaTech\\\\Projetos\\\\cazatech-new\\\\caza-tech.com\\\\cazatech-new\\\\public\\\\videos\\\\demonstracao.mp4\"\"\")",
+      "Bash(powershell -Command:*)",
+      "Bash(npm run build:*)"
+    ]
+  }
+}

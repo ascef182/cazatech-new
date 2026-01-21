@@ -1,6 +1,8 @@
 "use client";
 
+import { useI18n } from "@/app/ClientBody";
 import Link from "next/link";
+import ScopedLink from "@/components/ui/ScopedLink";
 import { motion } from "framer-motion";
 import {
   FiHome,
@@ -19,6 +21,7 @@ import {
 import { FaWhatsapp, FaTiktok } from "react-icons/fa";
 
 export default function Footer() {
+  const { t } = useI18n();
   const currentYear = new Date().getFullYear();
   const socialLinks = [
     {
@@ -43,33 +46,42 @@ export default function Footer() {
     },
   ];
 
+  /* 
+    Updating keys to match new JSON structure:
+    "sections": {
+      "navigation": { "title": "...", "home": "...", "automation": "...", "websites": "...", "blog": "...", "contact": "..." },
+      "legal": { "title": "...", "privacy": "...", "terms": "...", "faq": "..." },
+      "contact": { "title": "...", ... }
+    }
+  */
+
   const footerLinks = [
-    { icon: <FiHome className="mr-2" />, href: "/", text: "Home" },
+    { icon: <FiHome className="mr-2" />, href: "/", text: t("footer.sections.navigation.home") },
     {
       icon: <FiZap className="mr-2" />,
       href: "/automacoes",
-      text: "Automação",
+      text: t("footer.sections.navigation.automation"),
     },
-    { icon: <FiGlobe className="mr-2" />, href: "/works", text: "Sites" },
-    { icon: <FiBook className="mr-2" />, href: "/blog", text: "Blog" },
-    { icon: <FiMail className="mr-2" />, href: "/contact", text: "Contato" },
+    { icon: <FiGlobe className="mr-2" />, href: "/works", text: t("footer.sections.navigation.websites") },
+    { icon: <FiBook className="mr-2" />, href: "/blog", text: t("footer.sections.navigation.blog") },
+    { icon: <FiMail className="mr-2" />, href: "/contact", text: t("footer.sections.navigation.contact") },
   ];
 
   const legalLinks = [
     {
       icon: <FiShield className="mr-2" />,
       href: "/informacoes-legais/politica-de-privacidade",
-      text: "Política de Privacidade",
+      text: t("footer.sections.legal.privacy"),
     },
     {
       icon: <FiFileText className="mr-2" />,
       href: "/informacoes-legais/termos-de-uso",
-      text: "Termos de Uso",
+      text: t("footer.sections.legal.terms"),
     },
     {
       icon: <FiInfo className="mr-2" />,
       href: "/informacoes-legais/faq",
-      text: "FAQ/Perguntas Frequentes",
+      text: t("footer.sections.legal.faq"),
     },
   ];
 
@@ -105,14 +117,13 @@ export default function Footer() {
           <div>
             <h3 className="text-white text-lg font-semibold mb-4">CazaTech</h3>
             <p className="text-sm mb-4">
-              Soluções digitais para impulsionar negócios com sites, automação e
-              marketing.
+              {t("footer.tagline")}
             </p>
           </div>
 
           {/* Seção: Links */}
           <div>
-            <h3 className="text-white text-lg font-semibold mb-4">Navegação</h3>
+            <h3 className="text-white text-lg font-semibold mb-4">{t("footer.sections.navigation.title")}</h3>
             <ul className="space-y-3">
               {footerLinks.map((link, index) => (
                 <motion.li
@@ -120,12 +131,12 @@ export default function Footer() {
                   whileHover={{ x: 5 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <Link
+                  <ScopedLink
                     href={link.href}
                     className="hover:text-white transition-colors text-sm flex items-center"
                   >
                     {link.icon} {link.text}
-                  </Link>
+                  </ScopedLink>
                 </motion.li>
               ))}
             </ul>
@@ -134,7 +145,7 @@ export default function Footer() {
           {/* Seção: Informações Legais */}
           <div>
             <h3 className="text-white text-lg font-semibold mb-4">
-              Informações Legais
+              {t("footer.sections.legal.title")}
             </h3>
             <ul className="space-y-3">
               {legalLinks.map((link, index) => (
@@ -143,12 +154,12 @@ export default function Footer() {
                   whileHover={{ x: 5 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <Link
+                  <ScopedLink
                     href={link.href}
                     className="hover:text-white transition-colors text-sm flex items-center"
                   >
                     {link.icon} {link.text}
-                  </Link>
+                  </ScopedLink>
                 </motion.li>
               ))}
             </ul>
@@ -156,7 +167,7 @@ export default function Footer() {
 
           {/* Seção: Contato */}
           <div>
-            <h3 className="text-white text-lg font-semibold mb-4">Contato</h3>
+            <h3 className="text-white text-lg font-semibold mb-4">{t("footer.sections.contact.title")}</h3>
             <ul className="space-y-3">
               {contactInfo.map((info, index) => (
                 <motion.li
@@ -216,23 +227,23 @@ export default function Footer() {
           className="border-t border-gray-700 pt-6 text-center text-sm"
         >
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p>© {currentYear} CazaTech. Todos os direitos reservados.</p>
+            <p>© {currentYear} CazaTech. {t("footer.rights")}</p>
             <div className="mt-4 md:mt-0 flex flex-wrap justify-center gap-4">
-              <Link
+              <ScopedLink
                 href="/informacoes-legais/politica-de-privacidade"
                 className="hover:text-white"
               >
-                Política de Privacidade
-              </Link>
-              <Link
+                {t("footer.sections.legal.privacy")}
+              </ScopedLink>
+              <ScopedLink
                 href="/informacoes-legais/termos-de-uso"
                 className="hover:text-white"
               >
-                Termos de Uso
-              </Link>
-              <Link href="/informacoes-legais/faq" className="hover:text-white">
-                FAQ
-              </Link>
+                {t("footer.sections.legal.terms")}
+              </ScopedLink>
+              <ScopedLink href="/informacoes-legais/faq" className="hover:text-white">
+                {t("footer.sections.legal.faq")}
+              </ScopedLink>
             </div>
           </div>
         </motion.div>

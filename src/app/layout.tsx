@@ -6,6 +6,7 @@ import ClientBody from "./ClientBody";
 import { OrganizationSchema, WebsiteSchema } from "@/components/seo/JsonLd";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 
+
 const baseMetadata: Metadata = {
   title: {
     default: "CazaTech | Automação WhatsApp que Vende 3x Mais",
@@ -137,12 +138,12 @@ export default function RootLayout({
           crossOrigin=""
         />
       </head>
-      <ClientBody>
-        {GA_ID && <GoogleAnalytics measurementId={GA_ID} />}
-        <OrganizationSchema />
-        <WebsiteSchema />
-        {children}
-      </ClientBody>
+        <ClientBody>
+          {GA_ID && <GoogleAnalytics measurementId={GA_ID} />}
+          <OrganizationSchema />
+          <WebsiteSchema />
+          {children}
+        </ClientBody>
     </html>
   );
 }

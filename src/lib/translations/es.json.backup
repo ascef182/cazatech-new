@@ -1,0 +1,162 @@
+{
+  "nav": {
+    "services": {
+      "title": "Servicios",
+      "works": "Portafolio",
+      "consulting": "Consultoría",
+      "automation": "Automatización",
+      "saas": "SaaS"
+    },
+    "company": {
+      "title": "Empresa",
+      "blog": "Blog",
+      "blogDescription": "Consejos e información sobre automatización y marketing",
+      "terms": "Términos de Uso",
+      "termsDescription": "Nuestros términos y condiciones de uso",
+      "privacy": "Política de Privacidad",
+      "privacyDescription": "Cómo protegemos tu información",
+      "refund": "Política de Reembolso",
+      "refundDescription": "Detalles sobre reembolsos y cancelaciones",
+      "partnerships": "Asociaciones",
+      "partnershipsDescription": "Colabora con nosotros para crecimiento mutuo",
+      "help": "Centro de Ayuda",
+      "helpDescription": "Encuentra respuestas a tus preguntas"
+    },
+    "contact": "Contacto",
+    "language": "Español"
+  },
+  "hero": {
+    "badgeLabel": "Nuevo",
+    "badgeText": "Web & Mobile · Automatización Inteligente",
+    "title": "Soluciones que entienden el flujo de tu cliente",
+    "description": "Creamos automatizaciones, sitios y estrategias pensando en cada etapa del viaje. Desde el primer mensaje hasta el cierre.",
+    "cta": {
+      "solutions": "Ver Soluciones",
+      "contact": "Hablar con Consultor"
+    },
+    "features": [
+      "Soporte 24/7",
+      "Integraciones Nativas",
+      "ROI Medible"
+    ],
+    "micro": {
+        "0": "Soporte 24/7",
+        "1": "Integraciones Nativas",
+        "2": "ROI Medible"
+    }
+  },
+  "sections": {
+    "intro": {
+      "title": "Conectamos tu empresa con desarrolladores",
+      "description": "Transformamos tu visión en producto digital. Automatización, SaaS, sitios web e integraciones complejas.",
+      "cards": {
+        "whatsapp": "Automatización WhatsApp",
+        "saas": "SaaS y Apps",
+        "websites": "Sitios Web & SEO",
+        "integrations": "Integraciones n8n"
+      }
+    },
+    "process": {
+      "badge": "Proceso",
+      "title": "Cómo Trabajamos",
+      "subtitle": "Del concepto al lanzamiento",
+      "description": "Un proceso estructurado y transparente para entregar resultados excepcionales.",
+      "steps": {
+        "discovery": "Descubrimiento",
+        "planning": "Planificación",
+        "development": "Desarrollo",
+        "testing": "Pruebas & QA",
+        "launch": "Lanzamiento"
+      },
+      "cta": "Haz clic en los pasos para explorar cada fase del proceso"
+    },
+    "products": {
+      "badge": "Soluciones",
+      "title": "Ecosistema CazaTech",
+      "subtitle": "Soluciones destacadas",
+      "description": "Tecnología de punta para escalar tu negocio, desde atención al cliente hasta marketing.",
+      "items": {
+        "websites": {
+          "title": "Sitios Web de Alta Conversión",
+          "description": "Sitios institucionales y landing pages que convierten visitantes en clientes."
+        },
+        "apps": {
+          "title": "Apps Personalizadas",
+          "description": "Aplicaciones móviles y web que resuelven problemas reales de tu negocio."
+        },
+        "automation": {
+          "title": "Automatización de Atención",
+          "description": "Chatbots inteligentes en WhatsApp con IA para atención 24/7."
+        },
+        "saas": {
+          "title": "SaaS a Medida",
+          "description": "Plataformas completas y escalables para tu modelo de negocio."
+        },
+        "seo": {
+          "title": "SEO y Rendimiento",
+          "description": "Optimización técnica para posicionar en Google y convertir más."
+        }
+      }
+    },
+    "cta": {
+      "title": "¿Listo para comenzar?",
+      "description": "Transforma tu idea en realidad con tecnología de punta.",
+      "buttons": {
+        "start": "Comenzar Ahora",
+        "whatsapp": "Hablar por WhatsApp"
+      }
+    },
+    "projects": {
+      "title": "Conectamos tu empresa con desarrolladores",
+      "description": "Transformamos tu visión en producto digital. Automatización, SaaS, sitios web e integraciones complejas.",
+      "cards": {
+        "whatsapp": "Automatización WhatsApp",
+        "saas": "SaaS y Apps",
+        "websites": "Sitios Web & SEO",
+        "integrations": "Integraciones n8n"
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Soluciones digitales para impulsar negocios con sitios, automatización y marketing.",
+    "links": {
+      "home": "Inicio",
+      "automation": "Automatización",
+      "sites": "Sitios",
+      "blog": "Blog",
+      "contact": "Contacto",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Uso",
+      "faq": "FAQ"
+    },
+    "company": {
+        "desc": "Soluciones digitales para impulsar negocios con sitios, automatización y marketing."
+    },
+    "nav": { "title": "Navegación" },
+    "contact": { "title": "Contacto" },
+    "legal": { "title": "Información Legal" },
+    "sections": {
+      "navigation": {
+        "title": "Navegación",
+        "home": "Inicio",
+        "automation": "Automatización",
+        "websites": "Sitios",
+        "blog": "Blog",
+        "contact": "Contacto"
+      },
+      "legal": {
+        "title": "Información Legal",
+        "privacy": "Política de Privacidad",
+        "terms": "Términos de Uso",
+        "faq": "FAQ"
+      },
+      "contact": {
+        "title": "Contacto",
+        "phone": "+55 35 99802-6821",
+        "email": "support@caza-tech.com",
+        "location": "São Paulo, Brasil"
+      }
+    },
+    "rights": "© 2024 CazaTech. Todos los derechos reservados."
+  }
+}

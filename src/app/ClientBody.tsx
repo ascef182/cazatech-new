@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useMemo, useState, useContext, useEffect } from "react";
+import { createContext, useMemo, useState, useContext, useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
 import { Toaster } from "sonner";
 import NewNavbar from "@/components/NewNavbar";
@@ -16,6 +16,25 @@ type I18nContextType = {
 
 const I18nContext = createContext<I18nContextType | null>(null);
 
+/**
+ * Resolves a nested key path like "nav.services.title" from an object
+ * Returns the value if found, or the key itself as fallback
+ */
+function getNestedValue(obj: Record<string, unknown>, path: string): string {
+  const keys = path.split(".");
+  let current: unknown = obj;
+
+  for (const key of keys) {
+    if (current === null || current === undefined || typeof current !== "object") {
+      return path; // Key not found, return original path as fallback
+    }
+    current = (current as Record<string, unknown>)[key];
+  }
+
+  // Return value if it's a string, otherwise return the key
+  return typeof current === "string" ? current : path;
+}
+
 export function useI18n() {
   const ctx = useContext(I18nContext);
   if (!ctx) throw new Error("useI18n must be used within I18nContext provider");
@@ -28,19 +47,35 @@ export default function ClientBody({
   children: React.ReactNode;
 }) {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
   const pathname = usePathname();
-  
-  const derivedLangFromPath = pathname?.startsWith("/en")
-    ? "en"
-    : pathname?.startsWith("/es")
-    ? "es"
-    : "pt";
 
-  const [lang, setLang] = useState<SupportedLang>(derivedLangFromPath);
-  const t = useMemo(
-    () => (key: string) => translations[lang]?.[key] ?? key,
+  // Derive language from pathname - memoized for stability
+  const derivedLangFromPath = useMemo<SupportedLang>(() => {
+    if (!pathname) return "pt"; // Stable SSR default
+    if (pathname.startsWith("/en")) return "en";
+    if (pathname.startsWith("/es")) return "es";
+    return "pt";
+  }, [pathname]);
+
+  // Initialize with stable default to avoid hydration mismatch
+  const [lang, setLang] = useState<SupportedLang>("pt");
+
+  // Translation function that supports nested keys like "nav.services.title"
+  const t = useCallback(
+    (key: string): string => {
+      const langData = translations[lang];
+      if (!langData) return key;
+      return getNestedValue(langData as Record<string, unknown>, key);
+    },
     [lang]
   );
+
+  // Mark as hydrated and sync language only after client mount
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
+
   // Remove any extension-added classes during hydration
   useEffect(() => {
     // This runs only on the client after hydration
@@ -54,10 +89,12 @@ export default function ClientBody({
     return () => window.removeEventListener("load", onLoad);
   }, []);
 
-  // Sync language with pathname prefix
+  // Sync language with pathname prefix ONLY after hydration
   useEffect(() => {
-    setLang(derivedLangFromPath);
-  }, [derivedLangFromPath]);
+    if (isHydrated) {
+      setLang(derivedLangFromPath);
+    }
+  }, [isHydrated, derivedLangFromPath]);
 
   return (
     <I18nContext.Provider value={{ lang, setLang, t }}>

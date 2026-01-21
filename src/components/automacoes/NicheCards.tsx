@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { Stethoscope, Building2, Scale, ShoppingBag, Briefcase, Users } from "lucide-react";
 import { cn } from "@/lib/utils";

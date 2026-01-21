@@ -1,0 +1,185 @@
+{
+  "nav": {
+    "services": {
+      "title": "Serviços",
+      "works": "Portfólio",
+      "consulting": "Consultoria",
+      "automation": "Automações",
+      "saas": "SaaS"
+    },
+    "company": {
+      "title": "Empresa",
+      "blog": "Blog",
+      "blogDescription": "Dicas e insights sobre automação e marketing",
+      "terms": "Termos de Uso",
+      "termsDescription": "Nossos termos e condições de uso",
+      "privacy": "Política de Privacidade",
+      "privacyDescription": "Como protegemos suas informações",
+      "refund": "Política de Reembolso",
+      "refundDescription": "Detalhes sobre reembolsos e cancelamentos",
+      "partnerships": "Parcerias",
+      "partnershipsDescription": "Colabore conosco para crescimento mútuo",
+      "help": "Central de Ajuda",
+      "helpDescription": "Encontre respostas para suas dúvidas"
+    },
+    "contact": "Contato",
+    "language": "Português"
+  },
+  "hero": {
+    "badgeLabel": "Novo",
+    "badgeText": "Web & Mobile · Automatização Inteligente",
+    "title": "Soluções que entendem o fluxo do seu cliente",
+    "description": "Criamos automações, sites e estratégias pensando em cada etapa da jornada. Da primeira mensagem até o fechamento.",
+    "cta": {
+      "solutions": "Ver soluções",
+      "contact": "Falar com consultor"
+    },
+    "features": [
+      "Suporte 24/7",
+      "Integrações Nativas",
+      "ROI Medível"
+    ],
+    "micro": {
+        "0": "Atendimento 24/7",
+        "1": "Integrações nativas",
+        "2": "ROI mensurável"
+    }
+  },
+  "sections": {
+    "intro": {
+      "badge": "Nossos Serviços",
+      "title": "Desperte o poder do seu Negócio",
+      "description": "Transformamos ideias em soluções digitais que geram resultados reais",
+      "cards": {
+        "whatsapp": "Automação WhatsApp",
+        "saas": "Sistemas SaaS Personalizados",
+        "websites": "Sites & Landing Pages",
+        "integrations": "Integrações & APIs"
+      }
+    },
+    "process": {
+      "badge": "Processo",
+      "title": "Do conceito ao lançamento",
+      "subtitle": "Como Trabalhamos",
+      "description": "Um processo estruturado e transparente para entregar resultados excepcionais",
+      "steps": {
+        "discovery": "Descoberta",
+        "planning": "Planejamento",
+        "development": "Desenvolvimento",
+        "testing": "Testes",
+        "launch": "Lançamento"
+      },
+      "cta": "Iniciar Projeto"
+    },
+    "products": {
+      "badge": "Produtos",
+      "title": "Nossas Soluções",
+      "subtitle": "O Que Fazemos",
+      "description": "Soluções completas de tecnologia para impulsionar seu negócio",
+      "items": {
+        "websites": {
+          "title": "Sites & Landing Pages",
+          "description": "Sites profissionais, rápidos e otimizados para conversão"
+        },
+        "apps": {
+          "title": "Aplicativos Mobile",
+          "description": "Apps nativos e híbridos para iOS e Android"
+        },
+        "automation": {
+          "title": "Automações Inteligentes",
+          "description": "Automatize processos e economize tempo com IA"
+        },
+        "saas": {
+          "title": "Sistemas SaaS",
+          "description": "Plataformas escaláveis e seguras na nuvem"
+        },
+        "seo": {
+          "title": "SEO & Marketing Digital",
+          "description": "Apareça no Google e atraia mais clientes"
+        }
+      }
+    },
+    "cta": {
+      "title": "Pronto para transformar seu negócio?",
+      "description": "Vamos conversar sobre como podemos ajudar você a crescer",
+      "buttons": {
+        "start": "Começar Agora",
+        "whatsapp": "Falar no WhatsApp"
+      },
+      "form": {
+        "title": "Agende uma consulta",
+        "heading": "Vamos conversar sobre seu projeto",
+        "description": "Preencha o formulário e entraremos em contato em até 24h",
+        "button": "Enviar mensagem"
+      },
+      "whatsappMessage": "Olá! Gostaria de saber mais sobre os serviços da CazaTech."
+    },
+    "projects": {
+      "title": "Conectamos você com programadores",
+      "description": "Transformamos sua visão em produto digital. Automação, SaaS, sites e integrações complexas.",
+      "cards": {
+        "whatsapp": "Automação WhatsApp",
+        "saas": "SaaS e Apps",
+        "websites": "Sites & SEO",
+        "integrations": "Integrações n8n"
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Soluções digitais para impulsionar negócios com sites, automação e marketing.",
+    "links": {
+      "home": "Home",
+      "automation": "Automação",
+      "sites": "Sites",
+      "blog": "Blog",
+      "contact": "Contato",
+      "privacy": "Política de Privacidade",
+      "terms": "Termos de Uso",
+      "faq": "FAQ"
+    },
+    "company": {
+        "desc": "Soluções digitais para impulsionar negócios com sites, automação e marketing."
+    },
+    "nav": { "title": "Navegação" },
+    "contact": { "title": "Contato" },
+    "legal": { "title": "Informações Legais" },
+    "sections": {
+      "navigation": {
+        "title": "Navegação",
+        "home": "Início",
+        "automation": "Automação",
+        "websites": "Sites",
+        "blog": "Blog",
+        "contact": "Contato"
+      },
+      "legal": {
+        "title": "Informação Legal",
+        "privacy": "Política de Privacidade",
+        "terms": "Termos de Uso",
+        "faq": "FAQ"
+      },
+      "contact": {
+        "title": "Contato",
+        "phone": "+55 35 99802-6821",
+        "email": "support@caza-tech.com",
+        "location": "São Paulo, Brasil"
+      }
+    },
+    "rights": "© 2024 CazaTech. Todos os direitos reservados."
+  },
+  "masterLeadForm": {
+    "title": "Fale com um especialista",
+    "description": "Preencha seus dados e entraremos em contato",
+    "buttonText": "Enviar"
+  },
+  "contact2": {
+    "title": "Entre em contato",
+    "description": "Estamos prontos para ajudar você",
+    "phone": "+55 35 99802-6821",
+    "email": "support@caza-tech.com",
+    "web": {
+      "label": "caza-tech.com",
+      "url": "https://caza-tech.com"
+    }
+  }
+}

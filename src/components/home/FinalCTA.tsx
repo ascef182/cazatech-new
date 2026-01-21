@@ -1,10 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Sparkles, MessageCircle } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { ArrowRight, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick } from "@/components/analytics/GoogleAnalytics";
 import {
@@ -15,13 +14,11 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { MasterLeadForm } from "@/components/forms/MasterLeadForm";
-
-// ============================================
-// 🎨 COMPONENTE PRINCIPAL
-// ============================================
+import { useI18n } from "@/app/ClientBody";
 
 export function FinalCTA() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const { t } = useI18n();
 
   return (
     <section className="relative py-20 md:py-24 bg-neutral-950">
@@ -35,7 +32,7 @@ export function FinalCTA() {
             transition={{ duration: 0.5 }}
             className="text-3xl md:text-4xl font-bold text-white mb-4"
           >
-            Pronto para começar?
+            {t("sections.cta.title")}
           </motion.h2>
 
           {/* Description */}
@@ -46,7 +43,7 @@ export function FinalCTA() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-base text-neutral-400 max-w-xl mx-auto mb-8"
           >
-            Transforme sua ideia em realidade com tecnologia de ponta.
+            {t("sections.cta.description")}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -64,22 +61,22 @@ export function FinalCTA() {
                   size="lg"
                   className="bg-white text-black hover:bg-white/90 px-8"
                 >
-                  Começar Agora
+                  {t("sections.cta.buttons.start")}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-md bg-neutral-900 border-neutral-800">
                 <DialogHeader>
                   <DialogTitle className="sr-only">
-                    Formulário de Contato
+                    {t("sections.cta.form.title")}
                   </DialogTitle>
                 </DialogHeader>
                 <MasterLeadForm
                   variant="minimal"
                   source="home-final-cta"
-                  title="Vamos conversar?"
-                  description="Preencha o formulário e entraremos em contato em até 24 horas."
-                  buttonText="Enviar Mensagem"
+                  title={t("sections.cta.form.heading")}
+                  description={t("sections.cta.form.description")}
+                  buttonText={t("sections.cta.form.button")}
                   onSuccess={() => setIsDialogOpen(false)}
                 />
               </DialogContent>
@@ -93,17 +90,18 @@ export function FinalCTA() {
               className="bg-black text-white border-black hover:bg-neutral-900 px-8"
             >
               <Link
-                href="https://wa.me/5535998026821?text=Olá! Vi o site e quero conversar sobre um projeto."
+                href={`https://wa.me/5535998026821?text=${encodeURIComponent(t("sections.cta.whatsappMessage"))}`}
                 target="_blank"
+                rel="noopener noreferrer"
                 onClick={() =>
                   trackWhatsAppClick(
                     "home-final-cta",
-                    "Vi o site e quero conversar sobre um projeto"
+                    t("sections.cta.whatsappMessage")
                   )
                 }
               >
                 <MessageCircle className="w-4 h-4 mr-2" />
-                Falar no WhatsApp
+                {t("sections.cta.buttons.whatsapp")}
               </Link>
             </Button>
           </motion.div>
@@ -114,7 +112,3 @@ export function FinalCTA() {
 }
 
 export default FinalCTA;
-
-
-
-

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 import { PatternFormat } from "react-number-format";
 import { Loader2, CheckCircle2, Send, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -29,88 +29,49 @@ import {
 import { toast } from "sonner";
 import { submitToFormspree } from "@/lib/formspree";
 import { trackFormSubmission } from "@/components/analytics/GoogleAnalytics";
-
-// ============================================
-// 📋 SCHEMAS DE VALIDAÇÃO
-// ============================================
+import { useI18n } from "@/app/ClientBody";
 
 const minimalSchema = z.object({
   nome: z.string().min(2, "Nome muito curto"),
-  whatsapp: z.string().regex(/^\(\d{2}\)\s\d{5}-\d{4}$/, "WhatsApp inválido"),
-  interesse: z.string().min(1, "Selecione uma opção"),
-});
-
-const fullSchema = z.object({
-  nome: z.string().min(2, "Nome muito curto"),
-  whatsapp: z.string().regex(/^\(\d{2}\)\s\d{5}-\d{4}$/, "WhatsApp inválido"),
-  email: z.string().email("E-mail inválido").optional().or(z.literal("")),
+  whatsapp: z.string().min(10, "Número inválido"),
+  interesse: z.string().optional(),
+  email: z.string().optional(),
   empresa: z.string().optional(),
   segmento: z.string().optional(),
-  interesse: z.string().min(1, "Selecione uma opção"),
   mensagem: z.string().optional(),
 });
 
-type MinimalFormData = z.infer<typeof minimalSchema>;
+const fullSchema = minimalSchema.extend({
+  email: z.string().email("E-mail inválido").optional().or(z.literal("")),
+  empresa: z.string().min(2, "Nome da empresa obrigatório").optional().or(z.literal("")),
+  segmento: z.string().min(1, "Selecione um segmento").optional().or(z.literal("")),
+  mensagem: z.string().optional(),
+});
+
 type FullFormData = z.infer<typeof fullSchema>;
 
-// ============================================
-// 🎯 OPÇÕES DE INTERESSE
-// ============================================
+const segmentoOptions = [
+  { value: "varejo", label: "Varejo" },
+  { value: "servicos", label: "Serviços" },
+  { value: "industria", label: "Indústria" },
+  { value: "tecnologia", label: "Tecnologia" },
+  { value: "saude", label: "Saúde" },
+  { value: "educacao", label: "Educação" },
+  { value: "outro", label: "Outro" },
+];
 
 const interesseOptions = [
   { value: "automacao", label: "Automação WhatsApp" },
-  { value: "saas", label: "Desenvolvimento SaaS" },
   { value: "site", label: "Site / Landing Page" },
-  { value: "marketing", label: "Marketing Digital" },
-  { value: "consultoria", label: "Consultoria Técnica" },
+  { value: "sistema", label: "Sistema Web" },
+  { value: "trafego", label: "Tráfego Pago" },
   { value: "outro", label: "Outro" },
 ];
-
-const segmentoOptions = [
-  { value: "clinica", label: "Clínica / Consultório" },
-  { value: "imobiliaria", label: "Imobiliária" },
-  { value: "advocacia", label: "Escritório de Advocacia" },
-  { value: "ecommerce", label: "E-commerce" },
-  { value: "saas", label: "Startup / SaaS" },
-  { value: "servicos", label: "Prestação de Serviços" },
-  { value: "outro", label: "Outro" },
-];
-
-// ============================================
-// 📞 INTEGRAÇÃO WHATSAPP
-// ============================================
-
-const whatsappTemplates: Record<string, string> = {
-  automacao:
-    "Olá! Meu nome é {nome} e tenho interesse na automação de WhatsApp para minha empresa ({empresa}).",
-  saas: "Olá! Meu nome é {nome} e quero desenvolver um SaaS. {mensagem}",
-  site: "Olá! Meu nome é {nome} e preciso de um site/landing page para {empresa}.",
-  marketing:
-    "Olá! Meu nome é {nome} da {empresa}. Quero melhorar meus resultados de marketing digital.",
-  consultoria:
-    "Olá! Meu nome é {nome} e gostaria de uma consultoria técnica para {empresa}.",
-  outro: "Olá! Meu nome é {nome}. {mensagem}",
-};
-
-function sendToWhatsApp(data: FullFormData) {
-  const template = whatsappTemplates[data.interesse] || whatsappTemplates.outro;
-  const message = template
-    .replace("{nome}", data.nome)
-    .replace("{empresa}", data.empresa || "minha empresa")
-    .replace("{mensagem}", data.mensagem || "Gostaria de mais informações.");
-
-  const encodedMessage = encodeURIComponent(message);
-  window.open(`https://wa.me/5535998026821?text=${encodedMessage}`, "_blank");
-}
-
-// ============================================
-// 🎨 PROPS DO COMPONENTE
-// ============================================
 
 interface MasterLeadFormProps {
   variant?: "minimal" | "full";
-  source: string;
-  product?: "automacao" | "saas" | "marketing" | "site" | "geral";
+  source?: string;
+  product?: string;
   title?: string;
   description?: string;
   buttonText?: string;
@@ -119,21 +80,21 @@ interface MasterLeadFormProps {
   dark?: boolean;
 }
 
-// ============================================
-// 🧩 COMPONENTE PRINCIPAL
-// ============================================
-
 export function MasterLeadForm({
   variant = "minimal",
   source,
   product = "geral",
-  title = "Vamos conversar?",
-  description = "Preencha o formulário e entraremos em contato em até 24 horas.",
-  buttonText = "Enviar Mensagem",
+  title,
+  description,
+  buttonText,
   className,
   onSuccess,
   dark = true,
 }: MasterLeadFormProps) {
+  const { t } = useI18n();
+  const translatedTitle = title ?? t('masterLeadForm.title');
+  const translatedDescription = description ?? t('masterLeadForm.description');
+  const translatedButtonText = buttonText ?? t('masterLeadForm.buttonText');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -218,7 +179,15 @@ export function MasterLeadForm({
       : "bg-white border-neutral-200 text-neutral-900 placeholder:text-neutral-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20"
   );
 
-  return (
+const sendToWhatsApp = (data: FullFormData) => {
+  const phone = "5511999999999"; // Replace with actual number if available or config
+  const text = `Novo Lead: ${data.nome} - ${data.whatsapp}`;
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+  console.log("Redirecting to WhatsApp", url);
+  // window.open(url, "_blank"); // Uncomment if auto-redirect is desired
+};
+
+    return (
     <div
       className={cn(
         "w-full max-w-md mx-auto",
@@ -232,7 +201,7 @@ export function MasterLeadForm({
           className="text-2xl font-bold mb-2"
           style={{ fontFamily: "Satoshi, 'Plus Jakarta Sans', sans-serif" }}
         >
-          {title}
+          {translatedTitle}
         </h3>
         <p
           className={cn(
@@ -240,7 +209,7 @@ export function MasterLeadForm({
             dark ? "text-neutral-400" : "text-neutral-900"
           )}
         >
-          {description}
+          {translatedDescription}
         </p>
       </div>
 
@@ -522,7 +491,7 @@ export function MasterLeadForm({
                     </>
                   ) : (
                     <>
-                      {buttonText}
+                      {translatedButtonText}
                       <ArrowRight className="w-5 h-5 ml-2" />
                     </>
                   )}

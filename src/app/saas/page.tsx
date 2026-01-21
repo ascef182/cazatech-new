@@ -6,7 +6,7 @@ import { saasContent } from "@/content/saas";
 import { FAQSchema } from "@/components/seo/JsonLd";
 import Image from "next/image";
 import { Contact2 } from "@/components/ui/contact-2";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Calendar, Scissors, TrendingUp, Sparkles } from "lucide-react";
 
 export default function SaasPage() {
