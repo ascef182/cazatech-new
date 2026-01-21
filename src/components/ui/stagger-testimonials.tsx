@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { testimonials, type Testimonial } from "@/content/testimonials";
+import { useI18n } from "@/app/ClientBody";
 import {
   Dialog,
   DialogContent,
@@ -23,6 +24,7 @@ interface TestimonialCardProps {
   handleMove: (steps: number) => void;
   cardSize: number;
   onCardClick: (testimonial: TestimonialWithId) => void;
+  t: (key: string) => string;
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({
@@ -31,13 +33,19 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   handleMove,
   cardSize,
   onCardClick,
+  t,
 }) => {
   const isCenter = position === 0;
-  
+
   const truncateText = (text: string, maxLength: number) => {
     if (text.length <= maxLength) return text;
     return text.substring(0, maxLength) + "...";
   };
+
+  const name = t(`testimonials.${testimonial.id}.name`);
+  const role = t(`testimonials.${testimonial.id}.role`);
+  const company = t(`testimonials.${testimonial.id}.company`);
+  const quote = t(`testimonials.${testimonial.id}.quote`);
 
   return (
     <div
@@ -80,7 +88,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       />
       <img
         src={testimonial.image}
-        alt={testimonial.name}
+        alt={name}
         className="mb-4 h-14 w-12 bg-muted object-cover object-top"
         style={{
           boxShadow: "3px 3px 0px hsl(var(--background))",
@@ -92,7 +100,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           isCenter ? "text-primary-foreground" : "text-foreground"
         )}
       >
-        "{truncateText(testimonial.quote, 100)}"
+        "{truncateText(quote, 100)}"
       </h3>
       <p
         className={cn(
@@ -100,13 +108,14 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           isCenter ? "text-primary-foreground/80" : "text-muted-foreground"
         )}
       >
-        - {testimonial.name}, {testimonial.role} · {testimonial.company}
+        - {name}, {role} · {company}
       </p>
     </div>
   );
 };
 
 export default function StaggerTestimonials() {
+  const { t } = useI18n();
   const [cardSize, setCardSize] = useState(365);
   const [testimonialsList, setTestimonialsList] = useState<
     TestimonialWithId[]
@@ -116,7 +125,7 @@ export default function StaggerTestimonials() {
   // Initialize testimonials with tempId
   useEffect(() => {
     setTestimonialsList(
-      testimonials.map((t, i) => ({ ...t, tempId: i }))
+      testimonials.map((item, i) => ({ ...item, tempId: i }))
     );
   }, []);
 
@@ -158,7 +167,7 @@ export default function StaggerTestimonials() {
         style={{ height: 600 }}
       >
         <div className="flex items-center justify-center h-full">
-          <p className="text-muted-foreground">Carregando depoimentos...</p>
+          <p className="text-muted-foreground">{t("testimonials.loading")}</p>
         </div>
       </div>
     );
@@ -183,6 +192,7 @@ export default function StaggerTestimonials() {
             position={position}
             cardSize={cardSize}
             onCardClick={setSelectedTestimonial}
+            t={t}
           />
         );
       })}
@@ -219,21 +229,23 @@ export default function StaggerTestimonials() {
             <DialogTitle className="text-white text-2xl flex items-center gap-3">
               <img
                 src={selectedTestimonial?.image}
-                alt={selectedTestimonial?.name}
+                alt={selectedTestimonial ? t(`testimonials.${selectedTestimonial.id}.name`) : ""}
                 className="h-16 w-14 bg-muted object-cover object-top"
               />
               <div>
-                <div className="font-bold">{selectedTestimonial?.name}</div>
+                <div className="font-bold">
+                  {selectedTestimonial ? t(`testimonials.${selectedTestimonial.id}.name`) : ""}
+                </div>
                 <div className="text-sm text-white/60 font-normal">
-                  {selectedTestimonial?.role} · {selectedTestimonial?.company}
+                  {selectedTestimonial ? t(`testimonials.${selectedTestimonial.id}.role`) : ""} · {selectedTestimonial ? t(`testimonials.${selectedTestimonial.id}.company`) : ""}
                 </div>
               </div>
             </DialogTitle>
           </DialogHeader>
-          
+
           <div className="mt-4">
             <p className="text-white/80 text-base leading-relaxed italic">
-              "{selectedTestimonial?.quote}"
+              "{selectedTestimonial ? t(`testimonials.${selectedTestimonial.id}.quote`) : ""}"
             </p>
           </div>
         </DialogContent>

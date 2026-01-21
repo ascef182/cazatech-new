@@ -3,9 +3,17 @@
     "services": {
       "title": "Serviços",
       "works": "Portfólio",
+      "works_desc": "Conheça nossos projetos e cases de sucesso",
       "consulting": "Consultoria",
+      "consulting_desc": "Consultoria estratégica para seu negócio digital",
       "automation": "Automações",
-      "saas": "SaaS"
+      "automation_desc": "Automatize processos e aumente sua produtividade",
+      "saas": "SaaS",
+      "saas_desc": "Soluções de software sob medida para sua empresa",
+      "performance": "Performance",
+      "performance_desc": "Análise e otimização de performance digital",
+      "integration": "Integrações",
+      "integration_desc": "Integre seus sistemas e ferramentas"
     },
     "company": {
       "title": "Empresa",
@@ -180,6 +188,55 @@
     "web": {
       "label": "caza-tech.com",
       "url": "https://caza-tech.com"
+    }
+  },
+  "scrollSection": {
+    "title": {
+      "line1": "Desperte o poder do seu",
+      "line2": "Negócio"
+    },
+    "imageAlt": "Demonstração da plataforma CazaTech"
+  },
+  "testimonials": {
+    "loading": "Carregando depoimentos...",
+    "sectionTitle": "Resultados Reais",
+    "sectionDescription": "Veja como empresas estão crescendo com nossas soluções, resultados comprovados, crescimento sustentável.",
+    "at": "na",
+    "carlos": {
+      "name": "Carlos Mendes",
+      "role": "CEO",
+      "company": "Men Wear Store",
+      "quote": "Eu estava cansado de perder vendas por demorar a responder no WhatsApp. A CazaTech montou uma automação que responde em segundos, qualifica o cliente e já agenda a reunião. No primeiro mês, fechamos 40% mais contratos. Não é mágica — é processo bem feito."
+    },
+    "ana": {
+      "name": "Ana Paula Silva",
+      "role": "Diretora Comercial",
+      "company": "Beleza & Estilo",
+      "quote": "Nosso site antigo era bonito, mas não vendia. Eles refizeram tudo pensando em conversão: copy, estrutura, velocidade. Hoje, o site trabalha 24h por dia gerando leads qualificados. O ROI se pagou em 3 semanas."
+    },
+    "roberto": {
+      "name": "Roberto Santos",
+      "role": "Gerente de Vendas",
+      "company": "AutoPeças Brasil",
+      "quote": "Antes eu perdia horas respondendo as mesmas perguntas no WhatsApp. Agora o bot responde, filtra curiosos e só me passa quem está pronto pra comprar. Minha equipe foca no que importa: fechar negócio."
+    },
+    "jennifer": {
+      "name": "Jéssica Martins",
+      "role": "Gerente de Operações",
+      "company": "TechFlow Solutions",
+      "quote": "Tínhamos planilhas, sistemas separados, uma bagunça. A CazaTech integrou tudo: CRM, WhatsApp, email, financeiro. Hoje temos visão completa do cliente em um lugar só. A equipe parou de perder tempo procurando informação."
+    },
+    "mariana": {
+      "name": "Mariana Costa",
+      "role": "Coordenadora de Marketing",
+      "company": "Imóveis Prime",
+      "quote": "O blog nunca deu resultado até eles entrarem. Reescreveram o conteúdo pensando em SEO e jornada do cliente. Em 4 meses, estávamos na primeira página do Google. Agora recebemos leads orgânicos todo dia."
+    },
+    "fernando": {
+      "name": "Fernando Oliveira",
+      "role": "Proprietário",
+      "company": "Restaurante Sabor & Arte",
+      "quote": "Eu achava que automação era coisa de empresa grande. Eles montaram um sistema simples: cliente faz reserva pelo WhatsApp, recebe confirmação automática, e no dia anterior recebe lembrete. Zero no-show. Investimento que se paga sozinho."
     }
   }
 }

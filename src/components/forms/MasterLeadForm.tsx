@@ -35,17 +35,25 @@ const minimalSchema = z.object({
   nome: z.string().min(2, "Nome muito curto"),
   whatsapp: z.string().min(10, "Número inválido"),
   interesse: z.string().optional(),
-  email: z.string().optional(),
+  email: z.string().email("E-mail inválido"),
   empresa: z.string().optional(),
   segmento: z.string().optional(),
-  mensagem: z.string().optional(),
+  mensagem: z.string().min(5, "Mensagem obrigatória"),
 });
 
 const fullSchema = minimalSchema.extend({
-  email: z.string().email("E-mail inválido").optional().or(z.literal("")),
-  empresa: z.string().min(2, "Nome da empresa obrigatório").optional().or(z.literal("")),
-  segmento: z.string().min(1, "Selecione um segmento").optional().or(z.literal("")),
-  mensagem: z.string().optional(),
+  email: z.string().email("E-mail inválido"),
+  empresa: z
+    .string()
+    .min(2, "Nome da empresa obrigatório")
+    .optional()
+    .or(z.literal("")),
+  segmento: z
+    .string()
+    .min(1, "Selecione um segmento")
+    .optional()
+    .or(z.literal("")),
+  mensagem: z.string().min(5, "Mensagem obrigatória"),
 });
 
 type FullFormData = z.infer<typeof fullSchema>;
@@ -277,6 +285,32 @@ const sendToWhatsApp = (data: FullFormData) => {
                   )}
                 />
 
+                {/* E-mail (agora em ambos os variantes) */}
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel
+                        className={
+                          dark ? "text-neutral-300" : "text-neutral-700"
+                        }
+                      >
+                        E-mail *
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          type="email"
+                          placeholder="seu@email.com"
+                          className={inputClass}
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
                 {/* WhatsApp */}
                 <FormField
                   control={form.control}
@@ -311,32 +345,6 @@ const sendToWhatsApp = (data: FullFormData) => {
                 {/* Campos adicionais para variant "full" */}
                 {variant === "full" && (
                   <>
-                    {/* E-mail */}
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel
-                            className={
-                              dark ? "text-neutral-300" : "text-neutral-700"
-                            }
-                          >
-                            E-mail
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              type="email"
-                              placeholder="seu@email.com"
-                              className={inputClass}
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
                     {/* Empresa */}
                     <FormField
                       control={form.control}
@@ -442,35 +450,33 @@ const sendToWhatsApp = (data: FullFormData) => {
                   />
                 )}
 
-                {/* Mensagem (apenas para variant full) */}
-                {variant === "full" && (
-                  <FormField
-                    control={form.control}
-                    name="mensagem"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel
-                          className={
-                            dark ? "text-neutral-300" : "text-neutral-700"
-                          }
-                        >
-                          Mensagem
-                        </FormLabel>
-                        <FormControl>
-                          <Textarea
-                            placeholder="Conte um pouco sobre seu projeto..."
-                            className={cn(
-                              inputClass,
-                              "min-h-[100px] resize-none"
-                            )}
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                )}
+                {/* Mensagem (agora em ambos os variantes) */}
+                <FormField
+                  control={form.control}
+                  name="mensagem"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel
+                        className={
+                          dark ? "text-neutral-300" : "text-neutral-700"
+                        }
+                      >
+                        Mensagem *
+                      </FormLabel>
+                      <FormControl>
+                        <Textarea
+                          placeholder="Conte um pouco sobre seu projeto..."
+                          className={cn(
+                            inputClass,
+                            "min-h-[100px] resize-none"
+                          )}
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
 
                 {/* Submit Button */}
                 <Button

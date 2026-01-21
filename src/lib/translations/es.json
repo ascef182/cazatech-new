@@ -180,5 +180,54 @@
       "label": "caza-tech.com",
       "url": "https://caza-tech.com"
     }
+  },
+  "scrollSection": {
+    "title": {
+      "line1": "Despierta el poder de tu",
+      "line2": "Negocio"
+    },
+    "imageAlt": "Demostración de la plataforma CazaTech"
+  },
+  "testimonials": {
+    "loading": "Cargando testimonios...",
+    "sectionTitle": "Resultados Reales",
+    "sectionDescription": "Mira cómo las empresas están creciendo con nuestras soluciones, resultados comprobados, crecimiento sostenible.",
+    "at": "en",
+    "carlos": {
+      "name": "Carlos Mendes",
+      "role": "CEO",
+      "company": "Men Wear Store",
+      "quote": "Estaba cansado de perder ventas por tardar en responder en WhatsApp. CazaTech creó una automatización que responde en segundos, califica al cliente y agenda la reunión. En el primer mes, cerramos 40% más contratos. No es magia — es un proceso bien diseñado."
+    },
+    "ana": {
+      "name": "Ana Paula Silva",
+      "role": "Directora Comercial",
+      "company": "Belleza & Estilo",
+      "quote": "Nuestro sitio anterior era bonito pero no vendía. Lo reconstruyeron todo pensando en conversión: copy, estructura, velocidad. Ahora el sitio trabaja 24/7 generando leads calificados. El ROI se pagó solo en 3 semanas."
+    },
+    "roberto": {
+      "name": "Roberto Santos",
+      "role": "Gerente de Ventas",
+      "company": "AutoPartes Brasil",
+      "quote": "Antes perdía horas respondiendo las mismas preguntas en WhatsApp. Ahora el bot responde, filtra curiosos y solo me pasa a quienes están listos para comprar. Mi equipo se enfoca en lo que importa: cerrar negocios."
+    },
+    "jennifer": {
+      "name": "Jéssica Martins",
+      "role": "Gerente de Operaciones",
+      "company": "TechFlow Solutions",
+      "quote": "Teníamos hojas de cálculo, sistemas separados, un desastre total. CazaTech integró todo: CRM, WhatsApp, email, finanzas. Ahora tenemos una vista completa de cada cliente en un solo lugar. El equipo dejó de perder tiempo buscando información."
+    },
+    "mariana": {
+      "name": "Mariana Costa",
+      "role": "Coordinadora de Marketing",
+      "company": "Inmuebles Prime",
+      "quote": "El blog nunca dio resultados hasta que ellos llegaron. Reescribieron el contenido pensando en SEO y el viaje del cliente. En 4 meses, estábamos en la primera página de Google. Ahora recibimos leads orgánicos todos los días."
+    },
+    "fernando": {
+      "name": "Fernando Oliveira",
+      "role": "Propietario",
+      "company": "Restaurante Sabor & Arte",
+      "quote": "Pensaba que la automatización era solo para empresas grandes. Crearon un sistema simple: el cliente reserva por WhatsApp, recibe confirmación automática, y un recordatorio el día anterior. Cero ausencias. Una inversión que se paga sola."
+    }
   }
 }
