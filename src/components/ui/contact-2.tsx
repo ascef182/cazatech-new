@@ -89,21 +89,21 @@ export const Contact2 = ({
             </div>
             <div className="mx-auto w-fit lg:mx-0">
               <h3 className="mb-6 text-center text-2xl font-semibold lg:text-left text-white">
-                Contact Details
+                {t('contact2.contactDetails')}
               </h3>
               <ul className="ml-4 list-disc text-white/80">
                 <li>
-                  <span className="font-bold text-white">Phone: </span>
-                  {phone}
+                  <span className="font-bold text-white">{t('contact2.labels.phone')}: </span>
+                  {translatedPhone}
                 </li>
                 <li>
-                  <span className="font-bold text-white">Email: </span>
+                  <span className="font-bold text-white">{t('contact2.labels.email')}: </span>
                   <a href={`mailto:${email}`} className="underline hover:text-purple-400">
                     {translatedEmail}
                   </a>
                 </li>
                 <li>
-                  <span className="font-bold text-white">Web: </span>
+                  <span className="font-bold text-white">{t('contact2.labels.web')}: </span>
                   <a href={translatedWebUrl} target="_blank" className="underline hover:text-purple-400">
                     {translatedWebLabel}
                   </a>
@@ -119,7 +119,7 @@ export const Contact2 = ({
             <div className="flex gap-4">
               <div className="grid w-full items-center gap-1.5">
                 <Label htmlFor="firstname" className="text-white">
-                  First Name
+                  {t('contact2.form.firstname')}
                 </Label>
                 <Input
                   type="text"
@@ -134,7 +134,7 @@ export const Contact2 = ({
               </div>
               <div className="grid w-full items-center gap-1.5">
                 <Label htmlFor="lastname" className="text-white">
-                  Last Name
+                  {t('contact2.form.lastname')}
                 </Label>
                 <Input
                   type="text"
@@ -150,7 +150,7 @@ export const Contact2 = ({
             </div>
             <div className="grid w-full items-center gap-1.5">
               <Label htmlFor="email" className="text-white">
-                Email
+                {t('contact2.form.email')}
               </Label>
               <Input
                 type="email"
@@ -165,7 +165,7 @@ export const Contact2 = ({
             </div>
             <div className="grid w-full items-center gap-1.5">
               <Label htmlFor="subject" className="text-white">
-                Subject
+                {t('contact2.form.subject')}
               </Label>
               <Input
                 type="text"
@@ -180,7 +180,7 @@ export const Contact2 = ({
             </div>
             <div className="grid w-full gap-1.5">
               <Label htmlFor="message" className="text-white">
-                Message
+                {t('contact2.form.message')}
               </Label>
               <Textarea
                 placeholder="Type your message here."
@@ -197,7 +197,7 @@ export const Contact2 = ({
               className="w-full bg-purple-600 hover:bg-purple-700"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Sending..." : "Send Message"}
+              {isSubmitting ? t('contact2.form.sending') : t('contact2.form.send')}
             </Button>
           </form>
         </div>

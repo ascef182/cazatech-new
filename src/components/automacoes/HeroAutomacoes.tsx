@@ -101,14 +101,16 @@ export default function HeroAutomacoes() {
           </DialogTrigger>
           <DialogContent className="max-w-4xl p-0 overflow-hidden">
             <video
-              src="/videos/demonstracao.mp4"
               autoPlay
               muted
               loop
               playsInline
               controls
+              preload="metadata"
               className="w-full h-auto"
-            />
+            >
+              <source src="/videos/demonstracao.mp4" type="video/mp4" />
+            </video>
           </DialogContent>
         </Dialog>
       </div>

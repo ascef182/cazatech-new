@@ -41,6 +41,21 @@ export default function FAQPage() {
           </div>
         ))}
       </div>
+
+      <section className="mt-10 border-t border-gray-200 pt-6">
+        <h3 className="text-xl font-semibold text-gray-800 mb-3">Contato Oficial</h3>
+        <ul className="text-gray-700">
+          <li>
+            <strong>E-mail:</strong> <a href="mailto:support@caza-tech.com">support@caza-tech.com</a>
+          </li>
+          <li>
+            <strong>Telefone/WhatsApp:</strong> +55 35 99802-6821 (WhatsApp: +5535998026821)
+          </li>
+          <li>
+            <strong>Site:</strong> <a href="https://www.caza-tech.com" target="_blank" rel="noopener noreferrer">www.caza-tech.com</a>
+          </li>
+        </ul>
+      </section>
     </article>
   );
 }

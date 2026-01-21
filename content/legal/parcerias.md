@@ -36,8 +36,9 @@ O processo para estabelecer uma parceria com a CazaTech é simples e transparent
 
 Se você tem interesse em explorar oportunidades de parceria com a CazaTech, ficaremos felizes em conversar. Entre em contato conosco através dos seguintes canais:
 
-- **E-mail:** [parcerias@cazatech.com.br](mailto:parcerias@cazatech.com.br)
-- **Telefone:** [Número de Telefone da CazaTech]
+- **E-mail:** [support@caza-tech.com](mailto:support@caza-tech.com)
+- **Telefone:** +55 35 99802-6821 (WhatsApp: +5535998026821)
+- **Site:** [www.caza-tech.com](https://www.caza-tech.com)
 - **Formulário de Parcerias:** Disponível em nosso website na seção de Contato.
 
 Junte-se à CazaTech e vamos construir o futuro digital juntos!

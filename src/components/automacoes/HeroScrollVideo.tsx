@@ -15,14 +15,16 @@ export default function HeroScrollVideo() {
         }
       >
         <video
-          src="/videos/demonstracao.mp4"
           autoPlay
           muted
           loop
           playsInline
+          preload="metadata"
           poster="/images/testimonial.jpeg"
           className="mx-auto rounded-2xl object-cover h-full object-center shadow-lg"
-        />
+        >
+          <source src="/videos/demonstracao.mp4" type="video/mp4" />
+        </video>
       </ContainerScroll>
     </div>
   );

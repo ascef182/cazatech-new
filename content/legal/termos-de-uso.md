@@ -62,4 +62,5 @@ A CazaTech reserva-se o direito de modificar estes Termos de Uso a qualquer mome
 Para quaisquer dúvidas, sugestões ou reclamações relacionadas a estes Termos de Uso ou aos Serviços da CazaTech, o Usuário pode entrar em contato através dos seguintes canais:
 
 - **E-mail:** [support@caza-tech.com](mailto:support@caza-tech.com)
--
+- **Telefone:** +55 35 99802-6821 (WhatsApp: +5535998026821)
+- **Site:** [www.caza-tech.com](https://www.caza-tech.com)

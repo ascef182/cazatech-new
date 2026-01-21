@@ -173,7 +173,7 @@
         "location": "São Paulo, Brasil"
       }
     },
-    "rights": "© 2024 CazaTech. Todos os direitos reservados."
+    "rights": "Todos os direitos reservados."
   },
   "masterLeadForm": {
     "title": "Fale com um especialista",
@@ -188,6 +188,21 @@
     "web": {
       "label": "caza-tech.com",
       "url": "https://caza-tech.com"
+    },
+    "contactDetails": "Informações de Contato",
+    "labels": {
+      "phone": "Telefone",
+      "email": "E-mail",
+      "web": "Site"
+    },
+    "form": {
+      "firstname": "Nome",
+      "lastname": "Sobrenome",
+      "email": "E-mail",
+      "subject": "Assunto",
+      "message": "Mensagem",
+      "sending": "Enviando...",
+      "send": "Enviar Mensagem"
     }
   },
   "scrollSection": {

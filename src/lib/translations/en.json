@@ -187,6 +187,21 @@
     "web": {
       "label": "caza-tech.com",
       "url": "https://caza-tech.com"
+    },
+    "contactDetails": "Contact Details",
+    "labels": {
+      "phone": "Phone",
+      "email": "Email",
+      "web": "Web"
+    },
+    "form": {
+      "firstname": "First Name",
+      "lastname": "Last Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "sending": "Sending...",
+      "send": "Send Message"
     }
   },
   "scrollSection": {

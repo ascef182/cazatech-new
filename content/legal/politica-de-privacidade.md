@@ -46,4 +46,12 @@ De acordo com a LGPD, você possui os seguintes direitos em relação aos seus d
 - **Direito à Revogação do Consentimento:** Revogar o consentimento a qualquer momento, sem que isso afete a legalidade do tratamento realizado antes da revogação.
 - **Direito à Informação:** Ser informado sobre as entidades públicas e privadas com as quais a CazaTech realizou uso compartilhado de dados.
 
-Para exercer qualquer um desses direitos, entre em contato conosco através dos canais indicados na seção
+Para exercer qualquer um desses direitos, entre em contato conosco através dos canais indicados abaixo.
+
+## 5. Contato
+
+Se você tiver dúvidas sobre esta Política de Privacidade ou desejar exercer seus direitos sob a LGPD, entre em contato pelos canais oficiais:
+
+- **E-mail:** [support@caza-tech.com](mailto:support@caza-tech.com)
+- **Telefone:** +55 35 99802-6821 (WhatsApp: +5535998026821)
+- **Site:** [www.caza-tech.com](https://www.caza-tech.com)
