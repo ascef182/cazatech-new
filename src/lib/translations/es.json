@@ -3,9 +3,17 @@
     "services": {
       "title": "Servicios",
       "works": "Portafolio",
+      "works_desc": "Conoce nuestros proyectos y casos de éxito",
       "consulting": "Consultoría",
+      "consulting_desc": "Consultoría estratégica para tu negocio digital",
       "automation": "Automatización",
-      "saas": "SaaS"
+      "automation_desc": "Automatiza procesos y aumenta tu productividad",
+      "saas": "SaaS",
+      "saas_desc": "Soluciones de software a medida para tu empresa",
+      "performance": "Rendimiento",
+      "performance_desc": "Análisis y optimización de rendimiento digital",
+      "integration": "Integraciones",
+      "integration_desc": "Integra tus sistemas y herramientas"
     },
     "company": {
       "title": "Empresa",
@@ -26,10 +34,10 @@
     "language": "Español"
   },
   "hero": {
-    "badgeLabel": "Nuevo",
-    "badgeText": "Web & Mobile · Automatización Inteligente",
-    "title": "Soluciones que entienden el flujo de tu cliente",
-    "description": "Creamos automatizaciones, sitios y estrategias pensando en cada etapa del viaje. Desde el primer mensaje hasta el cierre.",
+    "badgeLabel": "CazaTech",
+    "badgeText": "Automatización · Software · Sitios",
+    "title": "Automatización, software y sitios que venden por ti",
+    "description": "Desde el primer mensaje hasta el pago — todo integrado. Para clínicas, oficinas y negocios que quieren crecer sin contratar más gente.",
     "cta": {
       "solutions": "Ver Soluciones",
       "contact": "Hablar con Consultor"
@@ -43,6 +51,473 @@
         "0": "Soporte 24/7",
         "1": "Integraciones Nativas",
         "2": "ROI Medible"
+    }
+  },
+  "consulting": {
+    "hero": {
+      "badge": "Liderazgo CazaTech",
+      "titleLine1": "Experiencia técnica que",
+      "titleLine2": "transforma negocios",
+      "alt": "Pâm Ascef - Liderazgo Técnico",
+      "p1": "Al frente de la tecnología en CazaTech, Pâm Ascef aporta una visión única que une excelencia técnica con estrategia de negocio. Como desarrolladora Full Stack senior, garantiza que cada línea de código contribuya al crecimiento de tu empresa.",
+      "p2": "Nuestra metodología no es solo entregar software, sino construir soluciones escalables, seguras y de alto rendimiento que se adaptan al ritmo de tu mercado.",
+      "featureInnovationTitle": "Innovación",
+      "featureInnovationDesc": "Uso de stacks modernas (Next.js, React, Node) para garantizar longevidad.",
+      "featureMentoringTitle": "Mentoría",
+      "featureMentoringDesc": "Acompañamiento cercano para alinear tecnología y objetivos comerciales."
+    },
+    "why": {
+      "title": "¿Por qué agendar una consultoría?",
+      "items": {
+        "0": {"title": "Diagnóstico Preciso", "desc": "Entendemos tu momento actual e identificamos cuellos de botella técnicos y de proceso."},
+        "1": {"title": "Arquitectura Escalable", "desc": "Planificamos la estructura de tu software para crecer sin deuda técnica."},
+        "2": {"title": "Estrategia de Producto", "desc": "Alineamos tecnología con tus objetivos de negocio para maximizar el ROI."}
+      }
+    }
+  },
+  "saas": {
+    "hero": {
+      "title": "Tu SaaS en vivo y cobrando en 90 días",
+      "subtitle": "Tu código, pagos integrados y arquitectura escalable. Del MVP al producto completo con dashboard, usuarios y API lista.",
+      "ctaPrimary": "Hablar con un Especialista",
+      "ctaSecondary": "Ver Ejemplos"
+    },
+    "process": {
+      "badge": "90 Días",
+      "title": "Del concepto al producto en vivo",
+      "subtitle": "Metodología clara con entregas semanales.",
+      "steps": {
+        "0": { "week": "Semana 1-2", "title": "Alcance y Arquitectura", "description": "Definimos funcionalidades, wireframes y estructura técnica del proyecto." },
+        "1": { "week": "Semana 3-6", "title": "MVP Funcional", "description": "Desarrollamos el core del producto: autenticación, dashboard y funcionalidades principales." },
+        "2": { "week": "Semana 7-10", "title": "Pagos e Integraciones", "description": "Integramos gateway de pagos, webhooks y APIs externas." },
+        "3": { "week": "Semana 11-12", "title": "Deploy y Lanzamiento", "description": "Pruebas finales, optimizaciones y ponemos en vivo con acompañamiento." }
+      }
+    },
+    "trust": {
+      "badge": "Confianza",
+      "title": "Tecnología enterprise para tu negocio",
+      "items": {
+        "0": { "value": "+20", "label": "SaaS entregados" },
+        "1": { "value": "100%", "label": "Tu código" },
+        "2": { "value": "24/7", "label": "Soporte post-entrega" },
+        "3": { "value": "0", "label": "Vendor lock-in" }
+      }
+    },
+    "stack": {
+      "badge": "Stack",
+      "title": "Tecnologías que usamos",
+      "items": ["Next.js", "React", "Node.js", "PostgreSQL", "Stripe/Asaas", "Vercel"]
+    },
+    "examples": {
+      "badge": "Ejemplos Reales",
+      "title": "¿Qué podemos construir?",
+      "description": "Desarrollamos SaaS personalizados para diversos segmentos, del MVP al producto escalable.",
+      "cards": {
+        "0": {"title": "Sistema de Citas Médicas", "desc": "Plataforma completa para clínicas con agenda inteligente, recordatorios automáticos y gestión de pacientes."},
+        "1": {"title": "App de Barbería", "desc": "Agenda online, control de fila, pagos integrados y programa de fidelidad."},
+        "2": {"title": "Gestión Financiera con IA", "desc": "Panel inteligente con análisis predictivo, categorización automática e insights en tiempo real."}
+      }
+    },
+    "cta": {
+      "title": "¿Listo para construir tu SaaS?",
+      "description": "Agenda una conversación y recibe un alcance personalizado para tu proyecto.",
+      "button": "Agendar Conversación"
+    }
+  },
+  "lpAutomations": {
+    "hero": {
+      "badge": "Secretaria V3 — Sistema de Atención",
+      "headline": "Tu WhatsApp funcionando como un centro de atención profesional",
+      "subheadline": "Secretaria V3 recibe mensajes, hace llamadas, agenda citas, envía cobros y escala a humanos. Todo automatizado, sin perder el toque personal.",
+      "ctaPrimary": "Agendar demostración",
+      "ctaSecondary": "Ver cómo funciona",
+      "trust": {
+        "whatsappOfficial": "API Oficial WhatsApp",
+        "noContract": "Sin contrato",
+        "setupIncluded": "Setup incluido"
+      }
+    },
+    "problem": {
+      "badge": "El problema real",
+      "title": "El costo oculto de la atención manual",
+      "description": "Cada minuto de demora en WhatsApp cuesta dinero. Mira qué pasa cuando la atención depende solo de personas.",
+      "contrast": "¿Y si existiera un sistema que nunca olvida, nunca se atrasa y nunca necesita vacaciones?",
+      "cards": {
+        "0": { "metric": "67%", "title": "Leads perdidos", "description": "Clientes que no reciben respuesta en 5 minutos van a la competencia." },
+        "1": { "metric": "3h+", "title": "Tiempo respondiendo", "description": "Tu equipo gasta horas en preguntas repetitivas en vez de vender." },
+        "2": { "metric": "40%", "title": "No-show en citas", "description": "Pacientes que no reciben recordatorio simplemente no aparecen." },
+        "3": { "metric": "$500", "title": "Costo por empleado", "description": "Salario, beneficios y capacitación de un agente dedicado." },
+        "4": { "metric": "23:00", "title": "Mensajes ignorados", "description": "Clientes que envían mensajes de noche quedan sin respuesta hasta el día siguiente." },
+        "5": { "metric": "85%", "title": "Mensajes repetitivos", "description": "La mayoría de las preguntas son las mismas: horarios, precios, dirección." }
+      }
+    },
+    "solution": {
+      "badge": "La solución",
+      "title": "Secretaria V3: tu sistema operativo de atención",
+      "description": "No es un chatbot genérico. Es una infraestructura completa que funciona 24/7 y se adapta a tu negocio.",
+      "transformationTitle": "Qué cambia cuando instalas",
+      "transformationSubtitle": "Antes vs después de Secretaria V3",
+      "transformations": {
+        "0": { "before": "Responder manualmente cada mensaje", "after": "Respuestas automáticas en segundos" },
+        "1": { "before": "Perder clientes fuera de horario", "after": "Atención 24/7 sin pausas" },
+        "2": { "before": "Agendar por llamada o mensaje", "after": "Agenda integrada automática" },
+        "3": { "before": "Cobrar manualmente", "after": "Pago automático con confirmación" },
+        "4": { "before": "Hacer follow-up cuando recuerdes", "after": "Secuencia de follow-up automática" }
+      },
+      "capabilitiesTitle": "Cómo funciona por dentro",
+      "capabilitiesSubtitle": "Arquitectura enterprise-ready",
+      "capabilities": {
+        "0": { "title": "IA Conversacional", "description": "Entiende contexto, tono e intención. Responde como un humano entrenado." },
+        "1": { "title": "Flujos Modulares", "description": "Cada etapa es configurable: atención, agenda, cobro, escalación." },
+        "2": { "title": "Seguridad de Datos", "description": "API oficial de WhatsApp, cifrado de extremo a extremo y cumplimiento GDPR." },
+        "3": { "title": "Escalabilidad", "description": "Atiende 1 o 1.000 conversaciones simultáneas con la misma calidad." }
+      },
+      "bottomTitle": "Secretaria V3",
+      "bottomSubtitle": "Sistema de atención inteligente para empresas que toman el crecimiento en serio"
+    },
+    "flow": {
+      "badge": "Flujo del sistema",
+      "title": "Mira el sistema en acción",
+      "description": "Cada etapa de la atención automatizada y conectada. Haz clic en los pasos para ver los detalles.",
+      "hint": "Haz clic en cada etapa para ver más detalles",
+      "steps": {
+        "0": { "title": "Mensaje", "description": "Cliente envía mensaje", "detail": "El cliente envía un mensaje en WhatsApp a cualquier hora del día o de la noche. El sistema lo recibe instantáneamente y comienza a procesar." },
+        "1": { "title": "IA Procesa", "description": "Análisis de contexto", "detail": "Nuestra IA analiza el texto, identifica la intención (agendar, preguntar precio, quejarse) y define la mejor respuesta basada en el historial del cliente." },
+        "2": { "title": "Llamada", "description": "Cuando es necesario", "detail": "Para casos que requieren contacto humano, el sistema puede hacer una llamada automática o agendar callback con tu equipo." },
+        "3": { "title": "Agendamiento", "description": "Integrado al calendario", "detail": "El sistema accede a tu agenda en tiempo real, muestra horarios disponibles y confirma la cita. Integración nativa con Google Calendar." },
+        "4": { "title": "Cobro", "description": "Pago automático", "detail": "Genera cobro automáticamente con código QR, envía por WhatsApp y confirma el pago en tiempo real." },
+        "5": { "title": "Confirmación", "description": "Follow-up automático", "detail": "24h y 1h antes de la cita, el sistema envía recordatorio. Si no hay confirmación, reagenda o libera el horario." },
+        "6": { "title": "Escalación", "description": "Humano cuando necesita", "detail": "Casos complejos o clientes insatisfechos son automáticamente derivados a tu equipo con todo el historial de la conversación." }
+      }
+    },
+    "features": {
+      "badge": "Funcionalidades",
+      "title": "Todo lo que tu operación necesita",
+      "description": "Funcionalidades organizadas por resultado, no por lista técnica.",
+      "categories": {
+        "atendimento": {
+          "title": "Atención",
+          "description": "Responde a clientes 24/7 con calidad consistente",
+          "features": {
+            "0": { "title": "Respuestas contextuales", "description": "IA entiende el historial y responde de forma personalizada" },
+            "1": { "title": "Multi-idioma", "description": "Detecta el idioma del cliente y responde en el mismo idioma" },
+            "2": { "title": "Transcripción de audio", "description": "Convierte audios en texto y responde adecuadamente" },
+            "3": { "title": "Horario comercial", "description": "Mensajes diferentes para dentro y fuera del horario" }
+          }
+        },
+        "ligacoes": {
+          "title": "Llamadas",
+          "description": "Contacto telefónico integrado al flujo",
+          "features": {
+            "0": { "title": "Llamada automática", "description": "Sistema llama al cliente cuando es necesario" },
+            "1": { "title": "Callback agendado", "description": "Cliente elige horario para recibir llamada" },
+            "2": { "title": "Transferencia a equipo", "description": "Redirige a agente humano con contexto" },
+            "3": { "title": "Grabación de llamadas", "description": "Registro de todas las llamadas para auditoría" }
+          }
+        },
+        "agenda": {
+          "title": "Agenda",
+          "description": "Agendamiento sin fricción y sin conflictos",
+          "features": {
+            "0": { "title": "Sincronización Google Calendar", "description": "Integración bidireccional en tiempo real" },
+            "1": { "title": "Horarios dinámicos", "description": "Muestra solo slots realmente disponibles" },
+            "2": { "title": "Reagendamiento fácil", "description": "Cliente reagenda solo por WhatsApp" },
+            "3": { "title": "Recordatorios automáticos", "description": "24h y 1h antes con confirmación de presencia" }
+          }
+        },
+        "financeiro": {
+          "title": "Financiero",
+          "description": "Cobro y pago automatizados",
+          "features": {
+            "0": { "title": "Pago automático", "description": "Genera código QR y envía por WhatsApp" },
+            "1": { "title": "Confirmación de pago", "description": "Notifica cuando el pago es confirmado" },
+            "2": { "title": "Recurrencia", "description": "Cobros mensuales automáticos para planes" },
+            "3": { "title": "Gateway de pagos", "description": "Conecta con pasarela de pago profesional" }
+          }
+        },
+        "integracoes": {
+          "title": "Integraciones",
+          "description": "Conecta con tus herramientas existentes",
+          "features": {
+            "0": { "title": "WhatsApp Business API", "description": "Conexión oficial y segura con WhatsApp" },
+            "1": { "title": "CRM", "description": "Sincroniza datos con tu CRM actual" },
+            "2": { "title": "N8N / Webhooks", "description": "Automatizaciones personalizadas vía N8N o webhooks" },
+            "3": { "title": "API REST", "description": "Integración completa vía API documentada" }
+          }
+        }
+      }
+    },
+    "trust": {
+      "badge": "Confianza",
+      "title": "Infraestructura enterprise-ready",
+      "description": "No es un proyecto experimental. Es una plataforma probada en producción.",
+      "guaranteesTitle": "Garantías operacionales",
+      "guarantees": {
+        "0": { "title": "99.9% uptime", "description": "Infraestructura redundante con failover automático" },
+        "1": { "title": "Backup diario", "description": "Tus datos seguros con backup automático" },
+        "2": { "title": "Respuesta en 3s", "description": "Tiempo medio de respuesta por debajo de 3 segundos" },
+        "3": { "title": "Soporte técnico", "description": "Equipo de soporte disponible en horario comercial" },
+        "4": { "title": "GDPR compliant", "description": "Tratamiento de datos según legislación" },
+        "5": { "title": "Actualizaciones continuas", "description": "Nuevas features y mejoras sin costo adicional" }
+      },
+      "architectureTitle": "Arquitectura",
+      "architecture": {
+        "title": "Stack técnico",
+        "subtitle": "Tecnologías enterprise-grade"
+      },
+      "integrationsTitle": "Integraciones nativas"
+    },
+    "cta": {
+      "badge": "Siguiente paso",
+      "title": "¿Listo para transformar tu atención?",
+      "description": "Agenda una demostración gratuita y mira Secretaria V3 funcionando con datos reales de tu negocio.",
+      "valueTitle": "Lo que ganas agendando",
+      "benefits": {
+        "0": "Demostración personalizada para tu segmento",
+        "1": "Análisis gratuito de tu flujo de atención actual",
+        "2": "Simulación de ROI con datos reales",
+        "3": "Propuesta sin compromiso en 24h"
+      },
+      "preferWhatsapp": "¿Prefieres hablar directo con un especialista?",
+      "whatsappButton": "Chatear en WhatsApp",
+      "formTitle": "Agendar demostración",
+      "form": {
+        "name": "Nombre completo",
+        "namePlaceholder": "Tu nombre",
+        "email": "Email corporativo",
+        "emailPlaceholder": "tu@empresa.com",
+        "phone": "Teléfono",
+        "phonePlaceholder": "+34 600 000 000",
+        "business": "Tipo de negocio",
+        "businessPlaceholder": "Selecciona tu segmento",
+        "businessOptions": {
+          "clinica": "Clínica / Consultorio",
+          "imobiliaria": "Inmobiliaria",
+          "advocacia": "Bufete de Abogados",
+          "ecommerce": "E-commerce / Tienda",
+          "servicos": "Proveedor de Servicios",
+          "outro": "Otro"
+        },
+        "submit": "Agendar demostración",
+        "submitting": "Enviando...",
+        "errorRequired": "Completa todos los campos obligatorios",
+        "errorSubmit": "Error al enviar. Intenta de nuevo.",
+        "successTitle": "¡Demostración agendada!",
+        "successMessage": "Nuestro equipo te contactará en hasta 24h para confirmar el mejor horario.",
+        "trust": {
+          "free": "100% gratis",
+          "noCommitment": "Sin compromiso"
+        }
+      }
+    }
+  },
+  "automations": {
+    "hero": {
+      "title": "Tu empresa atendiendo 24/7 — sin depender de nadie.",
+      "subtitle": "Secretaria v3 es una automatización completa en WhatsApp que agenda, envía PIX, confirma citas, hace seguimiento y convierte conversaciones en ventas.",
+      "ctaPrimary": "Instalar Secretaria v3",
+      "ctaSecondary": "Ver Demostración"
+    },
+    "demo": {
+      "badge": "Demostración",
+      "title": "¿Cómo funciona en la práctica?",
+      "description": "Mira una conversación real con Secretaria v3 en acción"
+    },
+    "process": {
+      "badgeLeft": "Proceso",
+      "badgeRight": "4 Pasos Simples",
+      "title": "Cómo funciona en la práctica",
+      "description": "Desde el primer contacto hasta la conversión, todo automatizado e inteligente.",
+      "steps": {
+        "0": {
+          "title": "El cliente envía un mensaje",
+          "description": "Tu cliente inicia una conversación por WhatsApp a cualquier hora del día o de la noche.",
+          "details": {
+            "0": "Integración oficial con WhatsApp Business API",
+            "1": "Multi-agente: múltiples canales simultáneos",
+            "2": "Historial completo de conversaciones"
+          }
+        },
+        "1": {
+          "title": "IA procesa y califica",
+          "description": "Nuestra IA entiende la intención, el contexto y la urgencia del mensaje.",
+          "details": {
+            "0": "Análisis de sentimiento en tiempo real",
+            "1": "Detección de intención de compra",
+            "2": "Puntuación de calificación automática"
+          }
+        },
+        "2": {
+          "title": "Acción automatizada",
+          "description": "El sistema ejecuta la acción ideal: responder, agendar, cobrar o escalar a un humano.",
+          "details": {
+            "0": "Respuestas contextualizadas",
+            "1": "Integración con Google Calendar, Asaas, CRM",
+            "2": "Escalado inteligente al equipo humano"
+          }
+        },
+        "3": {
+          "title": "Resultado medido",
+          "description": "Panel muestra métricas de atención, conversión y satisfacción en tiempo real.",
+          "details": {
+            "0": "Tasa de conversión por canal",
+            "1": "Tiempo medio de respuesta",
+            "2": "NPS y satisfacción del cliente"
+          }
+        }
+      }
+    },
+    "benefits": {
+      "badgeLeft": "Beneficios",
+      "badgeRight": "Resultados Comprobados",
+      "title": "¿Por qué automatizar tu WhatsApp?",
+      "description": "Más de 50 empresas ya aumentaron sus ventas y redujeron costos operativos con nuestra solución.",
+      "items": {
+        "0": {"title": "Disponibilidad 24/7", "description": "Atención automática que nunca duerme. Tus clientes reciben respuesta instantánea a cualquier hora."},
+        "1": {"title": "Aumento de 300% en conversiones", "description": "Flujos optimizados para convertir visitantes en clientes de pago con calificación inteligente."},
+        "2": {"title": "Escala sin contratar", "description": "Atiende 10x más clientes simultáneamente sin aumentar tu equipo ni costos operativos."},
+        "3": {"title": "Respuestas en segundos", "description": "Tiempo medio de respuesta por debajo de 3 segundos. Elimina filas de espera y abandono de leads."},
+        "4": {"title": "Integración segura", "description": "Conexión cifrada con la API oficial de WhatsApp Business. Tus datos y los de tus clientes están protegidos."},
+        "5": {"title": "Análisis en tiempo real", "description": "Panel completo con métricas de atención, conversión y satisfacción del cliente."}
+      }
+    },
+    "niches": {
+      "badgeLeft": "Segmentos",
+      "badgeRight": "Soluciones Específicas",
+      "title": "Automatización personalizada para tu segmento",
+      "description": "Cada negocio tiene sus particularidades. Nuestra solución se adapta a las necesidades específicas de tu mercado.",
+      "cards": {
+        "0": {
+          "title": "Clínicas y Consultorios",
+          "description": "Agendamiento automático, recordatorios de citas y cobro por WhatsApp.",
+          "benefits": {"0": "Reducción del 80% en ausencias", "1": "Agendamiento 24/7", "2": "Cobro automatizado"}
+        },
+        "1": {
+          "title": "Inmobiliarias",
+          "description": "Calificación de leads, agendamiento de visitas y seguimiento de propuestas.",
+          "benefits": {"0": "3x más visitas agendadas", "1": "Puntuación automática de leads", "2": "Follow-up inteligente"}
+        },
+        "2": {
+          "title": "Estudios Jurídicos",
+          "description": "Triaje de casos, agendamiento de consultas y recordatorios de plazos.",
+          "benefits": {"0": "Triaje 24/7", "1": "Gestión de plazos", "2": "Documentos automatizados"}
+        },
+        "3": {
+          "title": "E-commerce",
+          "description": "Recuperación de carrito, soporte al cliente y upsell automatizado.",
+          "benefits": {"0": "40% de recuperación", "1": "Soporte instantáneo", "2": "Ventas cruzadas"}
+        },
+        "4": {
+          "title": "Proveedores de Servicios",
+          "description": "Presupuestos automáticos, agendamientos y gestión de lista de espera.",
+          "benefits": {"0": "Presupuesto en segundos", "1": "Agenda optimizada", "2": "Gestión de demanda"}
+        },
+        "5": {
+          "title": "Agencias y Consultorías",
+          "description": "Calificación de leads, agendamiento de reuniones y follow-up automatizado.",
+          "benefits": {"0": "Leads calificados", "1": "Pipeline automático", "2": "CRM integrado"}
+        }
+      }
+    },
+    "integrations": {
+      "badgeLeft": "Integraciones",
+      "badgeRight": "Conecta Todo",
+      "title": "Integración con tus herramientas",
+      "description": "Conectamos WhatsApp, N8N, CRMs y bases de datos en un flujo automatizado.",
+      "databaseBadge": {
+        "first": "WhatsApp",
+        "second": "N8N",
+        "third": "CRM",
+        "fourth": "Base de Datos"
+      },
+      "databaseButtons": {
+        "first": "CazaTech",
+        "second": "Integración"
+      },
+      "databaseTitle": "Intercambio de datos vía API REST personalizada"
+    },
+    "faq": {
+      "badgeLeft": "FAQ",
+      "badgeRight": "Preguntas Frecuentes",
+      "title": "Preguntas frecuentes",
+      "items": {
+        "0": {"q": "¿Necesito cambiar el número de la clínica?", "a": "No. Integramos la automatización directamente en tu número actual de WhatsApp Business."},
+        "1": {"q": "¿La automatización reemplaza a mi recepcionista?", "a": "No. Elimina el trabajo repetitivo (agendar, confirmar), permitiendo que tu equipo se enfoque en el trato y casos complejos."},
+        "2": {"q": "¿Y si el paciente envía un audio?", "a": "Nuestra IA transcribe y entiende audios, respondiendo de forma natural y contextualizada."},
+        "3": {"q": "¿Funciona con cualquier sistema?", "a": "Tenemos integración nativa con Google Calendar y Asaas. Para otros sistemas, realizamos un análisis de viabilidad vía API."}
+      }
+    },
+    "waitlist": {
+      "title": "Automatiza tu atención",
+      "subtitle": "Recibe una consultoría gratuita y descubre cómo aumentar tus ventas con automatización.",
+      "button": "Quiero Automatizar",
+      "success": "¡Nos pondremos en contacto pronto!"
+    }
+  },
+  "works": {
+    "hero": {
+      "badge": "Portafolio",
+      "title": "Proyectos que generan resultados",
+      "subtitle": "Conoce los sistemas, automatizaciones y sitios que desarrollamos para empresas que crecen de verdad."
+    },
+    "stats": {
+      "projects": { "value": "+50", "label": "Proyectos entregados" },
+      "clients": { "value": "+30", "label": "Clientes activos" },
+      "satisfaction": { "value": "98%", "label": "Satisfacción" },
+      "years": { "value": "5+", "label": "Años en el mercado" }
+    },
+    "services": {
+      "badge": "Lo que hacemos",
+      "title": "Tecnología que resuelve problemas reales",
+      "subtitle": "Cada proyecto está construido para generar ROI medible, no solo entregar código.",
+      "items": {
+        "automation": {
+          "title": "Automatización WhatsApp",
+          "description": "Atención 24/7, agendamiento, cobro y follow-up automático.",
+          "features": ["Respuestas en segundos", "Integración de pagos", "Escalación a humanos"]
+        },
+        "saas": {
+          "title": "SaaS y Sistemas",
+          "description": "Del MVP al producto escalable, con dashboard, pagos y API.",
+          "features": ["Arquitectura escalable", "Pagos integrados", "Dashboard analytics"]
+        },
+        "sites": {
+          "title": "Sitios y Landing Pages",
+          "description": "Sitios rápidos, optimizados para SEO y conversión.",
+          "features": ["Rendimiento A+", "SEO técnico", "Diseño responsivo"]
+        },
+        "integrations": {
+          "title": "Integraciones y APIs",
+          "description": "Conectamos tus sistemas existentes en un flujo único.",
+          "features": ["CRM integrado", "Webhooks N8N", "APIs REST"]
+        }
+      }
+    },
+    "process": {
+      "badge": "Cómo trabajamos",
+      "title": "Proceso claro, resultado predecible",
+      "subtitle": "Metodología probada en +50 proyectos.",
+      "steps": {
+        "0": { "title": "Diagnóstico", "description": "Entendemos tu negocio, cuellos de botella y objetivos antes de proponer cualquier solución." },
+        "1": { "title": "Arquitectura", "description": "Diseñamos la estructura técnica pensando en escala y mantenimiento." },
+        "2": { "title": "Desarrollo", "description": "Sprints semanales con entregas incrementales y comunicación transparente." },
+        "3": { "title": "Deploy y Soporte", "description": "Ponemos en vivo y acompañamos los resultados con soporte continuo." }
+      }
+    },
+    "features": {
+      "title": "¿Por qué elegir CazaTech?",
+      "subtitle": "Estructura moderna, SEO técnico y rendimiento. Construimos con foco en conversión y escala.",
+      "items": {
+        "0": "Soporte por email y WhatsApp",
+        "1": "Respuesta rápida",
+        "2": "Monitoreo y analytics",
+        "3": "Revisión de arquitectura"
+      }
+    },
+    "cta": {
+      "title": "¿Quieres un proyecto como estos?",
+      "description": "Hablemos de tu idea y convirtámosla en realidad.",
+      "button": "Solicitar Presupuesto"
     }
   },
   "sections": {
@@ -228,6 +703,118 @@
       "role": "Propietario",
       "company": "Restaurante Sabor & Arte",
       "quote": "Pensaba que la automatización era solo para empresas grandes. Crearon un sistema simple: el cliente reserva por WhatsApp, recibe confirmación automática, y un recordatorio el día anterior. Cero ausencias. Una inversión que se paga sola."
+    }
+  },
+  "primeops": {
+    "hero": {
+      "badge": "PRIMEOPS — Infraestructura de Atención",
+      "headline": "Infraestructura operacional que trabaja mientras duermes",
+      "subheadline": "Sistema de atención profesional que recibe mensajes, procesa con IA, agenda, cobra y escala a humanos. Disponible 24/7, sin cuellos de botella humanos.",
+      "coreMessage": "No es un chatbot. Es una infraestructura completa de atención que se integra a tu negocio.",
+      "ctaPrimary": "Hablar con Especialista",
+      "ctaSecondary": "Ver Arquitectura",
+      "stats": {
+        "uptime": "Disponibilidad",
+        "response": "Respuesta",
+        "availability": "Garantía SLA"
+      }
+    },
+    "hologram": {
+      "badge": "Procesamiento Multicanal",
+      "title": "Todos los mensajes convergen en un único sistema",
+      "description": "WhatsApp, Instagram, Facebook, Telegram — todas las conversaciones procesadas por una única infraestructura inteligente.",
+      "caption": "Visualización en tiempo real del procesamiento de mensajes",
+      "responses": {
+        "scheduled": "Agendado",
+        "confirmed": "Confirmado",
+        "payment": "Pagado"
+      }
+    },
+    "architecture": {
+      "badge": "Arquitectura del Sistema",
+      "title": "Infraestructura enterprise-grade para tu atención al cliente",
+      "description": "Cada capa del sistema fue diseñada para garantizar rendimiento, seguridad y escalabilidad.",
+      "layers": {
+        "interface": {
+          "title": "Capa de Interfaz",
+          "description": "WhatsApp API, Instagram, Facebook Messenger — conexión oficial y segura con todos los canales."
+        },
+        "processing": {
+          "title": "Capa de Procesamiento",
+          "description": "IA conversacional que entiende contexto, intención e historial del cliente en milisegundos."
+        },
+        "orchestration": {
+          "title": "Capa de Orquestación",
+          "description": "Motor de decisión que enruta conversaciones, dispara acciones y escala a humanos cuando es necesario."
+        },
+        "data": {
+          "title": "Capa de Datos",
+          "description": "Persistencia segura con backup automático, historial completo y analytics en tiempo real."
+        },
+        "security": {
+          "title": "Capa de Seguridad",
+          "description": "Encriptación de extremo a extremo, cumplimiento RGPD y auditoría de accesos."
+        }
+      },
+      "benefits": {
+        "title": "Beneficios de la Arquitectura",
+        "performance": {
+          "title": "Alto Rendimiento",
+          "description": "Respuesta en menos de 3 segundos, incluso con miles de conversaciones simultáneas."
+        },
+        "security": {
+          "title": "Seguridad Total",
+          "description": "Datos encriptados, cumplimiento RGPD y control de acceso granular."
+        },
+        "scalability": {
+          "title": "Escalabilidad",
+          "description": "Crece con tu negocio sin degradación de rendimiento ni costos explosivos."
+        }
+      },
+      "stats": {
+        "uptime": {
+          "value": "99.9%",
+          "label": "Uptime garantizado"
+        },
+        "latency": {
+          "value": "<3s",
+          "label": "Latencia promedio"
+        },
+        "capacity": {
+          "value": "1000+",
+          "label": "Conversaciones/hora"
+        },
+        "security": {
+          "value": "256-bit",
+          "label": "Encriptación"
+        }
+      }
+    },
+    "problem": {
+      "badge": "El problema real",
+      "title": "El costo invisible de la atención manual",
+      "description": "Cada minuto de demora cuesta dinero. Mira lo que pasa cuando la atención depende solo de personas.",
+      "contrast": "¿Y si existiera una infraestructura que nunca olvida, nunca se retrasa y nunca necesita vacaciones?"
+    },
+    "solution": {
+      "badge": "La solución",
+      "title": "PRIMEOPS: tu infraestructura operacional de atención",
+      "description": "No es un chatbot genérico. Es una infraestructura completa que funciona 24/7 y se adapta a tu negocio."
+    },
+    "features": {
+      "badge": "Funcionalidades",
+      "title": "Todo lo que tu operación necesita",
+      "description": "Funcionalidades organizadas por resultado, no por lista técnica."
+    },
+    "trust": {
+      "badge": "Confianza",
+      "title": "Infraestructura enterprise-ready",
+      "description": "No es un proyecto experimental. Es una plataforma probada en producción."
+    },
+    "cta": {
+      "badge": "Próximo paso",
+      "title": "¿Listo para transformar tu atención al cliente?",
+      "description": "Agenda una demostración y ve PRIMEOPS funcionando con datos reales de tu negocio."
     }
   }
 }

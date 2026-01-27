@@ -1,12 +1,12 @@
 "use client";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { ThreeDMarquee } from "@/components/ui/3d-marquee";
 import { automacoesContent } from "@/content/automacoes";
 import { trackWhatsAppClick } from "@/components/analytics/GoogleAnalytics";
+import { useI18n } from "@/app/ClientBody";
 
 export default function HeroAutomacoes() {
+  const { t } = useI18n();
   const images = automacoesContent.hero.backgroundImages;
   return (
     <section className="relative mx-auto flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-black text-white">
@@ -67,12 +67,10 @@ export default function HeroAutomacoes() {
         </div>
       </div>
       <h2 className="relative z-20 mx-auto max-w-4xl text-center text-2xl font-bold text-balance md:text-4xl lg:text-6xl">
-        Sua empresa atendendo 24h por dia — sem depender de ninguém.
+        {t("automations.hero.title")}
       </h2>
       <p className="relative z-20 mx-auto max-w-2xl py-8 text-center text-sm text-neutral-200 md:text-base">
-        A Secretária v3 é uma automação completa no WhatsApp que agenda, envia
-        PIX, confirma consultas, faz follow-up e transforma conversas em vendas
-        reais.
+        {t("automations.hero.subtitle")}
       </p>
 
       <div className="relative z-20 flex flex-wrap items-center justify-center gap-4 pt-4">
@@ -87,32 +85,21 @@ export default function HeroAutomacoes() {
               trackWhatsAppClick("automacoes-hero", "Instalar Secretária v3")
             }
           >
-            Instalar Secretária v3
+            {t("automations.hero.ctaPrimary")}
           </Link>
         </Button>
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button
-              variant="outline"
-              className="border-white/20 bg-white/10 backdrop-blur-sm hover:bg-white/20"
-            >
-              Ver Demonstração
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="max-w-4xl p-0 overflow-hidden">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              controls
-              preload="metadata"
-              className="w-full h-auto"
-            >
-              <source src="/videos/demonstracao.mp4" type="video/mp4" />
-            </video>
-          </DialogContent>
-        </Dialog>
+        <Button
+          variant="outline"
+          className="border-white/20 bg-white/10 backdrop-blur-sm hover:bg-white/20"
+          onClick={() => {
+            const demoSection = document.getElementById("demo");
+            if (demoSection) {
+              demoSection.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+        >
+          {t("automations.hero.ctaSecondary")}
+        </Button>
       </div>
 
       {/* overlay */}

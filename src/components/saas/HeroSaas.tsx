@@ -3,34 +3,35 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import BeamGridBackground from "@/components/ui/beam-grid-background";
 import { trackWhatsAppClick } from "@/components/analytics/GoogleAnalytics";
+import { useI18n } from "@/app/ClientBody";
 
 export default function HeroSaas() {
+  const { t } = useI18n();
   return (
     <section className="relative mx-auto flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-black text-white">
       {/* BeamGrid Background */}
-      <BeamGridBackground 
+      <BeamGridBackground
         asBackground
-        darkBeamColor="rgba(139, 92, 246, 0.8)"
-        beamColor="rgba(139, 92, 246, 0.8)"
+        darkBeamColor="rgba(90, 64, 188, 0.7)"
+        beamColor="rgba(90, 64, 188, 0.7)"
         darkGridColor="#18181b"
         gridColor="#27272a"
         beamCount={6}
         extraBeamCount={2}
         beamSpeed={0.08}
-        glowIntensity={60}
+        glowIntensity={50}
         fadeIntensity={15}
       />
       
-      <h2 className="relative z-20 mx-auto max-w-4xl text-center text-2xl font-bold text-balance md:text-4xl lg:text-6xl">
-        Transforme sua ideia em um SaaS escalável
+      <h2 className="relative z-20 mx-auto max-w-4xl text-center text-2xl font-medium text-balance md:text-4xl lg:text-6xl tracking-tight">
+        {t("saas.hero.title")}
       </h2>
-      <p className="relative z-20 mx-auto max-w-2xl py-8 text-center text-sm text-neutral-200 md:text-base">
-        Do MVP ao produto completo. Desenvolvemos plataformas SaaS robustas, 
-        com arquitetura moderna, pagamentos integrados e dashboards intuitivos.
+      <p className="relative z-20 mx-auto max-w-2xl py-8 text-center text-sm text-neutral-200 md:text-base font-normal">
+        {t("saas.hero.subtitle")}
       </p>
 
       <div className="relative z-20 flex flex-wrap items-center justify-center gap-4 pt-4">
-        <Button asChild className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 shadow-lg shadow-purple-500/25">
+        <Button asChild className="bg-[#5A40BC] hover:bg-[#462F96] text-white shadow-lg">
           <Link
             href="https://wa.me/5535998026821?text=Quero%20criar%20meu%20SaaS"
             target="_blank"
@@ -38,7 +39,7 @@ export default function HeroSaas() {
               trackWhatsAppClick("saas-hero", "Quero criar meu SaaS")
             }
           >
-            Falar com Especialista
+            {t("saas.hero.ctaPrimary")}
           </Link>
         </Button>
         <Button
@@ -46,8 +47,8 @@ export default function HeroSaas() {
           variant="outline"
           className="border-white/20 bg-white/10 backdrop-blur-sm hover:bg-white/20"
         >
-          <Link href="#processo">
-            Ver Processo
+          <Link href="#exemplos">
+            {t("saas.hero.ctaSecondary")}
           </Link>
         </Button>
       </div>

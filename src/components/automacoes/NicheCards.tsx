@@ -4,59 +4,29 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Stethoscope, Building2, Scale, ShoppingBag, Briefcase, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useI18n } from "@/app/ClientBody";
 
-const niches = [
-  {
-    icon: Stethoscope,
-    title: "Clínicas e Consultórios",
-    description: "Agendamento automático, lembretes de consultas e cobrança via WhatsApp.",
-    gradient: "from-blue-500 to-cyan-500",
-    benefits: ["Redução de 80% em faltas", "Agendamento 24/7", "Cobrança automatizada"],
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    icon: Building2,
-    title: "Imobiliárias",
-    description: "Qualificação de leads, agendamento de visitas e acompanhamento de propostas.",
-    gradient: "from-purple-500 to-pink-500",
-    benefits: ["3x mais visitas agendadas", "Lead scoring automático", "Follow-up inteligente"],
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    icon: Scale,
-    title: "Escritórios de Advocacia",
-    description: "Triagem de casos, agendamento de consultas e lembretes de prazos.",
-    gradient: "from-emerald-500 to-teal-500",
-    benefits: ["Triagem 24/7", "Gestão de prazos", "Documentos automatizados"],
-    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    icon: ShoppingBag,
-    title: "E-commerce",
-    description: "Recuperação de carrinho, suporte ao cliente e upsell automatizado.",
-    gradient: "from-orange-500 to-red-500",
-    benefits: ["40% de recuperação", "Suporte instantâneo", "Vendas cruzadas"],
-    image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    icon: Briefcase,
-    title: "Prestadores de Serviços",
-    description: "Orçamentos automáticos, agendamentos e gestão de fila de espera.",
-    gradient: "from-indigo-500 to-purple-500",
-    benefits: ["Orçamento em segundos", "Agenda otimizada", "Gestão de demanda"],
-    image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    icon: Users,
-    title: "Agências e Consultorias",
-    description: "Qualificação de leads, agendamento de reuniões e follow-up automatizado.",
-    gradient: "from-pink-500 to-rose-500",
-    benefits: ["Leads qualificados", "Pipeline automático", "CRM integrado"],
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop",
-  },
-];
+const baseNiches = [
+  { icon: Stethoscope, gradient: "from-blue-500 to-cyan-500", image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop" },
+  { icon: Building2, gradient: "from-purple-500 to-pink-500", image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop" },
+  { icon: Scale, gradient: "from-emerald-500 to-teal-500", image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800&auto=format&fit=crop" },
+  { icon: ShoppingBag, gradient: "from-orange-500 to-red-500", image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=800&auto=format&fit=crop" },
+  { icon: Briefcase, gradient: "from-indigo-500 to-purple-500", image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=800&auto=format&fit=crop" },
+  { icon: Users, gradient: "from-pink-500 to-rose-500", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop" },
+] as const;
 
 export function NicheCards() {
+  const { t } = useI18n();
+  const niches = baseNiches.map((n, idx) => ({
+    ...n,
+    title: t(`automations.niches.cards.${idx}.title`),
+    description: t(`automations.niches.cards.${idx}.description`),
+    benefits: [
+      t(`automations.niches.cards.${idx}.benefits.0`),
+      t(`automations.niches.cards.${idx}.benefits.1`),
+      t(`automations.niches.cards.${idx}.benefits.2`),
+    ],
+  }));
   return (
     <section className="py-20 md:py-32 bg-black relative overflow-hidden">
       {/* Background Pattern */}
@@ -73,20 +43,20 @@ export function NicheCards() {
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm mb-6">
             <span className="text-[10px] font-light uppercase tracking-[0.08em] text-white/70">
-              Segmentos
+              {t("automations.niches.badgeLeft")}
             </span>
             <span className="h-1 w-1 rounded-full bg-white/40" />
             <span className="text-xs font-light tracking-tight text-white/80">
-              Soluções Específicas
+              {t("automations.niches.badgeRight")}
             </span>
           </span>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
-            Automação personalizada para seu segmento
+            {t("automations.niches.title")}
           </h2>
 
           <p className="text-white/60 text-lg max-w-2xl mx-auto font-light">
-            Cada negócio tem suas particularidades. Nossa solução se adapta às necessidades específicas do seu mercado.
+            {t("automations.niches.description")}
           </p>
         </motion.div>
 

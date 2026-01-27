@@ -3,54 +3,25 @@
 import { motion } from "framer-motion";
 import { Clock, TrendingUp, Users, Zap, Shield, BarChart } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useI18n } from "@/app/ClientBody";
 
-const benefits = [
-  {
-    icon: Clock,
-    title: "Disponibilidade 24/7",
-    description:
-      "Atendimento automático que nunca dorme. Seus clientes recebem resposta instantânea a qualquer hora do dia.",
-    gradient: "from-blue-500 to-cyan-500",
-  },
-  {
-    icon: TrendingUp,
-    title: "Aumento de 300% em conversões",
-    description:
-      "Fluxos otimizados para converter visitantes em clientes pagantes com qualificação inteligente.",
-    gradient: "from-purple-500 to-pink-500",
-  },
-  {
-    icon: Users,
-    title: "Escale sem contratar",
-    description:
-      "Atenda 10x mais clientes simultaneamente sem aumentar sua equipe ou custos operacionais.",
-    gradient: "from-emerald-500 to-teal-500",
-  },
-  {
-    icon: Zap,
-    title: "Respostas em segundos",
-    description:
-      "Tempo médio de resposta abaixo de 3 segundos. Elimine filas de espera e abandono de leads.",
-    gradient: "from-orange-500 to-red-500",
-  },
-  {
-    icon: Shield,
-    title: "Integração segura",
-    description:
-      "Conexão criptografada com WhatsApp Business API oficial. Seus dados e de seus clientes protegidos.",
-    gradient: "from-indigo-500 to-purple-500",
-  },
-  {
-    icon: BarChart,
-    title: "Análise em tempo real",
-    description:
-      "Dashboard completo com métricas de atendimento, conversão e satisfação do cliente.",
-    gradient: "from-pink-500 to-rose-500",
-  },
-];
+const baseBenefits = [
+  { icon: Clock, gradient: "from-blue-500 to-cyan-500" },
+  { icon: TrendingUp, gradient: "from-purple-500 to-pink-500" },
+  { icon: Users, gradient: "from-emerald-500 to-teal-500" },
+  { icon: Zap, gradient: "from-orange-500 to-red-500" },
+  { icon: Shield, gradient: "from-indigo-500 to-purple-500" },
+  { icon: BarChart, gradient: "from-pink-500 to-rose-500" },
+] as const;
 
 export function BenefitsSection() {
   // Triplicar para garantir loop infinito suave
+  const { t } = useI18n();
+  const benefits = baseBenefits.map((b, idx) => ({
+    ...b,
+    title: t(`automations.benefits.items.${idx}.title`),
+    description: t(`automations.benefits.items.${idx}.description`),
+  }));
   const infiniteBenefits = [...benefits, ...benefits, ...benefits];
 
   return (
@@ -78,21 +49,20 @@ export function BenefitsSection() {
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm mb-6">
             <span className="text-[10px] font-light uppercase tracking-[0.08em] text-white/70">
-              Benefícios
+              {t("automations.benefits.badgeLeft")}
             </span>
             <span className="h-1 w-1 rounded-full bg-white/40" />
             <span className="text-xs font-light tracking-tight text-white/80">
-              Resultados Comprovados
+              {t("automations.benefits.badgeRight")}
             </span>
           </span>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
-            Por que automatizar seu WhatsApp?
+            {t("automations.benefits.title")}
           </h2>
 
           <p className="text-white/60 text-lg max-w-2xl mx-auto font-light">
-            Mais de 50 empresas já aumentaram suas vendas e reduziram custos
-            operacionais com nossa solução.
+            {t("automations.benefits.description")}
           </p>
         </motion.div>
 

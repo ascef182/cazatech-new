@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { Bot, Zap, CheckCircle } from "lucide-react"
 import { toast } from "sonner"
 import { submitToFormspree } from "@/lib/formspree"
+import { useI18n } from "@/app/ClientBody"
 
 interface WaitlistCTAProps {
   title?: string;
@@ -21,6 +22,7 @@ export const WaitlistCTA = ({
   successMessage = "Entraremos em contato!",
   className,
 }: WaitlistCTAProps) => {
+  const { t } = useI18n();
   const [email, setEmail] = useState("")
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle")
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -173,7 +175,7 @@ export const WaitlistCTA = ({
             className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm mb-6"
           >
             <Zap className="w-3 h-3 text-purple-400" />
-            <span className="text-xs font-light tracking-tight text-white/80">Consultoria Gratuita</span>
+            <span className="text-xs font-light tracking-tight text-white/80">{t("automations.waitlist.badge")}</span>
           </motion.div>
 
           {/* Title */}
@@ -242,7 +244,7 @@ export const WaitlistCTA = ({
                 type="email"
                 name="email"
                 required
-                placeholder="seu@email.com"
+                placeholder={t("automations.waitlist.placeholder")}
                 value={email}
                 disabled={status === "loading"}
                 onChange={handleEmailChange}
@@ -292,13 +294,13 @@ export const WaitlistCTA = ({
             className="flex flex-wrap justify-center gap-6 mt-8 text-xs text-white/40"
           >
             <span className="flex items-center gap-1">
-              <CheckCircle className="w-3 h-3" /> Sem compromisso
+              <CheckCircle className="w-3 h-3" /> {t("automations.waitlist.trust.0")}
             </span>
             <span className="flex items-center gap-1">
-              <CheckCircle className="w-3 h-3" /> 100% gratuito
+              <CheckCircle className="w-3 h-3" /> {t("automations.waitlist.trust.1")}
             </span>
             <span className="flex items-center gap-1">
-              <CheckCircle className="w-3 h-3" /> Resposta em 24h
+              <CheckCircle className="w-3 h-3" /> {t("automations.waitlist.trust.2")}
             </span>
           </motion.div>
         </div>

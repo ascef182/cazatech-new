@@ -3,59 +3,27 @@
 import { motion } from "framer-motion";
 import { MessageSquare, Brain, Zap, CheckCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useI18n } from "@/app/ClientBody";
 
-const steps = [
-  {
-    number: "01",
-    icon: MessageSquare,
-    title: "Cliente envia mensagem",
-    description: "Seu cliente inicia uma conversa no WhatsApp a qualquer hora do dia ou da noite.",
-    details: [
-      "Integração com WhatsApp Business API oficial",
-      "Multi-atendente: vários canais simultâneos",
-      "Histórico completo de conversas",
-    ],
-    gradient: "from-blue-500 to-cyan-500",
-  },
-  {
-    number: "02",
-    icon: Brain,
-    title: "IA processa e qualifica",
-    description: "Nossa inteligência artificial entende a intenção, contexto e urgência da mensagem.",
-    details: [
-      "Análise de sentimento em tempo real",
-      "Detecção de intenção de compra",
-      "Score de qualificação automático",
-    ],
-    gradient: "from-purple-500 to-pink-500",
-  },
-  {
-    number: "03",
-    icon: Zap,
-    title: "Ação automatizada",
-    description: "O sistema executa a ação ideal: responde, agenda, cobra ou escala para humano.",
-    details: [
-      "Respostas contextualizadas",
-      "Integração com Google Calendar, Asaas, CRM",
-      "Escalada inteligente para equipe humana",
-    ],
-    gradient: "from-emerald-500 to-teal-500",
-  },
-  {
-    number: "04",
-    icon: CheckCircle,
-    title: "Resultado mensurado",
-    description: "Dashboard mostra métricas de atendimento, conversão e satisfação em tempo real.",
-    details: [
-      "Taxa de conversão por canal",
-      "Tempo médio de resposta",
-      "NPS e satisfação do cliente",
-    ],
-    gradient: "from-orange-500 to-red-500",
-  },
-];
+const baseSteps = [
+  { number: "01", icon: MessageSquare, gradient: "from-blue-500 to-cyan-500" },
+  { number: "02", icon: Brain, gradient: "from-purple-500 to-pink-500" },
+  { number: "03", icon: Zap, gradient: "from-emerald-500 to-teal-500" },
+  { number: "04", icon: CheckCircle, gradient: "from-orange-500 to-red-500" },
+] as const;
 
 export function HowItWorksTimeline() {
+  const { t } = useI18n();
+  const steps = baseSteps.map((s, idx) => ({
+    ...s,
+    title: t(`automations.process.steps.${idx}.title`),
+    description: t(`automations.process.steps.${idx}.description`),
+    details: [
+      t(`automations.process.steps.${idx}.details.0`),
+      t(`automations.process.steps.${idx}.details.1`),
+      t(`automations.process.steps.${idx}.details.2`),
+    ],
+  }));
   return (
     <section className="py-20 md:py-32 bg-neutral-950 relative overflow-hidden">
       {/* Background Effects */}
@@ -78,20 +46,20 @@ export function HowItWorksTimeline() {
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm mb-6">
             <span className="text-[10px] font-light uppercase tracking-[0.08em] text-white/70">
-              Processo
+              {t("automations.process.badgeLeft")}
             </span>
             <span className="h-1 w-1 rounded-full bg-white/40" />
             <span className="text-xs font-light tracking-tight text-white/80">
-              4 Passos Simples
+              {t("automations.process.badgeRight")}
             </span>
           </span>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
-            Como funciona na prática
+            {t("automations.process.title")}
           </h2>
 
           <p className="text-white/60 text-lg max-w-2xl mx-auto font-light">
-            Do primeiro contato até a conversão, tudo automatizado e inteligente.
+            {t("automations.process.description")}
           </p>
         </motion.div>
 

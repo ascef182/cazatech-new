@@ -34,10 +34,10 @@
     "language": "English"
   },
   "hero": {
-    "badgeLabel": "New",
-    "badgeText": "Web & Mobile · Smart Automation",
-    "title": "Solutions that understand your customer flow",
-    "description": "We create automations, websites and strategies thinking about each stage of the journey. From the first message to closing.",
+    "badgeLabel": "CazaTech",
+    "badgeText": "Automation · Software · Websites",
+    "title": "Automation, software and websites that sell for you",
+    "description": "From the first message to payment — all integrated. For clinics, offices and businesses that want to grow without hiring more people.",
     "cta": {
       "solutions": "View Solutions",
       "contact": "Talk to a Consultant"
@@ -51,6 +51,473 @@
         "0": "24/7 Support",
         "1": "Native Integrations",
         "2": "Measurable ROI"
+    }
+  },
+  "consulting": {
+    "hero": {
+      "badge": "CazaTech Leadership",
+      "titleLine1": "Technical expertise that",
+      "titleLine2": "transforms businesses",
+      "alt": "Pâm Ascef - Technical Leadership",
+      "p1": "Leading technology at CazaTech, Pâm Ascef brings a unique vision that combines technical excellence with business strategy. As a senior Full Stack developer, she ensures every line of code contributes to your company's growth.",
+      "p2": "Our methodology is not just about delivering software, but about building scalable, secure, high-performance solutions that match your market's pace.",
+      "featureInnovationTitle": "Innovation",
+      "featureInnovationDesc": "Use of modern stacks (Next.js, React, Node) to ensure longevity.",
+      "featureMentoringTitle": "Mentoring",
+      "featureMentoringDesc": "Close guidance to align technology and business goals."
+    },
+    "why": {
+      "title": "Why book a consultation?",
+      "items": {
+        "0": {"title": "Accurate Diagnosis", "desc": "We understand your current stage and identify technical and process bottlenecks."},
+        "1": {"title": "Scalable Architecture", "desc": "We plan your software structure to grow without technical debt."},
+        "2": {"title": "Product Strategy", "desc": "We align technology with your business goals to maximize ROI."}
+      }
+    }
+  },
+  "saas": {
+    "hero": {
+      "title": "Your SaaS live and billing in 90 days",
+      "subtitle": "Your code, integrated payments and scalable architecture. From MVP to complete product with dashboard, users and ready API.",
+      "ctaPrimary": "Talk to a Specialist",
+      "ctaSecondary": "View Examples"
+    },
+    "process": {
+      "badge": "90 Days",
+      "title": "From concept to live product",
+      "subtitle": "Clear methodology with weekly deliveries.",
+      "steps": {
+        "0": { "week": "Week 1-2", "title": "Scope & Architecture", "description": "We define features, wireframes and technical structure of the project." },
+        "1": { "week": "Week 3-6", "title": "Functional MVP", "description": "We develop the product core: authentication, dashboard and main features." },
+        "2": { "week": "Week 7-10", "title": "Payments & Integrations", "description": "We integrate payment gateway, webhooks and external APIs." },
+        "3": { "week": "Week 11-12", "title": "Deploy & Launch", "description": "Final tests, optimizations and we go live with support." }
+      }
+    },
+    "trust": {
+      "badge": "Trust",
+      "title": "Enterprise technology for your business",
+      "items": {
+        "0": { "value": "+20", "label": "SaaS delivered" },
+        "1": { "value": "100%", "label": "Your code" },
+        "2": { "value": "24/7", "label": "Post-delivery support" },
+        "3": { "value": "0", "label": "Vendor lock-in" }
+      }
+    },
+    "stack": {
+      "badge": "Stack",
+      "title": "Technologies we use",
+      "items": ["Next.js", "React", "Node.js", "PostgreSQL", "Stripe/Asaas", "Vercel"]
+    },
+    "examples": {
+      "badge": "Real Examples",
+      "title": "What can we build?",
+      "description": "We develop custom SaaS for various industries, from MVP to scalable product.",
+      "cards": {
+        "0": {"title": "Medical Appointment System", "desc": "Complete platform for clinics with smart schedule, automatic reminders, and patient management."},
+        "1": {"title": "Barbershop App", "desc": "Online scheduling, queue control, integrated payments, and loyalty program."},
+        "2": {"title": "Financial Management with AI", "desc": "Smart dashboard with predictive analysis, automatic categorization, and real-time insights."}
+      }
+    },
+    "cta": {
+      "title": "Ready to build your SaaS?",
+      "description": "Schedule a call and receive a custom scope for your project.",
+      "button": "Schedule Call"
+    }
+  },
+  "lpAutomations": {
+    "hero": {
+      "badge": "Secretary V3 — Support System",
+      "headline": "Your WhatsApp working like a professional support center",
+      "subheadline": "Secretary V3 receives messages, makes calls, schedules appointments, sends invoices, and escalates to humans. All automated, without losing the personal touch.",
+      "ctaPrimary": "Schedule demo",
+      "ctaSecondary": "See how it works",
+      "trust": {
+        "whatsappOfficial": "Official WhatsApp API",
+        "noContract": "No contract",
+        "setupIncluded": "Setup included"
+      }
+    },
+    "problem": {
+      "badge": "The real problem",
+      "title": "The hidden cost of manual support",
+      "description": "Every minute of delay on WhatsApp costs money. See what happens when support depends only on people.",
+      "contrast": "What if there was a system that never forgets, never delays, and never needs a vacation?",
+      "cards": {
+        "0": { "metric": "67%", "title": "Lost leads", "description": "Customers who don't get a response in 5 minutes go to competitors." },
+        "1": { "metric": "3h+", "title": "Time responding", "description": "Your team spends hours on repetitive questions instead of selling." },
+        "2": { "metric": "40%", "title": "No-shows", "description": "Patients who don't receive reminders simply don't show up." },
+        "3": { "metric": "$500", "title": "Cost per employee", "description": "Salary, benefits, and training for a dedicated agent." },
+        "4": { "metric": "11PM", "title": "Ignored messages", "description": "Customers who message at night wait until the next day." },
+        "5": { "metric": "85%", "title": "Repetitive messages", "description": "Most questions are the same: hours, prices, address." }
+      }
+    },
+    "solution": {
+      "badge": "The solution",
+      "title": "Secretary V3: your support operating system",
+      "description": "Not a generic chatbot. A complete infrastructure that works 24/7 and adapts to your business.",
+      "transformationTitle": "What changes when you install",
+      "transformationSubtitle": "Before vs after Secretary V3",
+      "transformations": {
+        "0": { "before": "Manually reply to each message", "after": "Automatic responses in seconds" },
+        "1": { "before": "Lose customers after hours", "after": "24/7 support without breaks" },
+        "2": { "before": "Schedule by call or message", "after": "Automatic integrated calendar" },
+        "3": { "before": "Invoice manually", "after": "Automatic payment with confirmation" },
+        "4": { "before": "Follow up when you remember", "after": "Automatic follow-up sequence" }
+      },
+      "capabilitiesTitle": "How it works inside",
+      "capabilitiesSubtitle": "Enterprise-ready architecture",
+      "capabilities": {
+        "0": { "title": "Conversational AI", "description": "Understands context, tone, and intent. Responds like a trained human." },
+        "1": { "title": "Modular Flows", "description": "Each step is configurable: support, scheduling, billing, escalation." },
+        "2": { "title": "Data Security", "description": "Official WhatsApp API, end-to-end encryption, and GDPR compliant." },
+        "3": { "title": "Scalability", "description": "Handles 1 or 1,000 concurrent conversations with the same quality." }
+      },
+      "bottomTitle": "Secretary V3",
+      "bottomSubtitle": "Intelligent support system for businesses serious about growth"
+    },
+    "flow": {
+      "badge": "System flow",
+      "title": "See the system in action",
+      "description": "Each step of the support process automated and connected. Click on steps to see details.",
+      "hint": "Click on each step to see more details",
+      "steps": {
+        "0": { "title": "Message", "description": "Customer sends message", "detail": "The customer sends a WhatsApp message at any time of day or night. The system receives it instantly and starts processing." },
+        "1": { "title": "AI Processes", "description": "Context analysis", "detail": "Our AI analyzes the text, identifies intent (schedule, ask price, complain) and determines the best response based on customer history." },
+        "2": { "title": "Call", "description": "When necessary", "detail": "For cases requiring human contact, the system can make an automatic call or schedule a callback with your team." },
+        "3": { "title": "Scheduling", "description": "Calendar integrated", "detail": "The system accesses your calendar in real-time, shows available slots, and confirms the appointment. Native Google Calendar integration." },
+        "4": { "title": "Billing", "description": "Automatic payment", "detail": "Automatically generates payment with QR code, sends via WhatsApp, and confirms payment in real-time." },
+        "5": { "title": "Confirmation", "description": "Automatic follow-up", "detail": "24h and 1h before the appointment, the system sends a reminder. If no confirmation, it reschedules or releases the slot." },
+        "6": { "title": "Escalation", "description": "Human when needed", "detail": "Complex cases or unhappy customers are automatically forwarded to your team with the full conversation history." }
+      }
+    },
+    "features": {
+      "badge": "Features",
+      "title": "Everything your operation needs",
+      "description": "Features organized by outcome, not by technical list.",
+      "categories": {
+        "atendimento": {
+          "title": "Support",
+          "description": "Respond to customers 24/7 with consistent quality",
+          "features": {
+            "0": { "title": "Contextual responses", "description": "AI understands history and responds personalized" },
+            "1": { "title": "Multi-language", "description": "Detects customer language and responds in the same language" },
+            "2": { "title": "Audio transcription", "description": "Converts voice messages to text and responds appropriately" },
+            "3": { "title": "Business hours", "description": "Different messages for during and after business hours" }
+          }
+        },
+        "ligacoes": {
+          "title": "Calls",
+          "description": "Phone contact integrated into the flow",
+          "features": {
+            "0": { "title": "Automatic call", "description": "System calls the customer when necessary" },
+            "1": { "title": "Scheduled callback", "description": "Customer chooses time to receive a call" },
+            "2": { "title": "Team transfer", "description": "Redirects to human agent with context" },
+            "3": { "title": "Call recording", "description": "Recording of all calls for auditing" }
+          }
+        },
+        "agenda": {
+          "title": "Calendar",
+          "description": "Frictionless scheduling without conflicts",
+          "features": {
+            "0": { "title": "Google Calendar sync", "description": "Bidirectional real-time integration" },
+            "1": { "title": "Dynamic slots", "description": "Shows only actually available slots" },
+            "2": { "title": "Easy rescheduling", "description": "Customer reschedules themselves via WhatsApp" },
+            "3": { "title": "Automatic reminders", "description": "24h and 1h before with presence confirmation" }
+          }
+        },
+        "financeiro": {
+          "title": "Financial",
+          "description": "Automated billing and payment",
+          "features": {
+            "0": { "title": "Automatic payment", "description": "Generates QR code and sends via WhatsApp" },
+            "1": { "title": "Payment confirmation", "description": "Notifies when payment is confirmed" },
+            "2": { "title": "Recurring", "description": "Automatic monthly charges for plans" },
+            "3": { "title": "Payment gateway", "description": "Connects with professional payment gateway" }
+          }
+        },
+        "integracoes": {
+          "title": "Integrations",
+          "description": "Connects with your existing tools",
+          "features": {
+            "0": { "title": "WhatsApp Business API", "description": "Official and secure WhatsApp connection" },
+            "1": { "title": "CRM", "description": "Syncs data with your current CRM" },
+            "2": { "title": "N8N / Webhooks", "description": "Custom automations via N8N or webhooks" },
+            "3": { "title": "REST API", "description": "Full integration via documented API" }
+          }
+        }
+      }
+    },
+    "trust": {
+      "badge": "Trust",
+      "title": "Enterprise-ready infrastructure",
+      "description": "Not an experimental project. A platform tested in production.",
+      "guaranteesTitle": "Operational guarantees",
+      "guarantees": {
+        "0": { "title": "99.9% uptime", "description": "Redundant infrastructure with automatic failover" },
+        "1": { "title": "Daily backup", "description": "Your data secure with automatic backup" },
+        "2": { "title": "Response in 3s", "description": "Average response time under 3 seconds" },
+        "3": { "title": "Technical support", "description": "Support team available during business hours" },
+        "4": { "title": "GDPR compliant", "description": "Data processing according to legislation" },
+        "5": { "title": "Continuous updates", "description": "New features and improvements at no extra cost" }
+      },
+      "architectureTitle": "Architecture",
+      "architecture": {
+        "title": "Tech stack",
+        "subtitle": "Enterprise-grade technologies"
+      },
+      "integrationsTitle": "Native integrations"
+    },
+    "cta": {
+      "badge": "Next step",
+      "title": "Ready to transform your support?",
+      "description": "Schedule a free demo and see Secretary V3 working with real data from your business.",
+      "valueTitle": "What you get by scheduling",
+      "benefits": {
+        "0": "Personalized demo for your segment",
+        "1": "Free analysis of your current support flow",
+        "2": "ROI simulation with real data",
+        "3": "No-commitment proposal in 24h"
+      },
+      "preferWhatsapp": "Prefer to talk directly with a specialist?",
+      "whatsappButton": "Chat on WhatsApp",
+      "formTitle": "Schedule demo",
+      "form": {
+        "name": "Full name",
+        "namePlaceholder": "Your name",
+        "email": "Corporate email",
+        "emailPlaceholder": "you@company.com",
+        "phone": "Phone",
+        "phonePlaceholder": "+1 (555) 000-0000",
+        "business": "Business type",
+        "businessPlaceholder": "Select your segment",
+        "businessOptions": {
+          "clinica": "Clinic / Medical Office",
+          "imobiliaria": "Real Estate",
+          "advocacia": "Law Firm",
+          "ecommerce": "E-commerce / Store",
+          "servicos": "Service Provider",
+          "outro": "Other"
+        },
+        "submit": "Schedule demo",
+        "submitting": "Sending...",
+        "errorRequired": "Fill in all required fields",
+        "errorSubmit": "Error sending. Please try again.",
+        "successTitle": "Demo scheduled!",
+        "successMessage": "Our team will contact you within 24h to confirm the best time.",
+        "trust": {
+          "free": "100% free",
+          "noCommitment": "No commitment"
+        }
+      }
+    }
+  },
+  "automations": {
+    "hero": {
+      "title": "Your business serving 24/7 — without depending on anyone.",
+      "subtitle": "Secretary v3 is a complete WhatsApp automation that schedules, sends PIX, confirms appointments, follows up, and turns conversations into sales.",
+      "ctaPrimary": "Install Secretary v3",
+      "ctaSecondary": "View Demo"
+    },
+    "demo": {
+      "badge": "Demo",
+      "title": "How does it work in practice?",
+      "description": "Watch a real conversation with Secretary v3 in action"
+    },
+    "process": {
+      "badgeLeft": "Process",
+      "badgeRight": "4 Simple Steps",
+      "title": "How it works in practice",
+      "description": "From first contact to conversion, everything automated and intelligent.",
+      "steps": {
+        "0": {
+          "title": "Customer sends a message",
+          "description": "Your customer starts a WhatsApp conversation at any time, day or night.",
+          "details": {
+            "0": "Official WhatsApp Business API integration",
+            "1": "Multi-agent: multiple concurrent channels",
+            "2": "Full conversation history"
+          }
+        },
+        "1": {
+          "title": "AI processes and qualifies",
+          "description": "Our AI understands the message's intent, context, and urgency.",
+          "details": {
+            "0": "Real-time sentiment analysis",
+            "1": "Purchase intent detection",
+            "2": "Automatic qualification score"
+          }
+        },
+        "2": {
+          "title": "Automated action",
+          "description": "The system executes the ideal action: reply, schedule, charge, or escalate to a human.",
+          "details": {
+            "0": "Contextualized responses",
+            "1": "Integration with Google Calendar, Asaas, CRM",
+            "2": "Smart escalation to human team"
+          }
+        },
+        "3": {
+          "title": "Measured results",
+          "description": "Dashboard shows service, conversion and satisfaction metrics in real time.",
+          "details": {
+            "0": "Conversion rate by channel",
+            "1": "Average response time",
+            "2": "NPS and customer satisfaction"
+          }
+        }
+      }
+    },
+    "benefits": {
+      "badgeLeft": "Benefits",
+      "badgeRight": "Proven Results",
+      "title": "Why automate your WhatsApp?",
+      "description": "Over 50 companies have already increased sales and reduced operating costs with our solution.",
+      "items": {
+        "0": {"title": "24/7 Availability", "description": "Automatic service that never sleeps. Your customers get instant responses any time of day."},
+        "1": {"title": "300% increase in conversions", "description": "Optimized flows to convert visitors into paying customers with intelligent qualification."},
+        "2": {"title": "Scale without hiring", "description": "Serve 10x more customers simultaneously without increasing your team or operating costs."},
+        "3": {"title": "Responses in seconds", "description": "Average response time under 3 seconds. Eliminate queues and lead drop-off."},
+        "4": {"title": "Secure integration", "description": "Encrypted connection with the official WhatsApp Business API. Your data and your customers' data are protected."},
+        "5": {"title": "Real-time analytics", "description": "Complete dashboard with service, conversion and customer satisfaction metrics."}
+      }
+    },
+    "niches": {
+      "badgeLeft": "Segments",
+      "badgeRight": "Specific Solutions",
+      "title": "Tailored automation for your segment",
+      "description": "Every business has its nuances. Our solution adapts to your market's specific needs.",
+      "cards": {
+        "0": {
+          "title": "Clinics and Medical Offices",
+          "description": "Automatic scheduling, appointment reminders and billing via WhatsApp.",
+          "benefits": {"0": "80% reduction in no-shows", "1": "24/7 scheduling", "2": "Automated billing"}
+        },
+        "1": {
+          "title": "Real Estate",
+          "description": "Lead qualification, visit scheduling and proposal follow-up.",
+          "benefits": {"0": "3x more scheduled visits", "1": "Automatic lead scoring", "2": "Smart follow-up"}
+        },
+        "2": {
+          "title": "Law Firms",
+          "description": "Case triage, consultation scheduling and deadline reminders.",
+          "benefits": {"0": "24/7 triage", "1": "Deadline management", "2": "Automated documents"}
+        },
+        "3": {
+          "title": "E-commerce",
+          "description": "Cart recovery, customer support and automated upsell.",
+          "benefits": {"0": "40% recovery", "1": "Instant support", "2": "Cross-sell"}
+        },
+        "4": {
+          "title": "Service Providers",
+          "description": "Automatic quotes, scheduling and waitlist management.",
+          "benefits": {"0": "Quotes in seconds", "1": "Optimized calendar", "2": "Demand management"}
+        },
+        "5": {
+          "title": "Agencies and Consultancies",
+          "description": "Lead qualification, meeting scheduling and automated follow-up.",
+          "benefits": {"0": "Qualified leads", "1": "Automatic pipeline", "2": "Integrated CRM"}
+        }
+      }
+    },
+    "integrations": {
+      "badgeLeft": "Integrations",
+      "badgeRight": "Connect Everything",
+      "title": "Integration with your tools",
+      "description": "We connect WhatsApp, N8N, CRMs and databases into an automated flow.",
+      "databaseBadge": {
+        "first": "WhatsApp",
+        "second": "N8N",
+        "third": "CRM",
+        "fourth": "Database"
+      },
+      "databaseButtons": {
+        "first": "CazaTech",
+        "second": "Integration"
+      },
+      "databaseTitle": "Data exchange via custom REST API"
+    },
+    "faq": {
+      "badgeLeft": "FAQ",
+      "badgeRight": "Frequently Asked Questions",
+      "title": "Frequently asked questions",
+      "items": {
+        "0": {"q": "Do I need to change my clinic's number?", "a": "No. We integrate the automation directly with your current WhatsApp Business number."},
+        "1": {"q": "Does the automation replace my receptionist?", "a": "No. It eliminates repetitive work (scheduling, confirming), allowing your team to focus on care and complex cases."},
+        "2": {"q": "What if the patient sends an audio?", "a": "Our AI transcribes and understands voice messages, responding naturally and in context."},
+        "3": {"q": "Does it work with any system?", "a": "We have native integration with Google Calendar and Asaas. For other systems, we perform a feasibility analysis via API."}
+      }
+    },
+    "waitlist": {
+      "title": "Automate your customer service",
+      "subtitle": "Get a free consultation and discover how to increase your sales with automation.",
+      "button": "I Want to Automate",
+      "success": "We will contact you soon!"
+    }
+  },
+  "works": {
+    "hero": {
+      "badge": "Portfolio",
+      "title": "Projects that deliver results",
+      "subtitle": "Discover the systems, automations and websites we've built for companies that actually grow."
+    },
+    "stats": {
+      "projects": { "value": "+50", "label": "Projects delivered" },
+      "clients": { "value": "+30", "label": "Active clients" },
+      "satisfaction": { "value": "98%", "label": "Satisfaction" },
+      "years": { "value": "5+", "label": "Years in market" }
+    },
+    "services": {
+      "badge": "What we do",
+      "title": "Technology that solves real problems",
+      "subtitle": "Every project is built to generate measurable ROI, not just deliver code.",
+      "items": {
+        "automation": {
+          "title": "WhatsApp Automation",
+          "description": "24/7 support, scheduling, billing and automatic follow-up.",
+          "features": ["Responses in seconds", "Payment integration", "Human escalation"]
+        },
+        "saas": {
+          "title": "SaaS & Systems",
+          "description": "From MVP to scalable product, with dashboard, payments and API.",
+          "features": ["Scalable architecture", "Integrated payments", "Analytics dashboard"]
+        },
+        "sites": {
+          "title": "Sites & Landing Pages",
+          "description": "Fast websites, optimized for SEO and conversion.",
+          "features": ["A+ Performance", "Technical SEO", "Responsive design"]
+        },
+        "integrations": {
+          "title": "Integrations & APIs",
+          "description": "We connect your existing systems into a single flow.",
+          "features": ["Integrated CRM", "N8N Webhooks", "REST APIs"]
+        }
+      }
+    },
+    "process": {
+      "badge": "How we work",
+      "title": "Clear process, predictable results",
+      "subtitle": "Methodology tested in +50 projects.",
+      "steps": {
+        "0": { "title": "Diagnosis", "description": "We understand your business, bottlenecks and goals before proposing any solution." },
+        "1": { "title": "Architecture", "description": "We design the technical structure with scale and maintenance in mind." },
+        "2": { "title": "Development", "description": "Weekly sprints with incremental deliveries and transparent communication." },
+        "3": { "title": "Deploy & Support", "description": "We go live and track results with ongoing support." }
+      }
+    },
+    "features": {
+      "title": "Why choose CazaTech?",
+      "subtitle": "Modern structure, technical SEO and performance. We build with focus on conversion and scale.",
+      "items": {
+        "0": "Email and WhatsApp support",
+        "1": "Fast response",
+        "2": "Monitoring and analytics",
+        "3": "Architecture review"
+      }
+    },
+    "cta": {
+      "title": "Want a project like these?",
+      "description": "Let's talk about your idea and turn it into reality.",
+      "button": "Request Quote"
     }
   },
   "sections": {
@@ -251,6 +718,118 @@
       "role": "Owner",
       "company": "Flavor & Art Restaurant",
       "quote": "I thought automation was only for big companies. They built a simple system: customer books via WhatsApp, gets automatic confirmation, and a reminder the day before. Zero no-shows. An investment that pays for itself."
+    }
+  },
+  "primeops": {
+    "hero": {
+      "badge": "PRIMEOPS — Customer Service Infrastructure",
+      "headline": "Operational infrastructure that works while you sleep",
+      "subheadline": "Professional customer service system that receives messages, processes with AI, schedules, bills, and escalates to humans. Available 24/7, without human bottlenecks.",
+      "coreMessage": "Not a chatbot. A complete customer service infrastructure that integrates with your business.",
+      "ctaPrimary": "Talk to a Specialist",
+      "ctaSecondary": "View Architecture",
+      "stats": {
+        "uptime": "Availability",
+        "response": "Response",
+        "availability": "SLA Guarantee"
+      }
+    },
+    "hologram": {
+      "badge": "Multichannel Processing",
+      "title": "All messages converge to a single system",
+      "description": "WhatsApp, Instagram, Facebook, Telegram — all conversations processed by a single intelligent infrastructure.",
+      "caption": "Real-time visualization of message processing",
+      "responses": {
+        "scheduled": "Scheduled",
+        "confirmed": "Confirmed",
+        "payment": "Paid"
+      }
+    },
+    "architecture": {
+      "badge": "System Architecture",
+      "title": "Enterprise-grade infrastructure for your customer service",
+      "description": "Each system layer is designed to ensure performance, security, and scalability.",
+      "layers": {
+        "interface": {
+          "title": "Interface Layer",
+          "description": "WhatsApp API, Instagram, Facebook Messenger — official and secure connection with all channels."
+        },
+        "processing": {
+          "title": "Processing Layer",
+          "description": "Conversational AI that understands context, intent, and customer history in milliseconds."
+        },
+        "orchestration": {
+          "title": "Orchestration Layer",
+          "description": "Decision engine that routes conversations, triggers actions, and escalates to humans when needed."
+        },
+        "data": {
+          "title": "Data Layer",
+          "description": "Secure persistence with automatic backup, complete history, and real-time analytics."
+        },
+        "security": {
+          "title": "Security Layer",
+          "description": "End-to-end encryption, GDPR compliant, and access auditing."
+        }
+      },
+      "benefits": {
+        "title": "Architecture Benefits",
+        "performance": {
+          "title": "High Performance",
+          "description": "Response in under 3 seconds, even with thousands of simultaneous conversations."
+        },
+        "security": {
+          "title": "Total Security",
+          "description": "Encrypted data, GDPR compliance, and granular access control."
+        },
+        "scalability": {
+          "title": "Scalability",
+          "description": "Grows with your business without performance degradation or explosive costs."
+        }
+      },
+      "stats": {
+        "uptime": {
+          "value": "99.9%",
+          "label": "Guaranteed uptime"
+        },
+        "latency": {
+          "value": "<3s",
+          "label": "Average latency"
+        },
+        "capacity": {
+          "value": "1000+",
+          "label": "Conversations/hour"
+        },
+        "security": {
+          "value": "256-bit",
+          "label": "Encryption"
+        }
+      }
+    },
+    "problem": {
+      "badge": "The real problem",
+      "title": "The invisible cost of manual customer service",
+      "description": "Every minute of delay costs money. See what happens when customer service depends only on people.",
+      "contrast": "What if there was an infrastructure that never forgets, never delays, and never needs vacation?"
+    },
+    "solution": {
+      "badge": "The solution",
+      "title": "PRIMEOPS: your operational customer service infrastructure",
+      "description": "Not a generic chatbot. A complete infrastructure that works 24/7 and adapts to your business."
+    },
+    "features": {
+      "badge": "Features",
+      "title": "Everything your operation needs",
+      "description": "Features organized by outcome, not by technical list."
+    },
+    "trust": {
+      "badge": "Trust",
+      "title": "Enterprise-ready infrastructure",
+      "description": "Not an experimental project. A platform tested in production."
+    },
+    "cta": {
+      "badge": "Next step",
+      "title": "Ready to transform your customer service?",
+      "description": "Schedule a demo and see PRIMEOPS working with real data from your business."
     }
   }
 }

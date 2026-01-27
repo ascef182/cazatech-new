@@ -1,14 +1,102 @@
 /**
  * CazaTech Design Tokens (CSS Variables)
  * ==========================================
- * Tokens de design em CSS para uso direto em componentes
+ * Design System para PRIMEOPS - Infraestrutura Operacional de Software
+ *
+ * PRINCIPIOS:
+ * - Paleta estrutural: Navy (Prussian, Oxford, Regal)
+ * - Cores funcionais: WhatsApp green apenas para sinais
+ * - Glassmorphism controlado (sem glow excessivo)
+ * - Tipografia premium com escala clara
+ * - Motion intencional com curvas bezier definidas
  */
 
 /* ============================================
-   CORES - Sistema de Cores Premium
+   CORES - Sistema PRIMEOPS
    ============================================ */
 
 :root {
+  /* ===== PALETA PRIMEOPS ===== */
+
+  /* Primary: Navy Estrutural (Confiança, Infraestrutura, Premium) */
+  --primeops-prussian: 0 49 83;      /* #003153 - Base escura principal */
+  --primeops-oxford: 0 33 71;        /* #002147 - Background profundo */
+  --primeops-regal: 0 53 102;        /* #003566 - Highlights e bordas */
+  --primeops-midnight: 12 24 42;     /* #0C182A - Background mais escuro */
+
+  /* Accent: Tons claros para respiro visual */
+  --primeops-powder: 176 224 230;    /* #B0E0E6 - Destaque suave */
+  --primeops-mint: 245 255 250;      /* #F5FFFA - Texto highlight */
+  --primeops-ice: 240 248 255;       /* #F0F8FF - Hover states */
+
+  /* Functional: WhatsApp apenas para sinais */
+  --primeops-whatsapp: 37 211 102;   /* #25D366 - Status, confirmações */
+  --primeops-signal-active: 34 197 94;
+  --primeops-signal-success: 22 163 74;
+
+  /* ===== BRAND COLORS - CAZATECH PREMIUM ===== */
+  /* USO: highlights, estados ativos, accent elements
+   * NÃO USAR: backgrounds estruturais, containers grandes
+   * REGRA: Sólido, limpo, preciso. Design premium, nada de vibe-coding.
+   */
+
+  /* Iris - Purple-Blue Principal */
+  --brand-iris: 90 64 188;               /* #5A40BC - Azul-roxo sofisticado */
+  --brand-iris-light: 120 94 218;        /* Hover state mais claro */
+  --brand-iris-dark: 70 44 158;          /* Pressed state */
+
+  /* Grape - Deep Magenta Accent */
+  --brand-grape: 120 13 167;             /* #780DA7 - Magenta profundo */
+  --brand-grape-light: 150 43 197;       /* Hover state */
+  --brand-grape-dark: 90 0 137;          /* Pressed state */
+
+  /* Peach - Warm Contrast / Off-white */
+  --brand-peach: 255 215 177;            /* #FFD7B1 - Warm peach */
+  --brand-offwhite: 241 241 241;         /* #f1f1f1 - Clean off-white */
+
+  /* Legacy purple (mantendo compatibilidade) */
+  --brand-purple-primary: 139 92 246;    /* #8B5CF6 - Roxo elegante principal */
+  --brand-purple-muted: 167 139 250;     /* #A78BFA - Estados hover, secundário */
+  --brand-purple-soft: 221 214 254;      /* #DDD6FE - Backgrounds sutis */
+  --brand-purple-dark: 109 40 217;       /* #6D28D9 - Estados pressed */
+
+  /* Legacy LP Primary (mantendo compatibilidade) */
+  --lp-primary-50: 240 248 255;
+  --lp-primary-100: 224 242 254;
+  --lp-primary-200: 186 230 253;
+  --lp-primary-300: 125 211 252;
+  --lp-primary-400: 56 189 248;
+  --lp-primary-500: 14 165 233;
+  --lp-primary-600: 2 132 199;
+  --lp-primary-700: 3 105 161;
+  --lp-primary-800: 7 89 133;
+  --lp-primary-900: 12 74 110;
+
+  /* Accent: Cyan/Teal para acentos */
+  --lp-accent-400: 34 211 238;
+  --lp-accent-500: 6 182 212;
+  --lp-accent-600: 8 145 178;
+
+  /* Neutrals: Slate Navy (Profissional, Legivel) */
+  --lp-neutral-50: 248 250 252;
+  --lp-neutral-100: 241 245 249;
+  --lp-neutral-200: 226 232 240;
+  --lp-neutral-300: 203 213 225;
+  --lp-neutral-400: 148 163 184;
+  --lp-neutral-500: 100 116 139;
+  --lp-neutral-600: 71 85 105;
+  --lp-neutral-700: 51 65 85;
+  --lp-neutral-800: 30 41 59;
+  --lp-neutral-900: 15 23 42;
+  --lp-neutral-950: 2 6 23;
+
+  /* Semantic */
+  --lp-success: 34 197 94;
+  --lp-warning: 234 179 8;
+  --lp-error: 239 68 68;
+
+  /* ===== CORES LEGADO (manter compatibilidade) ===== */
+
   /* Primary Purple */
   --color-purple-50: 245 243 255;
   --color-purple-100: 237 233 254;
@@ -61,9 +149,101 @@
   --color-info: 59 130 246;
 
   /* ============================================
-     GRADIENTES
+     TIPOGRAFIA - Escala Clara
      ============================================ */
-  
+
+  /* Font Sizes */
+  --lp-text-xs: 0.75rem;      /* 12px - captions */
+  --lp-text-sm: 0.875rem;     /* 14px - labels */
+  --lp-text-base: 1rem;       /* 16px - body */
+  --lp-text-lg: 1.125rem;     /* 18px - lead */
+  --lp-text-xl: 1.25rem;      /* 20px - subheading */
+  --lp-text-2xl: 1.5rem;      /* 24px - h4 */
+  --lp-text-3xl: 1.875rem;    /* 30px - h3 */
+  --lp-text-4xl: 2.25rem;     /* 36px - h2 */
+  --lp-text-5xl: 3rem;        /* 48px - h1 mobile */
+  --lp-text-6xl: 3.75rem;     /* 60px - h1 desktop */
+  --lp-text-7xl: 4.5rem;      /* 72px - hero */
+
+  /* Line Heights */
+  --lp-leading-none: 1;
+  --lp-leading-tight: 1.1;
+  --lp-leading-snug: 1.25;
+  --lp-leading-normal: 1.5;
+  --lp-leading-relaxed: 1.625;
+  --lp-leading-loose: 2;
+
+  /* Letter Spacing */
+  --lp-tracking-tighter: -0.05em;
+  --lp-tracking-tight: -0.025em;
+  --lp-tracking-normal: 0;
+  --lp-tracking-wide: 0.025em;
+  --lp-tracking-wider: 0.05em;
+
+  /* ============================================
+     ESPACAMENTO - Tokens (sem valores arbitrarios)
+     ============================================ */
+
+  --lp-space-0: 0;
+  --lp-space-1: 0.25rem;   /* 4px */
+  --lp-space-2: 0.5rem;    /* 8px */
+  --lp-space-3: 0.75rem;   /* 12px */
+  --lp-space-4: 1rem;      /* 16px */
+  --lp-space-5: 1.25rem;   /* 20px */
+  --lp-space-6: 1.5rem;    /* 24px */
+  --lp-space-8: 2rem;      /* 32px */
+  --lp-space-10: 2.5rem;   /* 40px */
+  --lp-space-12: 3rem;     /* 48px */
+  --lp-space-16: 4rem;     /* 64px */
+  --lp-space-20: 5rem;     /* 80px */
+  --lp-space-24: 6rem;     /* 96px */
+  --lp-space-32: 8rem;     /* 128px */
+
+  /* Section Spacing */
+  --lp-section-sm: 4rem;   /* 64px */
+  --lp-section-md: 6rem;   /* 96px */
+  --lp-section-lg: 8rem;   /* 128px */
+
+  /* ============================================
+     BORDER RADIUS - Apenas 3 valores
+     ============================================ */
+
+  --lp-radius-sm: 0.375rem;   /* 6px - buttons, inputs */
+  --lp-radius-md: 0.75rem;    /* 12px - cards */
+  --lp-radius-lg: 1rem;       /* 16px - modals, large cards */
+  --lp-radius-full: 9999px;   /* pills, avatars */
+
+  /* ============================================
+     MOTION - Curvas Bezier Intencionais
+     ============================================ */
+
+  /* Durations */
+  --lp-duration-instant: 75ms;
+  --lp-duration-fast: 150ms;
+  --lp-duration-normal: 300ms;
+  --lp-duration-slow: 500ms;
+  --lp-duration-slower: 700ms;
+
+  /* Easings */
+  --lp-ease-linear: linear;
+  --lp-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --lp-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --lp-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --lp-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --lp-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* ============================================
+     GRADIENTES - PRIMEOPS
+     ============================================ */
+
+  /* PRIMEOPS Navy Gradients */
+  --gradient-primeops-hero: linear-gradient(180deg, rgb(var(--primeops-oxford)) 0%, rgb(var(--primeops-midnight)) 100%);
+  --gradient-primeops-card: linear-gradient(180deg, rgba(0, 49, 83, 0.6) 0%, rgba(0, 33, 71, 0.4) 100%);
+  --gradient-primeops-subtle: linear-gradient(180deg, rgba(0, 53, 102, 0.1) 0%, transparent 100%);
+  --gradient-primeops-glow: radial-gradient(ellipse at center, rgba(0, 53, 102, 0.3) 0%, transparent 70%);
+  --gradient-primeops-text: linear-gradient(135deg, rgb(var(--primeops-powder)) 0%, rgb(var(--primeops-ice)) 100%);
+
+  /* Legacy gradients (mantendo compatibilidade) */
   --gradient-primary: linear-gradient(135deg, rgb(var(--color-purple-500)) 0%, rgb(var(--color-blue-500)) 100%);
   --gradient-primary-reverse: linear-gradient(135deg, rgb(var(--color-blue-500)) 0%, rgb(var(--color-purple-500)) 100%);
   --gradient-hero: linear-gradient(to bottom right, #581c87, #1e3a8a, #000000);
@@ -74,9 +254,18 @@
   --gradient-text: linear-gradient(135deg, #8350e8 0%, #60a5fa 100%);
 
   /* ============================================
-     SOMBRAS
+     SOMBRAS - PRIMEOPS (Controladas, sem glow)
      ============================================ */
-  
+
+  /* PRIMEOPS Shadows - Subtle e Profissional */
+  --shadow-primeops-card: 0 4px 16px -4px rgba(0, 0, 0, 0.4);
+  --shadow-primeops-card-hover: 0 8px 24px -8px rgba(0, 0, 0, 0.5);
+  --shadow-primeops-elevated: 0 12px 32px -12px rgba(0, 0, 0, 0.5);
+  --shadow-primeops-button: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-primeops-input-focus: 0 0 0 2px rgba(0, 53, 102, 0.5);
+  --shadow-primeops-inner: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+
+  /* Legacy shadows (mantendo compatibilidade) */
   --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
   --shadow-card-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
   --shadow-glow-purple: 0 0 40px rgba(131, 80, 232, 0.4);
@@ -326,16 +515,354 @@
 }
 
 /* ============================================
+   PRIMEOPS GLASSMORPHISM - Controlado
+   Sem glow excessivo, bordas finas, blur suave
+   ============================================ */
+
+.glass-primeops {
+  background: rgba(0, 49, 83, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(176, 224, 230, 0.1);
+  border-radius: var(--lp-radius-md);
+}
+
+.glass-primeops-card {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 53, 102, 0.3) 0%,
+    rgba(0, 33, 71, 0.2) 100%
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(176, 224, 230, 0.08);
+  border-radius: var(--lp-radius-lg);
+  transition: all 300ms var(--lp-ease-out);
+}
+
+.glass-primeops-card:hover {
+  border-color: rgba(176, 224, 230, 0.15);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 53, 102, 0.4) 0%,
+    rgba(0, 33, 71, 0.25) 100%
+  );
+}
+
+.glass-primeops-subtle {
+  background: rgba(0, 33, 71, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* PRIMEOPS Button Styles */
+.btn-primeops-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: white;
+  border-radius: var(--lp-radius-sm);
+  background: rgb(var(--primeops-regal));
+  border: 1px solid rgba(176, 224, 230, 0.2);
+  transition: all 200ms var(--lp-ease-out);
+  box-shadow: var(--shadow-primeops-button);
+}
+
+.btn-primeops-primary:hover {
+  background: rgb(var(--primeops-prussian));
+  border-color: rgba(176, 224, 230, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-primeops-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: rgb(var(--primeops-powder));
+  border-radius: var(--lp-radius-sm);
+  background: transparent;
+  border: 1px solid rgba(176, 224, 230, 0.2);
+  transition: all 200ms var(--lp-ease-out);
+}
+
+.btn-primeops-secondary:hover {
+  background: rgba(0, 53, 102, 0.3);
+  border-color: rgba(176, 224, 230, 0.3);
+}
+
+/* PRIMEOPS Signal Colors (WhatsApp apenas funcional) */
+.signal-active {
+  color: rgb(var(--primeops-whatsapp));
+}
+
+.signal-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgb(var(--primeops-whatsapp));
+  animation: pulse-signal 2s ease-in-out infinite;
+}
+
+@keyframes pulse-signal {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+/* PRIMEOPS Badge */
+.badge-primeops {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-radius: var(--lp-radius-full);
+  background: rgba(0, 53, 102, 0.4);
+  border: 1px solid rgba(176, 224, 230, 0.15);
+  color: rgb(var(--primeops-powder));
+}
+
+/* PRIMEOPS Text Gradient */
+.text-gradient-primeops {
+  background: linear-gradient(135deg, rgb(var(--primeops-powder)) 0%, rgb(var(--primeops-ice)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* PRIMEOPS Card Hover State */
+.primeops-card-hover {
+  position: relative;
+  transition: all 300ms var(--lp-ease-out);
+}
+
+.primeops-card-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    rgba(176, 224, 230, 0.05) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 300ms var(--lp-ease-out);
+  pointer-events: none;
+}
+
+.primeops-card-hover:hover::before {
+  opacity: 1;
+}
+
+/* PRIMEOPS Divider */
+.divider-primeops {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(176, 224, 230, 0.2),
+    transparent
+  );
+}
+
+/* ============================================
+   BRAND ACCENT - ROXO CAZATECH
+   USO: highlights, estados ativos, homepage hero
+   NÃO USAR: backgrounds estruturais, containers
+   ============================================ */
+
+/* Brand Accent Button - Sólido, sem glow */
+.btn-brand-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: white;
+  border-radius: var(--lp-radius-sm);
+  background: rgb(var(--brand-purple-primary));
+  border: none;
+  transition: all 200ms var(--lp-ease-out);
+}
+
+.btn-brand-accent:hover {
+  background: rgb(var(--brand-purple-dark));
+  transform: translateY(-1px);
+}
+
+/* Brand Accent Badge */
+.badge-brand-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-radius: var(--lp-radius-full);
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  color: rgb(var(--brand-purple-muted));
+}
+
+/* Brand Accent Text Gradient - APENAS para homepage hero */
+.text-gradient-brand {
+  background: linear-gradient(135deg, rgb(var(--brand-iris)) 0%, rgb(var(--brand-grape)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Brand Accent Highlight - para texto inline */
+.text-brand-accent {
+  color: rgb(var(--brand-iris-light));
+}
+
+/* ============================================
+   BRAND IRIS & GRAPE - Premium Button Styles
+   ============================================ */
+
+/* Iris Primary Button */
+.btn-iris {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: white;
+  border-radius: var(--lp-radius-sm);
+  background: rgb(var(--brand-iris));
+  border: none;
+  transition: all 200ms var(--lp-ease-out);
+}
+
+.btn-iris:hover {
+  background: rgb(var(--brand-iris-dark));
+  transform: translateY(-1px);
+}
+
+/* Grape Secondary Button */
+.btn-grape {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: white;
+  border-radius: var(--lp-radius-sm);
+  background: rgb(var(--brand-grape));
+  border: none;
+  transition: all 200ms var(--lp-ease-out);
+}
+
+.btn-grape:hover {
+  background: rgb(var(--brand-grape-dark));
+  transform: translateY(-1px);
+}
+
+/* Outline Button with Iris */
+.btn-iris-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: rgb(var(--brand-offwhite));
+  border-radius: var(--lp-radius-sm);
+  background: transparent;
+  border: 1px solid rgba(90, 64, 188, 0.4);
+  transition: all 200ms var(--lp-ease-out);
+}
+
+.btn-iris-outline:hover {
+  background: rgba(90, 64, 188, 0.1);
+  border-color: rgb(var(--brand-iris));
+}
+
+/* Card with Iris accent */
+.card-iris {
+  background: linear-gradient(180deg, rgba(90, 64, 188, 0.08) 0%, rgba(0, 0, 0, 0.4) 100%);
+  border: 1px solid rgba(90, 64, 188, 0.15);
+  border-radius: var(--lp-radius-lg);
+  transition: all 300ms var(--lp-ease-out);
+}
+
+.card-iris:hover {
+  border-color: rgba(90, 64, 188, 0.35);
+  background: linear-gradient(180deg, rgba(90, 64, 188, 0.12) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+/* Text colors */
+.text-iris {
+  color: rgb(var(--brand-iris-light));
+}
+
+.text-grape {
+  color: rgb(var(--brand-grape-light));
+}
+
+.text-peach {
+  color: rgb(var(--brand-peach));
+}
+
+.text-offwhite {
+  color: rgb(var(--brand-offwhite));
+}
+
+/* Background colors */
+.bg-iris {
+  background-color: rgb(var(--brand-iris));
+}
+
+.bg-grape {
+  background-color: rgb(var(--brand-grape));
+}
+
+/* ============================================
    TIPOGRAFIA PREMIUM
    Estilo moderno e minimalista
    ============================================ */
 
-/* Headline Styles - Estilo Neural Network Hero */
+/* ============================================
+   HIERARQUIA TIPOGRÁFICA OFICIAL
+   Headlines: medium/semibold | Subheadlines: normal
+   Body: normal | Captions/badges: light
+   ============================================ */
+
+/* Headline Styles */
 .headline-hero {
   font-family: inherit;
   font-size: 2.5rem;
-  font-weight: 200;
-  line-height: 1.05;
+  font-weight: 500; /* medium - NÃO usar extralight em headlines */
+  line-height: 1.1;
   letter-spacing: -0.025em;
   color: white;
 }
@@ -343,8 +870,8 @@
 .headline-section {
   font-family: inherit;
   font-size: 2rem;
-  font-weight: 200;
-  line-height: 1.1;
+  font-weight: 500; /* medium */
+  line-height: 1.15;
   letter-spacing: -0.025em;
   color: white;
 }
@@ -352,7 +879,7 @@
 .headline-card {
   font-family: inherit;
   font-size: 1.25rem;
-  font-weight: 300;
+  font-weight: 600; /* semibold para cards */
   letter-spacing: -0.01em;
   color: white;
 }

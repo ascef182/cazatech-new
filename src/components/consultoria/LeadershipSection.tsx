@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Code2, Rocket, Users, Terminal } from "lucide-react";
+import { useI18n } from "@/app/ClientBody";
 
 export default function LeadershipSection() {
+  const { t } = useI18n();
   return (
     <section className="relative py-20 md:py-32 bg-black overflow-hidden">
       {/* Background Elements */}
@@ -25,7 +27,7 @@ export default function LeadershipSection() {
               {/* Placeholder image - Replace with Pam's photo */}
               <Image
                 src="/images/pam-cazarini.webp"
-                alt="Pâm Ascef - Liderança Técnica"
+                alt={t("consulting.hero.alt")}
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
                 priority
@@ -36,7 +38,7 @@ export default function LeadershipSection() {
               <div className="absolute bottom-6 left-6 right-6">
                 <h3 className="text-2xl font-bold text-white">Pâm Ascef</h3>
                 <p className="text-purple-400 font-medium">
-                  Líder Técnica & Full Stack Developer
+                  {t("consulting.hero.badge")}
                 </p>
               </div>
             </div>
@@ -69,28 +71,22 @@ export default function LeadershipSection() {
           >
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-medium mb-6">
               <Users className="w-3 h-3" />
-              Liderança CazaTech
+              {t("consulting.hero.badge")}
             </span>
 
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
-              Expertise técnica que <br />
+              {t("consulting.hero.titleLine1")} <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">
-                transforma negócios
+                {t("consulting.hero.titleLine2")}
               </span>
             </h2>
 
             <div className="space-y-6 text-neutral-300 leading-relaxed">
               <p>
-                À frente da tecnologia na CazaTech, <strong>Pâm Ascef</strong>{" "}
-                traz uma visão única que une excelência técnica com estratégia
-                de negócios. Como desenvolvedora Full Stack sênior, ela garante
-                que cada linha de código contribua para o crescimento da sua
-                empresa.
+                {t("consulting.hero.p1")}
               </p>
               <p>
-                Nossa metodologia não é apenas sobre entregar software, mas
-                sobre construir soluções escaláveis, seguras e de alta
-                performance que se adaptam ao ritmo do seu mercado.
+                {t("consulting.hero.p2")}
               </p>
             </div>
 
@@ -98,21 +94,19 @@ export default function LeadershipSection() {
               <div className="space-y-2">
                 <h4 className="text-white font-semibold flex items-center gap-2">
                   <Rocket className="w-4 h-4 text-purple-500" />
-                  Inovação
+                  {t("consulting.hero.featureInnovationTitle")}
                 </h4>
                 <p className="text-sm text-neutral-400">
-                  Uso das stacks mais modernas (Next.js, React, Node) para
-                  garantir longevidade.
+                  {t("consulting.hero.featureInnovationDesc")}
                 </p>
               </div>
               <div className="space-y-2">
                 <h4 className="text-white font-semibold flex items-center gap-2">
                   <Users className="w-4 h-4 text-blue-500" />
-                  Mentoria
+                  {t("consulting.hero.featureMentoringTitle")}
                 </h4>
                 <p className="text-sm text-neutral-400">
-                  Acompanhamento próximo para alinhar tecnologia e objetivos
-                  comerciais.
+                  {t("consulting.hero.featureMentoringDesc")}
                 </p>
               </div>
             </div>

@@ -1,121 +1,83 @@
 "use client";
 
-import HeroAutomacoes from "@/components/automacoes/HeroAutomacoes";
-import { Iphone16Pro } from "@/components/ui/iphone-16-pro";
-import Image from "next/image";
-import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
-import { automacoesContent } from "@/content/automacoes";
-import { BenefitsSection } from "@/components/automacoes/BenefitsSection";
-import { NicheCards } from "@/components/automacoes/NicheCards";
-import { HowItWorksTimeline } from "@/components/automacoes/HowItWorksTimeline";
-import { WaitlistCTA } from "@/components/automacoes/WaitlistCTA";
-import DatabaseWithRestApi from "@/components/ui/database-with-rest-api";
 import { FAQSchema } from "@/components/seo/JsonLd";
+import { useI18n } from "@/app/ClientBody";
+
+// PRIMEOPS Design - Professional Infrastructure Theme
+import HeroPrimeops from "@/components/automacoes/HeroPrimeops";
+import HologramSection from "@/components/automacoes/HologramSection";
+import ArchitectureSection from "@/components/automacoes/ArchitectureSection";
+import ProblemSection from "@/components/automacoes/ProblemSection";
+import SolutionSection from "@/components/automacoes/SolutionSection";
+import SystemFlowSection from "@/components/automacoes/SystemFlowSection";
+import FeaturesSection from "@/components/automacoes/FeaturesSection";
+import TrustSection from "@/components/automacoes/TrustSection";
+import FinalCTASection from "@/components/automacoes/FinalCTASection";
 
 export default function AutomacoesPage() {
+  const { t } = useI18n();
+
   return (
-    <div className="relative w-full overflow-hidden">
-      {/* Hero com grid de imagens n8n e CTA igual à raíz */}
-      <HeroAutomacoes />
+    <div className="relative w-full overflow-hidden" style={{ background: 'rgb(12, 24, 42)' }}>
+      {/* SEO Schema */}
+      <FAQSchema
+        faqs={[0, 1, 2, 3].map((i) => ({
+          q: t(`automations.faq.items.${i}.q`),
+          a: t(`automations.faq.items.${i}.a`),
+        }))}
+      />
 
-      {/* iPhone 16 Pro mockup com vídeo demonstrativo */}
-      <section id="demo" className="flex justify-center items-center py-16 md:py-24 bg-white overflow-hidden">
-        <div className="text-center max-w-7xl mx-auto px-4 w-full">
-          <span className="inline-flex items-center px-3 py-1 text-xs font-medium uppercase tracking-wider rounded-full bg-purple-100 text-purple-700 mb-4">
-            Demonstração
-          </span>
-          <h2
-            className="text-3xl md:text-4xl font-bold mb-4 text-black"
-          >
-            Como funciona na prática?
-          </h2>
-          <p className="text-gray-600 mb-8 max-w-md mx-auto">
-            Assista uma conversa real da Secretária v3 em ação
-          </p>
-          <div className="flex justify-center w-full">
-            <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[380px] px-2 sm:px-4">
-              <Iphone16Pro
-                videoSrc="/videos/demonstracao.mp4"
-                width={380}
-                height={775}
-                className="w-full h-auto max-w-full"
-                shadow
-                rounded
-                hoverAnimation
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* PRIMEOPS Hero - Infrastructure-focused design */}
+      <HeroPrimeops />
 
-      {/* How It Works Timeline */}
-      <HowItWorksTimeline />
+      {/* Hologram Section - Message convergence visualization */}
+      <HologramSection />
 
-      {/* Database API Animation - Integrations */}
-      <section className="w-full bg-black py-16 md:py-24">
-        <div className="container mx-auto px-6">
+      {/* Architecture Section - System layers */}
+      <ArchitectureSection />
+
+      {/* Problem Section - Hidden cost of manual support */}
+      <ProblemSection />
+
+      {/* Solution Section - PRIMEOPS as operating system */}
+      <SolutionSection />
+
+      {/* System Flow - Visual demonstration */}
+      <SystemFlowSection />
+
+      {/* Features Section - Grouped by outcome */}
+      <FeaturesSection />
+
+      {/* Trust Section - Guarantees and integrations */}
+      <TrustSection />
+
+      {/* FAQ Section - PRIMEOPS styled */}
+      <section id="faq" className="relative py-16 md:py-24" style={{ background: 'rgb(12, 24, 42)' }}>
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgb(176,224,230)]/10 to-transparent" />
+        <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm mb-6">
-              <span className="text-[10px] font-light uppercase tracking-[0.08em] text-white/70">Integrações</span>
-              <span className="h-1 w-1 rounded-full bg-white/40" />
-              <span className="text-xs font-light tracking-tight text-white/80">Conecte Tudo</span>
-            </span>
-            <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-white mb-4">
-              Integração com suas ferramentas
-            </h2>
-            <p className="text-lg font-light tracking-tight text-white/60 max-w-2xl mx-auto">
-              Conectamos WhatsApp, N8N, CRMs e bancos de dados em um fluxo automatizado.
-            </p>
-          </div>
-          <div className="flex justify-center">
-            <div className="bg-black rounded-2xl p-8 border border-white/10">
-              <DatabaseWithRestApi 
-                circleText="API"
-                badgeTexts={{
-                  first: "WhatsApp",
-                  second: "N8N",
-                  third: "CRM",
-                  fourth: "Database"
-                }}
-                buttonTexts={{
-                  first: "CazaTech",
-                  second: "Integração"
-                }}
-                title="Troca de dados via REST API personalizada"
-                lightColor="#8350E8"
-              />
+            <div className="badge-primeops inline-flex mb-6">
+              <span>{t("automations.faq.badgeLeft")}</span>
+              <span className="h-1 w-1 rounded-full bg-[rgb(176,224,230)]/30 mx-2" />
+              <span>{t("automations.faq.badgeRight")}</span>
             </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* Benefits Section (substitui pricing) */}
-      <BenefitsSection />
-
-      {/* Niche Cards */}
-      <NicheCards />
-
-      {/* FAQ Section */}
-      <section id="faq" className="relative bg-neutral-950 py-16 md:py-24">
-        <FAQSchema faqs={automacoesContent.faq} />
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm mb-6">
-              <span className="text-[10px] font-light uppercase tracking-[0.08em] text-white/70">FAQ</span>
-              <span className="h-1 w-1 rounded-full bg-white/40" />
-              <span className="text-xs font-light tracking-tight text-white/80">Dúvidas Frequentes</span>
-            </span>
-            <h2 className="text-4xl md:text-5xl font-extralight tracking-tight text-white mb-4">
-              Perguntas frequentes
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white tracking-tight mb-4">
+              {t("automations.faq.title")}
             </h2>
           </div>
           <div className="max-w-3xl mx-auto">
-            <ul className="space-y-6">
-              {automacoesContent.faq.map((f) => (
-                <li key={f.q} className="border-b border-white/10 pb-6">
-                  <strong className="text-white block mb-2 font-light text-lg">{f.q}</strong>
-                  <span className="text-white/60 text-sm font-light leading-relaxed">{f.a}</span>
+            <ul className="space-y-4">
+              {[0, 1, 2, 3].map((i) => (
+                <li
+                  key={i}
+                  className="p-6 rounded-xl glass-primeops-card"
+                >
+                  <strong className="text-white block mb-2 font-medium text-lg">
+                    {t(`automations.faq.items.${i}.q`)}
+                  </strong>
+                  <span className="text-slate-300 text-base leading-relaxed">
+                    {t(`automations.faq.items.${i}.a`)}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -123,13 +85,8 @@ export default function AutomacoesPage() {
         </div>
       </section>
 
-      {/* CTA Final - Captura de Email */}
-      <WaitlistCTA 
-        title="Automatize seu atendimento"
-        subtitle="Receba uma consultoria gratuita e descubra como aumentar suas vendas com automação."
-        buttonText="Quero Automatizar"
-        successMessage="Entraremos em contato em breve!"
-      />
+      {/* Final CTA Section - Decision moment */}
+      <FinalCTASection />
     </div>
   );
 }
