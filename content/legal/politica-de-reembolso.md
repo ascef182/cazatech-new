@@ -22,7 +22,7 @@ Para que uma solicitação de reembolso seja considerada, as seguintes condiçõ
 
 ## 4. Processo de Reembolso
 
-1.  **Contato:** O cliente deve entrar em contato com a CazaTech através do e-mail [support@caza-tech.com](mailto:support@caza-tech.com) ou telefone +55 35 99802-6821 (WhatsApp: +5535998026821), informando o número do contrato/pedido e o motivo da solicitação.
+1.  **Contato:** O cliente deve entrar em contato com a CazaTech através do e-mail [support@caza-tech.com](mailto:support@caza-tech.com) ou telefone +55 35 99802-6821 (WhatsApp: +5511936205799), informando o número do contrato/pedido e o motivo da solicitação.
 2.  **Análise:** A CazaTech analisará a solicitação em até 10 dias úteis, verificando a conformidade com esta política e com o contrato de prestação de serviços.
 3.  **Decisão:** Após a análise, a CazaTech comunicará ao cliente a decisão sobre o reembolso, que poderá ser total, parcial ou negado, com a devida justificativa.
 4.  **Efetivação:** Em caso de aprovação, o reembolso será processado utilizando o mesmo método de pagamento original, em um prazo de até 7 dias úteis, a partir da data da aprovação.

@@ -29,8 +29,8 @@ function SystemFlowDiagram() {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="flex flex-col items-center"
         >
-          <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center mb-2">
-            <MessageSquare className="w-6 h-6 md:w-7 md:h-7 text-emerald-400" />
+          <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-[#5A40BC]/20 border border-[#5A40BC]/30 flex items-center justify-center mb-2">
+            <MessageSquare className="w-6 h-6 md:w-7 md:h-7 text-[#5A40BC]" />
           </div>
           <span className="text-[10px] md:text-xs text-slate-400 text-center">Mensagem</span>
         </motion.div>
@@ -40,7 +40,7 @@ function SystemFlowDiagram() {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ delay: 0.4, duration: 0.3 }}
-          className="flex-1 h-[2px] bg-gradient-to-r from-emerald-500/50 to-emerald-500/20 origin-left"
+          className="flex-1 h-[2px] bg-gradient-to-r from-[#5A40BC]/50 to-[#5A40BC]/20 origin-left"
         />
 
         {/* Step 2: Phone */}
@@ -50,8 +50,8 @@ function SystemFlowDiagram() {
           transition={{ delay: 0.5, duration: 0.5 }}
           className="flex flex-col items-center"
         >
-          <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center mb-2">
-            <Phone className="w-6 h-6 md:w-7 md:h-7 text-emerald-400" />
+          <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-[#5A40BC]/20 border border-[#5A40BC]/30 flex items-center justify-center mb-2">
+            <Phone className="w-6 h-6 md:w-7 md:h-7 text-[#5A40BC]" />
           </div>
           <span className="text-[10px] md:text-xs text-slate-400 text-center">Ligação</span>
         </motion.div>
@@ -61,7 +61,7 @@ function SystemFlowDiagram() {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ delay: 0.7, duration: 0.3 }}
-          className="flex-1 h-[2px] bg-gradient-to-r from-emerald-500/50 to-emerald-500/20 origin-left"
+          className="flex-1 h-[2px] bg-gradient-to-r from-[#5A40BC]/50 to-[#5A40BC]/20 origin-left"
         />
 
         {/* Step 3: Calendar */}
@@ -71,8 +71,8 @@ function SystemFlowDiagram() {
           transition={{ delay: 0.8, duration: 0.5 }}
           className="flex flex-col items-center"
         >
-          <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center mb-2">
-            <Calendar className="w-6 h-6 md:w-7 md:h-7 text-emerald-400" />
+          <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-[#5A40BC]/20 border border-[#5A40BC]/30 flex items-center justify-center mb-2">
+            <Calendar className="w-6 h-6 md:w-7 md:h-7 text-[#5A40BC]" />
           </div>
           <span className="text-[10px] md:text-xs text-slate-400 text-center">Agenda</span>
         </motion.div>
@@ -82,7 +82,7 @@ function SystemFlowDiagram() {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ delay: 1.0, duration: 0.3 }}
-          className="flex-1 h-[2px] bg-gradient-to-r from-emerald-500/50 to-emerald-500/20 origin-left"
+          className="flex-1 h-[2px] bg-gradient-to-r from-[#5A40BC]/50 to-[#5A40BC]/20 origin-left"
         />
 
         {/* Step 4: Payment */}
@@ -92,8 +92,8 @@ function SystemFlowDiagram() {
           transition={{ delay: 1.1, duration: 0.5 }}
           className="flex flex-col items-center"
         >
-          <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center mb-2">
-            <CreditCard className="w-6 h-6 md:w-7 md:h-7 text-emerald-400" />
+          <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-[#5A40BC]/20 border border-[#5A40BC]/30 flex items-center justify-center mb-2">
+            <CreditCard className="w-6 h-6 md:w-7 md:h-7 text-[#5A40BC]" />
           </div>
           <span className="text-[10px] md:text-xs text-slate-400 text-center">Pagamento</span>
         </motion.div>
@@ -101,7 +101,7 @@ function SystemFlowDiagram() {
 
       {/* Animated pulse line */}
       <motion.div
-        className="absolute top-7 md:top-8 left-[10%] right-[10%] h-[2px] bg-emerald-400"
+        className="absolute top-7 md:top-8 left-[10%] right-[10%] h-[2px] bg-[#5A40BC]"
         initial={{ scaleX: 0, opacity: 0 }}
         animate={{
           scaleX: [0, 1, 0],
@@ -139,7 +139,7 @@ function TrustIndicators() {
     >
       {indicators.map((item, index) => (
         <div key={index} className="flex items-center gap-2">
-          <CheckCircle className="w-4 h-4 text-emerald-500" />
+          <CheckCircle className="w-4 h-4 text-[#5A40BC]" />
           <span className="text-sm text-slate-400">{item.text}</span>
         </div>
       ))}
@@ -156,8 +156,8 @@ export default function HeroSecretariaV3() {
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Gradient Orbs */}
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-emerald-600/5 rounded-full blur-[100px]" />
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#5A40BC]/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#780DA7]/5 rounded-full blur-[100px]" />
 
         {/* Grid Pattern */}
         <div
@@ -179,10 +179,10 @@ export default function HeroSecretariaV3() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 backdrop-blur-sm mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#5A40BC]/30 bg-[#5A40BC]/10 backdrop-blur-sm mb-8"
         >
-          <Zap className="w-4 h-4 text-emerald-400" />
-          <span className="text-sm font-medium text-emerald-300">
+          <Zap className="w-4 h-4 text-[#5A40BC]" />
+          <span className="text-sm font-medium text-[#8B7DC9]">
             {t("lpAutomations.hero.badge")}
           </span>
         </motion.div>
@@ -227,12 +227,12 @@ export default function HeroSecretariaV3() {
           <Button
             asChild
             size="lg"
-            className="relative overflow-hidden bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-8 py-6 text-base rounded-lg shadow-lg shadow-emerald-500/25 transition-all duration-300"
+            className="relative overflow-hidden bg-black hover:bg-neutral-900 text-white font-semibold px-8 py-6 text-base rounded-lg shadow-lg shadow-black/25 border border-white/10 transition-all duration-300"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
             <Link
-              href="https://wa.me/5535998026821?text=Olá! Quero agendar uma demonstração da Secretária V3."
+              href="https://wa.me/5511936205799?text=Olá! Quero agendar uma demonstração da Secretária V3."
               target="_blank"
               onClick={() => trackWhatsAppClick("lp-hero", "Agendar Demonstração")}
               className="flex items-center gap-2"

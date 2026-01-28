@@ -79,7 +79,7 @@ export default function HeroAutomacoes() {
           className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 shadow-lg shadow-purple-500/25"
         >
           <Link
-            href="https://wa.me/5535998026821?text=Olá! Quero instalar a Secretária v3 na minha empresa."
+            href="https://wa.me/5511936205799?text=Olá! Quero instalar a Secretária v3 na minha empresa."
             target="_blank"
             onClick={() =>
               trackWhatsAppClick("automacoes-hero", "Instalar Secretária v3")

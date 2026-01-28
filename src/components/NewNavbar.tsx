@@ -94,12 +94,12 @@ export const serviceLinks: NavItemType[] = [
   },
   {
     title: "nav.services.performance", // Key missing in provided JSON, using key as fallback
-    href: "https://wa.me/5535998026821?text=Olá! Quero uma análise de performance do meu negócio",
+    href: "https://wa.me/5511936205799?text=Olá! Quero uma análise de performance do meu negócio",
     icon: BarChart,
   },
   {
     title: "nav.services.integration", // Key missing
-    href: "https://wa.me/5535998026821?text=Olá! Preciso de integração de sistemas para minha empresa",
+    href: "https://wa.me/5511936205799?text=Olá! Preciso de integração de sistemas para minha empresa",
     icon: Smartphone,
   },
 ];

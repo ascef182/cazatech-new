@@ -67,7 +67,7 @@ export default function HeroSection() {
               className="mt-6 flex flex-col sm:flex-row items-center md:justify-start justify-center gap-3 sm:gap-4"
             >
               <a
-                href="https://wa.me/5535998026821?text=Olá%20CazaTech%2C%20quero%20automatizar%20meu%20WhatsApp%20em%207%20dias"
+                href="https://wa.me/5511936205799?text=Olá%20CazaTech%2C%20quero%20automatizar%20meu%20WhatsApp%20em%207%20dias"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() =>

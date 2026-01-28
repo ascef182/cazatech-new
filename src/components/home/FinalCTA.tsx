@@ -90,7 +90,7 @@ export function FinalCTA() {
               className="bg-black text-white border-black hover:bg-neutral-900 px-8"
             >
               <Link
-                href={`https://wa.me/5535998026821?text=${encodeURIComponent(t("sections.cta.whatsappMessage"))}`}
+                href={`https://wa.me/5511936205799?text=${encodeURIComponent(t("sections.cta.whatsappMessage"))}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() =>

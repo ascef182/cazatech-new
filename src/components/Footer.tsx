@@ -26,7 +26,7 @@ export default function Footer() {
   const socialLinks = [
     {
       icon: <FaWhatsapp className="w-5 h-5" />,
-      href: "https://api.whatsapp.com/send/?phone=5535998026821&text&type=phone_number&app_absent=0",
+      href: "https://api.whatsapp.com/send/?phone=5511936205799&text&type=phone_number&app_absent=0",
       label: "WhatsApp",
     },
     {
@@ -88,8 +88,8 @@ export default function Footer() {
   const contactInfo = [
     {
       icon: <FiPhone className="mr-2" />,
-      text: "+55 35 99802-6821",
-      href: "tel:+5535998026821",
+      text: "+55 11 93620-5799",
+      href: "tel:+5511936205799",
     },
     {
       icon: <FiMail className="mr-2" />,

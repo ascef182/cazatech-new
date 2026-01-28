@@ -1,15 +1,10 @@
 "use client";
 
 import HeroSaas from "@/components/saas/HeroSaas";
-import { FAQSchema } from "@/components/seo/JsonLd";
-import Image from "next/image";
 import Link from "next/link";
 import { Contact2 } from "@/components/ui/contact-2";
 import { motion } from "framer-motion";
 import {
-  Calendar,
-  Scissors,
-  TrendingUp,
   Sparkles,
   Code2,
   CreditCard,
@@ -18,36 +13,19 @@ import {
   ArrowRight,
   CheckCircle2,
   Shield,
+  MessageSquare,
+  Building2,
+  TrendingUp,
+  ShoppingCart,
+  Headphones,
+  Unlock,
+  FileCode2,
 } from "lucide-react";
 import { useI18n } from "@/app/ClientBody";
 import { Button } from "@/components/ui/button";
 
 export default function SaasPage() {
   const { t } = useI18n();
-
-  const saasExamples = [
-    {
-      title: t("saas.examples.cards.0.title"),
-      description: t("saas.examples.cards.0.desc"),
-      image:
-        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1000&auto=format&fit=crop",
-      icon: Calendar,
-    },
-    {
-      title: t("saas.examples.cards.1.title"),
-      description: t("saas.examples.cards.1.desc"),
-      image:
-        "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1000&auto=format&fit=crop",
-      icon: Scissors,
-    },
-    {
-      title: t("saas.examples.cards.2.title"),
-      description: t("saas.examples.cards.2.desc"),
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop",
-      icon: TrendingUp,
-    },
-  ];
 
   const processSteps = [
     { icon: FileText, color: "#5A40BC" },
@@ -64,6 +42,16 @@ export default function SaasPage() {
   ];
 
   const techStack = ["Next.js", "React", "Node.js", "PostgreSQL", "Stripe", "Vercel"];
+
+  // New cards structure with icons
+  const exampleCards = [
+    { icon: MessageSquare, color: "#5A40BC" },
+    { icon: Building2, color: "#780DA7" },
+    { icon: TrendingUp, color: "#5A40BC" },
+    { icon: ShoppingCart, color: "#780DA7" },
+  ];
+
+  const guaranteeIcons = [Code2, FileCode2, Headphones, Unlock];
 
   return (
     <div className="relative w-full overflow-hidden bg-black">
@@ -104,13 +92,10 @@ export default function SaasPage() {
                     transition={{ duration: 0.5, delay: i * 0.1 }}
                     className="relative"
                   >
-                    {/* Connector line */}
                     {i < 3 && (
                       <div className="hidden md:block absolute top-12 left-1/2 w-full h-px bg-gradient-to-r from-[#5A40BC]/50 to-[#780DA7]/50" />
                     )}
-
                     <div className="relative z-10 text-center">
-                      {/* Icon */}
                       <div
                         className="w-24 h-24 mx-auto rounded-2xl flex items-center justify-center mb-6 border"
                         style={{
@@ -120,13 +105,9 @@ export default function SaasPage() {
                       >
                         <Icon className="w-10 h-10" style={{ color: step.color }} />
                       </div>
-
-                      {/* Week badge */}
                       <span className="inline-block px-3 py-1 text-xs font-medium text-[#5A40BC] bg-[#5A40BC]/10 rounded-full mb-3">
                         {t(`saas.process.steps.${i}.week`)}
                       </span>
-
-                      {/* Content */}
                       <h3 className="text-lg font-semibold text-white mb-2">
                         {t(`saas.process.steps.${i}.title`)}
                       </h3>
@@ -191,7 +172,6 @@ export default function SaasPage() {
               {t("saas.stack.title")}
             </h3>
           </motion.div>
-
           <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
             {techStack.map((tech, i) => (
               <motion.div
@@ -209,27 +189,32 @@ export default function SaasPage() {
         </div>
       </section>
 
-      {/* Exemplos de SaaS Section */}
-      <section id="exemplos" className="py-20 bg-black">
+      {/* NEW Examples Section - Redesigned */}
+      <section id="exemplos" className="py-24 bg-neutral-950">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm mb-6">
-              <Sparkles className="w-3 h-3 text-[#5A40BC]" />
-              <span className="text-xs font-light tracking-tight text-white/80">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#5A40BC]/30 bg-[#5A40BC]/10 px-4 py-1.5 mb-6">
+              <Code2 className="w-3 h-3 text-[#5A40BC]" />
+              <span className="text-xs font-medium tracking-wide text-[#5A40BC]">
                 {t("saas.examples.badge")}
               </span>
             </span>
-            <h2 className="text-3xl md:text-4xl font-medium mb-4 text-white tracking-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white tracking-tight mb-4">
               {t("saas.examples.title")}
             </h2>
             <p className="text-neutral-400 max-w-2xl mx-auto font-normal">
               {t("saas.examples.description")}
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {saasExamples.map((example, i) => {
-              const Icon = example.icon;
+          <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+            {exampleCards.map((card, i) => {
+              const Icon = card.icon;
               return (
                 <motion.div
                   key={i}
@@ -237,41 +222,115 @@ export default function SaasPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="group relative overflow-hidden rounded-2xl border border-white/10 bg-neutral-900/50 backdrop-blur-sm hover:border-[#5A40BC]/30 transition-all duration-500"
+                  className="group relative p-8 rounded-2xl border border-white/10 bg-black/50 hover:border-[#5A40BC]/40 transition-all duration-500"
                 >
-                  {/* Image */}
-                  <div className="relative h-48 overflow-hidden">
-                    <Image
-                      src={example.image}
-                      alt={example.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/50 to-transparent" />
-
-                    {/* Icon Badge */}
-                    <div className="absolute top-4 right-4 p-3 rounded-xl bg-black/50 backdrop-blur-md border border-white/10">
-                      <Icon className="w-5 h-5 text-white" />
+                  {/* Header with Icon and Metric */}
+                  <div className="flex items-start justify-between mb-6">
+                    <div
+                      className="w-14 h-14 rounded-xl flex items-center justify-center border"
+                      style={{
+                        backgroundColor: `${card.color}15`,
+                        borderColor: `${card.color}30`,
+                      }}
+                    >
+                      <Icon className="w-7 h-7" style={{ color: card.color }} />
+                    </div>
+                    <div className="text-right">
+                      <div className="text-2xl md:text-3xl font-semibold text-white">
+                        {t(`saas.examples.cards.${i}.metric`)}
+                      </div>
+                      <div className="text-xs text-neutral-500">
+                        {t(`saas.examples.cards.${i}.metricLabel`)}
+                      </div>
                     </div>
                   </div>
 
-                  {/* Content */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-[#5A40BC] transition-colors">
-                      {example.title}
-                    </h3>
-                    <p className="text-sm text-neutral-400 leading-relaxed font-normal">
-                      {example.description}
-                    </p>
+                  {/* Title and Description */}
+                  <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-[#5A40BC] transition-colors">
+                    {t(`saas.examples.cards.${i}.title`)}
+                  </h3>
+                  <p className="text-sm text-neutral-400 leading-relaxed mb-6">
+                    {t(`saas.examples.cards.${i}.desc`)}
+                  </p>
+
+                  {/* Features List */}
+                  <div className="space-y-2 mb-6">
+                    {[0, 1, 2].map((idx) => (
+                      <div key={idx} className="flex items-center gap-2 text-sm text-neutral-300">
+                        <CheckCircle2 className="w-4 h-4 text-[#5A40BC] flex-shrink-0" />
+                        <span>{t(`saas.examples.cards.${i}.features.${idx}`)}</span>
+                      </div>
+                    ))}
                   </div>
 
-                  {/* Hover Effect */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#5A40BC]/5 to-transparent" />
+                  {/* Tech Badge */}
+                  <div className="flex items-center gap-2 pt-4 border-t border-white/5">
+                    <span className="text-xs text-neutral-500">Stack:</span>
+                    <span className="text-xs font-mono text-[#5A40BC]">
+                      {t(`saas.examples.cards.${i}.tech`)}
+                    </span>
                   </div>
+
+                  {/* Hover glow */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#5A40BC]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                 </motion.div>
               );
             })}
+          </div>
+
+          {/* Bottom text */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mt-12 text-neutral-400 text-sm"
+          >
+            {t("saas.examples.bottomText")}
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Guarantee Section */}
+      <section className="py-20 bg-black">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 mb-6">
+              <Shield className="w-3 h-3 text-white/70" />
+              <span className="text-xs font-normal tracking-wide text-white/70">
+                {t("saas.guarantee.badge")}
+              </span>
+            </span>
+            <h2 className="text-2xl md:text-3xl font-medium text-white tracking-tight">
+              {t("saas.guarantee.title")}
+            </h2>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {guaranteeIcons.map((Icon, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="p-6 rounded-xl border border-white/10 bg-neutral-900/30 text-center"
+              >
+                <div className="w-12 h-12 mx-auto rounded-xl bg-[#5A40BC]/10 border border-[#5A40BC]/20 flex items-center justify-center mb-4">
+                  <Icon className="w-5 h-5 text-[#5A40BC]" />
+                </div>
+                <h4 className="text-white font-semibold mb-2">
+                  {t(`saas.guarantee.items.${i}.title`)}
+                </h4>
+                <p className="text-sm text-neutral-400">
+                  {t(`saas.guarantee.items.${i}.desc`)}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -286,9 +345,7 @@ export default function SaasPage() {
             transition={{ duration: 0.6 }}
             className="relative max-w-3xl mx-auto"
           >
-            {/* Background gradient */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#5A40BC]/10 via-[#780DA7]/10 to-[#5A40BC]/10 rounded-3xl blur-xl" />
-
             <div className="relative text-center p-12 md:p-16 rounded-3xl border border-white/10 bg-black/50 backdrop-blur-sm">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white tracking-tight mb-6">
                 {t("saas.cta.title")}
@@ -302,7 +359,7 @@ export default function SaasPage() {
                 className="bg-[#5A40BC] hover:bg-[#462F96] text-white px-8 py-6 text-base font-medium"
               >
                 <Link
-                  href="https://wa.me/5535998026821?text=Quero%20conversar%20sobre%20meu%20projeto%20SaaS"
+                  href="https://wa.me/5511936205799?text=Quero%20conversar%20sobre%20meu%20projeto%20SaaS"
                   target="_blank"
                   className="flex items-center gap-2"
                 >

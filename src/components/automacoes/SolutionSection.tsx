@@ -8,7 +8,8 @@ import {
   Shield,
   Zap,
   ArrowRight,
-  CheckCircle2
+  CheckCircle2,
+  type LucideIcon
 } from "lucide-react";
 
 interface TransformationItemProps {
@@ -49,7 +50,7 @@ function TransformationItem({ before, after, index }: TransformationItemProps) {
 }
 
 interface CapabilityCardProps {
-  icon: React.ElementType;
+  icon: LucideIcon;
   title: string;
   description: string;
   index: number;
@@ -82,7 +83,7 @@ function CapabilityCard({ icon: Icon, title, description, index }: CapabilityCar
   );
 }
 
-const capabilityIcons = [Cpu, Layers, Shield, Zap];
+const capabilityIcons: LucideIcon[] = [Cpu, Layers, Shield, Zap];
 
 export function SolutionSection() {
   const { t } = useI18n();

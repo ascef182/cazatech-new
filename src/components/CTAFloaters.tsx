@@ -9,9 +9,9 @@ export default function CTAFloaters() {
     <>
       <div className="fixed bottom-6 right-6 z-[60]">
         <Link
-          href="https://api.whatsapp.com/send/?phone=5535998026821&text=Olá!%20Quero%20uma%20avaliação%20gratuita&type=phone_number&app_absent=0"
+          href="https://api.whatsapp.com/send/?phone=5511936205799&text=Olá!%20Quero%20uma%20avaliação%20gratuita&type=phone_number&app_absent=0"
           target="_blank"
-          className="group relative grid place-items-center w-14 h-14 rounded-full bg-emerald-500 text-white shadow-xl shadow-emerald-500/30 hover:bg-emerald-400 transition-colors"
+          className="group relative grid place-items-center w-14 h-14 rounded-full bg-black text-white shadow-xl shadow-black/30 hover:bg-neutral-800 border border-white/10 transition-colors"
           aria-label="WhatsApp"
         >
           <svg

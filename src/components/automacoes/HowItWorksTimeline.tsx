@@ -116,7 +116,7 @@ export function HowItWorksTimeline() {
                       {step.details.map((detail, idx) => (
                         <li key={idx} className="flex items-start gap-3">
                           <svg
-                            className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0"
+                            className="w-5 h-5 text-[#5A40BC] mt-0.5 flex-shrink-0"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"

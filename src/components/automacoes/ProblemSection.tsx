@@ -8,13 +8,14 @@ import {
   TrendingDown,
   AlertTriangle,
   XCircle,
-  MessageSquareOff
+  MessageSquareOff,
+  type LucideIcon
 } from "lucide-react";
 
-const problemIcons = [Clock, Users, TrendingDown, AlertTriangle, XCircle, MessageSquareOff];
+const problemIcons: LucideIcon[] = [Clock, Users, TrendingDown, AlertTriangle, XCircle, MessageSquareOff];
 
 interface ProblemCardProps {
-  icon: React.ElementType;
+  icon: LucideIcon;
   title: string;
   description: string;
   metric: string;
@@ -65,7 +66,7 @@ function ProblemCard({ icon: Icon, title, description, metric, index }: ProblemC
 export function ProblemSection() {
   const { t } = useI18n();
 
-  const problems = [0, 1, 2, 3, 4, 5].map((index) => ({
+  const problems: { icon: LucideIcon; title: string; description: string; metric: string }[] = [0, 1, 2, 3, 4, 5].map((index) => ({
     icon: problemIcons[index],
     title: t(`lpAutomations.problem.cards.${index}.title`),
     description: t(`lpAutomations.problem.cards.${index}.description`),

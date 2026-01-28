@@ -268,7 +268,7 @@ export function FinalCTASection() {
                 className="w-full btn-primeops-secondary"
               >
                 <Link
-                  href="https://wa.me/5535998026821?text=Olá! Quero agendar uma demonstração da Secretária V3."
+                  href="https://wa.me/5511936205799?text=Olá! Quero agendar uma demonstração da Secretária V3."
                   target="_blank"
                   onClick={() => trackWhatsAppClick("lp-cta", "WhatsApp Direto")}
                   className="flex items-center gap-2"

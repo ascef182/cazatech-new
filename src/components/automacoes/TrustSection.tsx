@@ -10,10 +10,11 @@ import {
   Headphones,
   Lock,
   RefreshCw,
-  CheckCircle
+  CheckCircle,
+  type LucideIcon
 } from "lucide-react";
 
-const guaranteeIcons = [Shield, Server, Clock, Headphones, Lock, RefreshCw];
+const guaranteeIcons: LucideIcon[] = [Shield, Server, Clock, Headphones, Lock, RefreshCw];
 
 // Real integration logos
 const integrations = [
@@ -24,7 +25,7 @@ const integrations = [
 ];
 
 interface GuaranteeCardProps {
-  icon: React.ElementType;
+  icon: LucideIcon;
   title: string;
   description: string;
   index: number;

@@ -109,13 +109,53 @@
       "items": ["Next.js", "React", "Node.js", "PostgreSQL", "Stripe/Asaas", "Vercel"]
     },
     "examples": {
-      "badge": "Ejemplos Reales",
-      "title": "¿Qué podemos construir?",
-      "description": "Desarrollamos SaaS personalizados para diversos segmentos, del MVP al producto escalable.",
+      "badge": "Equipo Senior Full-Stack",
+      "title": "Cualquier idea de SaaS. Nosotros lo construimos.",
+      "description": "Arquitectura revisada por CTO con 8+ años en startups. Del MVP al producto con miles de usuarios.",
       "cards": {
-        "0": {"title": "Sistema de Citas Médicas", "desc": "Plataforma completa para clínicas con agenda inteligente, recordatorios automáticos y gestión de pacientes."},
-        "1": {"title": "App de Barbería", "desc": "Agenda online, control de fila, pagos integrados y programa de fidelidad."},
-        "2": {"title": "Gestión Financiera con IA", "desc": "Panel inteligente con análisis predictivo, categorización automática e insights en tiempo real."}
+        "0": {
+          "title": "Secretaria V3 — Atención con IA",
+          "desc": "Sistema completo: WhatsApp con IA, llamadas automáticas, agenda Google Calendar, pagos automáticos y escalación inteligente a humanos.",
+          "metric": "+300%",
+          "metricLabel": "citas agendadas",
+          "features": ["13 workflows N8N", "IA OpenAI integrada", "Llamadas Retell AI"],
+          "tech": "N8N + PostgreSQL + Asaas"
+        },
+        "1": {
+          "title": "SaaS Multi-tenant B2B",
+          "desc": "Plataforma white-label con dashboard analytics, gestión multi-empresa, cobro recurrente y API REST documentada.",
+          "metric": "450+",
+          "metricLabel": "empresas activas",
+          "features": ["Arquitectura multi-tenant", "Webhooks en tiempo real", "API completa"],
+          "tech": "Next.js + PostgreSQL + Stripe"
+        },
+        "2": {
+          "title": "Plataforma Financiera con IA",
+          "desc": "Dashboard que categoriza transacciones con IA, predice flujo de caja, genera reportes automáticos e integra con Open Banking.",
+          "metric": "$500K",
+          "metricLabel": "procesados/mes",
+          "features": ["Open Banking", "Categorización IA", "Predicción flujo de caja"],
+          "tech": "React + Node + OpenAI"
+        },
+        "3": {
+          "title": "E-commerce con Split de Pagos",
+          "desc": "Marketplace con checkout optimizado, split automático entre vendedores, gestión de inventario y logística integrada.",
+          "metric": "4.5%",
+          "metricLabel": "tasa de conversión",
+          "features": ["Stripe Connect", "Multi-vendedor", "Checkout optimizado"],
+          "tech": "Next.js + Shopify + Stripe"
+        }
+      },
+      "bottomText": "¿Tienes una idea diferente? Construimos cualquier sistema — con o sin IA."
+    },
+    "guarantee": {
+      "badge": "Garantías Incluidas",
+      "title": "Qué está incluido en cada proyecto",
+      "items": {
+        "0": { "icon": "code", "title": "Código 100% tuyo", "desc": "Repositorio GitHub privado, eres el dueño absoluto" },
+        "1": { "icon": "file", "title": "Documentación técnica", "desc": "Arquitectura, API docs y guía de deploy completa" },
+        "2": { "icon": "headphones", "title": "Soporte 90 días", "desc": "Correcciones y ajustes incluidos post-entrega" },
+        "3": { "icon": "unlock", "title": "Zero vendor lock-in", "desc": "Hospeda donde quieras: Vercel, AWS, GCP, tu servidor" }
       }
     },
     "cta": {
@@ -493,6 +533,33 @@
         }
       }
     },
+    "portfolio": {
+      "badge": "Nuestros Servicios",
+      "title": "Lo que construimos para ti",
+      "subtitle": "Desde landing pages para tráfico pago hasta apps móviles completas. Elige el formato ideal para tu negocio.",
+      "items": {
+        "lp": {
+          "title": "Landing Pages",
+          "description": "Páginas de alta conversión optimizadas para tráfico pago. Carga rápida y enfoque en resultados.",
+          "features": ["Copy persuasivo", "A/B testing", "Integración CRM"]
+        },
+        "site": {
+          "title": "Sitios Institucionales",
+          "description": "Presencia digital profesional con SEO técnico y diseño que transmite autoridad.",
+          "features": ["SEO técnico avanzado", "Core Web Vitals A+", "Blog integrado"]
+        },
+        "webapp": {
+          "title": "Web Apps y SaaS",
+          "description": "Sistemas completos con dashboard, autenticación, pagos y API documentada.",
+          "features": ["Dashboard analytics", "Multi-tenant", "Cobro recurrente"]
+        },
+        "mobile": {
+          "title": "Apps Móviles",
+          "description": "Aplicaciones nativas e híbridas para iOS y Android con rendimiento nativo.",
+          "features": ["React Native", "Push notifications", "Offline-first"]
+        }
+      }
+    },
     "process": {
       "badge": "Cómo trabajamos",
       "title": "Proceso claro, resultado predecible",
@@ -503,6 +570,12 @@
         "2": { "title": "Desarrollo", "description": "Sprints semanales con entregas incrementales y comunicación transparente." },
         "3": { "title": "Deploy y Soporte", "description": "Ponemos en vivo y acompañamos los resultados con soporte continuo." }
       }
+    },
+    "cases": {
+      "badge": "Casos de Éxito",
+      "title": "Resultados reales de proyectos reales",
+      "subtitle": "Conoce en detalle los proyectos que transformaron operaciones y generaron crecimiento medible para nuestros clientes.",
+      "viewAll": "Ver todos los proyectos"
     },
     "features": {
       "title": "¿Por qué elegir CazaTech?",
@@ -522,13 +595,34 @@
   },
   "sections": {
     "intro": {
-      "title": "Conectamos tu empresa con desarrolladores",
-      "description": "Transformamos tu visión en producto digital. Automatización, SaaS, sitios web e integraciones complejas.",
+      "badge": "Lo que construimos",
+      "title": "Tecnología que trabaja mientras duermes",
+      "description": "Sistemas que atienden, agendan, cobran y venden automáticamente. Para empresas que quieren escalar sin aumentar el equipo.",
       "cards": {
-        "whatsapp": "Automatización WhatsApp",
-        "saas": "SaaS y Apps",
-        "websites": "Sitios Web & SEO",
-        "integrations": "Integraciones n8n"
+        "whatsapp": {
+          "title": "Secretaria IA",
+          "description": "Atención 24/7 por WhatsApp con agenda, cobro PIX y llamadas automáticas.",
+          "metric": "+300%",
+          "metricLabel": "citas"
+        },
+        "saas": {
+          "title": "SaaS y Sistemas",
+          "description": "Del MVP al producto escalable en 90 días. Dashboard, pagos y API documentada.",
+          "metric": "90 días",
+          "metricLabel": "para lanzar"
+        },
+        "websites": {
+          "title": "Sitios de Alta Conversión",
+          "description": "Rendimiento A+, SEO técnico y diseño enfocado en conversión y autoridad.",
+          "metric": "LCP < 1.2s",
+          "metricLabel": "rendimiento"
+        },
+        "integrations": {
+          "title": "Integraciones & APIs",
+          "description": "Conectamos CRM, ERP, pagos y cualquier sistema en un flujo único.",
+          "metric": "N8N",
+          "metricLabel": "automatización"
+        }
       }
     },
     "process": {

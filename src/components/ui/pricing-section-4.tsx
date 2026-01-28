@@ -320,7 +320,7 @@ export default function PricingSection4() {
 
               <CardContent className="pt-0">
                 <Link
-                  href={`https://wa.me/5535998026821?text=${encodeURIComponent(
+                  href={`https://wa.me/5511936205799?text=${encodeURIComponent(
                     plan.whatsappText
                   )}`}
                   target="_blank"

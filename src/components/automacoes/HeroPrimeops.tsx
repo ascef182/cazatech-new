@@ -199,7 +199,7 @@ export default function HeroPrimeops() {
                 onMouseLeave={() => setIsHovered(false)}
               >
                 <Link
-                  href="https://wa.me/5535998026821?text=Olá! Quero conhecer o PRIMEOPS."
+                  href="https://wa.me/5511936205799?text=Olá! Quero conhecer o PRIMEOPS."
                   target="_blank"
                   onClick={() => trackWhatsAppClick("primeops-hero", "Falar com Especialista")}
                   className="flex items-center gap-2"

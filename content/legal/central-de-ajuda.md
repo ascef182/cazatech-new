@@ -43,7 +43,7 @@ R: Nossos Termos de Uso e Política de Privacidade estão disponíveis no rodap�
 Nossa equipe de suporte está pronta para ajudar você. Escolha o canal de sua preferência:
 
 - **E-mail:** Para dúvidas gerais, solicitações de suporte ou informações sobre projetos, envie um e-mail para [support@caza-tech.com](mailto:support@caza-tech.com). Nosso tempo de resposta padrão é de 24 horas úteis.
-- **Telefone/WhatsApp:** Para atendimento imediato ou questões urgentes, ligue ou envie mensagem para +55 35 99802-6821 (WhatsApp: +5535998026821). Nosso horário de atendimento telefônico é de segunda a sexta-feira, das 9h às 18h.
+- **Telefone/WhatsApp:** Para atendimento imediato ou questões urgentes, ligue ou envie mensagem para +55 35 99802-6821 (WhatsApp: +5511936205799). Nosso horário de atendimento telefônico é de segunda a sexta-feira, das 9h às 18h.
 - **Formulário de Contato:** Você pode preencher o formulário de contato disponível em nosso site na seção 'Contato' ou 'Fale Conosco'. As solicitações enviadas por formulário são respondidas via e-mail.
 - **Chat Online:** (Se disponível) Para suporte rápido e em tempo real, utilize nosso chat online, disponível em nosso site durante o horário comercial.
 

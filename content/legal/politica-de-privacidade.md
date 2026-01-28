@@ -53,5 +53,5 @@ Para exercer qualquer um desses direitos, entre em contato conosco através dos 
 Se você tiver dúvidas sobre esta Política de Privacidade ou desejar exercer seus direitos sob a LGPD, entre em contato pelos canais oficiais:
 
 - **E-mail:** [support@caza-tech.com](mailto:support@caza-tech.com)
-- **Telefone:** +55 35 99802-6821 (WhatsApp: +5535998026821)
+- **Telefone:** +55 35 99802-6821 (WhatsApp: +5511936205799)
 - **Site:** [www.caza-tech.com](https://www.caza-tech.com)

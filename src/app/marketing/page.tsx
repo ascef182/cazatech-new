@@ -98,7 +98,7 @@ export default function MarketingPage() {
                   className="bg-blue-600 hover:bg-blue-700 text-white"
                 >
                   <Link
-                    href="https://wa.me/5535998026821?text=Quero%20um%20diagn%C3%B3stico%20de%20marketing"
+                    href="https://wa.me/5511936205799?text=Quero%20um%20diagn%C3%B3stico%20de%20marketing"
                     target="_blank"
                   >
                     Falar no WhatsApp

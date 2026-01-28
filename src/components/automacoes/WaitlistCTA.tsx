@@ -218,11 +218,11 @@ export const WaitlistCTA = ({
             <div
               className={`absolute inset-0 flex items-center justify-center rounded-full transition-all duration-500 ${
                 status === "success"
-                  ? "opacity-100 scale-100 bg-emerald-500"
+                  ? "opacity-100 scale-100 bg-[#5A40BC]"
                   : "opacity-0 scale-95 pointer-events-none"
               }`}
               style={{
-                boxShadow: status === "success" ? "0 0 40px rgba(16, 185, 129, 0.5)" : "none"
+                boxShadow: status === "success" ? "0 0 40px rgba(90, 64, 188, 0.5)" : "none"
               }}
             >
               <div className="flex items-center gap-2 text-white font-medium">

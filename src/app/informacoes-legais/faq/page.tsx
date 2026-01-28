@@ -49,7 +49,7 @@ export default function FAQPage() {
             <strong>E-mail:</strong> <a href="mailto:support@caza-tech.com">support@caza-tech.com</a>
           </li>
           <li>
-            <strong>Telefone/WhatsApp:</strong> +55 35 99802-6821 (WhatsApp: +5535998026821)
+            <strong>Telefone/WhatsApp:</strong> +55 35 99802-6821 (WhatsApp: +5511936205799)
           </li>
           <li>
             <strong>Site:</strong> <a href="https://www.caza-tech.com" target="_blank" rel="noopener noreferrer">www.caza-tech.com</a>

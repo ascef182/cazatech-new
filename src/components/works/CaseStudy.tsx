@@ -174,7 +174,7 @@ export const CaseStudy = ({ caseData, index }: CaseStudyProps) => {
                   className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-4 rounded-xl shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-[1.02]"
                 >
                   <Link
-                    href={`https://wa.me/5535998026821?text=Olá! Vi o case da ${caseData.client} e quero resultados similares para minha empresa`}
+                    href={`https://wa.me/5511936205799?text=Olá! Vi o case da ${caseData.client} e quero resultados similares para minha empresa`}
                     target="_blank"
                   >
                     Quero Resultados Similares

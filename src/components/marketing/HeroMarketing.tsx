@@ -75,7 +75,7 @@ export default function HeroMarketing() {
 
       <div className="relative z-20 flex flex-wrap items-center justify-center gap-4 pt-4">
         <Button asChild className="bg-blue-600 hover:bg-blue-700">
-          <Link href="https://wa.me/5535998026821?text=Quero%20acelerar%20meu%20marketing" target="_blank">
+          <Link href="https://wa.me/5511936205799?text=Quero%20acelerar%20meu%20marketing" target="_blank">
             Falar com Especialista
           </Link>
         </Button>

@@ -11,10 +11,11 @@ import {
   CreditCard,
   CheckCircle,
   User,
-  ArrowRight
+  ArrowRight,
+  type LucideIcon
 } from "lucide-react";
 
-const flowSteps = [
+const flowSteps: { icon: LucideIcon; color: string }[] = [
   { icon: MessageSquare, color: "primeops" },
   { icon: Bot, color: "primeops" },
   { icon: Phone, color: "primeops" },
@@ -25,7 +26,7 @@ const flowSteps = [
 ];
 
 interface FlowStepProps {
-  icon: React.ElementType;
+  icon: LucideIcon;
   title: string;
   description: string;
   stepNumber: number;
@@ -54,11 +55,11 @@ function FlowStep({
       glow: "shadow-[rgb(0,53,102)]/30"
     },
     emerald: {
-      bg: "bg-emerald-500/10",
-      border: "border-emerald-500/30",
-      borderActive: "border-emerald-500",
-      text: "text-emerald-400",
-      glow: "shadow-emerald-500/20"
+      bg: "bg-[#5A40BC]/10",
+      border: "border-[#5A40BC]/30",
+      borderActive: "border-[#5A40BC]",
+      text: "text-[#5A40BC]",
+      glow: "shadow-[#5A40BC]/20"
     },
     amber: {
       bg: "bg-amber-500/10",
@@ -67,7 +68,13 @@ function FlowStep({
       text: "text-amber-400",
       glow: "shadow-amber-500/20"
     }
-  }[color];
+  }[color] || {
+    bg: "bg-slate-500/10",
+    border: "border-slate-500/30",
+    borderActive: "border-slate-500",
+    text: "text-slate-400",
+    glow: "shadow-slate-500/20"
+  };
 
   return (
     <motion.button
@@ -86,7 +93,7 @@ function FlowStep({
       <div className={`
         absolute -top-3 -right-3 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold
         ${isCompleted
-          ? 'bg-emerald-500 text-white'
+          ? 'bg-[#5A40BC] text-white'
           : isActive
             ? `${colorClasses.bg} ${colorClasses.text} border ${colorClasses.borderActive}`
             : 'bg-slate-800 text-slate-500'

@@ -125,7 +125,7 @@ export function NicheCards() {
                     {niche.benefits.map((benefit, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-sm text-white/90 font-medium">
                         <svg
-                          className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0"
+                          className="w-4 h-4 text-[#5A40BC] mt-0.5 flex-shrink-0"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
