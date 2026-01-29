@@ -735,7 +735,7 @@
       },
       "contact": {
         "title": "Contato",
-        "phone": "+55 35 99802-6821",
+        "phone": "+55 11 93620-5799",
         "email": "support@caza-tech.com",
         "location": "São Paulo, Brasil"
       }
@@ -750,7 +750,7 @@
   "contact2": {
     "title": "Entre em contato",
     "description": "Estamos prontos para ajudar você",
-    "phone": "+55 35 99802-6821",
+    "phone": "+55 11 93620-5799",
     "email": "support@caza-tech.com",
     "web": {
       "label": "caza-tech.com",
@@ -934,3 +934,4 @@
     }
   }
 }
+

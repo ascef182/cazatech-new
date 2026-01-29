@@ -44,13 +44,13 @@ const channelConfig = {
 
 // Initial messages that will float
 const initialMessages: Omit<MessageBubble, "id">[] = [
-  { channel: "whatsapp", text: "Oi, qual o horário disponível?", position: { x: 10, y: 15 }, delay: 0 },
-  { channel: "instagram", text: "Vocês atendem aos sábados?", position: { x: 75, y: 20 }, delay: 0.3 },
-  { channel: "facebook", text: "Quanto custa a consulta?", position: { x: 20, y: 55 }, delay: 0.6 },
-  { channel: "whatsapp", text: "Preciso remarcar meu horário", position: { x: 65, y: 60 }, delay: 0.9 },
-  { channel: "telegram", text: "Como faço para agendar?", position: { x: 40, y: 35 }, delay: 1.2 },
-  { channel: "instagram", text: "Aceita convênio?", position: { x: 80, y: 75 }, delay: 1.5 },
-  { channel: "whatsapp", text: "Boa tarde! Gostaria de informações", position: { x: 15, y: 80 }, delay: 1.8 },
+  { channel: "whatsapp", text: "Oi, qual o horário disponível?", position: { x: 15, y: 15 }, delay: 0 },
+  { channel: "instagram", text: "Vocês atendem aos sábados?", position: { x: 68, y: 18 }, delay: 0.3 },
+  { channel: "facebook", text: "Quanto custa a consulta?", position: { x: 22, y: 50 }, delay: 0.6 },
+  { channel: "whatsapp", text: "Preciso remarcar meu horário", position: { x: 62, y: 55 }, delay: 0.9 },
+  { channel: "telegram", text: "Como faço para agendar?", position: { x: 42, y: 32 }, delay: 1.2 },
+  { channel: "instagram", text: "Aceita convênio?", position: { x: 70, y: 72 }, delay: 1.5 },
+  { channel: "whatsapp", text: "Boa tarde! Gostaria de informações", position: { x: 18, y: 78 }, delay: 1.8 },
 ];
 
 // Floating Message Component
@@ -307,14 +307,17 @@ export default function HologramSection() {
           ref={containerRef}
           className="relative w-full h-[500px] md:h-[600px] rounded-2xl overflow-hidden glass-primeops"
         >
-          {/* Floating Messages */}
-          {messages.map((message) => (
+          {/* Messages wrapper with safe padding */}
+          <div className="absolute inset-4 md:inset-8">
+            {/* Floating Messages */}
+            {messages.map((message) => (
             <FloatingMessage
               key={message.id}
               message={message}
               isConverging={phase === "converging"}
             />
           ))}
+          </div>
 
           {/* Central Hub */}
           <CentralHub isProcessing={phase === "processing" || phase === "output"} />

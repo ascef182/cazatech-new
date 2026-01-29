@@ -8,7 +8,7 @@ import { useI18n } from "@/app/ClientBody";
 const baseBenefits = [
   { icon: Clock, gradient: "from-blue-500 to-cyan-500" },
   { icon: TrendingUp, gradient: "from-purple-500 to-pink-500" },
-  { icon: Users, gradient: "from-emerald-500 to-teal-500" },
+  { icon: Users, gradient: "from-[#5A40BC] to-[#780DA7]" },
   { icon: Zap, gradient: "from-orange-500 to-red-500" },
   { icon: Shield, gradient: "from-indigo-500 to-purple-500" },
   { icon: BarChart, gradient: "from-pink-500 to-rose-500" },

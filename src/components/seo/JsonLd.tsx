@@ -21,7 +21,7 @@ export const OrganizationSchema = () => {
     logo: "https://caza-tech.com/logo.png",
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+55-35-99802-6821",
+      telephone: "+55-11-93620-5799",
       contactType: "customer service",
       availableLanguage: "Portuguese",
     },

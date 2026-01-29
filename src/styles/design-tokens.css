@@ -19,18 +19,18 @@
   /* ===== PALETA PRIMEOPS ===== */
 
   /* Primary: Navy Estrutural (Confiança, Infraestrutura, Premium) */
-  --primeops-prussian: 0 49 83;      /* #003153 - Base escura principal */
-  --primeops-oxford: 0 33 71;        /* #002147 - Background profundo */
-  --primeops-regal: 0 53 102;        /* #003566 - Highlights e bordas */
-  --primeops-midnight: 12 24 42;     /* #0C182A - Background mais escuro */
+  --primeops-prussian: 0 49 83; /* #003153 - Base escura principal */
+  --primeops-oxford: 0 33 71; /* #002147 - Background profundo */
+  --primeops-regal: 0 53 102; /* #003566 - Highlights e bordas */
+  --primeops-midnight: 12 24 42; /* #0C182A - Background mais escuro */
 
   /* Accent: Tons claros para respiro visual */
-  --primeops-powder: 176 224 230;    /* #B0E0E6 - Destaque suave */
-  --primeops-mint: 245 255 250;      /* #F5FFFA - Texto highlight */
-  --primeops-ice: 240 248 255;       /* #F0F8FF - Hover states */
+  --primeops-powder: 176 224 230; /* #B0E0E6 - Destaque suave */
+  --primeops-mint: 245 255 250; /* #F5FFFA - Texto highlight */
+  --primeops-ice: 240 248 255; /* #F0F8FF - Hover states */
 
   /* Functional: WhatsApp apenas para sinais */
-  --primeops-whatsapp: 37 211 102;   /* #25D366 - Status, confirmações */
+  --primeops-whatsapp: 37 211 102; /* #25D366 - Status, confirmações */
   --primeops-signal-active: 34 197 94;
   --primeops-signal-success: 22 163 74;
 
@@ -41,24 +41,24 @@
    */
 
   /* Iris - Purple-Blue Principal */
-  --brand-iris: 90 64 188;               /* #5A40BC - Azul-roxo sofisticado */
-  --brand-iris-light: 120 94 218;        /* Hover state mais claro */
-  --brand-iris-dark: 70 44 158;          /* Pressed state */
+  --brand-iris: 90 64 188; /* #5A40BC - Azul-roxo sofisticado */
+  --brand-iris-light: 120 94 218; /* Hover state mais claro */
+  --brand-iris-dark: 70 44 158; /* Pressed state */
 
   /* Grape - Deep Magenta Accent */
-  --brand-grape: 120 13 167;             /* #780DA7 - Magenta profundo */
-  --brand-grape-light: 150 43 197;       /* Hover state */
-  --brand-grape-dark: 90 0 137;          /* Pressed state */
+  --brand-grape: 120 13 167; /* #780DA7 - Magenta profundo */
+  --brand-grape-light: 150 43 197; /* Hover state */
+  --brand-grape-dark: 90 0 137; /* Pressed state */
 
   /* Peach - Warm Contrast / Off-white */
-  --brand-peach: 255 215 177;            /* #FFD7B1 - Warm peach */
-  --brand-offwhite: 241 241 241;         /* #f1f1f1 - Clean off-white */
+  --brand-peach: 255 215 177; /* #FFD7B1 - Warm peach */
+  --brand-offwhite: 241 241 241; /* #f1f1f1 - Clean off-white */
 
   /* Legacy purple (mantendo compatibilidade) */
-  --brand-purple-primary: 139 92 246;    /* #8B5CF6 - Roxo elegante principal */
-  --brand-purple-muted: 167 139 250;     /* #A78BFA - Estados hover, secundário */
-  --brand-purple-soft: 221 214 254;      /* #DDD6FE - Backgrounds sutis */
-  --brand-purple-dark: 109 40 217;       /* #6D28D9 - Estados pressed */
+  --brand-purple-primary: 139 92 246; /* #8B5CF6 - Roxo elegante principal */
+  --brand-purple-muted: 167 139 250; /* #A78BFA - Estados hover, secundário */
+  --brand-purple-soft: 221 214 254; /* #DDD6FE - Backgrounds sutis */
+  --brand-purple-dark: 109 40 217; /* #6D28D9 - Estados pressed */
 
   /* Legacy LP Primary (mantendo compatibilidade) */
   --lp-primary-50: 240 248 255;
@@ -153,17 +153,17 @@
      ============================================ */
 
   /* Font Sizes */
-  --lp-text-xs: 0.75rem;      /* 12px - captions */
-  --lp-text-sm: 0.875rem;     /* 14px - labels */
-  --lp-text-base: 1rem;       /* 16px - body */
-  --lp-text-lg: 1.125rem;     /* 18px - lead */
-  --lp-text-xl: 1.25rem;      /* 20px - subheading */
-  --lp-text-2xl: 1.5rem;      /* 24px - h4 */
-  --lp-text-3xl: 1.875rem;    /* 30px - h3 */
-  --lp-text-4xl: 2.25rem;     /* 36px - h2 */
-  --lp-text-5xl: 3rem;        /* 48px - h1 mobile */
-  --lp-text-6xl: 3.75rem;     /* 60px - h1 desktop */
-  --lp-text-7xl: 4.5rem;      /* 72px - hero */
+  --lp-text-xs: 0.75rem; /* 12px - captions */
+  --lp-text-sm: 0.875rem; /* 14px - labels */
+  --lp-text-base: 1rem; /* 16px - body */
+  --lp-text-lg: 1.125rem; /* 18px - lead */
+  --lp-text-xl: 1.25rem; /* 20px - subheading */
+  --lp-text-2xl: 1.5rem; /* 24px - h4 */
+  --lp-text-3xl: 1.875rem; /* 30px - h3 */
+  --lp-text-4xl: 2.25rem; /* 36px - h2 */
+  --lp-text-5xl: 3rem; /* 48px - h1 mobile */
+  --lp-text-6xl: 3.75rem; /* 60px - h1 desktop */
+  --lp-text-7xl: 4.5rem; /* 72px - hero */
 
   /* Line Heights */
   --lp-leading-none: 1;
@@ -185,33 +185,33 @@
      ============================================ */
 
   --lp-space-0: 0;
-  --lp-space-1: 0.25rem;   /* 4px */
-  --lp-space-2: 0.5rem;    /* 8px */
-  --lp-space-3: 0.75rem;   /* 12px */
-  --lp-space-4: 1rem;      /* 16px */
-  --lp-space-5: 1.25rem;   /* 20px */
-  --lp-space-6: 1.5rem;    /* 24px */
-  --lp-space-8: 2rem;      /* 32px */
-  --lp-space-10: 2.5rem;   /* 40px */
-  --lp-space-12: 3rem;     /* 48px */
-  --lp-space-16: 4rem;     /* 64px */
-  --lp-space-20: 5rem;     /* 80px */
-  --lp-space-24: 6rem;     /* 96px */
-  --lp-space-32: 8rem;     /* 128px */
+  --lp-space-1: 0.25rem; /* 4px */
+  --lp-space-2: 0.5rem; /* 8px */
+  --lp-space-3: 0.75rem; /* 12px */
+  --lp-space-4: 1rem; /* 16px */
+  --lp-space-5: 1.25rem; /* 20px */
+  --lp-space-6: 1.5rem; /* 24px */
+  --lp-space-8: 2rem; /* 32px */
+  --lp-space-10: 2.5rem; /* 40px */
+  --lp-space-12: 3rem; /* 48px */
+  --lp-space-16: 4rem; /* 64px */
+  --lp-space-20: 5rem; /* 80px */
+  --lp-space-24: 6rem; /* 96px */
+  --lp-space-32: 8rem; /* 128px */
 
   /* Section Spacing */
-  --lp-section-sm: 4rem;   /* 64px */
-  --lp-section-md: 6rem;   /* 96px */
-  --lp-section-lg: 8rem;   /* 128px */
+  --lp-section-sm: 4rem; /* 64px */
+  --lp-section-md: 6rem; /* 96px */
+  --lp-section-lg: 8rem; /* 128px */
 
   /* ============================================
      BORDER RADIUS - Apenas 3 valores
      ============================================ */
 
-  --lp-radius-sm: 0.375rem;   /* 6px - buttons, inputs */
-  --lp-radius-md: 0.75rem;    /* 12px - cards */
-  --lp-radius-lg: 1rem;       /* 16px - modals, large cards */
-  --lp-radius-full: 9999px;   /* pills, avatars */
+  --lp-radius-sm: 0.375rem; /* 6px - buttons, inputs */
+  --lp-radius-md: 0.75rem; /* 12px - cards */
+  --lp-radius-lg: 1rem; /* 16px - modals, large cards */
+  --lp-radius-full: 9999px; /* pills, avatars */
 
   /* ============================================
      MOTION - Curvas Bezier Intencionais
@@ -237,20 +237,64 @@
      ============================================ */
 
   /* PRIMEOPS Navy Gradients */
-  --gradient-primeops-hero: linear-gradient(180deg, rgb(var(--primeops-oxford)) 0%, rgb(var(--primeops-midnight)) 100%);
-  --gradient-primeops-card: linear-gradient(180deg, rgba(0, 49, 83, 0.6) 0%, rgba(0, 33, 71, 0.4) 100%);
-  --gradient-primeops-subtle: linear-gradient(180deg, rgba(0, 53, 102, 0.1) 0%, transparent 100%);
-  --gradient-primeops-glow: radial-gradient(ellipse at center, rgba(0, 53, 102, 0.3) 0%, transparent 70%);
-  --gradient-primeops-text: linear-gradient(135deg, rgb(var(--primeops-powder)) 0%, rgb(var(--primeops-ice)) 100%);
+  --gradient-primeops-hero: linear-gradient(
+    180deg,
+    rgb(var(--primeops-oxford)) 0%,
+    rgb(var(--primeops-midnight)) 100%
+  );
+  --gradient-primeops-card: linear-gradient(
+    180deg,
+    rgba(0, 49, 83, 0.6) 0%,
+    rgba(0, 33, 71, 0.4) 100%
+  );
+  --gradient-primeops-subtle: linear-gradient(
+    180deg,
+    rgba(0, 53, 102, 0.1) 0%,
+    transparent 100%
+  );
+  --gradient-primeops-glow: radial-gradient(
+    ellipse at center,
+    rgba(0, 53, 102, 0.3) 0%,
+    transparent 70%
+  );
+  --gradient-primeops-text: linear-gradient(
+    135deg,
+    rgb(var(--primeops-powder)) 0%,
+    rgb(var(--primeops-ice)) 100%
+  );
 
   /* Legacy gradients (mantendo compatibilidade) */
-  --gradient-primary: linear-gradient(135deg, rgb(var(--color-purple-500)) 0%, rgb(var(--color-blue-500)) 100%);
-  --gradient-primary-reverse: linear-gradient(135deg, rgb(var(--color-blue-500)) 0%, rgb(var(--color-purple-500)) 100%);
+  --gradient-primary: linear-gradient(
+    135deg,
+    rgb(var(--color-purple-500)) 0%,
+    rgb(var(--color-blue-500)) 100%
+  );
+  --gradient-primary-reverse: linear-gradient(
+    135deg,
+    rgb(var(--color-blue-500)) 0%,
+    rgb(var(--color-purple-500)) 100%
+  );
   --gradient-hero: linear-gradient(to bottom right, #581c87, #1e3a8a, #000000);
-  --gradient-card: linear-gradient(180deg, rgba(131, 80, 232, 0.1) 0%, transparent 100%);
-  --gradient-cta: linear-gradient(to top, rgb(var(--color-blue-500)), rgb(var(--color-blue-400)));
-  --gradient-dark: linear-gradient(180deg, rgb(var(--color-neutral-900)) 0%, rgb(var(--color-neutral-950)) 100%);
-  --gradient-glow: radial-gradient(circle at center, rgba(131, 80, 232, 0.4) 0%, transparent 70%);
+  --gradient-card: linear-gradient(
+    180deg,
+    rgba(131, 80, 232, 0.1) 0%,
+    transparent 100%
+  );
+  --gradient-cta: linear-gradient(
+    to top,
+    rgb(var(--color-blue-500)),
+    rgb(var(--color-blue-400))
+  );
+  --gradient-dark: linear-gradient(
+    180deg,
+    rgb(var(--color-neutral-900)) 0%,
+    rgb(var(--color-neutral-950)) 100%
+  );
+  --gradient-glow: radial-gradient(
+    circle at center,
+    rgba(131, 80, 232, 0.4) 0%,
+    transparent 70%
+  );
   --gradient-text: linear-gradient(135deg, #8350e8 0%, #60a5fa 100%);
 
   /* ============================================
@@ -266,11 +310,14 @@
   --shadow-primeops-inner: inset 0 1px 2px rgba(0, 0, 0, 0.2);
 
   /* Legacy shadows (mantendo compatibilidade) */
-  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-  --shadow-card-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  --shadow-card:
+    0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-card-hover:
+    0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
   --shadow-glow-purple: 0 0 40px rgba(131, 80, 232, 0.4);
   --shadow-glow-blue: 0 0 40px rgba(59, 130, 246, 0.4);
-  --shadow-glow-mixed: 0 0 60px rgba(131, 80, 232, 0.3), 0 0 40px rgba(59, 130, 246, 0.2);
+  --shadow-glow-mixed:
+    0 0 60px rgba(131, 80, 232, 0.3), 0 0 40px rgba(59, 130, 246, 0.2);
   --shadow-button: 0 4px 14px 0 rgba(131, 80, 232, 0.3);
   --shadow-button-hover: 0 6px 20px rgba(131, 80, 232, 0.4);
   --shadow-input-focus: 0 0 0 3px rgba(131, 80, 232, 0.3);
@@ -278,7 +325,7 @@
   /* ============================================
      ANIMACOES
      ============================================ */
-  
+
   --duration-instant: 50ms;
   --duration-fast: 150ms;
   --duration-normal: 300ms;
@@ -296,7 +343,7 @@
   /* ============================================
      ESPACAMENTO DE SECOES
      ============================================ */
-  
+
   --section-padding-sm: 3rem;
   --section-padding-md: 6rem;
   --section-padding-lg: 8rem;
@@ -336,7 +383,9 @@
 
 .btn-primary:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgb(168 85 247), 0 0 0 4px rgb(9 9 11);
+  box-shadow:
+    0 0 0 2px rgb(168 85 247),
+    0 0 0 4px rgb(9 9 11);
 }
 
 /* Botao Secundario / Ghost */
@@ -383,7 +432,7 @@
 }
 
 .card-gradient::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -476,12 +525,12 @@
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
-  
+
   .section-md {
     padding-top: 6rem;
     padding-bottom: 6rem;
   }
-  
+
   .section-lg {
     padding-top: 8rem;
     padding-bottom: 8rem;
@@ -565,7 +614,7 @@
   padding: 0.875rem 1.75rem;
   font-size: 0.9375rem;
   font-weight: 500;
-  color: white;
+  color: black;
   border-radius: var(--lp-radius-sm);
   background: rgb(var(--primeops-regal));
   border: 1px solid rgba(176, 224, 230, 0.2);
@@ -587,16 +636,16 @@
   padding: 0.875rem 1.75rem;
   font-size: 0.9375rem;
   font-weight: 500;
-  color: rgb(var(--primeops-powder));
+  color: black;
   border-radius: var(--lp-radius-sm);
   background: transparent;
-  border: 1px solid rgba(176, 224, 230, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 200ms var(--lp-ease-out);
 }
 
 .btn-primeops-secondary:hover {
-  background: rgba(0, 53, 102, 0.3);
-  border-color: rgba(176, 224, 230, 0.3);
+  background: rgba(90, 64, 188, 0.2);
+  border-color: rgba(90, 64, 188, 0.4);
 }
 
 /* PRIMEOPS Signal Colors (WhatsApp apenas funcional) */
@@ -613,7 +662,8 @@
 }
 
 @keyframes pulse-signal {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }
@@ -641,7 +691,11 @@
 
 /* PRIMEOPS Text Gradient */
 .text-gradient-primeops {
-  background: linear-gradient(135deg, rgb(var(--primeops-powder)) 0%, rgb(var(--primeops-ice)) 100%);
+  background: linear-gradient(
+    135deg,
+    rgb(var(--primeops-powder)) 0%,
+    rgb(var(--primeops-ice)) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -654,7 +708,7 @@
 }
 
 .primeops-card-hover::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
@@ -729,7 +783,11 @@
 
 /* Brand Accent Text Gradient - APENAS para homepage hero */
 .text-gradient-brand {
-  background: linear-gradient(135deg, rgb(var(--brand-iris)) 0%, rgb(var(--brand-grape)) 100%);
+  background: linear-gradient(
+    135deg,
+    rgb(var(--brand-iris)) 0%,
+    rgb(var(--brand-grape)) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -809,7 +867,11 @@
 
 /* Card with Iris accent */
 .card-iris {
-  background: linear-gradient(180deg, rgba(90, 64, 188, 0.08) 0%, rgba(0, 0, 0, 0.4) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(90, 64, 188, 0.08) 0%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
   border: 1px solid rgba(90, 64, 188, 0.15);
   border-radius: var(--lp-radius-lg);
   transition: all 300ms var(--lp-ease-out);
@@ -817,7 +879,11 @@
 
 .card-iris:hover {
   border-color: rgba(90, 64, 188, 0.35);
-  background: linear-gradient(180deg, rgba(90, 64, 188, 0.12) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(90, 64, 188, 0.12) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
 }
 
 /* Text colors */
@@ -984,12 +1050,24 @@
   animation: fadeInUp 0.5s var(--ease-out) forwards;
 }
 
-.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
-.stagger-children > *:nth-child(2) { animation-delay: 100ms; }
-.stagger-children > *:nth-child(3) { animation-delay: 200ms; }
-.stagger-children > *:nth-child(4) { animation-delay: 300ms; }
-.stagger-children > *:nth-child(5) { animation-delay: 400ms; }
-.stagger-children > *:nth-child(6) { animation-delay: 500ms; }
+.stagger-children > *:nth-child(1) {
+  animation-delay: 0ms;
+}
+.stagger-children > *:nth-child(2) {
+  animation-delay: 100ms;
+}
+.stagger-children > *:nth-child(3) {
+  animation-delay: 200ms;
+}
+.stagger-children > *:nth-child(4) {
+  animation-delay: 300ms;
+}
+.stagger-children > *:nth-child(5) {
+  animation-delay: 400ms;
+}
+.stagger-children > *:nth-child(6) {
+  animation-delay: 500ms;
+}
 
 /* Shimmer Effect para Loading */
 .shimmer {
@@ -998,7 +1076,7 @@
 }
 
 .shimmer::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -1034,7 +1112,7 @@
 
 /* Background Grid Pattern */
 .bg-grid-pattern {
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 50px 50px;
@@ -1096,7 +1174,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -1105,7 +1184,8 @@
 }
 
 @keyframes pulseGlow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 20px rgba(131, 80, 232, 0.4);
   }
   50% {
@@ -1114,7 +1194,8 @@
 }
 
 @keyframes borderGlow {
-  0%, 100% {
+  0%,
+  100% {
     border-color: rgba(131, 80, 232, 0.3);
   }
   50% {

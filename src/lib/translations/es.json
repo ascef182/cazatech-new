@@ -728,12 +728,12 @@
       },
       "contact": {
         "title": "Contacto",
-        "phone": "+55 35 99802-6821",
+        "phone": "+55 11 93620-5799",
         "email": "support@caza-tech.com",
         "location": "São Paulo, Brasil"
       }
     },
-    "rights": "© 2024 CazaTech. Todos los derechos reservados."
+    "rights": "Todos los derechos reservados."
   },
   "masterLeadForm": {
     "title": "Habla con un especialista",
@@ -743,11 +743,26 @@
   "contact2": {
     "title": "Contáctanos",
     "description": "Estamos listos para ayudarte",
-    "phone": "+55 35 99802-6821",
+    "phone": "+55 11 93620-5799",
     "email": "support@caza-tech.com",
     "web": {
       "label": "caza-tech.com",
       "url": "https://caza-tech.com"
+    },
+    "contactDetails": "Información de Contacto",
+    "labels": {
+      "phone": "Teléfono",
+      "email": "E-mail",
+      "web": "Sitio"
+    },
+    "form": {
+      "firstname": "Nombre",
+      "lastname": "Apellido",
+      "email": "E-mail",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "sending": "Enviando...",
+      "send": "Enviar Mensaje"
     }
   },
   "scrollSection": {
@@ -912,3 +927,4 @@
     }
   }
 }
+

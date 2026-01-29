@@ -8,7 +8,7 @@ import { useI18n } from "@/app/ClientBody";
 const baseSteps = [
   { number: "01", icon: MessageSquare, gradient: "from-blue-500 to-cyan-500" },
   { number: "02", icon: Brain, gradient: "from-purple-500 to-pink-500" },
-  { number: "03", icon: Zap, gradient: "from-emerald-500 to-teal-500" },
+  { number: "03", icon: Zap, gradient: "from-[#5A40BC] to-[#780DA7]" },
   { number: "04", icon: CheckCircle, gradient: "from-orange-500 to-red-500" },
 ] as const;
 

@@ -9,7 +9,7 @@ import { useI18n } from "@/app/ClientBody";
 const baseNiches = [
   { icon: Stethoscope, gradient: "from-blue-500 to-cyan-500", image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop" },
   { icon: Building2, gradient: "from-purple-500 to-pink-500", image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop" },
-  { icon: Scale, gradient: "from-emerald-500 to-teal-500", image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800&auto=format&fit=crop" },
+  { icon: Scale, gradient: "from-[#5A40BC] to-[#780DA7]", image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800&auto=format&fit=crop" },
   { icon: ShoppingBag, gradient: "from-orange-500 to-red-500", image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=800&auto=format&fit=crop" },
   { icon: Briefcase, gradient: "from-indigo-500 to-purple-500", image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=800&auto=format&fit=crop" },
   { icon: Users, gradient: "from-pink-500 to-rose-500", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop" },
