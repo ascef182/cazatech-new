@@ -73,6 +73,38 @@
         "1": {"title": "Arquitectura Escalable", "desc": "Planificamos la estructura de tu software para crecer sin deuda técnica."},
         "2": {"title": "Estrategia de Producto", "desc": "Alineamos tecnología con tus objetivos de negocio para maximizar el ROI."}
       }
+    },
+    "calendly": {
+      "button": "Agendar Consultoría",
+      "buttonFree": "Agendar Consultoría Gratuita",
+      "orSchedule": "O agenda directamente desde el calendario"
+    },
+    "form": {
+      "title": "Agenda tu Consultoría",
+      "subtitle": "Completa el formulario para que podamos entender mejor tus necesidades.",
+      "name": "Nombre Completo",
+      "namePlaceholder": "Tu nombre",
+      "email": "Email Corporativo",
+      "emailPlaceholder": "tu@email.com",
+      "company": "Empresa",
+      "companyPlaceholder": "Nombre de la empresa",
+      "purpose": "Objetivo de la Consultoría",
+      "purposePlaceholder": "Selecciona un objetivo",
+      "purposes": {
+        "automation": "Automatización de Procesos (WhatsApp/N8N)",
+        "saas": "Desarrollo de SaaS/App",
+        "site": "Sitio Institucional / Landing Page",
+        "marketing": "Estrategia de Marketing Digital",
+        "mentoring": "Mentoría Técnica para Equipos",
+        "other": "Otro"
+      },
+      "message": "Mensaje (Opcional)",
+      "messagePlaceholder": "Cuéntanos más sobre tu desafío...",
+      "submit": "Solicitar Consultoría",
+      "sending": "Enviando...",
+      "successTitle": "¡Solicitud Recibida!",
+      "successMessage": "Nuestro equipo analizará tu perfil y te contactará pronto para agendar tu consultoría.",
+      "newRequest": "Enviar nueva solicitud"
     }
   },
   "saas": {
@@ -575,7 +607,14 @@
       "badge": "Casos de Éxito",
       "title": "Resultados reales de proyectos reales",
       "subtitle": "Conoce en detalle los proyectos que transformaron operaciones y generaron crecimiento medible para nuestros clientes.",
-      "viewAll": "Ver todos los proyectos"
+      "viewAll": "Ver todos los proyectos",
+      "labels": {
+        "conversions": "Conversiones",
+        "service": "Atención",
+        "revenue": "Ingresos",
+        "result": "Resultado",
+        "deliverables": "Entregables"
+      }
     },
     "features": {
       "title": "¿Por qué elegir CazaTech?",

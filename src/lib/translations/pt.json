@@ -73,6 +73,38 @@
         "1": {"title": "Arquitetura Escalável", "desc": "Planejamos a estrutura do seu software para crescer sem dívida técnica."},
         "2": {"title": "Estratégia de Produto", "desc": "Alinhamos tecnologia com seus objetivos de negócio para maximizar o ROI."}
       }
+    },
+    "calendly": {
+      "button": "Agendar Consultoria",
+      "buttonFree": "Agendar Consultoria Gratuita",
+      "orSchedule": "Ou agende direto pelo calendário"
+    },
+    "form": {
+      "title": "Agende sua Consultoria",
+      "subtitle": "Preencha o formulário abaixo para entendermos melhor suas necessidades.",
+      "name": "Nome Completo",
+      "namePlaceholder": "Seu nome",
+      "email": "Email Corporativo",
+      "emailPlaceholder": "seu@email.com",
+      "company": "Empresa",
+      "companyPlaceholder": "Nome da empresa",
+      "purpose": "Objetivo da Consultoria",
+      "purposePlaceholder": "Selecione um objetivo",
+      "purposes": {
+        "automation": "Automação de Processos (WhatsApp/N8N)",
+        "saas": "Desenvolvimento de SaaS/App",
+        "site": "Site Institucional / Landing Page",
+        "marketing": "Estratégia de Marketing Digital",
+        "mentoring": "Mentoria Técnica para Equipe",
+        "other": "Outro"
+      },
+      "message": "Mensagem (Opcional)",
+      "messagePlaceholder": "Conte um pouco mais sobre seu desafio...",
+      "submit": "Solicitar Consultoria",
+      "sending": "Enviando...",
+      "successTitle": "Solicitação Recebida!",
+      "successMessage": "Nossa equipe analisará seu perfil e entraremos em contato em breve para agendar sua consultoria.",
+      "newRequest": "Enviar nova solicitação"
     }
   },
   "saas": {
@@ -582,7 +614,14 @@
       "badge": "Cases de Sucesso",
       "title": "Resultados reais de projetos reais",
       "subtitle": "Conheça em detalhes os projetos que transformaram operações e geraram crescimento mensurável para nossos clientes.",
-      "viewAll": "Ver todos os projetos"
+      "viewAll": "Ver todos os projetos",
+      "labels": {
+        "conversions": "Conversões",
+        "service": "Atendimento",
+        "revenue": "Receita",
+        "result": "Resultado",
+        "deliverables": "Entregáveis"
+      }
     },
     "features": {
       "title": "Por que escolher a CazaTech?",

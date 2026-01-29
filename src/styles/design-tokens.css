@@ -1225,3 +1225,22 @@
     content: " (" attr(href) ")";
   }
 }
+/* ============================================
+   WHATSAPP FLOATING BUTTON - OFFICIAL
+   Uso exclusivo para CTA flutuante
+   ============================================ */
+
+.btn-whatsapp {
+  background-color: rgb(var(--primeops-whatsapp));
+  color: white;
+  border-radius: var(--lp-radius-full);
+  box-shadow: 0 8px 24px -6px rgba(37, 211, 102, 0.35);
+  transition:
+    transform 200ms var(--lp-ease-out),
+    background-color 200ms var(--lp-ease-out);
+}
+
+.btn-whatsapp:hover {
+  background-color: rgb(30 190 93); /* hover oficial WhatsApp */
+  transform: scale(1.04);
+}

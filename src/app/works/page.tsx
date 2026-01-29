@@ -310,20 +310,20 @@ export default function WorksPage() {
                         <div className="text-sm sm:text-base font-semibold text-[#5A40BC] truncate">
                           {caseStudy.results.conversions}
                         </div>
-                        <div className="text-[10px] sm:text-xs text-neutral-500">Conversões</div>
+                        <div className="text-[10px] sm:text-xs text-neutral-500">{t("works.cases.labels.conversions")}</div>
                       </div>
                       <div className="flex-1 min-w-[90px] max-w-[130px] text-center p-2 sm:p-3 rounded-xl bg-[#780DA7]/10 border border-[#780DA7]/20">
                         <div className="text-sm sm:text-base font-semibold text-[#780DA7] truncate">
                           {caseStudy.results.timeToContact}
                         </div>
-                        <div className="text-[10px] sm:text-xs text-neutral-500">Atendimento</div>
+                        <div className="text-[10px] sm:text-xs text-neutral-500">{t("works.cases.labels.service")}</div>
                       </div>
                       {caseStudy.results.revenue && (
                         <div className="flex-1 min-w-[90px] max-w-[130px] text-center p-2 sm:p-3 rounded-xl bg-[#5A40BC]/10 border border-[#5A40BC]/20">
                           <div className="text-sm sm:text-base font-semibold text-[#5A40BC] truncate">
                             {caseStudy.results.revenue}
                           </div>
-                          <div className="text-[10px] sm:text-xs text-neutral-500">Receita</div>
+                          <div className="text-[10px] sm:text-xs text-neutral-500">{t("works.cases.labels.revenue")}</div>
                         </div>
                       )}
                       {caseStudy.results.other && (
@@ -332,7 +332,7 @@ export default function WorksPage() {
                             {caseStudy.results.other.split(":")[1]?.trim() || caseStudy.results.other}
                           </div>
                           <div className="text-[10px] sm:text-xs text-neutral-500 truncate">
-                            {caseStudy.results.other.split(":")[0] || "Resultado"}
+                            {caseStudy.results.other.split(":")[0] || t("works.cases.labels.result")}
                           </div>
                         </div>
                       )}
@@ -343,7 +343,7 @@ export default function WorksPage() {
                       <div className="mb-6">
                         <h4 className="text-sm font-medium text-white mb-3 flex items-center gap-2">
                           <CheckCircle2 className="w-4 h-4 text-[#5A40BC]" />
-                          Entregáveis
+                          {t("works.cases.labels.deliverables")}
                         </h4>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                           {caseStudy.deliverables.slice(0, 6).map((item, idx) => (

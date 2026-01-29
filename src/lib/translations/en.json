@@ -73,6 +73,38 @@
         "1": {"title": "Scalable Architecture", "desc": "We plan your software structure to grow without technical debt."},
         "2": {"title": "Product Strategy", "desc": "We align technology with your business goals to maximize ROI."}
       }
+    },
+    "calendly": {
+      "button": "Schedule Consultation",
+      "buttonFree": "Schedule Free Consultation",
+      "orSchedule": "Or schedule directly from calendar"
+    },
+    "form": {
+      "title": "Schedule Your Consultation",
+      "subtitle": "Fill out the form below so we can better understand your needs.",
+      "name": "Full Name",
+      "namePlaceholder": "Your name",
+      "email": "Corporate Email",
+      "emailPlaceholder": "you@email.com",
+      "company": "Company",
+      "companyPlaceholder": "Company name",
+      "purpose": "Consultation Goal",
+      "purposePlaceholder": "Select a goal",
+      "purposes": {
+        "automation": "Process Automation (WhatsApp/N8N)",
+        "saas": "SaaS/App Development",
+        "site": "Institutional Website / Landing Page",
+        "marketing": "Digital Marketing Strategy",
+        "mentoring": "Technical Mentoring for Teams",
+        "other": "Other"
+      },
+      "message": "Message (Optional)",
+      "messagePlaceholder": "Tell us more about your challenge...",
+      "submit": "Request Consultation",
+      "sending": "Sending...",
+      "successTitle": "Request Received!",
+      "successMessage": "Our team will analyze your profile and contact you soon to schedule your consultation.",
+      "newRequest": "Submit new request"
     }
   },
   "saas": {
@@ -575,7 +607,14 @@
       "badge": "Success Stories",
       "title": "Real results from real projects",
       "subtitle": "Explore in detail the projects that transformed operations and generated measurable growth for our clients.",
-      "viewAll": "View all projects"
+      "viewAll": "View all projects",
+      "labels": {
+        "conversions": "Conversions",
+        "service": "Service",
+        "revenue": "Revenue",
+        "result": "Result",
+        "deliverables": "Deliverables"
+      }
     },
     "features": {
       "title": "Why choose CazaTech?",

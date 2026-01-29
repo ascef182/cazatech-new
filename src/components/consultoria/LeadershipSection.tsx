@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Code2, Rocket, Users, Terminal } from "lucide-react";
 import { useI18n } from "@/app/ClientBody";
+import CalendlyButton from "./CalendlyButton";
 
 export default function LeadershipSection() {
   const { t } = useI18n();
@@ -109,6 +110,11 @@ export default function LeadershipSection() {
                   {t("consulting.hero.featureMentoringDesc")}
                 </p>
               </div>
+            </div>
+
+            {/* CTA Calendly */}
+            <div className="mt-10">
+              <CalendlyButton text={t("consulting.calendly.buttonFree")} />
             </div>
           </motion.div>
         </div>

@@ -14,37 +14,37 @@ export const products = [
   {
     title: "Instituto Seu Olhar",
     link: "https://institutoseuolhar.com",
-    thumbnail: "./templates/instituto-website.png",
+    thumbnail: "/templates/instituto-website.png",
   },
   {
     title: "Hype",
     link: "https://hype.com",
-    thumbnail: "./templates/hype-website.webp",
+    thumbnail: "/templates/hype-website.webp",
   },
   {
     title: "Haven",
     link: "https://haven.com",
-    thumbnail: "./templates/vistahaven-oC7rQ4lLJAZdkUAZLNTNnmByO4qAwV.jpg",
+    thumbnail: "/templates/vistahaven-oC7rQ4lLJAZdkUAZLNTNnmByO4qAwV.jpg",
   },
   {
     title: "Gym",
     link: "https://gym.com",
-    thumbnail: "./templates/website-gym.webp",
+    thumbnail: "/templates/website-gym.webp",
   },
   {
     title: "Garm",
     link: "https://garm.com",
-    thumbnail: "./templates/garm-website.webp",
+    thumbnail: "/templates/garm-website.webp",
   },
   {
     title: "Altech",
     link: "https://altech.com",
-    thumbnail: "./templates/altech-website.webp",
+    thumbnail: "/templates/altech-website.webp",
   },
   {
     title: "Clario",
     link: "https://clario.com",
-    thumbnail: "./templates/clario-website.webp",
+    thumbnail: "/templates/clario-website.webp",
   },
   {
     title: "E Free Invoice",
