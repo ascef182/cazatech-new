@@ -2,353 +2,886 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useI18n } from "@/app/ClientBody";
-import { MessageSquare, Instagram, Facebook, Send, ArrowDownRight } from "lucide-react";
+import {
+  MessageSquare,
+  Instagram,
+  Facebook,
+  Send,
+  Check,
+  CheckCheck,
+  Bot,
+  Mic,
+  Play,
+  Pause,
+  Volume2,
+} from "lucide-react";
 
-// Message bubble types
-interface MessageBubble {
+/* ------------------------------------------------------------------ */
+/* TYPES */
+/* ------------------------------------------------------------------ */
+
+type Channel = "whatsapp" | "instagram" | "facebook" | "telegram";
+type MessageType = "incoming" | "outgoing";
+
+interface ChatMessage {
   id: number;
-  channel: "whatsapp" | "instagram" | "facebook" | "telegram";
+  channel: Channel;
   text: string;
-  position: { x: number; y: number };
-  delay: number;
+  type: MessageType;
+  timestamp: string;
+  isTyping?: boolean;
+  isRead?: boolean;
+  isAudio?: boolean;
+  audioDuration?: string;
+  isTranscribing?: boolean;
+  transcription?: string;
+  isRecording?: boolean;
 }
 
-// Channel configurations
+/* ------------------------------------------------------------------ */
+/* CONFIG */
+/* ------------------------------------------------------------------ */
+
 const channelConfig = {
   whatsapp: {
     icon: MessageSquare,
-    color: "rgb(37, 211, 102)",
-    bgColor: "rgba(37, 211, 102, 0.1)",
-    borderColor: "rgba(37, 211, 102, 0.3)",
+    name: "WhatsApp",
+    incomingBg: "bg-[#202c33]",
+    outgoingBg: "bg-[#005c4b]",
+    accent: "#25D366",
+    headerBg: "bg-[#202c33]",
   },
   instagram: {
     icon: Instagram,
-    color: "rgb(225, 48, 108)",
-    bgColor: "rgba(225, 48, 108, 0.1)",
-    borderColor: "rgba(225, 48, 108, 0.3)",
+    name: "Instagram",
+    incomingBg: "bg-[#262626]",
+    outgoingBg: "bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045]",
+    accent: "#E1306C",
+    headerBg: "bg-[#262626]",
   },
   facebook: {
     icon: Facebook,
-    color: "rgb(24, 119, 242)",
-    bgColor: "rgba(24, 119, 242, 0.1)",
-    borderColor: "rgba(24, 119, 242, 0.3)",
+    name: "Messenger",
+    incomingBg: "bg-[#303030]",
+    outgoingBg: "bg-[#0084ff]",
+    accent: "#1877F2",
+    headerBg: "bg-[#303030]",
   },
   telegram: {
     icon: Send,
-    color: "rgb(0, 136, 204)",
-    bgColor: "rgba(0, 136, 204, 0.1)",
-    borderColor: "rgba(0, 136, 204, 0.3)",
+    name: "Telegram",
+    incomingBg: "bg-[#182533]",
+    outgoingBg: "bg-[#2b5278]",
+    accent: "#0088cc",
+    headerBg: "bg-[#17212b]",
   },
 };
 
-// Initial messages that will float
-const initialMessages: Omit<MessageBubble, "id">[] = [
-  { channel: "whatsapp", text: "Oi, qual o horário disponível?", position: { x: 15, y: 15 }, delay: 0 },
-  { channel: "instagram", text: "Vocês atendem aos sábados?", position: { x: 68, y: 18 }, delay: 0.3 },
-  { channel: "facebook", text: "Quanto custa a consulta?", position: { x: 22, y: 50 }, delay: 0.6 },
-  { channel: "whatsapp", text: "Preciso remarcar meu horário", position: { x: 62, y: 55 }, delay: 0.9 },
-  { channel: "telegram", text: "Como faço para agendar?", position: { x: 42, y: 32 }, delay: 1.2 },
-  { channel: "instagram", text: "Aceita convênio?", position: { x: 70, y: 72 }, delay: 1.5 },
-  { channel: "whatsapp", text: "Boa tarde! Gostaria de informações", position: { x: 18, y: 78 }, delay: 1.8 },
+/* ------------------------------------------------------------------ */
+/* CONVERSATION DATA */
+/* ------------------------------------------------------------------ */
+
+const conversations: {
+  channel: Channel;
+  messages: Omit<ChatMessage, "id">[];
+}[] = [
+  {
+    channel: "whatsapp",
+    messages: [
+      {
+        channel: "whatsapp",
+        text: "",
+        type: "incoming",
+        timestamp: "10:30",
+        isAudio: true,
+        audioDuration: "0:08",
+        transcription:
+          "Oi, gostaria de saber se tem horário disponível pra amanhã de tarde",
+      },
+      {
+        channel: "whatsapp",
+        text: "Olá! Temos horários às 14h, 15h e 16h amanhã. Qual prefere?",
+        type: "outgoing",
+        timestamp: "10:30",
+        isRead: true,
+      },
+      {
+        channel: "whatsapp",
+        text: "",
+        type: "incoming",
+        timestamp: "10:31",
+        isAudio: true,
+        audioDuration: "0:03",
+        transcription: "Quatorze horas seria perfeito",
+      },
+      {
+        channel: "whatsapp",
+        text: "",
+        type: "outgoing",
+        timestamp: "10:31",
+        isRead: true,
+        isAudio: true,
+        audioDuration: "0:05",
+        transcription:
+          "Perfeito! Agendado para amanhã às 14h. Enviei a confirmação por email.",
+      },
+    ],
+  },
+  {
+    channel: "instagram",
+    messages: [
+      {
+        channel: "instagram",
+        text: "Quanto custa a consulta?",
+        type: "incoming",
+        timestamp: "11:45",
+      },
+      {
+        channel: "instagram",
+        text: "A consulta inicial é R$ 150,00. Aceitamos PIX, cartão e dinheiro.",
+        type: "outgoing",
+        timestamp: "11:45",
+        isRead: true,
+      },
+      {
+        channel: "instagram",
+        text: "",
+        type: "incoming",
+        timestamp: "11:46",
+        isAudio: true,
+        audioDuration: "0:04",
+        transcription: "Vocês parcelam no cartão?",
+      },
+      {
+        channel: "instagram",
+        text: "Sim! Parcelamos em até 3x sem juros no cartão.",
+        type: "outgoing",
+        timestamp: "11:46",
+        isRead: true,
+      },
+    ],
+  },
+  {
+    channel: "telegram",
+    messages: [
+      {
+        channel: "telegram",
+        text: "",
+        type: "incoming",
+        timestamp: "14:20",
+        isAudio: true,
+        audioDuration: "0:06",
+        transcription: "Oi, preciso remarcar minha consulta de quinta",
+      },
+      {
+        channel: "telegram",
+        text: "Sem problemas! Qual seria o novo horário de preferência?",
+        type: "outgoing",
+        timestamp: "14:20",
+        isRead: true,
+      },
+      {
+        channel: "telegram",
+        text: "",
+        type: "incoming",
+        timestamp: "14:21",
+        isAudio: true,
+        audioDuration: "0:04",
+        transcription: "Pode ser sexta às dez da manhã?",
+      },
+      {
+        channel: "telegram",
+        text: "",
+        type: "outgoing",
+        timestamp: "14:21",
+        isRead: true,
+        isAudio: true,
+        audioDuration: "0:06",
+        transcription:
+          "Consulta remarcada para sexta às 10h. Você receberá uma notificação de lembrete.",
+      },
+    ],
+  },
+  {
+    channel: "facebook",
+    messages: [
+      {
+        channel: "facebook",
+        text: "",
+        type: "incoming",
+        timestamp: "09:15",
+        isAudio: true,
+        audioDuration: "0:05",
+        transcription: "Bom dia, vocês atendem aos sábados?",
+      },
+      {
+        channel: "facebook",
+        text: "Sim! Atendemos sábados das 8h às 12h. Deseja agendar?",
+        type: "outgoing",
+        timestamp: "09:15",
+        isRead: true,
+      },
+      {
+        channel: "facebook",
+        text: "Sim, pode ser 9h?",
+        type: "incoming",
+        timestamp: "09:16",
+      },
+      {
+        channel: "facebook",
+        text: "Pronto! Consulta agendada para sábado às 9h. Enviamos confirmação.",
+        type: "outgoing",
+        timestamp: "09:16",
+        isRead: true,
+      },
+    ],
+  },
 ];
 
-// Floating Message Component
-function FloatingMessage({ message, isConverging }: { message: MessageBubble; isConverging: boolean }) {
+/* ------------------------------------------------------------------ */
+/* AUDIO WAVEFORM */
+/* ------------------------------------------------------------------ */
+
+function AudioWaveform({
+  isPlaying,
+  isOutgoing,
+}: {
+  isPlaying: boolean;
+  isOutgoing: boolean;
+}) {
+  const bars = 12;
+
+  return (
+    <div className="flex items-center gap-0.5 h-6">
+      {Array.from({ length: bars }).map((_, i) => (
+        <motion.div
+          key={i}
+          className={`w-1 rounded-full ${isOutgoing ? "bg-white/70" : "bg-white/60"}`}
+          animate={
+            isPlaying
+              ? {
+                  height: [
+                    8,
+                    16 + Math.random() * 8,
+                    8,
+                    20 + Math.random() * 4,
+                    8,
+                  ],
+                }
+              : {
+                  height: [6, 10, 14, 10, 18, 14, 10, 6, 12, 16, 10, 8][i],
+                }
+          }
+          transition={
+            isPlaying
+              ? {
+                  duration: 0.5,
+                  repeat: Infinity,
+                  delay: i * 0.05,
+                }
+              : {
+                  duration: 0,
+                }
+          }
+          style={{
+            height: isPlaying
+              ? 8
+              : [6, 10, 14, 10, 18, 14, 10, 6, 12, 16, 10, 8][i],
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* AUDIO BUBBLE */
+/* ------------------------------------------------------------------ */
+
+function AudioBubble({
+  message,
+  config,
+  isOutgoing,
+}: {
+  message: ChatMessage;
+  config: typeof channelConfig.whatsapp;
+  isOutgoing: boolean;
+}) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [showTranscription, setShowTranscription] = useState(false);
+  const [isTranscribing, setIsTranscribing] = useState(false);
+
+  // Auto-play animation and show transcription
+  useEffect(() => {
+    if (message.isAudio && message.transcription) {
+      const playTimer = setTimeout(() => {
+        setIsPlaying(true);
+      }, 300);
+
+      const transcribeTimer = setTimeout(() => {
+        setIsPlaying(false);
+        setIsTranscribing(true);
+      }, 2000);
+
+      const showTimer = setTimeout(() => {
+        setIsTranscribing(false);
+        setShowTranscription(true);
+      }, 3000);
+
+      return () => {
+        clearTimeout(playTimer);
+        clearTimeout(transcribeTimer);
+        clearTimeout(showTimer);
+      };
+    }
+  }, [message.isAudio, message.transcription]);
+
+  return (
+    <div className="flex flex-col gap-1.5 w-full">
+      {/* Audio player */}
+      <div className="flex items-center gap-2">
+        <button
+          onClick={() => setIsPlaying(!isPlaying)}
+          className={`
+            w-8 h-8 rounded-full flex items-center justify-center shrink-0
+            ${isOutgoing ? "bg-white/20" : "bg-white/10"}
+            hover:bg-white/30 transition-colors
+          `}
+        >
+          {isPlaying ? (
+            <Pause className="w-4 h-4 text-white" />
+          ) : (
+            <Play className="w-4 h-4 text-white ml-0.5" />
+          )}
+        </button>
+
+        <AudioWaveform isPlaying={isPlaying} isOutgoing={isOutgoing} />
+
+        <span className="text-xs text-white/60 ml-1 shrink-0">
+          {message.audioDuration}
+        </span>
+
+        {isOutgoing && (
+          <Mic className="w-3.5 h-3.5 text-emerald-400 ml-auto shrink-0" />
+        )}
+      </div>
+
+      {/* Transcription area */}
+      <AnimatePresence mode="wait">
+        {isTranscribing && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="flex items-center gap-2 pt-1.5 border-t border-white/10"
+          >
+            <Volume2 className="w-3.5 h-3.5 text-sky-400 animate-pulse" />
+            <span className="text-xs text-sky-400">Transcrevendo áudio...</span>
+            <motion.div className="flex gap-0.5">
+              {[0, 1, 2].map((i) => (
+                <motion.span
+                  key={i}
+                  className="w-1 h-1 rounded-full bg-sky-400"
+                  animate={{ opacity: [0.3, 1, 0.3] }}
+                  transition={{
+                    duration: 0.8,
+                    repeat: Infinity,
+                    delay: i * 0.2,
+                  }}
+                />
+              ))}
+            </motion.div>
+          </motion.div>
+        )}
+
+        {showTranscription && message.transcription && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            className="pt-1.5 border-t border-white/10"
+          >
+            <div className="flex items-start gap-1.5">
+              <Volume2 className="w-3 h-3 text-emerald-400 mt-0.5 shrink-0" />
+              <p className="text-xs text-white/70 italic leading-relaxed">
+                "{message.transcription}"
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* MESSAGE BUBBLE */
+/* ------------------------------------------------------------------ */
+
+function MessageBubble({
+  message,
+  showChannel = false,
+}: {
+  message: ChatMessage;
+  showChannel?: boolean;
+}) {
   const config = channelConfig[message.channel];
   const Icon = config.icon;
+  const isOutgoing = message.type === "outgoing";
 
   return (
     <motion.div
-      initial={{
-        opacity: 0,
-        scale: 0.8,
-        x: `${message.position.x}%`,
-        y: `${message.position.y}%`
-      }}
-      animate={isConverging ? {
-        opacity: [1, 1, 0],
-        scale: [1, 1, 0.5],
-        x: ["0%", "0%", "0%"],
-        y: ["0%", "0%", "0%"],
-        left: [`${message.position.x}%`, `${message.position.x}%`, "50%"],
-        top: [`${message.position.y}%`, `${message.position.y}%`, "50%"],
-      } : {
-        opacity: 1,
-        scale: 1,
-        y: [0, -8, 0],
-      }}
-      transition={isConverging ? {
-        duration: 1.5,
-        ease: [0.22, 1, 0.36, 1],
-        times: [0, 0.6, 1],
-      } : {
-        opacity: { duration: 0.5, delay: message.delay },
-        scale: { duration: 0.5, delay: message.delay },
-        y: {
-          duration: 3 + Math.random() * 2,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: message.delay,
-        },
-      }}
-      style={{
-        position: "absolute",
-        left: `${message.position.x}%`,
-        top: `${message.position.y}%`,
-        transform: "translate(-50%, -50%)",
-      }}
-      className="max-w-[200px] md:max-w-[240px]"
+      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+      className={`flex ${isOutgoing ? "justify-end" : "justify-start"} w-full`}
     >
       <div
-        className="rounded-xl p-3 backdrop-blur-sm"
-        style={{
-          background: config.bgColor,
-          border: `1px solid ${config.borderColor}`,
-        }}
+        className={`
+          relative max-w-[85%] px-3 py-2 rounded-2xl
+          ${isOutgoing ? config.outgoingBg : config.incomingBg}
+          ${isOutgoing ? "rounded-br-md" : "rounded-bl-md"}
+          shadow-sm
+        `}
       >
-        <div className="flex items-start gap-2">
-          <div
-            className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0"
-            style={{ background: config.bgColor, border: `1px solid ${config.borderColor}` }}
-          >
-            <Icon className="w-3 h-3" style={{ color: config.color }} />
+        {showChannel && !isOutgoing && (
+          <div className="flex items-center gap-1.5 mb-1">
+            <Icon className="w-3 h-3" style={{ color: config.accent }} />
+            <span
+              className="text-[10px] font-medium"
+              style={{ color: config.accent }}
+            >
+              {config.name}
+            </span>
           </div>
-          <p className="text-xs text-white/90 leading-relaxed">{message.text}</p>
+        )}
+
+        {isOutgoing && (
+          <div className="flex items-center gap-1.5 mb-1">
+            <Bot className="w-3 h-3 text-emerald-400" />
+            <span className="text-[10px] font-medium text-emerald-400">
+              PrimeOps IA
+            </span>
+          </div>
+        )}
+
+        {message.isTyping ? (
+          <div className="flex items-center gap-1 py-1">
+            <motion.span
+              className="w-2 h-2 rounded-full bg-white/60"
+              animate={{ opacity: [0.4, 1, 0.4] }}
+              transition={{ duration: 1, repeat: Infinity, delay: 0 }}
+            />
+            <motion.span
+              className="w-2 h-2 rounded-full bg-white/60"
+              animate={{ opacity: [0.4, 1, 0.4] }}
+              transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
+            />
+            <motion.span
+              className="w-2 h-2 rounded-full bg-white/60"
+              animate={{ opacity: [0.4, 1, 0.4] }}
+              transition={{ duration: 1, repeat: Infinity, delay: 0.4 }}
+            />
+          </div>
+        ) : message.isRecording ? (
+          <div className="flex items-center gap-2 py-1">
+            <motion.div
+              className="w-3 h-3 rounded-full bg-red-500"
+              animate={{ scale: [1, 1.2, 1], opacity: [1, 0.7, 1] }}
+              transition={{ duration: 1, repeat: Infinity }}
+            />
+            <span className="text-xs text-white/70">Gravando...</span>
+            <motion.div className="flex gap-0.5">
+              {[0, 1, 2, 3, 4].map((i) => (
+                <motion.span
+                  key={i}
+                  className="w-1 rounded-full bg-red-400"
+                  animate={{ height: [4, 12 + Math.random() * 8, 4] }}
+                  transition={{
+                    duration: 0.4,
+                    repeat: Infinity,
+                    delay: i * 0.1,
+                  }}
+                />
+              ))}
+            </motion.div>
+          </div>
+        ) : message.isAudio ? (
+          <AudioBubble
+            message={message}
+            config={config}
+            isOutgoing={isOutgoing}
+          />
+        ) : (
+          <p className="text-sm text-white/95 leading-relaxed">
+            {message.text}
+          </p>
+        )}
+
+        <div
+          className={`flex items-center gap-1 mt-1 ${isOutgoing ? "justify-end" : "justify-start"}`}
+        >
+          <span className="text-[10px] text-white/50">{message.timestamp}</span>
+          {isOutgoing &&
+            (message.isRead ? (
+              <CheckCheck className="w-3.5 h-3.5 text-sky-400" />
+            ) : (
+              <Check className="w-3.5 h-3.5 text-white/50" />
+            ))}
         </div>
       </div>
     </motion.div>
   );
 }
 
-// Central Hub Component
-function CentralHub({ isProcessing }: { isProcessing: boolean }) {
+/* ------------------------------------------------------------------ */
+/* CHAT WINDOW */
+/* ------------------------------------------------------------------ */
+
+function ChatWindow({
+  channel,
+  messages,
+  isActive,
+}: {
+  channel: Channel;
+  messages: ChatMessage[];
+  isActive: boolean;
+}) {
+  const config = channelConfig[channel];
+  const Icon = config.icon;
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [messages]);
+
   return (
     <motion.div
-      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
-      initial={{ scale: 0.8, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.6, delay: 2.5 }}
+      layout
+      className={`
+        w-full rounded-2xl overflow-hidden shadow-2xl
+        border border-white/10 backdrop-blur-sm
+        ${isActive ? "ring-2 ring-emerald-500/50" : ""}
+      `}
+      style={{ background: "rgba(17, 24, 39, 0.95)" }}
     >
-      {/* Outer ring */}
-      <motion.div
-        className="absolute inset-0 rounded-full"
-        style={{
-          background: "rgba(0, 53, 102, 0.3)",
-          width: "140px",
-          height: "140px",
-          left: "-30px",
-          top: "-30px",
-        }}
-        animate={isProcessing ? {
-          scale: [1, 1.1, 1],
-          opacity: [0.3, 0.5, 0.3],
-        } : {}}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
-      {/* Inner hub */}
-      <div className="relative w-20 h-20 rounded-full glass-primeops-card flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-xl font-bold text-white">P</div>
-          <div className="text-[8px] uppercase tracking-widest text-[rgb(176,224,230)]">PRIMEOPS</div>
+      {/* Header */}
+      <div
+        className={`${config.headerBg} px-4 py-3 flex items-center gap-3 border-b border-white/10`}
+      >
+        <div
+          className="w-10 h-10 rounded-full flex items-center justify-center"
+          style={{
+            backgroundColor: `${config.accent}20`,
+            border: `1.5px solid ${config.accent}50`,
+          }}
+        >
+          <Icon className="w-5 h-5" style={{ color: config.accent }} />
         </div>
+        <div className="flex-1">
+          <h4 className="text-sm font-semibold text-white">{config.name}</h4>
+          <p className="text-xs text-white/50">
+            {isActive ? (
+              <span className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                IA respondendo...
+              </span>
+            ) : (
+              "Online"
+            )}
+          </p>
+        </div>
+        {isActive && (
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            className="px-2 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30"
+          >
+            <span className="text-[10px] font-medium text-emerald-400">
+              ATIVO
+            </span>
+          </motion.div>
+        )}
+      </div>
 
-        {/* Processing indicator */}
-        <AnimatePresence>
-          {isProcessing && (
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0 }}
-              className="absolute -bottom-2 -right-2"
-            >
-              <div className="signal-dot w-3 h-3" />
-            </motion.div>
-          )}
+      {/* Messages */}
+      <div
+        ref={scrollRef}
+        className="h-[180px] sm:h-[200px] overflow-y-auto p-3 flex flex-col gap-2 scrollbar-thin scrollbar-thumb-white/10"
+        style={{ background: "rgba(0, 0, 0, 0.3)" }}
+      >
+        <AnimatePresence mode="popLayout">
+          {messages.map((msg) => (
+            <MessageBubble key={msg.id} message={msg} showChannel={false} />
+          ))}
         </AnimatePresence>
+      </div>
+
+      {/* Input */}
+      <div
+        className="px-3 py-2 border-t border-white/10 flex items-center gap-2"
+        style={{ background: "rgba(17, 24, 39, 0.95)" }}
+      >
+        <div className="flex-1 bg-white/5 rounded-full px-4 py-2 flex items-center gap-2">
+          <span className="text-xs text-white/30 flex-1">
+            Mensagem automática via PrimeOps
+          </span>
+          <div className="flex items-center gap-1 text-white/40">
+            <Mic className="w-3.5 h-3.5" />
+            <Volume2 className="w-3.5 h-3.5" />
+          </div>
+        </div>
+        <div
+          className="w-9 h-9 rounded-full flex items-center justify-center"
+          style={{ backgroundColor: config.accent }}
+        >
+          <Send className="w-4 h-4 text-white" />
+        </div>
       </div>
     </motion.div>
   );
 }
 
-// Response Output Component
-function ResponseOutput({ isVisible }: { isVisible: boolean }) {
-  const { t } = useI18n();
+/* ------------------------------------------------------------------ */
+/* STATS DISPLAY */
+/* ------------------------------------------------------------------ */
 
-  const responses = [
-    { icon: "📅", text: t("primeops.hologram.responses.scheduled") },
-    { icon: "✅", text: t("primeops.hologram.responses.confirmed") },
-    { icon: "💳", text: t("primeops.hologram.responses.payment") },
-  ];
-
+function StatsDisplay() {
   return (
-    <AnimatePresence>
-      {isVisible && (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.5, duration: 0.5 }}
+      className="grid grid-cols-3 gap-2 sm:gap-4 w-full"
+    >
+      {[
+        { icon: "🎙️", label: "Áudios", value: "Transcritos" },
+        { icon: "📅", label: "Agendamentos", value: "24/7" },
+        { icon: "💳", label: "Pagamentos", value: "Integrado" },
+      ].map((stat, idx) => (
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
+          key={idx}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.6 + idx * 0.1 }}
+          className="flex flex-col items-center gap-1 p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm"
         >
-          <ArrowDownRight className="w-5 h-5 text-[rgb(176,224,230)]/50" />
-          <div className="flex flex-wrap justify-center gap-3">
-            {responses.map((response, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.2 }}
-                className="glass-primeops-card px-4 py-2 flex items-center gap-2"
-              >
-                <span>{response.icon}</span>
-                <span className="text-xs text-white">{response.text}</span>
-              </motion.div>
-            ))}
-          </div>
+          <span className="text-xl sm:text-2xl">{stat.icon}</span>
+          <span className="text-[10px] sm:text-xs text-white/50">
+            {stat.label}
+          </span>
+          <span className="text-xs sm:text-sm font-semibold text-emerald-400">
+            {stat.value}
+          </span>
         </motion.div>
-      )}
-    </AnimatePresence>
+      ))}
+    </motion.div>
   );
 }
 
-export default function HologramSection() {
-  const { t } = useI18n();
-  const [messages, setMessages] = useState<MessageBubble[]>([]);
-  const [phase, setPhase] = useState<"floating" | "converging" | "processing" | "output">("floating");
-  const containerRef = useRef<HTMLDivElement>(null);
+/* ------------------------------------------------------------------ */
+/* CHANNEL TABS */
+/* ------------------------------------------------------------------ */
 
-  // Initialize messages
-  useEffect(() => {
-    const messagesWithId = initialMessages.map((msg, index) => ({
-      ...msg,
-      id: index,
-    }));
-    setMessages(messagesWithId);
-  }, []);
-
-  // Animation cycle
-  useEffect(() => {
-    const cycle = () => {
-      // Phase 1: Floating (5s)
-      setPhase("floating");
-
-      // Phase 2: Converging (after 5s)
-      setTimeout(() => {
-        setPhase("converging");
-      }, 5000);
-
-      // Phase 3: Processing (after 6.5s)
-      setTimeout(() => {
-        setPhase("processing");
-      }, 6500);
-
-      // Phase 4: Output (after 8s)
-      setTimeout(() => {
-        setPhase("output");
-      }, 8000);
-
-      // Restart cycle (after 12s)
-      setTimeout(() => {
-        setMessages(initialMessages.map((msg, index) => ({
-          ...msg,
-          id: index + Date.now(),
-        })));
-        cycle();
-      }, 12000);
-    };
-
-    cycle();
-  }, []);
+function ChannelTabs({
+  activeChannel,
+  onSelect,
+}: {
+  activeChannel: Channel;
+  onSelect: (channel: Channel) => void;
+}) {
+  const channels: Channel[] = ["whatsapp", "instagram", "telegram", "facebook"];
 
   return (
-    <section
-      className="relative w-full py-20 md:py-28 overflow-hidden"
-      style={{
-        background: 'linear-gradient(180deg, rgb(12, 24, 42) 0%, rgb(0, 33, 71) 50%, rgb(12, 24, 42) 100%)'
-      }}
-    >
-      {/* Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgb(176,224,230)]/10 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgb(176,224,230)]/10 to-transparent" />
-      </div>
+    <div className="flex items-center justify-center gap-2 sm:gap-3">
+      {channels.map((channel) => {
+        const config = channelConfig[channel];
+        const Icon = config.icon;
+        const isActive = activeChannel === channel;
 
-      <div className="relative z-10 container mx-auto px-4 md:px-6">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <div className="badge-primeops inline-flex mb-6">
-            <MessageSquare className="w-3.5 h-3.5" />
-            <span>{t("primeops.hologram.badge")}</span>
-          </div>
-
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white tracking-tight mb-6">
-            {t("primeops.hologram.title")}
-          </h2>
-
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-            {t("primeops.hologram.description")}
-          </p>
-        </motion.div>
-
-        {/* Hologram Container */}
-        <div
-          ref={containerRef}
-          className="relative w-full h-[500px] md:h-[600px] rounded-2xl overflow-hidden glass-primeops"
-        >
-          {/* Messages wrapper with safe padding */}
-          <div className="absolute inset-4 md:inset-8">
-            {/* Floating Messages */}
-            {messages.map((message) => (
-            <FloatingMessage
-              key={message.id}
-              message={message}
-              isConverging={phase === "converging"}
+        return (
+          <motion.button
+            key={channel}
+            onClick={() => onSelect(channel)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className={`
+              relative p-2.5 sm:p-3 rounded-xl transition-all duration-300
+              ${
+                isActive
+                  ? "bg-white/10 border border-white/20 shadow-lg"
+                  : "bg-white/5 border border-white/5 hover:bg-white/10"
+              }
+            `}
+          >
+            <Icon
+              className="w-5 h-5 sm:w-6 sm:h-6 transition-colors"
+              style={{
+                color: isActive ? config.accent : "rgba(255,255,255,0.5)",
+              }}
             />
-          ))}
+            {isActive && (
+              <motion.div
+                layoutId="activeTab"
+                className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full"
+                style={{ backgroundColor: config.accent }}
+              />
+            )}
+          </motion.button>
+        );
+      })}
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* MAIN */
+/* ------------------------------------------------------------------ */
+
+export default function HologramSection() {
+  const [activeChannel, setActiveChannel] = useState<Channel>("whatsapp");
+  const [visibleMessages, setVisibleMessages] = useState<ChatMessage[]>([]);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const messageIndexRef = useRef(0);
+  const cycleRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Get current conversation
+  const currentConversation = conversations.find(
+    (c) => c.channel === activeChannel,
+  );
+
+  // Animate messages appearing one by one
+  useEffect(() => {
+    setVisibleMessages([]);
+    messageIndexRef.current = 0;
+    setIsAnimating(true);
+
+    if (cycleRef.current) {
+      clearTimeout(cycleRef.current);
+    }
+
+    const animateMessages = () => {
+      if (!currentConversation) return;
+
+      const messages = currentConversation.messages;
+
+      if (messageIndexRef.current < messages.length) {
+        const currentMsg = messages[messageIndexRef.current];
+
+        // Show typing indicator for outgoing messages
+        if (currentMsg.type === "outgoing" && messageIndexRef.current > 0) {
+          const typingMsg: ChatMessage = {
+            ...currentMsg,
+            id: Date.now(),
+            isTyping: true,
+          };
+          setVisibleMessages((prev) => [...prev, typingMsg]);
+
+          // Replace typing with actual message
+          cycleRef.current = setTimeout(() => {
+            setVisibleMessages((prev) =>
+              prev.map((msg) =>
+                msg.isTyping
+                  ? { ...currentMsg, id: msg.id, isTyping: false }
+                  : msg,
+              ),
+            );
+            messageIndexRef.current++;
+            cycleRef.current = setTimeout(animateMessages, 800);
+          }, 1200);
+        } else {
+          setVisibleMessages((prev) => [
+            ...prev,
+            { ...currentMsg, id: Date.now() },
+          ]);
+          messageIndexRef.current++;
+          cycleRef.current = setTimeout(animateMessages, 600);
+        }
+      } else {
+        setIsAnimating(false);
+        // Restart cycle after delay
+        cycleRef.current = setTimeout(() => {
+          const channels: Channel[] = [
+            "whatsapp",
+            "instagram",
+            "telegram",
+            "facebook",
+          ];
+          const currentIndex = channels.indexOf(activeChannel);
+          const nextChannel = channels[(currentIndex + 1) % channels.length];
+          setActiveChannel(nextChannel);
+        }, 4000);
+      }
+    };
+
+    cycleRef.current = setTimeout(animateMessages, 500);
+
+    return () => {
+      if (cycleRef.current) {
+        clearTimeout(cycleRef.current);
+      }
+    };
+  }, [activeChannel, currentConversation]);
+
+  return (
+    <div className="w-full max-w-2xl mx-auto px-4">
+      {/* Outer Container Card */}
+      <div
+        className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(17, 24, 39, 0.98) 0%, rgba(10, 15, 25, 0.98) 100%)",
+        }}
+      >
+        {/* Subtle gradient overlay */}
+        <div
+          className="absolute inset-0 opacity-30 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse at 50% 0%, rgba(16, 185, 129, 0.15) 0%, transparent 70%)",
+          }}
+        />
+
+        {/* Content */}
+        <div className="relative z-10 p-4 sm:p-6 flex flex-col gap-4 sm:gap-6">
+          {/* Header */}
+          <div className="text-center">
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-3"
+            >
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-xs font-medium text-emerald-400">
+                IA Ativa
+              </span>
+            </motion.div>
+            <h3 className="text-lg sm:text-xl font-bold text-white mb-1">
+              Atendimento Automático
+            </h3>
+            <p className="text-xs sm:text-sm text-white/50">
+              Respostas instantâneas em todos os canais
+            </p>
           </div>
 
-          {/* Central Hub */}
-          <CentralHub isProcessing={phase === "processing" || phase === "output"} />
-
-          {/* Response Output */}
-          <ResponseOutput isVisible={phase === "output"} />
-
-          {/* Decorative grid */}
-          <div
-            className="absolute inset-0 opacity-[0.03] pointer-events-none"
-            style={{
-              backgroundImage: `
-                linear-gradient(to right, rgb(176 224 230) 1px, transparent 1px),
-                linear-gradient(to bottom, rgb(176 224 230) 1px, transparent 1px)
-              `,
-              backgroundSize: '40px 40px'
-            }}
+          {/* Channel Tabs */}
+          <ChannelTabs
+            activeChannel={activeChannel}
+            onSelect={setActiveChannel}
           />
-        </div>
 
-        {/* Bottom Caption */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="text-center text-sm text-slate-400 mt-6"
-        >
-          {t("primeops.hologram.caption")}
-        </motion.p>
+          {/* Chat Window */}
+          <ChatWindow
+            channel={activeChannel}
+            messages={visibleMessages}
+            isActive={isAnimating}
+          />
+
+          {/* Stats */}
+          <StatsDisplay />
+        </div>
       </div>
-    </section>
+    </div>
   );
 }

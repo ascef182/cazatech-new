@@ -1244,3 +1244,29 @@
   background-color: rgb(30 190 93); /* hover oficial WhatsApp */
   transform: scale(1.04);
 }
+
+/* ============================================
+   CUSTOM SCROLLBAR - Chat/Hologram
+   ============================================ */
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(176, 224, 230, 0.2) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(176, 224, 230, 0.15);
+  border-radius: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(176, 224, 230, 0.3);
+}

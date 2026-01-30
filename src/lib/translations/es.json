@@ -225,8 +225,8 @@
     },
     "solution": {
       "badge": "La solución",
-      "title": "Secretaria V3: tu sistema operativo de atención",
-      "description": "No es un chatbot genérico. Es una infraestructura completa que funciona 24/7 y se adapta a tu negocio.",
+      "title": "Atención que funciona sola",
+      "description": "Infraestructura completa. 24/7. Sin chatbot genérico.",
       "transformationTitle": "Qué cambia cuando instalas",
       "transformationSubtitle": "Antes vs después de Secretaria V3",
       "transformations": {
@@ -532,6 +532,11 @@
       "title": "Proyectos que generan resultados",
       "subtitle": "Conoce los sistemas, automatizaciones y sitios que desarrollamos para empresas que crecen de verdad."
     },
+    "parallax": {
+      "titleLine1": "Tu marca",
+      "titleLine2": "destacada.",
+      "subtitle": "Desarrollamos aplicaciones web de alto rendimiento con SEO estratégico para crecimiento orgánico, tecnología y frameworks avanzados."
+    },
     "stats": {
       "projects": { "value": "+50", "label": "Proyectos entregados" },
       "clients": { "value": "+30", "label": "Clientes activos" },
@@ -614,6 +619,63 @@
         "revenue": "Ingresos",
         "result": "Resultado",
         "deliverables": "Entregables"
+      },
+      "data": {
+        "instituto-seu-olhar": {
+          "title": "Instituto Seu Olhar — Sitio + Secretaria V3",
+          "category": "Salud & Automatización",
+          "shortDesc": "Ecosistema digital completo: sitio premium + atención automatizada 24/7 vía WhatsApp con agendamiento, cobro PIX y llamadas automáticas.",
+          "challenge": "Clínica de oftalmología con procesos manuales: agendamientos por teléfono, confirmaciones manuales, alta tasa de no-show (40%) y equipo sobrecargado respondiendo las mismas preguntas en WhatsApp.",
+          "solution": "Desarrollo de sitio institucional premium integrado a la Secretaria V3 — sistema completo con 13 workflows N8N que automatiza todo el flujo: WhatsApp con IA, agendamiento Google Calendar, cobro PIX vía Asaas, recordatorios automáticos y escalación inteligente a humanos.",
+          "deliverables": ["Sitio institucional Next.js con SEO optimizado", "Secretaria V3 con 13 workflows integrados", "Integración WhatsApp Business API oficial", "Agendamiento automático Google Calendar", "Cobro PIX automático (Asaas)", "Llamadas automáticas (Retell AI)", "Dashboard de métricas en tiempo real"],
+          "duration": "6 semanas",
+          "testimonialQuote": "CazaTech no entregó solo un sitio, sino un sistema operacional que ejecuta nuestra clínica automáticamente. Reduje mi equipo de atención de 3 personas a 1.",
+          "testimonialPosition": "Directora Médica"
+        },
+        "ai-experience-platform": {
+          "title": "AI Platform — SaaS B2B Multi-tenant",
+          "category": "SaaS & IA",
+          "shortDesc": "Plataforma SaaS multi-tenant para empresas, con arquitectura serverless, dashboard analytics, cobro recurrente y API documentada.",
+          "challenge": "Startup de IA necesitaba validar MVP para mercado corporativo con exigencia de alto rendimiento, seguridad de datos y capacidad de escalar de 10 a 1.000+ clientes sin refactorización.",
+          "solution": "Arquitectura SaaS multi-tenant con aislamiento de datos por empresa, autenticación SSO, dashboard de métricas en tiempo real, cobro recurrente Stripe y API REST completa con documentación Swagger.",
+          "deliverables": ["Plataforma SaaS multi-tenant", "Dashboard analytics en tiempo real", "Autenticación SSO (Google, Microsoft)", "Cobro recurrente Stripe", "API REST documentada (Swagger)", "Webhooks para integraciones", "Panel admin white-label"],
+          "duration": "12 semanas",
+          "testimonialQuote": "La arquitectura propuesta por CazaTech nos permitió escalar de 10 a 450 clientes sin cambiar una línea de código. El sistema aguanta cualquier carga.",
+          "testimonialPosition": "CTO"
+        },
+        "garm-ecommerce": {
+          "title": "GARM Store — E-commerce Headless High-End",
+          "category": "E-commerce",
+          "shortDesc": "E-commerce headless ultrarrápido con Next.js + Shopify, checkout optimizado y automatización de recuperación de carrito vía WhatsApp.",
+          "challenge": "Marca de moda premium con plataforma lenta (LCP > 4s), tasa de conversión por debajo del mercado (1.8%) y sin automatización de post-venta. Perdía ventas por abandono de carrito.",
+          "solution": "E-commerce Headless con Next.js y Shopify Storefront API, checkout transparente optimizado para conversión, automatización de recuperación de carrito y post-venta integrada a WhatsApp.",
+          "deliverables": ["E-commerce Headless Next.js", "Integración Shopify Storefront API", "Checkout transparente optimizado", "Automatización recuperación de carrito", "Post-venta WhatsApp automatizado", "SEO técnico y Schema.org", "Rendimiento optimizado (LCP < 1.2s)"],
+          "duration": "8 semanas",
+          "testimonialQuote": "La velocidad del sitio y la automatización de recuperación de carrito cambiaron el juego de nuestra facturación. Triplicamos las ventas en 3 meses.",
+          "testimonialPosition": "Founder"
+        },
+        "fitness-academy": {
+          "title": "Fitness Academy — Portal de Gestión con Asaas",
+          "category": "Gestión & Fintech",
+          "shortDesc": "Sistema de gestión de suscripciones con cobro recurrente automatizado, control de acceso y flujos de cobro inteligentes.",
+          "challenge": "Gimnasio con 500+ alumnos y alta morosidad (35%), gestión manual de planes en planillas, sin control de acceso automatizado y equipo gastando horas cobrando boletos.",
+          "solution": "Portal del alumno con gestión financiera automatizada vía Asaas, flujos de cobro inteligentes (PIX, boleto, tarjeta), control de acceso integrado y dashboard administrativo completo.",
+          "deliverables": ["Portal del alumno responsivo", "Gestión financiera Asaas", "Cobro recurrente automatizado", "Flujos de cobro inteligentes", "Control de acceso (torniquete)", "Dashboard administrativo", "Reportes financieros"],
+          "duration": "6 semanas",
+          "testimonialQuote": "El sistema cobra, libera el torniquete y avisa al alumno automáticamente. Volví a enfocarme en entrenar personas, no en cobrar boletos.",
+          "testimonialPosition": "Propietario"
+        },
+        "cloudtech-infra": {
+          "title": "CloudTech — Infraestructura Crítica AWS",
+          "category": "DevOps & Cloud",
+          "shortDesc": "Infraestructura cloud resiliente para operación financiera crítica con CI/CD, monitoreo en tiempo real y zero downtime.",
+          "challenge": "Fintech procesando millones en transacciones sin tolerancia a downtime, infraestructura legacy con deploys manuales y sin monitoreo adecuado de rendimiento.",
+          "solution": "Migración a arquitectura de microservicios AWS con pipeline CI/CD completa (GitHub Actions), monitoreo Datadog, alertas inteligentes y disaster recovery automatizado.",
+          "deliverables": ["Arquitectura microservicios AWS", "Pipeline CI/CD GitHub Actions", "Monitoreo Datadog", "Alertas PagerDuty", "Disaster recovery automatizado", "Documentación de runbooks", "Entrenamiento del equipo"],
+          "duration": "10 semanas",
+          "testimonialQuote": "Dormimos tranquilos sabiendo que la infraestructura montada por CazaTech aguanta cualquier pico de tráfico. Zero downtime en 12 meses.",
+          "testimonialPosition": "VP Engineering"
+        }
       }
     },
     "features": {
@@ -856,9 +918,9 @@
   "primeops": {
     "hero": {
       "badge": "PRIMEOPS — Infraestructura de Atención",
-      "headline": "Infraestructura operacional que trabaja mientras duermes",
-      "subheadline": "Sistema de atención profesional que recibe mensajes, procesa con IA, agenda, cobra y escala a humanos. Disponible 24/7, sin cuellos de botella humanos.",
-      "coreMessage": "No es un chatbot. Es una infraestructura completa de atención que se integra a tu negocio.",
+      "headline": "Tu atención en piloto automático",
+      "subheadline": "Recibe, responde, agenda, cobra y escala. 24/7, sin cuellos de botella.",
+      "coreMessage": "No es chatbot. Es infraestructura de atención integrada a tu negocio.",
       "ctaPrimary": "Hablar con Especialista",
       "ctaSecondary": "Ver Arquitectura",
       "stats": {

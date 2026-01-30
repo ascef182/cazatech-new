@@ -225,8 +225,8 @@
     },
     "solution": {
       "badge": "The solution",
-      "title": "Secretary V3: your support operating system",
-      "description": "Not a generic chatbot. A complete infrastructure that works 24/7 and adapts to your business.",
+      "title": "Customer service that works by itself",
+      "description": "Complete infrastructure. 24/7. No generic chatbot.",
       "transformationTitle": "What changes when you install",
       "transformationSubtitle": "Before vs after Secretary V3",
       "transformations": {
@@ -532,6 +532,11 @@
       "title": "Projects that deliver results",
       "subtitle": "Discover the systems, automations and websites we've built for companies that actually grow."
     },
+    "parallax": {
+      "titleLine1": "Your brand",
+      "titleLine2": "highlighted.",
+      "subtitle": "We develop high-performance web applications with strategic SEO for organic growth, cutting-edge technology and advanced frameworks."
+    },
     "stats": {
       "projects": { "value": "+50", "label": "Projects delivered" },
       "clients": { "value": "+30", "label": "Active clients" },
@@ -614,6 +619,63 @@
         "revenue": "Revenue",
         "result": "Result",
         "deliverables": "Deliverables"
+      },
+      "data": {
+        "instituto-seu-olhar": {
+          "title": "Instituto Seu Olhar — Website + Secretary V3",
+          "category": "Healthcare & Automation",
+          "shortDesc": "Complete digital ecosystem: premium website + 24/7 automated support via WhatsApp with scheduling, PIX billing and automatic calls.",
+          "challenge": "Ophthalmology clinic with manual processes: phone scheduling, manual confirmations, high no-show rate (40%) and overwhelmed staff answering the same questions on WhatsApp.",
+          "solution": "Development of premium institutional website integrated with Secretary V3 — complete system with 13 N8N workflows that automates the entire flow: WhatsApp with AI, Google Calendar scheduling, PIX billing via Asaas, automatic reminders and intelligent escalation to humans.",
+          "deliverables": ["Institutional Next.js website with optimized SEO", "Secretary V3 with 13 integrated workflows", "Official WhatsApp Business API integration", "Automatic Google Calendar scheduling", "Automatic PIX billing (Asaas)", "Automatic calls (Retell AI)", "Real-time metrics dashboard"],
+          "duration": "6 weeks",
+          "testimonialQuote": "CazaTech didn't just deliver a website, but an operating system that runs our clinic automatically. I reduced my support team from 3 people to 1.",
+          "testimonialPosition": "Medical Director"
+        },
+        "ai-experience-platform": {
+          "title": "AI Platform — B2B Multi-tenant SaaS",
+          "category": "SaaS & AI",
+          "shortDesc": "Multi-tenant SaaS platform for enterprises, with serverless architecture, analytics dashboard, recurring billing and documented API.",
+          "challenge": "AI startup needed to validate MVP for corporate market with requirements for high performance, data security and ability to scale from 10 to 1,000+ clients without refactoring.",
+          "solution": "Multi-tenant SaaS architecture with data isolation per company, SSO authentication, real-time metrics dashboard, Stripe recurring billing and complete REST API with Swagger documentation.",
+          "deliverables": ["Multi-tenant SaaS platform", "Real-time analytics dashboard", "SSO Authentication (Google, Microsoft)", "Stripe recurring billing", "Documented REST API (Swagger)", "Webhooks for integrations", "White-label admin panel"],
+          "duration": "12 weeks",
+          "testimonialQuote": "The architecture proposed by CazaTech allowed us to scale from 10 to 450 clients without changing a single line of code. The system handles any load.",
+          "testimonialPosition": "CTO"
+        },
+        "garm-ecommerce": {
+          "title": "GARM Store — High-End Headless E-commerce",
+          "category": "E-commerce",
+          "shortDesc": "Ultra-fast headless e-commerce with Next.js + Shopify, optimized checkout and cart recovery automation via WhatsApp.",
+          "challenge": "Premium fashion brand with slow platform (LCP > 4s), conversion rate below market (1.8%) and no post-sale automation. Was losing sales due to cart abandonment.",
+          "solution": "Headless E-commerce with Next.js and Shopify Storefront API, transparent checkout optimized for conversion, cart recovery automation and post-sale integrated with WhatsApp.",
+          "deliverables": ["Headless Next.js E-commerce", "Shopify Storefront API integration", "Optimized transparent checkout", "Cart recovery automation", "Automated WhatsApp post-sale", "Technical SEO and Schema.org", "Optimized performance (LCP < 1.2s)"],
+          "duration": "8 weeks",
+          "testimonialQuote": "The site speed and cart recovery automation changed the game for our revenue. We tripled sales in 3 months.",
+          "testimonialPosition": "Founder"
+        },
+        "fitness-academy": {
+          "title": "Fitness Academy — Management Portal with Asaas",
+          "category": "Management & Fintech",
+          "shortDesc": "Subscription management system with automated recurring billing, access control and intelligent billing workflows.",
+          "challenge": "Gym with 500+ students and high default rate (35%), manual plan management in spreadsheets, no automated access control and staff spending hours collecting payments.",
+          "solution": "Student portal with automated financial management via Asaas, intelligent billing workflows (PIX, bank slip, card), integrated access control and complete admin dashboard.",
+          "deliverables": ["Responsive student portal", "Asaas financial management", "Automated recurring billing", "Intelligent billing workflows", "Access control (turnstile)", "Admin dashboard", "Financial reports"],
+          "duration": "6 weeks",
+          "testimonialQuote": "The system bills, releases the turnstile and notifies the student automatically. I went back to focusing on training people, not collecting payments.",
+          "testimonialPosition": "Owner"
+        },
+        "cloudtech-infra": {
+          "title": "CloudTech — Critical AWS Infrastructure",
+          "category": "DevOps & Cloud",
+          "shortDesc": "Resilient cloud infrastructure for critical financial operations with CI/CD, real-time monitoring and zero downtime.",
+          "challenge": "Fintech processing millions in transactions with zero tolerance for downtime, legacy infrastructure with manual deploys and no adequate performance monitoring.",
+          "solution": "Migration to AWS microservices architecture with complete CI/CD pipeline (GitHub Actions), Datadog monitoring, intelligent alerts and automated disaster recovery.",
+          "deliverables": ["AWS microservices architecture", "CI/CD GitHub Actions pipeline", "Datadog monitoring", "PagerDuty alerts", "Automated disaster recovery", "Runbook documentation", "Team training"],
+          "duration": "10 weeks",
+          "testimonialQuote": "We sleep peacefully knowing that the infrastructure built by CazaTech handles any traffic spike. Zero downtime in 12 months.",
+          "testimonialPosition": "VP Engineering"
+        }
       }
     },
     "features": {
@@ -856,9 +918,9 @@
   "primeops": {
     "hero": {
       "badge": "PRIMEOPS — Customer Service Infrastructure",
-      "headline": "Operational infrastructure that works while you sleep",
-      "subheadline": "Professional customer service system that receives messages, processes with AI, schedules, bills, and escalates to humans. Available 24/7, without human bottlenecks.",
-      "coreMessage": "Not a chatbot. A complete customer service infrastructure that integrates with your business.",
+      "headline": "Your customer service on autopilot",
+      "subheadline": "Receives, responds, schedules, bills, and escalates. 24/7, without bottlenecks.",
+      "coreMessage": "Not a chatbot. Customer service infrastructure integrated with your business.",
       "ctaPrimary": "Talk to a Specialist",
       "ctaSecondary": "View Architecture",
       "stats": {

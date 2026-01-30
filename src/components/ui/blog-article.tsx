@@ -25,6 +25,7 @@ type BlogArticleProps = {
   children?: React.ReactNode;
   backHref?: string;
   backLabel?: string;
+  ctaSection?: React.ReactNode;
 };
 
 export default function BlogArticle(props: BlogArticleProps) {
@@ -39,6 +40,7 @@ export default function BlogArticle(props: BlogArticleProps) {
     children,
     backHref = "/blog",
     backLabel = "Voltar",
+    ctaSection,
   } = props;
 
   return (
@@ -101,6 +103,12 @@ export default function BlogArticle(props: BlogArticleProps) {
         ) : (
           <div className="blog-prose">{children}</div>
         )}
+
+        {ctaSection ? (
+          <div className="mt-10">
+            {ctaSection}
+          </div>
+        ) : null}
 
         {author ? (
           <div className="mt-10 pt-6 border-t border-border">

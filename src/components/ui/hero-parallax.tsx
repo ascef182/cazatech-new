@@ -7,6 +7,7 @@ import {
   useSpring,
   type MotionValue,
 } from "framer-motion";
+import { useI18n } from "@/app/ClientBody";
 
 export const HeroParallax = ({
   products,
@@ -89,20 +90,20 @@ export const HeroParallax = ({
 };
 
 export const Header = () => {
+  const { t } = useI18n();
   return (
     <div className="max-w-5xl relative mx-auto py-20 md:py-32 px-4 w-full left-0 bottom-0">
       <h1
         className="text-1xl md:text-5xl font-bold text-white"
         style={{ fontFamily: "Zero Hour, 'Plus Jakarta Sans', sans-serif" }}
       >
-        Sua marca <br /> destacada.
+        {t("works.parallax.titleLine1")} <br /> {t("works.parallax.titleLine2")}
       </h1>
       <p
         className="max-w-2xl text-base md:text-xl mt-8 text-neutral-200"
         style={{ fontFamily: " 'Plus Jakarta Sans', sans-serif" }}
       >
-        Desenvolvemos aplicações web com alta performance, SEO estratégico para
-        crescimentos orgânico, tecnologia e frameworks avançados.
+        {t("works.parallax.subtitle")}
       </p>
     </div>
   );

@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import HeroParallaxDemo from "@/components/hero-parallax-demo";
 import { Features } from "@/components/ui/blocks/features-5";
 import { BreadcrumbSchema } from "@/components/seo/JsonLd";
-import { cases } from "@/content/cases";
+import { cases, type CaseStudy } from "@/content/cases";
 import { lazy, Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/app/ClientBody";
@@ -59,19 +59,49 @@ export default function WorksPage() {
   const { t } = useI18n();
   const [activeCategory, setActiveCategory] = useState("all");
 
-  const categories = Array.from(new Set(cases.map((c) => c.category)));
+  // Helper function to get translated case study data
+  const getTranslatedCase = (caseStudy: CaseStudy) => {
+    const translationKey = `works.cases.data.${caseStudy.id}`;
+    const translatedTitle = t(`${translationKey}.title`);
+    const translatedCategory = t(`${translationKey}.category`);
+    const translatedShortDesc = t(`${translationKey}.shortDesc`);
+    const translatedQuote = t(`${translationKey}.testimonialQuote`);
+    const translatedPosition = t(`${translationKey}.testimonialPosition`);
+    const translatedDuration = t(`${translationKey}.duration`);
+
+    return {
+      ...caseStudy,
+      // Only use translation if it exists and is different from the key
+      title: translatedTitle !== `${translationKey}.title` ? translatedTitle : caseStudy.title,
+      category: translatedCategory !== `${translationKey}.category` ? translatedCategory : caseStudy.category,
+      shortDesc: translatedShortDesc !== `${translationKey}.shortDesc` ? translatedShortDesc : caseStudy.shortDesc,
+      duration: translatedDuration !== `${translationKey}.duration` ? translatedDuration : caseStudy.duration,
+      // Keep original deliverables (technical terms don't need translation)
+      deliverables: caseStudy.deliverables,
+      testimonial: {
+        ...caseStudy.testimonial,
+        quote: translatedQuote !== `${translationKey}.testimonialQuote` ? translatedQuote : caseStudy.testimonial.quote,
+        position: translatedPosition !== `${translationKey}.testimonialPosition` ? translatedPosition : caseStudy.testimonial.position,
+      },
+    };
+  };
+
+  // Get translated cases
+  const translatedCases = useMemo(() => cases.map(getTranslatedCase), [t]);
+
+  const categories = Array.from(new Set(translatedCases.map((c) => c.category)));
 
   const filteredCases =
     activeCategory === "all"
-      ? cases
-      : cases.filter((c) => c.category === activeCategory);
+      ? translatedCases
+      : translatedCases.filter((c) => c.category === activeCategory);
 
   const breadcrumbItems = [
     { name: "Home", url: "https://caza-tech.com" },
     { name: "Works", url: "https://caza-tech.com/works" },
   ];
 
-  const carouselItems: CarouselItem[] = cases.slice(0, 6).map((c) => ({
+  const carouselItems: CarouselItem[] = translatedCases.slice(0, 6).map((c) => ({
     id: c.id,
     title: c.title,
     brand: c.client,
@@ -262,7 +292,7 @@ export default function WorksPage() {
 
           {/* Featured Cases Grid */}
           <div className="space-y-12 max-w-6xl mx-auto">
-            {cases.filter(c => c.featured).map((caseStudy, i) => (
+            {translatedCases.filter(c => c.featured).map((caseStudy, i) => (
               <motion.div
                 key={caseStudy.id}
                 initial={{ opacity: 0, y: 40 }}
