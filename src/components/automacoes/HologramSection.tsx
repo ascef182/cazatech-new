@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useI18n } from "@/app/ClientBody";
 import {
   MessageSquare,
   Instagram,
@@ -302,10 +303,12 @@ function AudioBubble({
   message,
   config,
   isOutgoing,
+  t,
 }: {
   message: ChatMessage;
   config: typeof channelConfig.whatsapp;
   isOutgoing: boolean;
+  t: (key: string) => string;
 }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [showTranscription, setShowTranscription] = useState(false);
@@ -376,7 +379,7 @@ function AudioBubble({
             className="flex items-center gap-2 pt-1.5 border-t border-white/10"
           >
             <Volume2 className="w-3.5 h-3.5 text-sky-400 animate-pulse" />
-            <span className="text-xs text-sky-400">Transcrevendo áudio...</span>
+            <span className="text-xs text-sky-400">{t("primeops.hologram.transcribing")}</span>
             <motion.div className="flex gap-0.5">
               {[0, 1, 2].map((i) => (
                 <motion.span
@@ -420,9 +423,11 @@ function AudioBubble({
 function MessageBubble({
   message,
   showChannel = false,
+  t,
 }: {
   message: ChatMessage;
   showChannel?: boolean;
+  t: (key: string) => string;
 }) {
   const config = channelConfig[message.channel];
   const Icon = config.icon;
@@ -489,7 +494,7 @@ function MessageBubble({
               animate={{ scale: [1, 1.2, 1], opacity: [1, 0.7, 1] }}
               transition={{ duration: 1, repeat: Infinity }}
             />
-            <span className="text-xs text-white/70">Gravando...</span>
+            <span className="text-xs text-white/70">{t("primeops.hologram.recording")}</span>
             <motion.div className="flex gap-0.5">
               {[0, 1, 2, 3, 4].map((i) => (
                 <motion.span
@@ -510,6 +515,7 @@ function MessageBubble({
             message={message}
             config={config}
             isOutgoing={isOutgoing}
+            t={t}
           />
         ) : (
           <p className="text-sm text-white/95 leading-relaxed">
@@ -541,10 +547,12 @@ function ChatWindow({
   channel,
   messages,
   isActive,
+  t,
 }: {
   channel: Channel;
   messages: ChatMessage[];
   isActive: boolean;
+  t: (key: string) => string;
 }) {
   const config = channelConfig[channel];
   const Icon = config.icon;
@@ -585,10 +593,10 @@ function ChatWindow({
             {isActive ? (
               <span className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                IA respondendo...
+                {t("primeops.hologram.responding")}
               </span>
             ) : (
-              "Online"
+              t("primeops.hologram.online")
             )}
           </p>
         </div>
@@ -599,7 +607,7 @@ function ChatWindow({
             className="px-2 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30"
           >
             <span className="text-[10px] font-medium text-emerald-400">
-              ATIVO
+              {t("primeops.hologram.active")}
             </span>
           </motion.div>
         )}
@@ -613,7 +621,7 @@ function ChatWindow({
       >
         <AnimatePresence mode="popLayout">
           {messages.map((msg) => (
-            <MessageBubble key={msg.id} message={msg} showChannel={false} />
+            <MessageBubble key={msg.id} message={msg} showChannel={false} t={t} />
           ))}
         </AnimatePresence>
       </div>
@@ -625,7 +633,7 @@ function ChatWindow({
       >
         <div className="flex-1 bg-white/5 rounded-full px-4 py-2 flex items-center gap-2">
           <span className="text-xs text-white/30 flex-1">
-            Mensagem automática via PrimeOps
+            {t("primeops.hologram.inputPlaceholder")}
           </span>
           <div className="flex items-center gap-1 text-white/40">
             <Mic className="w-3.5 h-3.5" />
@@ -647,7 +655,13 @@ function ChatWindow({
 /* STATS DISPLAY */
 /* ------------------------------------------------------------------ */
 
-function StatsDisplay() {
+function StatsDisplay({ t }: { t: (key: string) => string }) {
+  const stats = [
+    { icon: "🎙️", labelKey: "audios" },
+    { icon: "📅", labelKey: "scheduling" },
+    { icon: "💳", labelKey: "payments" },
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -655,11 +669,7 @@ function StatsDisplay() {
       transition={{ delay: 0.5, duration: 0.5 }}
       className="grid grid-cols-3 gap-2 sm:gap-4 w-full"
     >
-      {[
-        { icon: "🎙️", label: "Áudios", value: "Transcritos" },
-        { icon: "📅", label: "Agendamentos", value: "24/7" },
-        { icon: "💳", label: "Pagamentos", value: "Integrado" },
-      ].map((stat, idx) => (
+      {stats.map((stat, idx) => (
         <motion.div
           key={idx}
           initial={{ opacity: 0, scale: 0.9 }}
@@ -669,10 +679,10 @@ function StatsDisplay() {
         >
           <span className="text-xl sm:text-2xl">{stat.icon}</span>
           <span className="text-[10px] sm:text-xs text-white/50">
-            {stat.label}
+            {t(`primeops.hologram.stats.${stat.labelKey}.label`)}
           </span>
           <span className="text-xs sm:text-sm font-semibold text-emerald-400">
-            {stat.value}
+            {t(`primeops.hologram.stats.${stat.labelKey}.value`)}
           </span>
         </motion.div>
       ))}
@@ -740,6 +750,7 @@ function ChannelTabs({
 /* ------------------------------------------------------------------ */
 
 export default function HologramSection() {
+  const { t } = useI18n();
   const [activeChannel, setActiveChannel] = useState<Channel>("whatsapp");
   const [visibleMessages, setVisibleMessages] = useState<ChatMessage[]>([]);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -854,14 +865,14 @@ export default function HologramSection() {
             >
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span className="text-xs font-medium text-emerald-400">
-                IA Ativa
+                {t("primeops.hologram.iaActive")}
               </span>
             </motion.div>
             <h3 className="text-lg sm:text-xl font-bold text-white mb-1">
-              Atendimento Automático
+              {t("primeops.hologram.headerTitle")}
             </h3>
             <p className="text-xs sm:text-sm text-white/50">
-              Respostas instantâneas em todos os canais
+              {t("primeops.hologram.headerSubtitle")}
             </p>
           </div>
 
@@ -876,10 +887,11 @@ export default function HologramSection() {
             channel={activeChannel}
             messages={visibleMessages}
             isActive={isAnimating}
+            t={t}
           />
 
           {/* Stats */}
-          <StatsDisplay />
+          <StatsDisplay t={t} />
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 "use client";
 import BlogArticle from "@/components/ui/blog-article";
+import HealthcareCTA from "@/components/blog/HealthcareCTA";
 
 export default function BlogPost() {
   const post = {
@@ -317,6 +318,12 @@ export default function BlogPost() {
       html={post.content}
       backHref="/en/blog"
       backLabel="Back"
+      ctaSection={
+        <HealthcareCTA
+          title="Ready to Automate Your Patient Communication?"
+          description="See how CazaTech helps medical and dental clinics automate scheduling, follow-ups, and missed call recovery. Get a personalized demo."
+        />
+      }
     />
   );
 }

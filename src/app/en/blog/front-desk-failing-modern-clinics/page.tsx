@@ -1,5 +1,6 @@
 "use client";
 import BlogArticle from "@/components/ui/blog-article";
+import HealthcareCTA from "@/components/blog/HealthcareCTA";
 
 export default function BlogPost() {
   const post = {
@@ -322,6 +323,12 @@ export default function BlogPost() {
       html={post.content}
       backHref="/en/blog"
       backLabel="Back"
+      ctaSection={
+        <HealthcareCTA
+          title="Support Your Team With Smart Automation"
+          description="See how CazaTech helps front desk teams handle more patients without burning out. Automation as a support layer, not a replacement."
+        />
+      }
     />
   );
 }

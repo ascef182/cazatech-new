@@ -1,5 +1,6 @@
 "use client";
 import BlogArticle from "@/components/ui/blog-article";
+import HealthcareCTA from "@/components/blog/HealthcareCTA";
 
 export default function BlogPost() {
   const post = {
@@ -408,6 +409,12 @@ export default function BlogPost() {
       html={post.content}
       backHref="/en/blog"
       backLabel="Back"
+      ctaSection={
+        <HealthcareCTA
+          title="Stop the Revenue Leaks Today"
+          description="Calculate the true cost of not automating your practice. Schedule a consultation to see how much you're leaving on the table."
+        />
+      }
     />
   );
 }

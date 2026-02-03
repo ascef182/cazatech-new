@@ -941,10 +941,50 @@
       "title": "Todas as mensagens convergem para um único sistema",
       "description": "WhatsApp, Instagram, Facebook, Telegram — todas as conversas processadas por uma única infraestrutura inteligente.",
       "caption": "Visualização em tempo real do processamento de mensagens",
+      "iaActive": "IA Ativa",
+      "headerTitle": "Atendimento Automático",
+      "headerSubtitle": "Respostas instantâneas em todos os canais",
+      "inputPlaceholder": "Mensagem automática via PrimeOps",
+      "responding": "IA respondendo...",
+      "online": "Online",
+      "active": "ATIVO",
+      "transcribing": "Transcrevendo áudio...",
+      "recording": "Gravando...",
+      "stats": {
+        "audios": { "label": "Áudios", "value": "Transcritos" },
+        "scheduling": { "label": "Agendamentos", "value": "24/7" },
+        "payments": { "label": "Pagamentos", "value": "Integrado" }
+      },
       "responses": {
         "scheduled": "Agendado",
         "confirmed": "Confirmado",
         "payment": "Pago"
+      },
+      "conversations": {
+        "whatsapp": {
+          "0": { "text": "", "transcription": "Oi, gostaria de saber se tem horário disponível pra amanhã de tarde" },
+          "1": { "text": "Olá! Temos horários às 14h, 15h e 16h amanhã. Qual prefere?" },
+          "2": { "text": "", "transcription": "Quatorze horas seria perfeito" },
+          "3": { "text": "", "transcription": "Perfeito! Agendado para amanhã às 14h. Enviei a confirmação por email." }
+        },
+        "instagram": {
+          "0": { "text": "Quanto custa a consulta?" },
+          "1": { "text": "A consulta inicial é R$ 150,00. Aceitamos PIX, cartão e dinheiro." },
+          "2": { "text": "", "transcription": "Vocês parcelam no cartão?" },
+          "3": { "text": "Sim! Parcelamos em até 3x sem juros no cartão." }
+        },
+        "telegram": {
+          "0": { "text": "", "transcription": "Oi, preciso remarcar minha consulta de quinta" },
+          "1": { "text": "Sem problemas! Qual seria o novo horário de preferência?" },
+          "2": { "text": "", "transcription": "Pode ser sexta às dez da manhã?" },
+          "3": { "text": "", "transcription": "Consulta remarcada para sexta às 10h. Você receberá uma notificação de lembrete." }
+        },
+        "facebook": {
+          "0": { "text": "", "transcription": "Bom dia, vocês atendem aos sábados?" },
+          "1": { "text": "Sim! Atendemos sábados das 8h às 12h. Deseja agendar?" },
+          "2": { "text": "Sim, pode ser 9h?" },
+          "3": { "text": "Pronto! Consulta agendada para sábado às 9h. Enviamos confirmação." }
+        }
       }
     },
     "architecture": {
@@ -1032,6 +1072,81 @@
       "badge": "Próximo passo",
       "title": "Pronto para transformar seu atendimento?",
       "description": "Agende uma demonstração e veja o PRIMEOPS funcionando com dados reais do seu negócio."
+    }
+  },
+  "home": {
+    "serviceNavigator": {
+      "badge": "Nossos Serviços",
+      "title": "Como podemos ajudar seu negócio?",
+      "description": "Escolha a solução ideal para o seu momento. Cada serviço foi desenvolvido para resolver problemas específicos.",
+      "viewMore": "Ver mais",
+      "badges": {
+        "bestSeller": "Mais Vendido",
+        "free": "Gratuito",
+        "enterprise": "Enterprise"
+      },
+      "services": {
+        "automations": {
+          "title": "Automações de Atendimento",
+          "description": "WhatsApp, Instagram, Facebook e Telegram integrados com IA. Atendimento 24/7 que agenda, cobra e responde sem intervenção.",
+          "cta": "PrimeOps"
+        },
+        "websites": {
+          "title": "Sites e Landing Pages",
+          "description": "Sites profissionais que convertem visitantes em clientes. Design moderno, SEO otimizado e carregamento ultrarrápido.",
+          "cta": "Ver portfólio"
+        },
+        "consulting": {
+          "title": "Consultoria Estratégica",
+          "description": "Análise completa do seu negócio digital. Identificamos oportunidades e criamos um roadmap personalizado.",
+          "cta": "Agendar conversa"
+        },
+        "saas": {
+          "title": "Desenvolvimento SaaS",
+          "description": "Software sob medida para sua empresa. Sistemas completos, apps e plataformas escaláveis.",
+          "cta": "Soluções enterprise"
+        }
+      }
+    },
+    "valueProposition": {
+      "badge": "Por que CazaTech?",
+      "title": "Tecnologia que entrega resultado",
+      "items": {
+        "speed": {
+          "title": "Entrega Rápida",
+          "description": "Projetos entregues em semanas, não meses"
+        },
+        "ownership": {
+          "title": "Código é Seu",
+          "description": "100% do código-fonte entregue ao cliente"
+        },
+        "support": {
+          "title": "Suporte Dedicado",
+          "description": "Equipe disponível para ajustar e evoluir"
+        },
+        "roi": {
+          "title": "ROI Medível",
+          "description": "Métricas claras de retorno sobre investimento"
+        }
+      }
+    },
+    "socialProof": {
+      "badge": "Resultados Comprovados",
+      "title": "Números que falam por si",
+      "stats": {
+        "companies": {
+          "value": "+50",
+          "label": "Empresas atendidas"
+        },
+        "projects": {
+          "value": "+200",
+          "label": "Projetos entregues"
+        },
+        "satisfaction": {
+          "value": "98%",
+          "label": "Satisfação dos clientes"
+        }
+      }
     }
   }
 }

@@ -5,6 +5,7 @@ import "@fontsource/plus-jakarta-sans/700.css";
 import ClientBody from "./ClientBody";
 import { OrganizationSchema, WebsiteSchema } from "@/components/seo/JsonLd";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { MetaPixel } from "@/components/analytics/MetaPixel";
 
 
 const baseMetadata: Metadata = {
@@ -102,6 +103,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 
   return (
     <html lang="pt-BR">
@@ -140,6 +142,7 @@ export default function RootLayout({
       </head>
         <ClientBody>
           {GA_ID && <GoogleAnalytics measurementId={GA_ID} />}
+          {META_PIXEL_ID && <MetaPixel pixelId={META_PIXEL_ID} />}
           <OrganizationSchema />
           <WebsiteSchema />
           {children}

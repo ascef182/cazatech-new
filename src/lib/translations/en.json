@@ -934,10 +934,50 @@
       "title": "All messages converge to a single system",
       "description": "WhatsApp, Instagram, Facebook, Telegram — all conversations processed by a single intelligent infrastructure.",
       "caption": "Real-time visualization of message processing",
+      "iaActive": "AI Active",
+      "headerTitle": "Automatic Service",
+      "headerSubtitle": "Instant responses on all channels",
+      "inputPlaceholder": "Automatic message via PrimeOps",
+      "responding": "AI responding...",
+      "online": "Online",
+      "active": "ACTIVE",
+      "transcribing": "Transcribing audio...",
+      "recording": "Recording...",
+      "stats": {
+        "audios": { "label": "Audios", "value": "Transcribed" },
+        "scheduling": { "label": "Scheduling", "value": "24/7" },
+        "payments": { "label": "Payments", "value": "Integrated" }
+      },
       "responses": {
         "scheduled": "Scheduled",
         "confirmed": "Confirmed",
         "payment": "Paid"
+      },
+      "conversations": {
+        "whatsapp": {
+          "0": { "text": "", "transcription": "Hi, I'd like to know if you have availability for tomorrow afternoon" },
+          "1": { "text": "Hello! We have slots at 2pm, 3pm and 4pm tomorrow. Which do you prefer?" },
+          "2": { "text": "", "transcription": "Two o'clock would be perfect" },
+          "3": { "text": "", "transcription": "Perfect! Scheduled for tomorrow at 2pm. I sent the confirmation by email." }
+        },
+        "instagram": {
+          "0": { "text": "How much is the consultation?" },
+          "1": { "text": "The initial consultation is $150. We accept credit card, debit and cash." },
+          "2": { "text": "", "transcription": "Do you offer installments?" },
+          "3": { "text": "Yes! We offer up to 3 interest-free installments on credit card." }
+        },
+        "telegram": {
+          "0": { "text": "", "transcription": "Hi, I need to reschedule my Thursday appointment" },
+          "1": { "text": "No problem! What would be your preferred new time?" },
+          "2": { "text": "", "transcription": "Can it be Friday at ten in the morning?" },
+          "3": { "text": "", "transcription": "Appointment rescheduled for Friday at 10am. You'll receive a reminder notification." }
+        },
+        "facebook": {
+          "0": { "text": "", "transcription": "Good morning, are you open on Saturdays?" },
+          "1": { "text": "Yes! We're open Saturdays from 8am to 12pm. Would you like to schedule?" },
+          "2": { "text": "Yes, can it be 9am?" },
+          "3": { "text": "Done! Appointment scheduled for Saturday at 9am. Confirmation sent." }
+        }
       }
     },
     "architecture": {
@@ -1025,6 +1065,81 @@
       "badge": "Next step",
       "title": "Ready to transform your customer service?",
       "description": "Schedule a demo and see PRIMEOPS working with real data from your business."
+    }
+  },
+  "home": {
+    "serviceNavigator": {
+      "badge": "Our Services",
+      "title": "How can we help your business?",
+      "description": "Choose the ideal solution for your moment. Each service was developed to solve specific problems.",
+      "viewMore": "Learn more",
+      "badges": {
+        "bestSeller": "Best Seller",
+        "free": "Free",
+        "enterprise": "Enterprise"
+      },
+      "services": {
+        "automations": {
+          "title": "Customer Service Automation",
+          "description": "WhatsApp, Instagram, Facebook and Telegram integrated with AI. 24/7 service that schedules, charges and responds without intervention.",
+          "cta": "PrimeOps"
+        },
+        "websites": {
+          "title": "Websites and Landing Pages",
+          "description": "Professional websites that convert visitors into customers. Modern design, SEO optimized and ultra-fast loading.",
+          "cta": "View portfolio"
+        },
+        "consulting": {
+          "title": "Strategic Consulting",
+          "description": "Complete analysis of your digital business. We identify opportunities and create a personalized roadmap.",
+          "cta": "Schedule a call"
+        },
+        "saas": {
+          "title": "SaaS Development",
+          "description": "Custom software for your company. Complete systems, apps and scalable platforms.",
+          "cta": "Enterprise solutions"
+        }
+      }
+    },
+    "valueProposition": {
+      "badge": "Why CazaTech?",
+      "title": "Technology that delivers results",
+      "items": {
+        "speed": {
+          "title": "Fast Delivery",
+          "description": "Projects delivered in weeks, not months"
+        },
+        "ownership": {
+          "title": "Code is Yours",
+          "description": "100% of source code delivered to customer"
+        },
+        "support": {
+          "title": "Dedicated Support",
+          "description": "Team available to adjust and evolve"
+        },
+        "roi": {
+          "title": "Measurable ROI",
+          "description": "Clear return on investment metrics"
+        }
+      }
+    },
+    "socialProof": {
+      "badge": "Proven Results",
+      "title": "Numbers that speak for themselves",
+      "stats": {
+        "companies": {
+          "value": "+50",
+          "label": "Companies served"
+        },
+        "projects": {
+          "value": "+200",
+          "label": "Projects delivered"
+        },
+        "satisfaction": {
+          "value": "98%",
+          "label": "Customer satisfaction"
+        }
+      }
     }
   }
 }

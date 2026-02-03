@@ -1,5 +1,6 @@
 "use client";
 import BlogArticle from "@/components/ui/blog-article";
+import HealthcareCTA from "@/components/blog/HealthcareCTA";
 
 export default function BlogPost() {
   const post = {
@@ -379,6 +380,12 @@ export default function BlogPost() {
       html={post.content}
       backHref="/en/blog"
       backLabel="Back"
+      ctaSection={
+        <HealthcareCTA
+          title="Calculate Your Practice's ROI"
+          description="See how much time and money your clinic could save with AI-powered patient support. Schedule a personalized ROI analysis."
+        />
+      }
     />
   );
 }

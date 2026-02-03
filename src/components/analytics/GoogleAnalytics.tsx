@@ -65,10 +65,3 @@ export const trackCaseStudyView = (caseId: string, category: string) => {
     case_category: category,
   });
 };
-
-// Declare gtag for TypeScript
-declare global {
-  interface Window {
-    gtag: (...args: any[]) => void;
-  }
-}
