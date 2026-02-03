@@ -9,7 +9,6 @@ import { FinalCTA } from "@/components/home/FinalCTA";
 import CazaTechProductsSection from "@/components/home/CazaTechProductsSection";
 import ServiceNavigator from "@/components/home/ServiceNavigator";
 import ValueProposition from "@/components/home/ValueProposition";
-import SocialProofLight from "@/components/home/SocialProofLight";
 
 export default function Home() {
   return (
