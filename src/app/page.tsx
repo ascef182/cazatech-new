@@ -25,7 +25,7 @@ export default function Home() {
       {/* Timeline Orbital - Processo de entrega */}
       <RadialOrbitalTimeline />
 
-      {/* Soluções CazaTech - Cards com mockups */}
+      {/* Soluções CazaTech - Cards com mockup */}
       <CazaTechProductsSection />
 
       {/* CTA Final */}
