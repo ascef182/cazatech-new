@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import {
   Bot,
   Smartphone,
@@ -12,21 +11,8 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 import { useI18n } from "@/app/ClientBody";
-
-const Skeleton = ({
-  children,
-  className,
-}: {
-  children?: React.ReactNode;
-  className?: string;
-}) => (
-  <div
-    className={`flex flex-1 w-full h-full min-h-[6rem] rounded-xl border border-white/10 bg-neutral-900/50 mask-image-gradient ${className}`}
-  >
-    {children}
-  </div>
-);
 
 export default function CazaTechProductsSection() {
   const { t } = useI18n();
@@ -40,20 +26,11 @@ export default function CazaTechProductsSection() {
       description: t("sections.products.items.websites.description"),
       process: t("sections.products.items.websites.process") as unknown as string[],
       tech: t("sections.products.items.websites.tech") as string,
-      results: t("sections.products.items.websites.results") as string,
-      header: (
-        <Skeleton className="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 flex items-center justify-center group overflow-hidden">
-          <motion.div
-            whileHover={{ scale: 1.1 }}
-            className="p-4 rounded-full bg-white/5 border border-white/10 backdrop-blur-md"
-          >
-            <Globe className="w-8 h-8 text-cyan-400" />
-          </motion.div>
-        </Skeleton>
-      ),
-      className: "md:col-span-2 md:row-span-1",
-      icon: <Globe className="h-6 w-6 text-cyan-400" />,
+      icon: <Globe className="h-5 w-5" />,
       href: "/works",
+      accentColor: "#22d3ee",
+      metric: "+40%",
+      metricLabel: "conversão",
     },
     {
       id: "apps",
@@ -61,15 +38,11 @@ export default function CazaTechProductsSection() {
       description: t("sections.products.items.apps.description"),
       process: t("sections.products.items.apps.process") as unknown as string[],
       tech: t("sections.products.items.apps.tech") as string,
-      results: t("sections.products.items.apps.results") as string,
-      header: (
-        <Skeleton className="bg-gradient-to-br from-purple-900/40 to-fuchsia-900/40 flex items-center justify-center overflow-hidden">
-          <Smartphone className="w-16 h-16 text-fuchsia-400/50 group-hover:rotate-6 transition-transform duration-500" />
-        </Skeleton>
-      ),
-      className: "md:col-span-1 md:row-span-1",
-      icon: <Smartphone className="h-6 w-6 text-fuchsia-400" />,
+      icon: <Smartphone className="h-5 w-5" />,
       href: "/works",
+      accentColor: "#e879f9",
+      metric: "4.8★",
+      metricLabel: "app store",
     },
     {
       id: "automation",
@@ -77,21 +50,11 @@ export default function CazaTechProductsSection() {
       description: t("sections.products.items.automation.description"),
       process: t("sections.products.items.automation.process") as unknown as string[],
       tech: t("sections.products.items.automation.tech") as string,
-      results: t("sections.products.items.automation.results") as string,
-      header: (
-        <Skeleton className="bg-gradient-to-br from-emerald-900/40 to-teal-900/40 flex items-center justify-center group overflow-hidden">
-          <motion.div
-            animate={{ scale: [1, 1.05, 1] }}
-            transition={{ repeat: Infinity, duration: 3 }}
-            className="p-4 rounded-full bg-white/5 border border-white/10 backdrop-blur-md"
-          >
-            <Bot className="w-8 h-8 text-emerald-400" />
-          </motion.div>
-        </Skeleton>
-      ),
-      className: "md:col-span-3 md:row-span-1",
-      icon: <Bot className="h-6 w-6 text-emerald-400" />,
+      icon: <Bot className="h-5 w-5" />,
       href: "/automacoes",
+      accentColor: "#34d399",
+      metric: "80%",
+      metricLabel: "tempo poupado",
     },
     {
       id: "saas",
@@ -99,15 +62,11 @@ export default function CazaTechProductsSection() {
       description: t("sections.products.items.saas.description"),
       process: t("sections.products.items.saas.process") as unknown as string[],
       tech: t("sections.products.items.saas.tech") as string,
-      results: t("sections.products.items.saas.results") as string,
-      header: (
-        <Skeleton className="bg-gradient-to-br from-violet-900/40 to-purple-900/40 flex items-center justify-center">
-          <Code2 className="w-16 h-16 text-violet-400/50" />
-        </Skeleton>
-      ),
-      className: "md:col-span-1 md:row-span-1",
-      icon: <Code2 className="h-6 w-6 text-violet-400" />,
+      icon: <Code2 className="h-5 w-5" />,
       href: "/saas",
+      accentColor: "#a78bfa",
+      metric: "99.9%",
+      metricLabel: "uptime",
     },
     {
       id: "seo",
@@ -115,24 +74,15 @@ export default function CazaTechProductsSection() {
       description: t("sections.products.items.seo.description"),
       process: t("sections.products.items.seo.process") as unknown as string[],
       tech: t("sections.products.items.seo.tech") as string,
-      results: t("sections.products.items.seo.results") as string,
-      header: (
-        <Skeleton className="bg-gradient-to-br from-orange-900/40 to-red-900/40 flex items-center justify-center overflow-hidden">
-          <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-          >
-            <Search className="w-16 h-16 text-orange-400/50" />
-          </motion.div>
-        </Skeleton>
-      ),
-      className: "md:col-span-2 md:row-span-1",
-      icon: <Search className="h-6 w-6 text-orange-400" />,
+      icon: <Search className="h-5 w-5" />,
       href: "/blog",
+      accentColor: "#fb923c",
+      metric: "+200%",
+      metricLabel: "tráfego",
     },
   ];
 
-  // Auto-advance steps every 3s when a card is active
+  // Auto-advance steps every 3s when a product is active
   useEffect(() => {
     if (!activeProduct) return;
     const product = products.find((p) => p.id === activeProduct);
@@ -162,9 +112,9 @@ export default function CazaTechProductsSection() {
   }
 
   return (
-    <section className="py-20 bg-black" id="metodologia">
+    <section className="py-20 bg-[#030303]" id="metodologia">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm mb-6">
             <span className="text-[10px] font-light uppercase tracking-[0.08em] text-white/70">
               {t("sections.products.badge")}
@@ -182,146 +132,144 @@ export default function CazaTechProductsSection() {
           </p>
         </div>
 
-        <BentoGrid className="max-w-6xl mx-auto md:auto-rows-[20rem]">
-          {products.map((product) => {
+        {/* Process Rows */}
+        <div className="max-w-5xl mx-auto divide-y divide-white/[0.06]">
+          {products.map((product, i) => {
             const isActive = activeProduct === product.id;
             const steps = Array.isArray(product.process) ? product.process : [];
 
             return (
               <motion.div
                 key={product.id}
-                animate={{
-                  opacity: activeProduct && !isActive ? 0.5 : 1,
-                  scale: activeProduct && !isActive ? 0.97 : 1,
-                }}
-                transition={{ duration: 0.3 }}
                 onClick={() => handleCardClick(product.id)}
-                className={`cursor-pointer ${product.className}`}
+                animate={{ opacity: activeProduct && !isActive ? 0.4 : 1 }}
+                transition={{ duration: 0.3 }}
+                className={cn(
+                  "group cursor-pointer py-7 transition-colors duration-300",
+                  "grid grid-cols-[2.5rem_1fr_auto] md:grid-cols-[4rem_1fr_auto] gap-4 md:gap-8 items-start",
+                  isActive
+                    ? "bg-white/[0.025] border-l-2 pl-3 -ml-[2px]"
+                    : "hover:bg-white/[0.015] pl-0"
+                )}
+                style={isActive ? { borderLeftColor: product.accentColor } : {}}
               >
-                <BentoGridItem
-                  className="h-full"
-                  title={product.title}
-                  description={
-                    <AnimatePresence mode="wait">
-                      {!isActive ? (
-                        <motion.div
-                          key="idle"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          className="flex items-center gap-1.5 flex-wrap mt-1"
-                        >
-                          {steps.map((_, idx) => (
-                            <span
-                              key={idx}
-                              className="w-5 h-5 rounded-full border border-white/20 bg-white/5 text-white/40 text-[9px] flex items-center justify-center"
-                            >
-                              {idx + 1}
-                            </span>
-                          ))}
-                          <span className="text-white/40 text-[11px] ml-0.5">
-                            Como fazemos →
-                          </span>
-                        </motion.div>
-                      ) : (
-                        <motion.div
-                          key="active"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          className="text-emerald-400 text-xs font-medium mt-1"
-                        >
-                          ✦ {product.results}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  }
-                  icon={product.icon}
-                  header={
-                    <AnimatePresence mode="wait">
-                      {!isActive ? (
-                        <motion.div
-                          key="idle-header"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0, y: -8 }}
-                          className="flex-1"
-                        >
-                          {product.header}
-                        </motion.div>
-                      ) : (
-                        <motion.div
-                          key="active-header"
-                          initial={{ opacity: 0, y: 8 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -8 }}
-                          className="flex flex-col flex-1 gap-3 py-1 min-h-0"
-                        >
-                          {/* Progress bar */}
-                          <div className="relative w-full h-1 bg-white/10 rounded-full overflow-hidden">
-                            <motion.div
-                              className="absolute inset-y-0 left-0 bg-white/60 rounded-full"
-                              animate={{
-                                width: `${((activeStep + 1) / steps.length) * 100}%`,
-                              }}
-                              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                            />
-                          </div>
+                {/* Col 1: Number + Icon */}
+                <div className="flex flex-col items-center gap-2 pt-1">
+                  <span className="text-xs font-mono text-white/20 tabular-nums leading-none">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div style={{ color: product.accentColor }}>
+                    {product.icon}
+                  </div>
+                </div>
 
-                          {/* Step pills */}
-                          <div className="flex items-center gap-1.5 overflow-x-auto">
-                            {steps.map((_, idx) => (
-                              <button
-                                key={idx}
-                                onClick={(e) => handleStepClick(idx, e)}
-                                className={`flex-shrink-0 w-6 h-6 rounded-full border text-[10px] flex items-center justify-center transition-all ${
-                                  idx === activeStep
-                                    ? "border-white/60 bg-white/20 text-white"
-                                    : "border-white/20 bg-white/5 text-white/40 hover:border-white/40"
-                                }`}
-                              >
-                                {idx + 1}
-                              </button>
-                            ))}
-                          </div>
+                {/* Col 2: Content */}
+                <div>
+                  <h3 className="text-lg md:text-xl font-bold text-white tracking-tight mb-1">
+                    {product.title}
+                  </h3>
+                  <p className="text-sm text-white/40 mb-4">
+                    {product.description}
+                  </p>
 
-                          {/* Step content */}
-                          <AnimatePresence mode="wait">
-                            <motion.div
-                              key={activeStep}
-                              initial={{ opacity: 0, x: 20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              exit={{ opacity: 0, x: -20 }}
-                              transition={{ duration: 0.2 }}
-                              className="flex-1 min-h-0"
-                            >
-                              <p className="text-white font-semibold text-sm leading-tight">
-                                {steps[activeStep]}
-                              </p>
-                              <p className="text-white/50 text-xs mt-1 font-mono">
-                                {product.tech}
-                              </p>
-                            </motion.div>
-                          </AnimatePresence>
-
-                          {/* View service link */}
-                          <Link
-                            href={product.href}
-                            onClick={(e) => e.stopPropagation()}
-                            className="inline-flex items-center gap-1 text-xs text-white/50 hover:text-white/90 transition-colors"
+                  {/* Process Steps — always visible */}
+                  <div className="flex items-center flex-wrap gap-y-1">
+                    {steps.map((step, idx) => (
+                      <React.Fragment key={idx}>
+                        <button
+                          onClick={(e) => handleStepClick(idx, e)}
+                          className={cn(
+                            "flex items-center gap-1.5 px-2 py-1 rounded-md text-xs transition-all",
+                            isActive && idx === activeStep
+                              ? "bg-white/15 text-white font-medium"
+                              : "text-white/30 hover:text-white/60"
+                          )}
+                        >
+                          <span
+                            className="w-4 h-4 rounded-full border text-[9px] flex items-center justify-center flex-shrink-0"
+                            style={
+                              isActive && idx === activeStep
+                                ? {
+                                    borderColor: product.accentColor,
+                                    color: product.accentColor,
+                                  }
+                                : { borderColor: "rgba(255,255,255,0.2)" }
+                            }
                           >
-                            Ver serviço completo
-                            <ArrowRight className="w-3 h-3" />
-                          </Link>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  }
-                />
+                            {idx + 1}
+                          </span>
+                          <AnimatePresence>
+                            {isActive && idx === activeStep && (
+                              <motion.span
+                                initial={{ opacity: 0, width: 0 }}
+                                animate={{ opacity: 1, width: "auto" }}
+                                exit={{ opacity: 0, width: 0 }}
+                                className="overflow-hidden whitespace-nowrap text-[11px]"
+                              >
+                                {step}
+                              </motion.span>
+                            )}
+                          </AnimatePresence>
+                        </button>
+                        {idx < steps.length - 1 && (
+                          <span className="text-white/15 text-xs mx-0.5">
+                            —
+                          </span>
+                        )}
+                      </React.Fragment>
+                    ))}
+                  </div>
+
+                  {/* Tech — visible when active */}
+                  <AnimatePresence>
+                    {isActive && (
+                      <motion.p
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="text-xs font-mono text-white/30 mt-3 overflow-hidden"
+                      >
+                        {product.tech}
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Col 3: Metrics */}
+                <div className="text-right pt-1">
+                  <div
+                    className="text-lg md:text-2xl font-bold tabular-nums leading-none"
+                    style={{ color: product.accentColor }}
+                  >
+                    {product.metric}
+                  </div>
+                  <div className="text-[11px] text-white/30 mt-1">
+                    {product.metricLabel}
+                  </div>
+                  <AnimatePresence>
+                    {isActive && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 4 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 4 }}
+                        className="mt-4"
+                      >
+                        <Link
+                          href={product.href}
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-1 text-xs text-white/40 hover:text-white/70 transition-colors"
+                        >
+                          Ver serviço{" "}
+                          <ArrowRight className="w-3 h-3" />
+                        </Link>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </motion.div>
             );
           })}
-        </BentoGrid>
+        </div>
       </div>
     </section>
   );
