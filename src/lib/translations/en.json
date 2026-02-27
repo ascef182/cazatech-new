@@ -748,23 +748,38 @@
       "items": {
         "websites": {
           "title": "High-Conversion Websites",
-          "description": "Institutional websites and landing pages that turn visitors into customers."
+          "description": "From briefing to deploy: full web development process",
+          "process": ["Discovery & UX Research", "Design Prototyping", "Next.js Development", "SEO Optimization", "Deploy & Monitor"],
+          "tech": "Next.js, Tailwind, Vercel, Analytics",
+          "results": "Load <2s, SEO 95+, Conversion +40%"
         },
         "apps": {
-          "title": "Custom Apps",
-          "description": "Mobile and web applications that solve real business problems."
+          "title": "Mobile Applications",
+          "description": "Full cycle iOS, Android and PWA development",
+          "process": ["MVP Validation", "UI/UX Design", "Native Development", "API Integration", "Store Publishing"],
+          "tech": "React Native, Firebase, Node.js",
+          "results": "Apps 4.8★, 50k+ downloads"
         },
         "automation": {
-          "title": "Customer Service Automation",
-          "description": "Intelligent WhatsApp chatbots with AI for 24/7 customer service."
+          "title": "Intelligent Automation",
+          "description": "Automation architecture with AI and integrations",
+          "process": ["Process Mapping", "Integration Setup", "AI Implementation", "Workflow Testing", "Monitoring & Scale"],
+          "tech": "n8n, OpenAI, WhatsApp API, Webhooks",
+          "results": "24/7 operation, 80% time saved"
         },
         "saas": {
-          "title": "Custom SaaS",
-          "description": "Complete and scalable platforms for your business model."
+          "title": "SaaS Systems",
+          "description": "From MVP to scale: robust cloud platforms",
+          "process": ["Market Validation", "Architecture Design", "MVP Development", "Cloud Infrastructure", "Scale & Optimize"],
+          "tech": "AWS, PostgreSQL, Docker, K8s",
+          "results": "99.9% uptime, 10k+ users"
         },
         "seo": {
           "title": "SEO & Performance",
-          "description": "Technical optimization to rank on Google and convert more."
+          "description": "Technical optimization and content strategy",
+          "process": ["Technical Audit", "Keyword Strategy", "On-page Optimization", "Link Building", "Analytics & Reports"],
+          "tech": "Google Analytics, SEMrush, Schema",
+          "results": "Top 3 rankings, +200% traffic"
         }
       }
     },

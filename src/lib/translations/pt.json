@@ -747,34 +747,79 @@
       },
       "cta": "Iniciar Projeto"
     },
-    "products": {
-      "badge": "Produtos",
-      "title": "Nossas Soluções",
-      "subtitle": "O Que Fazemos",
-      "description": "Soluções completas de tecnologia para impulsionar seu negócio",
-      "items": {
-        "websites": {
-          "title": "Sites & Landing Pages",
-          "description": "Sites profissionais, rápidos e otimizados para conversão"
-        },
-        "apps": {
-          "title": "Aplicativos Mobile",
-          "description": "Apps nativos e híbridos para iOS e Android"
-        },
-        "automation": {
-          "title": "Automações Inteligentes",
-          "description": "Automatize processos e economize tempo com IA"
-        },
-        "saas": {
-          "title": "Sistemas SaaS",
-          "description": "Plataformas escaláveis e seguras na nuvem"
-        },
-        "seo": {
-          "title": "SEO & Marketing Digital",
-          "description": "Apareça no Google e atraia mais clientes"
-        }
+  "products": {
+    "badge": "Como Fazemos",
+    "title": "Nossa Metodologia",
+    "subtitle": "Como Transformamos Ideias em Resultados",
+    "description": "Processos técnicos e tecnologias que garantem a entrega de soluções de alto impacto",
+    "items": {
+      "websites": {
+        "title": "Sites & Landing Pages",
+        "description": "Do briefing ao deploy: processo completo de desenvolvimento web",
+        "process": [
+          "Discovery & UX Research",
+          "Design Prototyping",
+          "Development Next.js",
+          "SEO Optimization",
+          "Deploy & Monitor"
+        ],
+        "tech": "Next.js, Tailwind, Vercel, Analytics",
+        "results": "Carregamento <2s, SEO 95+, Convesão +40%"
+      },
+      "apps": {
+        "title": "Aplicativos Mobile",
+        "description": "Ciclo completo de desenvolvimento iOS, Android e PWA",
+        "process": [
+          "MVP Validation",
+          "UI/UX Design",
+          "Native Development",
+          "API Integration",
+          "Store Publishing"
+        ],
+        "tech": "React Native, Firebase, Node.js",
+        "results": "Apps 4.8★, 50k+ downloads"
+      },
+      "automation": {
+        "title": "Automações Inteligentes",
+        "description": "Arquitetura de automação com IA e integrações",
+        "process": [
+          "Process Mapping",
+          "Integration Setup",
+          "AI Implementation",
+          "Workflow Testing",
+          "Monitoring & Scale"
+        ],
+        "tech": "n8n, OpenAI, WhatsApp API, Webhooks",
+        "results": "24/7 operation, 80% time saved"
+      },
+      "saas": {
+        "title": "Sistemas SaaS",
+        "description": "Do MVP à escala: plataformas cloud robustas",
+        "process": [
+          "Market Validation",
+          "Architecture Design",
+          "MVP Development",
+          "Cloud Infrastructure",
+          "Scale & Optimize"
+        ],
+        "tech": "AWS, PostgreSQL, Docker, K8s",
+        "results": "99.9% uptime, 10k+ users"
+      },
+      "seo": {
+        "title": "SEO & Performance",
+        "description": "Otimização técnica e estratégia de conteúdo",
+        "process": [
+          "Technical Audit",
+          "Keyword Strategy",
+          "On-page Optimization",
+          "Link Building",
+          "Analytics & Reports"
+        ],
+        "tech": "Google Analytics, SEMrush, Schema",
+        "results": "Top 3 rankings, +200% traffic"
       }
-    },
+    }
+  },
     "cta": {
       "title": "Pronto para transformar seu negócio?",
       "description": "Vamos conversar sobre como podemos ajudar você a crescer",

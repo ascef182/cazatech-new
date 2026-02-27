@@ -748,23 +748,38 @@
       "items": {
         "websites": {
           "title": "Sitios Web de Alta Conversión",
-          "description": "Sitios institucionales y landing pages que convierten visitantes en clientes."
+          "description": "Del briefing al deploy: proceso completo de desarrollo web",
+          "process": ["Descubrimiento & UX", "Prototipado de Diseño", "Desarrollo Next.js", "Optimización SEO", "Deploy & Monitor"],
+          "tech": "Next.js, Tailwind, Vercel, Analytics",
+          "results": "Carga <2s, SEO 95+, Conversión +40%"
         },
         "apps": {
           "title": "Apps Personalizadas",
-          "description": "Aplicaciones móviles y web que resuelven problemas reales de tu negocio."
+          "description": "Ciclo completo de desarrollo iOS, Android y PWA",
+          "process": ["Validación MVP", "Diseño UI/UX", "Desarrollo Nativo", "Integración API", "Publicación en Tienda"],
+          "tech": "React Native, Firebase, Node.js",
+          "results": "Apps 4.8★, 50k+ descargas"
         },
         "automation": {
           "title": "Automatización de Atención",
-          "description": "Chatbots inteligentes en WhatsApp con IA para atención 24/7."
+          "description": "Arquitectura de automatización con IA e integraciones",
+          "process": ["Mapeo de Procesos", "Configuración de Integración", "Implementación IA", "Pruebas de Flujo", "Monitoreo & Escala"],
+          "tech": "n8n, OpenAI, WhatsApp API, Webhooks",
+          "results": "Operación 24/7, 80% tiempo ahorrado"
         },
         "saas": {
           "title": "SaaS a Medida",
-          "description": "Plataformas completas y escalables para tu modelo de negocio."
+          "description": "Del MVP a la escala: plataformas cloud robustas",
+          "process": ["Validación de Mercado", "Diseño de Arquitectura", "Desarrollo MVP", "Infraestructura Cloud", "Escala & Optimiza"],
+          "tech": "AWS, PostgreSQL, Docker, K8s",
+          "results": "99.9% uptime, 10k+ usuarios"
         },
         "seo": {
           "title": "SEO y Rendimiento",
-          "description": "Optimización técnica para posicionar en Google y convertir más."
+          "description": "Optimización técnica y estrategia de contenido",
+          "process": ["Auditoría Técnica", "Estrategia de Palabras", "Optimización On-page", "Link Building", "Analítica & Reportes"],
+          "tech": "Google Analytics, SEMrush, Schema",
+          "results": "Top 3 rankings, +200% tráfico"
         }
       }
     },
